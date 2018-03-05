@@ -12,11 +12,7 @@ import javax.inject.Inject
 import io.deniffel.dsl.useCase.useCase.UseCase
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 
-/**
- * Generates code from your model files on save.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
- */
+
 class UseCaseGenerator extends AbstractGenerator {
 	
 	@Inject extension IQualifiedNameProvider
@@ -32,7 +28,7 @@ class UseCaseGenerator extends AbstractGenerator {
 
 	
 	def compile(UseCase usecase) '''	
-	public class «usecase.name» {
+	public class «classNamingStrategy.convert(usecase.name)» {
 	}
 	'''
 }

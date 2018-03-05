@@ -77,16 +77,16 @@ class ClassNamingTest {
 	
 	@Test
 	void canContainDash() {
-		assertConvert("A-b", "A-b");
-		assertConvert("Ab-", "Ab-");
-		assertConvert("A-b--", "A-b--");
+		s.convert("A-b");
+		s.convert("Ab-");
+		s.convert("A-b--");
 	}
 	
 	@Test
 	void canContainUnderscore() {
-		assertConvert("A_b", "A_b");
-		assertConvert("Ab_", "Ab_");
-		assertConvert("A_b__", "A_b__");
+		s.convert("A_b");
+		s.convert("Ab_");
+		s.convert("A_b__");
 	}
 	
 	@Test
@@ -113,8 +113,8 @@ class ClassNamingTest {
 	
 	@Test
 	void chamelCaseDoewNotAffectAllowedSpecialChars() {
-		assertConvert("Ab-d", "ab -d");
-		assertConvert("Ab_d", "ab _d");
+		assertConvert("AbD", "ab -d");
+		assertConvert("AbD", "ab _d");
 	}
 	
 	@Test
@@ -137,6 +137,62 @@ class ClassNamingTest {
 	@Test
 	void twoFollowingDifferentSeperators_onlyOneIsApplied() {
 		assertConvert("AbCd", "ab\t cd");
+	}
+	
+	@Test
+	void seperatesOnDash() {
+		assertConvert("AbCd", "ab-cd");
+	}
+	
+	@Test
+	void multipleFollowingDashesGiven_onlyOneIsUsed() {
+		assertConvert("AbCd", "ab--cd");
+		assertConvert("AbCd", "ab---cd");
+		assertConvert("AbCd", "ab----cd");
+	}
+	
+	@Test
+	void seperatesOnUnderscore() {
+		assertConvert("AbCd", "ab_cd");
+	}
+	
+	@Test
+	void multipleFollowingUnderscoresGiven_onlyOneIsUsed() {
+		assertConvert("AbCd", "ab__cd");
+		assertConvert("AbCd", "ab___cd");
+		assertConvert("AbCd", "ab____cd");
+	}
+	
+	@Test
+	void multipleSepteratorsInInput_camelCaseOnEach() {
+		assertConvert("AbCdEf", "ab cd ef");
+		assertConvert("AbCdEfGh", "ab-cd-ef-gh");
+		assertConvert("AbCdEfGhIj", "ab_cd_ef_gh_ij");
+		assertConvert("AbCdEf", "ab\tcd\tef");
+	}
+	
+	@Test
+	void differentSeperatorsWorkTogether() {
+		assertConvert("AbCdEf", "ab cd_ef");
+		assertConvert("AbCdEf", "ab cd-ef");
+		assertConvert("AbCdEf", "ab cd\tef");
+		assertConvert("AbCdEf", "ab_cd ef");
+		assertConvert("AbCdEf", "ab_cd-ef");
+		assertConvert("AbCdEf", "ab_cd\tef");
+		assertConvert("AbCdEf", "ab-cd_ef");
+		assertConvert("AbCdEf", "ab-cd ef");
+		assertConvert("AbCdEf", "ab-cd\tef");
+		assertConvert("AbCdEf", "ab\tcd_ef");
+		assertConvert("AbCdEf", "ab\tcd-ef");
+		assertConvert("AbCdEf", "ab\tcd ef");
+	}
+	
+	@Test
+	void integration() {
+		assertConvert("AbCdEf", "  ab cd_ef----");
+		assertConvert("AbCdEf", "  Ab cd_ef----");
+		assertConvert("AbCdEf", "ab \t\t -__---- cd_   ef----");
+		assertConvert("ThisIsAnTestLikeYouSeeIt", "This is an Test like you See-It");
 	}
 	
 	void assertConvert(String expected, String given) {

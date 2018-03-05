@@ -8,9 +8,10 @@ public class ClassNamingStrategy {
 	String convert(String input) {			
 		checkPreCoditions(input);
 		
-		input = input.trim();
+		input = trim(input);
 		input = input.substring(0, 1).toUpperCase() + input.substring(1);
-		input = camelCaseString(input);
+		while(splitPosition(input) > -1)
+			input = camelCaseString(input);
 		
 		return input; 
 	}
@@ -32,18 +33,43 @@ public class ClassNamingStrategy {
 		}
 	}
 	
+	private String trim(String input) {
+		
+		while(isSpecial(input.charAt(input.length()-1)) && input.length() > 0) {
+			input = input.substring(0, input.length()-1);
+		}
+		
+		String res = "";
+		boolean lastWasSpecial = false;
+		for(int i=0; i<input.length(); i++) {
+			char c = input.charAt(i);
+			
+			if(!(isSpecial(c) && lastWasSpecial)) 
+				res += c; 
+		
+			lastWasSpecial = isSpecial(c);
+		}
+		
+		return res;
+	}
+	
+	private boolean isSpecial(char c) {
+		return splitChars.contains(c);
+	}
+	
 	private String camelCaseString(String input) {
 		input = input.replaceAll("\\s+", " ");
 		
 		int pos = splitPosition(input);
 		if(pos < 0)
 			return input;
+		
 		return input.substring(0, pos) + 
 				input.substring(pos+1, pos+2).toUpperCase() + 
 				input.substring(pos+2);
 	}
 	
-	List<Character> splitChars = " \t".chars().mapToObj(e->(char)e).collect(Collectors.toList());
+	List<Character> splitChars = " \t-_".chars().mapToObj(e->(char)e).collect(Collectors.toList());
 	
 	private int splitPosition(String s) {
 		for(int i=0; i<s.length(); i++) 

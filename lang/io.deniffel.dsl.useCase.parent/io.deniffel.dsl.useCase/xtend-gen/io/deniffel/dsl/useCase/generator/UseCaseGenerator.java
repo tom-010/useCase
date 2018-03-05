@@ -17,11 +17,6 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
-/**
- * Generates code from your model files on save.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
- */
 @SuppressWarnings("all")
 public class UseCaseGenerator extends AbstractGenerator {
   @Inject
@@ -46,8 +41,8 @@ public class UseCaseGenerator extends AbstractGenerator {
   public CharSequence compile(final UseCase usecase) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("public class ");
-    String _name = usecase.getName();
-    _builder.append(_name);
+    String _convert = this.classNamingStrategy.convert(usecase.getName());
+    _builder.append(_convert);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
