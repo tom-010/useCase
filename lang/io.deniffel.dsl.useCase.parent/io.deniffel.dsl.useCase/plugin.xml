@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package 
+			uri = "http://www.deniffel.io/dsl/useCase/UseCase"
+			class = "io.deniffel.dsl.useCase.useCase.UseCasePackage"
+			genModel = "model/generated/UseCase.genmodel" />
+	</extension>
+</plugin>

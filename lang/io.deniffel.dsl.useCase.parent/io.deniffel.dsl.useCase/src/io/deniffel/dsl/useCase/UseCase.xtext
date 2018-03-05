@@ -2,8 +2,14 @@ grammar io.deniffel.dsl.useCase.UseCase with org.eclipse.xtext.common.Terminals
 
 generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
 
-Model:
-	greetings+=Greeting*;
+UseCase:
+	'use-case' name=ID
+	(sections+=Section)*
+	'end' 'of' 'use-case';
 	
-Greeting:
-	'Hello' name=ID '!';
+Section:
+	Description;
+	
+Description:
+	'description:' name=ID
+;
