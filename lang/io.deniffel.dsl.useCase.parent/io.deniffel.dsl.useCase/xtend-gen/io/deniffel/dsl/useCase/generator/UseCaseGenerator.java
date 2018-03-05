@@ -3,10 +3,8 @@
  */
 package io.deniffel.dsl.useCase.generator;
 
-import com.google.common.collect.Iterables;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import javax.inject.Inject;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -14,7 +12,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -27,14 +24,13 @@ public class UseCaseGenerator extends AbstractGenerator {
   @Extension
   private IQualifiedNameProvider _iQualifiedNameProvider;
   
+  private /* ClassNamingStrategy */Object classNamingStrategy /* Skipped initializer because of errors */;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    Iterable<UseCase> _filter = Iterables.<UseCase>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), UseCase.class);
-    for (final UseCase e : _filter) {
-      String _name = e.getName();
-      String _plus = (_name + ".java");
-      fsa.generateFile(_plus, this.compile(e));
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field UseCaseGenerator.classNamingStrategy refers to the missing type ClassNamingStrategy"
+      + "\nconvert cannot be resolved");
   }
   
   public CharSequence compile(final UseCase usecase) {

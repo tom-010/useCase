@@ -10,6 +10,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import javax.inject.Inject
 import io.deniffel.dsl.useCase.useCase.UseCase
+import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 
 /**
  * Generates code from your model files on save.
@@ -20,11 +21,15 @@ class UseCaseGenerator extends AbstractGenerator {
 	
 	@Inject extension IQualifiedNameProvider
 	
+	ClassNamingStrategy classNamingStrategy = new ClassNamingStrategy();
+		
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for(e : resource.allContents.toIterable.filter(UseCase)) {
+			e.name = classNamingStrategy.convert(e.name); 
 			fsa.generateFile(e.name + ".java", e.compile);
 		}
 	}
+
 	
 	def compile(UseCase usecase) '''	
 	public class «usecase.name» {

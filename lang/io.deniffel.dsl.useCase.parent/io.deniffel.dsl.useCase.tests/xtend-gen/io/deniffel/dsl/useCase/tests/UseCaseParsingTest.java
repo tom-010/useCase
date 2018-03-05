@@ -31,7 +31,7 @@ public class UseCaseParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("use-case createUser");
       _builder.newLine();
-      _builder.append("use-case-end");
+      _builder.append("end of use-case");
       _builder.newLine();
       final UseCase result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
@@ -41,6 +41,20 @@ public class UseCaseParsingTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
       Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void useCaseKeyWordWithUnderscore_generatesCamelCaseJavaClassName() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("use-case Create_User");
+      _builder.newLine();
+      _builder.append("use-case-end");
+      _builder.newLine();
+      final UseCase model = this.parseHelper.parse(_builder);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

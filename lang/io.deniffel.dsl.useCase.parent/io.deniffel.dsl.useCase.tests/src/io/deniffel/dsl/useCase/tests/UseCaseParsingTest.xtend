@@ -32,21 +32,18 @@ class UseCaseParsingTest {
 	def void useCaseKeywordGenerationWorks() {
 		val result = parseHelper.parse('''
 			use-case createUser
-			use-case-end
+			end of use-case
 		''')
 		assertNotNull(result);
 		val errors = result.eResource.errors
 		assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 	}
 	
-//	@Test
-//	def void useCaseKeyWordWithUnderscore_generatesCamelCaseJavaClassName() {
-//		val model = parseHelper.parse('''
-//			use-case Create_User
-//			use-case-end
-//		''')
-//		assertEquals("CreateUser", model.name) 
-//	}
-	
-	
+	@Test
+	def void useCaseKeyWordWithUnderscore_generatesCamelCaseJavaClassName() {
+		val model = parseHelper.parse('''
+			use-case Create_User
+			use-case-end
+		''') 
+	}
 }
