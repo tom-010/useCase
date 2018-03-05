@@ -132,13 +132,22 @@ public interface UseCasePackage extends EPackage
   int USE_CASE__SECTIONS = 2;
 
   /**
+   * The feature id for the '<em><b>Allowed User Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__ALLOWED_USER_GROUPS = 3;
+
+  /**
    * The number of structural features of the '<em>Use Case</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE_FEATURE_COUNT = 3;
+  int USE_CASE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.DescriptionImpl <em>Description</em>}' class.
@@ -288,6 +297,80 @@ public interface UseCasePackage extends EPackage
    */
   int ATTRIBUTE_FEATURE_COUNT = 3;
 
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupsImpl <em>Allowed User Groups</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupsImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroups()
+   * @generated
+   */
+  int ALLOWED_USER_GROUPS = 6;
+
+  /**
+   * The feature id for the '<em><b>Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALLOWED_USER_GROUPS__GROUPS = 0;
+
+  /**
+   * The number of structural features of the '<em>Allowed User Groups</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALLOWED_USER_GROUPS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupImpl <em>Allowed User Group</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroup()
+   * @generated
+   */
+  int ALLOWED_USER_GROUP = 7;
+
+  /**
+   * The feature id for the '<em><b>Many</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALLOWED_USER_GROUP__MANY = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALLOWED_USER_GROUP__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALLOWED_USER_GROUP__TYPE = 2;
+
+  /**
+   * The number of structural features of the '<em>Allowed User Group</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALLOWED_USER_GROUP_FEATURE_COUNT = 3;
+
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Model <em>Model</em>}'.
@@ -363,6 +446,17 @@ public interface UseCasePackage extends EPackage
    * @generated
    */
   EReference getUseCase_Sections();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Allowed User Groups</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_AllowedUserGroups();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Description <em>Description</em>}'.
@@ -493,6 +587,70 @@ public interface UseCasePackage extends EPackage
   EReference getAttribute_Type();
 
   /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroups <em>Allowed User Groups</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Allowed User Groups</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.AllowedUserGroups
+   * @generated
+   */
+  EClass getAllowedUserGroups();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroups#getGroups <em>Groups</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Groups</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.AllowedUserGroups#getGroups()
+   * @see #getAllowedUserGroups()
+   * @generated
+   */
+  EReference getAllowedUserGroups_Groups();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroup <em>Allowed User Group</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Allowed User Group</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.AllowedUserGroup
+   * @generated
+   */
+  EClass getAllowedUserGroup();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroup#isMany <em>Many</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Many</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.AllowedUserGroup#isMany()
+   * @see #getAllowedUserGroup()
+   * @generated
+   */
+  EAttribute getAllowedUserGroup_Many();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroup#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.AllowedUserGroup#getName()
+   * @see #getAllowedUserGroup()
+   * @generated
+   */
+  EAttribute getAllowedUserGroup_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroup#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.AllowedUserGroup#getType()
+   * @see #getAllowedUserGroup()
+   * @generated
+   */
+  EReference getAllowedUserGroup_Type();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -574,6 +732,14 @@ public interface UseCasePackage extends EPackage
      * @generated
      */
     EReference USE_CASE__SECTIONS = eINSTANCE.getUseCase_Sections();
+
+    /**
+     * The meta object literal for the '<em><b>Allowed User Groups</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__ALLOWED_USER_GROUPS = eINSTANCE.getUseCase_AllowedUserGroups();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.DescriptionImpl <em>Description</em>}' class.
@@ -678,6 +844,58 @@ public interface UseCasePackage extends EPackage
      * @generated
      */
     EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupsImpl <em>Allowed User Groups</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupsImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroups()
+     * @generated
+     */
+    EClass ALLOWED_USER_GROUPS = eINSTANCE.getAllowedUserGroups();
+
+    /**
+     * The meta object literal for the '<em><b>Groups</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ALLOWED_USER_GROUPS__GROUPS = eINSTANCE.getAllowedUserGroups_Groups();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupImpl <em>Allowed User Group</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroup()
+     * @generated
+     */
+    EClass ALLOWED_USER_GROUP = eINSTANCE.getAllowedUserGroup();
+
+    /**
+     * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ALLOWED_USER_GROUP__MANY = eINSTANCE.getAllowedUserGroup_Many();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ALLOWED_USER_GROUP__NAME = eINSTANCE.getAllowedUserGroup_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ALLOWED_USER_GROUP__TYPE = eINSTANCE.getAllowedUserGroup_Type();
 
   }
 

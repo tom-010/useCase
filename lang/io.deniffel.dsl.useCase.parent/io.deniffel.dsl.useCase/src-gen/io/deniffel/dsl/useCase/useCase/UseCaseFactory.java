@@ -78,6 +78,24 @@ public interface UseCaseFactory extends EFactory
   Attribute createAttribute();
 
   /**
+   * Returns a new object of class '<em>Allowed User Groups</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Allowed User Groups</em>'.
+   * @generated
+   */
+  AllowedUserGroups createAllowedUserGroups();
+
+  /**
+   * Returns a new object of class '<em>Allowed User Group</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Allowed User Group</em>'.
+   * @generated
+   */
+  AllowedUserGroup createAllowedUserGroup();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

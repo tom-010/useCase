@@ -5,6 +5,8 @@ package io.deniffel.dsl.useCase.serializer;
 
 import com.google.inject.Inject;
 import io.deniffel.dsl.useCase.services.UseCaseGrammarAccess;
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Attribute;
 import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
@@ -37,6 +39,12 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == UseCasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case UseCasePackage.ALLOWED_USER_GROUP:
+				sequence_AllowedUserGroup(context, (AllowedUserGroup) semanticObject); 
+				return; 
+			case UseCasePackage.ALLOWED_USER_GROUPS:
+				sequence_AllowedUserGroups(context, (AllowedUserGroups) semanticObject); 
+				return; 
 			case UseCasePackage.ATTRIBUTE:
 				sequence_Attribute(context, (Attribute) semanticObject); 
 				return; 
@@ -59,6 +67,30 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     AllowedUserGroup returns AllowedUserGroup
+	 *
+	 * Constraint:
+	 *     (many?='many'? name=STRING type=[Type|ID]?)
+	 */
+	protected void sequence_AllowedUserGroup(ISerializationContext context, AllowedUserGroup semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AllowedUserGroups returns AllowedUserGroups
+	 *
+	 * Constraint:
+	 *     groups+=AllowedUserGroup+
+	 */
+	protected void sequence_AllowedUserGroups(ISerializationContext context, AllowedUserGroups semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -131,7 +163,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     UseCase returns UseCase
 	 *
 	 * Constraint:
-	 *     (name=STRING descriptions+=Description* sections+=Attributes*)
+	 *     (name=STRING descriptions+=Description? sections+=Attributes? allowedUserGroups+=AllowedUserGroups?)
 	 */
 	protected void sequence_UseCase(ISerializationContext context, UseCase semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

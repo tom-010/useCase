@@ -173,7 +173,7 @@ ruleUseCase returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)?
 		(
 			(
 				{
@@ -192,18 +192,37 @@ ruleUseCase returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
-		otherlv_4='end'
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUseCaseAccess().getAllowedUserGroupsAllowedUserGroupsParserRuleCall_4_0());
+				}
+				lv_allowedUserGroups_4_0=ruleAllowedUserGroups
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
+					}
+					add(
+						$current,
+						"allowedUserGroups",
+						lv_allowedUserGroups_4_0,
+						"io.deniffel.dsl.useCase.UseCase.AllowedUserGroups");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_5='end'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getUseCaseAccess().getEndKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getUseCaseAccess().getEndKeyword_5());
 		}
-		otherlv_5='of'
+		otherlv_6='of'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getUseCaseAccess().getOfKeyword_5());
+			newLeafNode(otherlv_6, grammarAccess.getUseCaseAccess().getOfKeyword_6());
 		}
-		otherlv_6='use-case'
+		otherlv_7='use-case'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getUseCaseAccess().getUseCaseKeyword_6());
+			newLeafNode(otherlv_7, grammarAccess.getUseCaseAccess().getUseCaseKeyword_7());
 		}
 	)
 ;
@@ -454,6 +473,122 @@ ruleAttribute returns [EObject current=null]
 					otherlv_4=RULE_ID
 					{
 						newLeafNode(otherlv_4, grammarAccess.getAttributeAccess().getTypeTypeCrossReference_3_1_0());
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleAllowedUserGroups
+entryRuleAllowedUserGroups returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAllowedUserGroupsRule()); }
+	iv_ruleAllowedUserGroups=ruleAllowedUserGroups
+	{ $current=$iv_ruleAllowedUserGroups.current; }
+	EOF;
+
+// Rule AllowedUserGroups
+ruleAllowedUserGroups returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='allowed-usergroups:'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAllowedUserGroupsAccess().getAllowedUsergroupsKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAllowedUserGroupsAccess().getGroupsAllowedUserGroupParserRuleCall_1_0());
+				}
+				lv_groups_1_0=ruleAllowedUserGroup
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAllowedUserGroupsRule());
+					}
+					add(
+						$current,
+						"groups",
+						lv_groups_1_0,
+						"io.deniffel.dsl.useCase.UseCase.AllowedUserGroup");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleAllowedUserGroup
+entryRuleAllowedUserGroup returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAllowedUserGroupRule()); }
+	iv_ruleAllowedUserGroup=ruleAllowedUserGroup
+	{ $current=$iv_ruleAllowedUserGroup.current; }
+	EOF;
+
+// Rule AllowedUserGroup
+ruleAllowedUserGroup returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_many_0_0='many'
+				{
+					newLeafNode(lv_many_0_0, grammarAccess.getAllowedUserGroupAccess().getManyManyKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAllowedUserGroupRule());
+					}
+					setWithLastConsumed($current, "many", true, "many");
+				}
+			)
+		)?
+		otherlv_1='-'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getAllowedUserGroupAccess().getHyphenMinusKeyword_1());
+		}
+		(
+			(
+				lv_name_2_0=RULE_STRING
+				{
+					newLeafNode(lv_name_2_0, grammarAccess.getAllowedUserGroupAccess().getNameSTRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAllowedUserGroupRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		(
+			otherlv_3='as'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getAllowedUserGroupAccess().getAsKeyword_3_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAllowedUserGroupRule());
+						}
+					}
+					otherlv_4=RULE_ID
+					{
+						newLeafNode(otherlv_4, grammarAccess.getAllowedUserGroupAccess().getTypeTypeCrossReference_3_1_0());
 					}
 				)
 			)

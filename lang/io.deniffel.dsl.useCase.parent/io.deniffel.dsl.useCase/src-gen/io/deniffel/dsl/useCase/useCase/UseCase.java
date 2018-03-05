@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getName <em>Name</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getSections <em>Sections</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase()
@@ -84,5 +85,21 @@ public interface UseCase extends EObject
    * @generated
    */
   EList<Attributes> getSections();
+
+  /**
+   * Returns the value of the '<em><b>Allowed User Groups</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.AllowedUserGroups}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Allowed User Groups</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Allowed User Groups</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase_AllowedUserGroups()
+   * @model containment="true"
+   * @generated
+   */
+  EList<AllowedUserGroups> getAllowedUserGroups();
 
 } // UseCase

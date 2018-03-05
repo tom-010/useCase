@@ -39,6 +39,9 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAccess().getGroup_5(), "rule__Type__Group_5__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 					put(grammarAccess.getAttributeAccess().getGroup_3(), "rule__Attribute__Group_3__0");
+					put(grammarAccess.getAllowedUserGroupsAccess().getGroup(), "rule__AllowedUserGroups__Group__0");
+					put(grammarAccess.getAllowedUserGroupAccess().getGroup(), "rule__AllowedUserGroup__Group__0");
+					put(grammarAccess.getAllowedUserGroupAccess().getGroup_3(), "rule__AllowedUserGroup__Group_3__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getModelAccess().getTypesAssignment_0(), "rule__Model__TypesAssignment_0");
@@ -46,6 +49,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUseCaseAccess().getNameAssignment_1(), "rule__UseCase__NameAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getDescriptionsAssignment_2(), "rule__UseCase__DescriptionsAssignment_2");
 					put(grammarAccess.getUseCaseAccess().getSectionsAssignment_3(), "rule__UseCase__SectionsAssignment_3");
+					put(grammarAccess.getUseCaseAccess().getAllowedUserGroupsAssignment_4(), "rule__UseCase__AllowedUserGroupsAssignment_4");
 					put(grammarAccess.getDescriptionAccess().getNameAssignment_1(), "rule__Description__NameAssignment_1");
 					put(grammarAccess.getAttributesAccess().getAttrsAssignment_1(), "rule__Attributes__AttrsAssignment_1");
 					put(grammarAccess.getTypeAccess().getNameAssignment_1(), "rule__Type__NameAssignment_1");
@@ -54,6 +58,10 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeAccess().getManyAssignment_0(), "rule__Attribute__ManyAssignment_0");
 					put(grammarAccess.getAttributeAccess().getContentAssignment_2(), "rule__Attribute__ContentAssignment_2");
 					put(grammarAccess.getAttributeAccess().getTypeAssignment_3_1(), "rule__Attribute__TypeAssignment_3_1");
+					put(grammarAccess.getAllowedUserGroupsAccess().getGroupsAssignment_1(), "rule__AllowedUserGroups__GroupsAssignment_1");
+					put(grammarAccess.getAllowedUserGroupAccess().getManyAssignment_0(), "rule__AllowedUserGroup__ManyAssignment_0");
+					put(grammarAccess.getAllowedUserGroupAccess().getNameAssignment_2(), "rule__AllowedUserGroup__NameAssignment_2");
+					put(grammarAccess.getAllowedUserGroupAccess().getTypeAssignment_3_1(), "rule__AllowedUserGroup__TypeAssignment_3_1");
 				}
 			};
 		}

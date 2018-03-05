@@ -106,6 +106,16 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
         return createAttributeAdapter();
       }
       @Override
+      public Adapter caseAllowedUserGroups(AllowedUserGroups object)
+      {
+        return createAllowedUserGroupsAdapter();
+      }
+      @Override
+      public Adapter caseAllowedUserGroup(AllowedUserGroup object)
+      {
+        return createAllowedUserGroupAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -213,6 +223,36 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAttributeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroups <em>Allowed User Groups</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.AllowedUserGroups
+   * @generated
+   */
+  public Adapter createAllowedUserGroupsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroup <em>Allowed User Group</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.AllowedUserGroup
+   * @generated
+   */
+  public Adapter createAllowedUserGroupAdapter()
   {
     return null;
   }

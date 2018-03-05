@@ -115,6 +115,20 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UseCasePackage.ALLOWED_USER_GROUPS:
+      {
+        AllowedUserGroups allowedUserGroups = (AllowedUserGroups)theEObject;
+        T result = caseAllowedUserGroups(allowedUserGroups);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.ALLOWED_USER_GROUP:
+      {
+        AllowedUserGroup allowedUserGroup = (AllowedUserGroup)theEObject;
+        T result = caseAllowedUserGroup(allowedUserGroup);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -211,6 +225,38 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAttribute(Attribute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Allowed User Groups</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Allowed User Groups</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAllowedUserGroups(AllowedUserGroups object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Allowed User Group</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Allowed User Group</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAllowedUserGroup(AllowedUserGroup object)
   {
     return null;
   }

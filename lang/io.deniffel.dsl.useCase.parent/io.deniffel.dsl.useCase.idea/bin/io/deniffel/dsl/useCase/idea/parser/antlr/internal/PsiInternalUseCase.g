@@ -141,7 +141,7 @@ ruleUseCase returns [Boolean current=false]
 					}
 				}
 			)
-		)*
+		)?
 		(
 			(
 				{
@@ -156,27 +156,42 @@ ruleUseCase returns [Boolean current=false]
 					}
 				}
 			)
-		)*
+		)?
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_4_0ElementType());
+				}
+				lv_allowedUserGroups_4_0=ruleAllowedUserGroups
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)?
 		{
-			markLeaf(elementTypeProvider.getUseCase_EndKeyword_4ElementType());
+			markLeaf(elementTypeProvider.getUseCase_EndKeyword_5ElementType());
 		}
-		otherlv_4='end'
-		{
-			doneLeaf(otherlv_4);
-		}
-		{
-			markLeaf(elementTypeProvider.getUseCase_OfKeyword_5ElementType());
-		}
-		otherlv_5='of'
+		otherlv_5='end'
 		{
 			doneLeaf(otherlv_5);
 		}
 		{
-			markLeaf(elementTypeProvider.getUseCase_UseCaseKeyword_6ElementType());
+			markLeaf(elementTypeProvider.getUseCase_OfKeyword_6ElementType());
 		}
-		otherlv_6='use-case'
+		otherlv_6='of'
 		{
 			doneLeaf(otherlv_6);
+		}
+		{
+			markLeaf(elementTypeProvider.getUseCase_UseCaseKeyword_7ElementType());
+		}
+		otherlv_7='use-case'
+		{
+			doneLeaf(otherlv_7);
 		}
 	)
 ;
@@ -425,6 +440,123 @@ ruleAttribute returns [Boolean current=false]
 					}
 					{
 						markLeaf(elementTypeProvider.getAttribute_TypeTypeCrossReference_3_1_0ElementType());
+					}
+					otherlv_4=RULE_ID
+					{
+						doneLeaf(otherlv_4);
+					}
+				)
+			)
+		)?
+	)
+;
+
+//Entry rule entryRuleAllowedUserGroups
+entryRuleAllowedUserGroups returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getAllowedUserGroupsElementType()); }
+	iv_ruleAllowedUserGroups=ruleAllowedUserGroups
+	{ $current=$iv_ruleAllowedUserGroups.current; }
+	EOF;
+
+// Rule AllowedUserGroups
+ruleAllowedUserGroups returns [Boolean current=false]
+:
+	(
+		{
+			markLeaf(elementTypeProvider.getAllowedUserGroups_AllowedUsergroupsKeyword_0ElementType());
+		}
+		otherlv_0='allowed-usergroups:'
+		{
+			doneLeaf(otherlv_0);
+		}
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getAllowedUserGroups_GroupsAllowedUserGroupParserRuleCall_1_0ElementType());
+				}
+				lv_groups_1_0=ruleAllowedUserGroup
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
+	)
+;
+
+//Entry rule entryRuleAllowedUserGroup
+entryRuleAllowedUserGroup returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getAllowedUserGroupElementType()); }
+	iv_ruleAllowedUserGroup=ruleAllowedUserGroup
+	{ $current=$iv_ruleAllowedUserGroup.current; }
+	EOF;
+
+// Rule AllowedUserGroup
+ruleAllowedUserGroup returns [Boolean current=false]
+:
+	(
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getAllowedUserGroup_ManyManyKeyword_0_0ElementType());
+				}
+				lv_many_0_0='many'
+				{
+					doneLeaf(lv_many_0_0);
+				}
+				{
+					if (!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)?
+		{
+			markLeaf(elementTypeProvider.getAllowedUserGroup_HyphenMinusKeyword_1ElementType());
+		}
+		otherlv_1='-'
+		{
+			doneLeaf(otherlv_1);
+		}
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getAllowedUserGroup_NameSTRINGTerminalRuleCall_2_0ElementType());
+				}
+				lv_name_2_0=RULE_STRING
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_name_2_0);
+				}
+			)
+		)
+		(
+			{
+				markLeaf(elementTypeProvider.getAllowedUserGroup_AsKeyword_3_0ElementType());
+			}
+			otherlv_3='as'
+			{
+				doneLeaf(otherlv_3);
+			}
+			(
+				(
+					{
+						if (!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+					{
+						markLeaf(elementTypeProvider.getAllowedUserGroup_TypeTypeCrossReference_3_1_0ElementType());
 					}
 					otherlv_4=RULE_ID
 					{

@@ -3,6 +3,7 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.UseCase;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getName <em>Name</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getSections <em>Sections</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,6 +82,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected EList<Attributes> sections;
+
+  /**
+   * The cached value of the '{@link #getAllowedUserGroups() <em>Allowed User Groups</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAllowedUserGroups()
+   * @generated
+   * @ordered
+   */
+  protected EList<AllowedUserGroups> allowedUserGroups;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,6 +170,20 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<AllowedUserGroups> getAllowedUserGroups()
+  {
+    if (allowedUserGroups == null)
+    {
+      allowedUserGroups = new EObjectContainmentEList<AllowedUserGroups>(AllowedUserGroups.class, this, UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS);
+    }
+    return allowedUserGroups;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -167,6 +193,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return ((InternalEList<?>)getDescriptions()).basicRemove(otherEnd, msgs);
       case UseCasePackage.USE_CASE__SECTIONS:
         return ((InternalEList<?>)getSections()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
+        return ((InternalEList<?>)getAllowedUserGroups()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -187,6 +215,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getDescriptions();
       case UseCasePackage.USE_CASE__SECTIONS:
         return getSections();
+      case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
+        return getAllowedUserGroups();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -213,6 +243,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         getSections().clear();
         getSections().addAll((Collection<? extends Attributes>)newValue);
         return;
+      case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
+        getAllowedUserGroups().clear();
+        getAllowedUserGroups().addAll((Collection<? extends AllowedUserGroups>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -236,6 +270,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCasePackage.USE_CASE__SECTIONS:
         getSections().clear();
         return;
+      case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
+        getAllowedUserGroups().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -256,6 +293,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return descriptions != null && !descriptions.isEmpty();
       case UseCasePackage.USE_CASE__SECTIONS:
         return sections != null && !sections.isEmpty();
+      case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
+        return allowedUserGroups != null && !allowedUserGroups.isEmpty();
     }
     return super.eIsSet(featureID);
   }

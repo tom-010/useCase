@@ -71,6 +71,8 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.ATTRIBUTES: return createAttributes();
       case UseCasePackage.TYPE: return createType();
       case UseCasePackage.ATTRIBUTE: return createAttribute();
+      case UseCasePackage.ALLOWED_USER_GROUPS: return createAllowedUserGroups();
+      case UseCasePackage.ALLOWED_USER_GROUP: return createAllowedUserGroup();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -140,6 +142,28 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     AttributeImpl attribute = new AttributeImpl();
     return attribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AllowedUserGroups createAllowedUserGroups()
+  {
+    AllowedUserGroupsImpl allowedUserGroups = new AllowedUserGroupsImpl();
+    return allowedUserGroups;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AllowedUserGroup createAllowedUserGroup()
+  {
+    AllowedUserGroupImpl allowedUserGroup = new AllowedUserGroupImpl();
+    return allowedUserGroup;
   }
 
   /**

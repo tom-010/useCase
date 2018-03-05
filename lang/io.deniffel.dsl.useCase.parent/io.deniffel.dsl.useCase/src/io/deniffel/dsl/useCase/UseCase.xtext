@@ -9,8 +9,9 @@ Model:
  
 UseCase:
 	'use-case' name=STRING
-	(descriptions+=Description)*
-	(sections+=Attributes)*
+	(descriptions+=Description)?
+	(sections+=Attributes)?
+	(allowedUserGroups+=AllowedUserGroups)?
 	'end' 'of' 'use-case';
 
 Description:
@@ -25,6 +26,13 @@ Type:
     
 Attribute:
 	(many?='many')? '-' content=STRING ('as' type=[Type])?;
+	
+AllowedUserGroups:
+	'allowed-usergroups:'
+	(groups+=AllowedUserGroup )*;
+  
+AllowedUserGroup:
+	(many?='many')? '-' name=STRING ('as' type=[Type])?;
   
 QualifiedName:
     ID ('.' ID)*;

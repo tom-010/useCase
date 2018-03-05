@@ -14,6 +14,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//UseCase/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/descriptions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/sections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/allowedUserGroups"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Description/name"/>
@@ -30,6 +31,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Attribute/many"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Attribute/content"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCase.ecore#//Attribute/type"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//AllowedUserGroups">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//AllowedUserGroups/groups"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//AllowedUserGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//AllowedUserGroup/many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//AllowedUserGroup/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCase.ecore#//AllowedUserGroup/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

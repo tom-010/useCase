@@ -2,6 +2,7 @@ package io.deniffel.dsl.useCase.generator;
 
 import com.google.common.collect.Iterables;
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.Attribute;
 import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
@@ -15,6 +16,8 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
@@ -48,10 +51,33 @@ public class UseCaseGenerator extends AbstractGenerator {
     }
     _builder.newLine();
     {
+      int _size = usecase.getAllowedUserGroups().size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        _builder.append("import io.deniffel.auth.ACL;");
+        _builder.newLine();
+      }
+    }
+    _builder.newLine();
+    {
       EList<Description> _descriptions = usecase.getDescriptions();
       for(final Description d : _descriptions) {
         CharSequence _compile_1 = this.compile(d);
         _builder.append(_compile_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      int _size_1 = usecase.getAllowedUserGroups().size();
+      boolean _greaterThan_1 = (_size_1 > 0);
+      if (_greaterThan_1) {
+        _builder.append("@ACL(allowedFor={");
+        final Function1<AllowedUserGroup, CharSequence> _function = (AllowedUserGroup it) -> {
+          return it.getName();
+        };
+        String _join = IterableExtensions.<AllowedUserGroup>join(usecase.getAllowedUserGroups().get(0).getGroups(), ", ", _function);
+        _builder.append(_join);
+        _builder.append("})");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -71,6 +97,18 @@ public class UseCaseGenerator extends AbstractGenerator {
     }
     _builder.append("}");
     _builder.newLine();
+    return _builder;
+  }
+  
+  public String getName(final AllowedUserGroup group) {
+    return group.getName();
+  }
+  
+  public CharSequence compile(final AllowedUserGroup group) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = group.getName();
+    _builder.append(_name);
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   

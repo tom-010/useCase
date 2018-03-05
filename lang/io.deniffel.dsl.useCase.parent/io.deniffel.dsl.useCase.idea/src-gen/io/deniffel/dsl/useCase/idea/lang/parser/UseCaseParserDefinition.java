@@ -50,6 +50,9 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getUseCase_SectionsAttributesParserRuleCall_3_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
+			if (elementType == elementTypeProvider.getUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_4_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
 			if (elementType == elementTypeProvider.getDescriptionElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
@@ -64,6 +67,15 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			}
 			if (elementType == elementTypeProvider.getAttributeElementType()) {
 				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAllowedUserGroupsElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAllowedUserGroups_GroupsAllowedUserGroupParserRuleCall_1_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAllowedUserGroupElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
 			}
 			throw new IllegalStateException("Unexpected element type: " + elementType);
 		}

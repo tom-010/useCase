@@ -3,6 +3,8 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Attribute;
 import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
@@ -68,6 +70,20 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * @generated
    */
   private EClass attributeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass allowedUserGroupsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass allowedUserGroupEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -207,6 +223,16 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getUseCase_AllowedUserGroups()
+  {
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDescription()
   {
     return descriptionEClass;
@@ -327,6 +353,66 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getAllowedUserGroups()
+  {
+    return allowedUserGroupsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAllowedUserGroups_Groups()
+  {
+    return (EReference)allowedUserGroupsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAllowedUserGroup()
+  {
+    return allowedUserGroupEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAllowedUserGroup_Many()
+  {
+    return (EAttribute)allowedUserGroupEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAllowedUserGroup_Name()
+  {
+    return (EAttribute)allowedUserGroupEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAllowedUserGroup_Type()
+  {
+    return (EReference)allowedUserGroupEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public UseCaseFactory getUseCaseFactory()
   {
     return (UseCaseFactory)getEFactoryInstance();
@@ -360,6 +446,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     createEAttribute(useCaseEClass, USE_CASE__NAME);
     createEReference(useCaseEClass, USE_CASE__DESCRIPTIONS);
     createEReference(useCaseEClass, USE_CASE__SECTIONS);
+    createEReference(useCaseEClass, USE_CASE__ALLOWED_USER_GROUPS);
 
     descriptionEClass = createEClass(DESCRIPTION);
     createEAttribute(descriptionEClass, DESCRIPTION__NAME);
@@ -376,6 +463,14 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     createEAttribute(attributeEClass, ATTRIBUTE__MANY);
     createEAttribute(attributeEClass, ATTRIBUTE__CONTENT);
     createEReference(attributeEClass, ATTRIBUTE__TYPE);
+
+    allowedUserGroupsEClass = createEClass(ALLOWED_USER_GROUPS);
+    createEReference(allowedUserGroupsEClass, ALLOWED_USER_GROUPS__GROUPS);
+
+    allowedUserGroupEClass = createEClass(ALLOWED_USER_GROUP);
+    createEAttribute(allowedUserGroupEClass, ALLOWED_USER_GROUP__MANY);
+    createEAttribute(allowedUserGroupEClass, ALLOWED_USER_GROUP__NAME);
+    createEReference(allowedUserGroupEClass, ALLOWED_USER_GROUP__TYPE);
   }
 
   /**
@@ -417,6 +512,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Descriptions(), this.getDescription(), null, "descriptions", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Sections(), this.getAttributes(), null, "sections", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCase_AllowedUserGroups(), this.getAllowedUserGroups(), null, "allowedUserGroups", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(descriptionEClass, Description.class, "Description", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDescription_Name(), ecorePackage.getEString(), "name", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -433,6 +529,14 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     initEAttribute(getAttribute_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAttribute_Content(), ecorePackage.getEString(), "content", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAttribute_Type(), this.getType(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(allowedUserGroupsEClass, AllowedUserGroups.class, "AllowedUserGroups", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAllowedUserGroups_Groups(), this.getAllowedUserGroup(), null, "groups", null, 0, -1, AllowedUserGroups.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(allowedUserGroupEClass, AllowedUserGroup.class, "AllowedUserGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAllowedUserGroup_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, AllowedUserGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAllowedUserGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, AllowedUserGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAllowedUserGroup_Type(), this.getType(), null, "type", null, 0, 1, AllowedUserGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
