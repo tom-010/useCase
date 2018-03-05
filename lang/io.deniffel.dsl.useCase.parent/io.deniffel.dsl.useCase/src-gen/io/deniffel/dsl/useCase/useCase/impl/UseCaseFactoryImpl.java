@@ -65,12 +65,38 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     switch (eClass.getClassifierID())
     {
+      case UseCasePackage.MODEL: return createModel();
+      case UseCasePackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case UseCasePackage.USE_CASE: return createUseCase();
       case UseCasePackage.DESCRIPTION: return createDescription();
       case UseCasePackage.ATTRIBUTES: return createAttributes();
+      case UseCasePackage.TYPE: return createType();
+      case UseCasePackage.ATTRIBUTE: return createAttribute();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Model createModel()
+  {
+    ModelImpl model = new ModelImpl();
+    return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractElement createAbstractElement()
+  {
+    AbstractElementImpl abstractElement = new AbstractElementImpl();
+    return abstractElement;
   }
 
   /**
@@ -104,6 +130,28 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     AttributesImpl attributes = new AttributesImpl();
     return attributes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Attribute createAttribute()
+  {
+    AttributeImpl attribute = new AttributeImpl();
+    return attribute;
   }
 
   /**

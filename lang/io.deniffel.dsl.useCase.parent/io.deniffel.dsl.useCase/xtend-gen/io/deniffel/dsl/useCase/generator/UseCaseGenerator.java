@@ -2,10 +2,10 @@ package io.deniffel.dsl.useCase.generator;
 
 import com.google.common.collect.Iterables;
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
+import io.deniffel.dsl.useCase.useCase.Attribute;
 import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.UseCase;
-import javax.inject.Inject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -13,16 +13,10 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 @SuppressWarnings("all")
 public class UseCaseGenerator extends AbstractGenerator {
-  @Inject
-  @Extension
-  private IQualifiedNameProvider _iQualifiedNameProvider;
-  
   private ClassNamingStrategy classNamingStrategy = new ClassNamingStrategy();
   
   @Override
@@ -33,7 +27,9 @@ public class UseCaseGenerator extends AbstractGenerator {
         e.setName(this.classNamingStrategy.convert(e.getName()));
         String _name = e.getName();
         String _plus = (_name + ".java");
-        fsa.generateFile(_plus, this.compile(e));
+        CharSequence _compile = this.compile(e);
+        String _plus_1 = ("import" + _compile);
+        fsa.generateFile(_plus, _plus_1);
       }
     }
   }
@@ -80,11 +76,27 @@ public class UseCaseGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final Attributes a) {
+  public CharSequence compile(final Attributes attrs) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("// ");
-    String _name = a.getName();
+    {
+      EList<Attribute> _attrs = attrs.getAttrs();
+      for(final Attribute a : _attrs) {
+        CharSequence _compile = this.compile(a);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Attribute attribute) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = attribute.getType().getName();
     _builder.append(_name);
+    _builder.append(" ");
+    String _content = attribute.getContent();
+    _builder.append(_content);
+    _builder.append(";");
     _builder.newLineIfNotEmpty();
     return _builder;
   }

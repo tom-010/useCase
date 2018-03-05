@@ -31,14 +31,28 @@ public class UseCaseParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getAbstractElementAccess().getAlternatives(), "rule__AbstractElement__Alternatives");
 					put(grammarAccess.getUseCaseAccess().getGroup(), "rule__UseCase__Group__0");
 					put(grammarAccess.getDescriptionAccess().getGroup(), "rule__Description__Group__0");
 					put(grammarAccess.getAttributesAccess().getGroup(), "rule__Attributes__Group__0");
+					put(grammarAccess.getTypeAccess().getGroup(), "rule__Type__Group__0");
+					put(grammarAccess.getTypeAccess().getGroup_5(), "rule__Type__Group_5__0");
+					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
+					put(grammarAccess.getAttributeAccess().getGroup_3(), "rule__Attribute__Group_3__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
+					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
+					put(grammarAccess.getModelAccess().getElementsAssignment(), "rule__Model__ElementsAssignment");
 					put(grammarAccess.getUseCaseAccess().getNameAssignment_1(), "rule__UseCase__NameAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getDescriptionsAssignment_2(), "rule__UseCase__DescriptionsAssignment_2");
 					put(grammarAccess.getUseCaseAccess().getSectionsAssignment_3(), "rule__UseCase__SectionsAssignment_3");
 					put(grammarAccess.getDescriptionAccess().getNameAssignment_1(), "rule__Description__NameAssignment_1");
-					put(grammarAccess.getAttributesAccess().getNameAssignment_1(), "rule__Attributes__NameAssignment_1");
+					put(grammarAccess.getAttributesAccess().getAttrsAssignment_1(), "rule__Attributes__AttrsAssignment_1");
+					put(grammarAccess.getTypeAccess().getNameAssignment_1(), "rule__Type__NameAssignment_1");
+					put(grammarAccess.getTypeAccess().getDescriptionAssignment_3(), "rule__Type__DescriptionAssignment_3");
+					put(grammarAccess.getTypeAccess().getImportInfoAssignment_5_1(), "rule__Type__ImportInfoAssignment_5_1");
+					put(grammarAccess.getAttributeAccess().getManyAssignment_0(), "rule__Attribute__ManyAssignment_0");
+					put(grammarAccess.getAttributeAccess().getContentAssignment_2(), "rule__Attribute__ContentAssignment_2");
+					put(grammarAccess.getAttributeAccess().getTypeAssignment_3_1(), "rule__Attribute__TypeAssignment_3_1");
 				}
 			};
 		}

@@ -3,6 +3,8 @@
  */
 package io.deniffel.dsl.useCase.useCase;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.Attributes#getName <em>Name</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Attributes#getAttrs <em>Attrs</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getAttributes()
@@ -24,29 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface Attributes extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Attrs</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Attribute}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Attrs</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getAttributes_Name()
-   * @model
+   * @return the value of the '<em>Attrs</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getAttributes_Attrs()
+   * @model containment="true"
    * @generated
    */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Attributes#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
+  EList<Attribute> getAttrs();
 
 } // Attributes

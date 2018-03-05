@@ -1,26 +1,25 @@
 package io.deniffel.dsl.useCase.generator
 
+import io.deniffel.dsl.useCase.useCase.Attributes
+import io.deniffel.dsl.useCase.useCase.Attribute
+import io.deniffel.dsl.useCase.useCase.Description
+import io.deniffel.dsl.useCase.useCase.UseCase
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.eclipse.xtext.naming.IQualifiedNameProvider
-import javax.inject.Inject
-import io.deniffel.dsl.useCase.useCase.UseCase
-import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
-import javax.management.Descriptor
-import io.deniffel.dsl.useCase.useCase.*
 
 class UseCaseGenerator extends AbstractGenerator {
-	
-	@Inject extension IQualifiedNameProvider
 	
 	ClassNamingStrategy classNamingStrategy = new ClassNamingStrategy();
 		
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		
+		
+		
 		for(e : resource.allContents.toIterable.filter(UseCase)) {
 			e.name = classNamingStrategy.convert(e.name); 
-			fsa.generateFile(e.name + ".java", e.compile);
+			fsa.generateFile(e.name + ".java", "import" + e.compile);
 		}
 	}
 	
@@ -41,7 +40,15 @@ class UseCaseGenerator extends AbstractGenerator {
 	*/
 	'''
 	
-	def compile(Attributes a) '''
-		// «a.name»
+	def compile(Attributes attrs) '''
+		«FOR a:attrs.attrs»
+			«a.compile»
+		«ENDFOR»
 	'''
+	
+	def compile(Attribute attribute) '''
+		«attribute.type.name» «attribute.content»;
+	'''
+	
+	
 }

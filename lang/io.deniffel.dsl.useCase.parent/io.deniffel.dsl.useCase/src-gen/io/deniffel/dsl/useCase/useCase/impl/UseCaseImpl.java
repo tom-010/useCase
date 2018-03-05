@@ -10,16 +10,12 @@ import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -32,35 +28,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getName <em>Name</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getSections <em>Sections</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
+public class UseCaseImpl extends AbstractElementImpl implements UseCase
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getDescriptions() <em>Descriptions</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -100,29 +75,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected EClass eStaticClass()
   {
     return UseCasePackage.Literals.USE_CASE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.USE_CASE__NAME, oldName, name));
   }
 
   /**
@@ -181,8 +133,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
-      case UseCasePackage.USE_CASE__NAME:
-        return getName();
       case UseCasePackage.USE_CASE__DESCRIPTIONS:
         return getDescriptions();
       case UseCasePackage.USE_CASE__SECTIONS:
@@ -202,9 +152,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
-      case UseCasePackage.USE_CASE__NAME:
-        setName((String)newValue);
-        return;
       case UseCasePackage.USE_CASE__DESCRIPTIONS:
         getDescriptions().clear();
         getDescriptions().addAll((Collection<? extends Description>)newValue);
@@ -227,9 +174,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
-      case UseCasePackage.USE_CASE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case UseCasePackage.USE_CASE__DESCRIPTIONS:
         getDescriptions().clear();
         return;
@@ -250,31 +194,12 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
-      case UseCasePackage.USE_CASE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCasePackage.USE_CASE__DESCRIPTIONS:
         return descriptions != null && !descriptions.isEmpty();
       case UseCasePackage.USE_CASE__SECTIONS:
         return sections != null && !sections.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //UseCaseImpl

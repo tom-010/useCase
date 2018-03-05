@@ -5,8 +5,11 @@ package io.deniffel.dsl.useCase.serializer;
 
 import com.google.inject.Inject;
 import io.deniffel.dsl.useCase.services.UseCaseGrammarAccess;
+import io.deniffel.dsl.useCase.useCase.Attribute;
 import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Model;
+import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 import java.util.Set;
@@ -34,11 +37,20 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == UseCasePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case UseCasePackage.ATTRIBUTE:
+				sequence_Attribute(context, (Attribute) semanticObject); 
+				return; 
 			case UseCasePackage.ATTRIBUTES:
 				sequence_Attributes(context, (Attributes) semanticObject); 
 				return; 
 			case UseCasePackage.DESCRIPTION:
 				sequence_Description(context, (Description) semanticObject); 
+				return; 
+			case UseCasePackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case UseCasePackage.TYPE:
+				sequence_Type(context, (Type) semanticObject); 
 				return; 
 			case UseCasePackage.USE_CASE:
 				sequence_UseCase(context, (UseCase) semanticObject); 
@@ -50,19 +62,25 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Attribute returns Attribute
+	 *
+	 * Constraint:
+	 *     (many?='many'? content=STRING type=[Type|ID]?)
+	 */
+	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Attributes returns Attributes
 	 *
 	 * Constraint:
-	 *     name=STRING
+	 *     attrs+=Attribute+
 	 */
 	protected void sequence_Attributes(ISerializationContext context, Attributes semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.ATTRIBUTES__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.ATTRIBUTES__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributesAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -86,6 +104,32 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Model returns Model
+	 *
+	 * Constraint:
+	 *     elements+=AbstractElement+
+	 */
+	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns Type
+	 *     Type returns Type
+	 *
+	 * Constraint:
+	 *     (name=ID description=STRING importInfo=QualifiedName?)
+	 */
+	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns UseCase
 	 *     UseCase returns UseCase
 	 *
 	 * Constraint:

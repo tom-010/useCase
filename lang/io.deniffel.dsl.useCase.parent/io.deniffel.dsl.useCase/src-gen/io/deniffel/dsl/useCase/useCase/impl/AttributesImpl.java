@@ -3,15 +3,23 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
+import io.deniffel.dsl.useCase.useCase.Attribute;
 import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.AttributesImpl#getName <em>Name</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.AttributesImpl#getAttrs <em>Attrs</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +37,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class AttributesImpl extends MinimalEObjectImpl.Container implements Attributes
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getAttrs() <em>Attrs</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getAttrs()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<Attribute> attrs;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +72,13 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<Attribute> getAttrs()
   {
-    return name;
+    if (attrs == null)
+    {
+      attrs = new EObjectContainmentEList<Attribute>(Attribute.class, this, UseCasePackage.ATTRIBUTES__ATTRS);
+    }
+    return attrs;
   }
 
   /**
@@ -84,12 +86,15 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.ATTRIBUTES__NAME, oldName, name));
+    switch (featureID)
+    {
+      case UseCasePackage.ATTRIBUTES__ATTRS:
+        return ((InternalEList<?>)getAttrs()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -102,8 +107,8 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTES__NAME:
-        return getName();
+      case UseCasePackage.ATTRIBUTES__ATTRS:
+        return getAttrs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -113,13 +118,15 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTES__NAME:
-        setName((String)newValue);
+      case UseCasePackage.ATTRIBUTES__ATTRS:
+        getAttrs().clear();
+        getAttrs().addAll((Collection<? extends Attribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +142,8 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTES__NAME:
-        setName(NAME_EDEFAULT);
+      case UseCasePackage.ATTRIBUTES__ATTRS:
+        getAttrs().clear();
         return;
     }
     super.eUnset(featureID);
@@ -152,27 +159,10 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTES__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case UseCasePackage.ATTRIBUTES__ATTRS:
+        return attrs != null && !attrs.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //AttributesImpl

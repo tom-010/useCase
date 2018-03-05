@@ -13,6 +13,7 @@ import io.deniffel.dsl.useCase.idea.lang.UseCaseElementTypeProvider;
 import io.deniffel.dsl.useCase.idea.lang.psi.impl.UseCaseFileImpl;
 import org.eclipse.xtext.idea.nodemodel.IASTNodeAwareNodeModelBuilder;
 import org.eclipse.xtext.idea.parser.AbstractXtextParserDefinition;
+import org.eclipse.xtext.psi.impl.PsiEObjectImpl;
 import org.eclipse.xtext.psi.impl.PsiNamedEObjectImpl;
 
 public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
@@ -31,6 +32,21 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 		Boolean hasSemanticElement = node.getUserData(IASTNodeAwareNodeModelBuilder.HAS_SEMANTIC_ELEMENT_KEY);
 		if (hasSemanticElement != null && hasSemanticElement) {
 			IElementType elementType = node.getElementType();
+			if (elementType == elementTypeProvider.getModelElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getModel_ElementsAbstractElementParserRuleCall_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAbstractElementElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAbstractElement_UseCaseParserRuleCall_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAbstractElement_TypeParserRuleCall_1ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
 			if (elementType == elementTypeProvider.getUseCaseElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
@@ -38,13 +54,22 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 				return new PsiNamedEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getUseCase_SectionsAttributesParserRuleCall_3_0ElementType()) {
-				return new PsiNamedEObjectImpl(node) {};
+				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getDescriptionElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getAttributesElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAttributes_AttrsAttributeParserRuleCall_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getTypeElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAttributeElementType()) {
+				return new PsiEObjectImpl(node) {};
 			}
 			throw new IllegalStateException("Unexpected element type: " + elementType);
 		}
