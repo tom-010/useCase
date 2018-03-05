@@ -1,0 +1,9 @@
+grammar io.deniffel.dsl.useCase.UseCase with org.eclipse.xtext.common.Terminals
+
+generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

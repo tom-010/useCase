@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="2.0">
+	<wb-module deploy-name="io.deniffel.dsl.useCase.web">
+		<property name="context-root" value="io.deniffel.dsl.useCase.web"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src-gen"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="xtend-gen"/>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/io.deniffel.dsl.useCase/io.deniffel.dsl.useCase">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/io.deniffel.dsl.useCase.ide/io.deniffel.dsl.useCase.ide">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+	</wb-module>
+</project-modules>
