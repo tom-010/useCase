@@ -3,8 +3,9 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
-import io.deniffel.dsl.useCase.useCase.AbstractElement;
 import io.deniffel.dsl.useCase.useCase.Model;
+import io.deniffel.dsl.useCase.useCase.Type;
+import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import java.util.Collection;
@@ -29,7 +30,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getUseCases <em>Use Cases</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +39,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getTypes()
    * @generated
    * @ordered
    */
-  protected EList<AbstractElement> elements;
+  protected EList<Type> types;
+
+  /**
+   * The cached value of the '{@link #getUseCases() <em>Use Cases</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUseCases()
+   * @generated
+   * @ordered
+   */
+  protected EList<UseCase> useCases;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +84,27 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AbstractElement> getElements()
+  public EList<Type> getTypes()
   {
-    if (elements == null)
+    if (types == null)
     {
-      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, UseCasePackage.MODEL__ELEMENTS);
+      types = new EObjectContainmentEList<Type>(Type.class, this, UseCasePackage.MODEL__TYPES);
     }
-    return elements;
+    return types;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<UseCase> getUseCases()
+  {
+    if (useCases == null)
+    {
+      useCases = new EObjectContainmentEList<UseCase>(UseCase.class, this, UseCasePackage.MODEL__USE_CASES);
+    }
+    return useCases;
   }
 
   /**
@@ -91,8 +117,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UseCasePackage.MODEL__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.MODEL__TYPES:
+        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.MODEL__USE_CASES:
+        return ((InternalEList<?>)getUseCases()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +135,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UseCasePackage.MODEL__ELEMENTS:
-        return getElements();
+      case UseCasePackage.MODEL__TYPES:
+        return getTypes();
+      case UseCasePackage.MODEL__USE_CASES:
+        return getUseCases();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +154,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UseCasePackage.MODEL__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends AbstractElement>)newValue);
+      case UseCasePackage.MODEL__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends Type>)newValue);
+        return;
+      case UseCasePackage.MODEL__USE_CASES:
+        getUseCases().clear();
+        getUseCases().addAll((Collection<? extends UseCase>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +176,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UseCasePackage.MODEL__ELEMENTS:
-        getElements().clear();
+      case UseCasePackage.MODEL__TYPES:
+        getTypes().clear();
+        return;
+      case UseCasePackage.MODEL__USE_CASES:
+        getUseCases().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +196,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UseCasePackage.MODEL__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case UseCasePackage.MODEL__TYPES:
+        return types != null && !types.isEmpty();
+      case UseCasePackage.MODEL__USE_CASES:
+        return useCases != null && !useCases.isEmpty();
     }
     return super.eIsSet(featureID);
   }

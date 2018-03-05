@@ -107,7 +107,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     elements+=AbstractElement+
+	 *     ((types+=Type+ useCases+=UseCase+) | useCases+=UseCase+)?
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -116,7 +116,6 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns Type
 	 *     Type returns Type
 	 *
 	 * Constraint:
@@ -129,7 +128,6 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns UseCase
 	 *     UseCase returns UseCase
 	 *
 	 * Constraint:

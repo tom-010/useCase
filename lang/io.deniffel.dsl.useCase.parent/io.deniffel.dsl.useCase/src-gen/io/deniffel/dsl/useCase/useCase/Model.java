@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getElements <em>Elements</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getTypes <em>Types</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getUseCases <em>Use Cases</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel()
@@ -26,19 +27,35 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.AbstractElement}.
+   * Returns the value of the '<em><b>Types</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Type}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Elements</em>' containment reference list.
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel_Elements()
+   * @return the value of the '<em>Types</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel_Types()
    * @model containment="true"
    * @generated
    */
-  EList<AbstractElement> getElements();
+  EList<Type> getTypes();
+
+  /**
+   * Returns the value of the '<em><b>Use Cases</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.UseCase}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Use Cases</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Use Cases</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel_UseCases()
+   * @model containment="true"
+   * @generated
+   */
+  EList<UseCase> getUseCases();
 
 } // Model

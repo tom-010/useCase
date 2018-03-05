@@ -3,6 +3,7 @@
  */
 package io.deniffel.dsl.useCase.useCase;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,7 @@ package io.deniffel.dsl.useCase.useCase;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Type#getName <em>Name</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Type#getDescription <em>Description</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Type#getImportInfo <em>Import Info</em>}</li>
  * </ul>
@@ -21,8 +23,34 @@ package io.deniffel.dsl.useCase.useCase;
  * @model
  * @generated
  */
-public interface Type extends AbstractElement
+public interface Type extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getType_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Type#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->

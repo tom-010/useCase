@@ -3,11 +3,9 @@ grammar io.deniffel.dsl.useCase.UseCase with org.eclipse.xtext.common.Terminals
 generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
 
 Model:
-	(elements+=AbstractElement)*
+	(types+=Type)*
+	(useCases+=UseCase)*
 ;
-
-AbstractElement:
-    UseCase | Type;
  
 UseCase:
 	'use-case' name=STRING

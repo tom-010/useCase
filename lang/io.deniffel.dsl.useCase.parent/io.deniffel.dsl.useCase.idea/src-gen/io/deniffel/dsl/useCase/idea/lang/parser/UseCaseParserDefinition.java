@@ -35,16 +35,10 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getModelElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getModel_ElementsAbstractElementParserRuleCall_0ElementType()) {
+			if (elementType == elementTypeProvider.getModel_TypesTypeParserRuleCall_0_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getAbstractElementElementType()) {
-				return new PsiNamedEObjectImpl(node) {};
-			}
-			if (elementType == elementTypeProvider.getAbstractElement_UseCaseParserRuleCall_0ElementType()) {
-				return new PsiNamedEObjectImpl(node) {};
-			}
-			if (elementType == elementTypeProvider.getAbstractElement_TypeParserRuleCall_1ElementType()) {
+			if (elementType == elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_1_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getUseCaseElementType()) {

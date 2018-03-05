@@ -31,7 +31,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getAbstractElementAccess().getAlternatives(), "rule__AbstractElement__Alternatives");
+					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getUseCaseAccess().getGroup(), "rule__UseCase__Group__0");
 					put(grammarAccess.getDescriptionAccess().getGroup(), "rule__Description__Group__0");
 					put(grammarAccess.getAttributesAccess().getGroup(), "rule__Attributes__Group__0");
@@ -41,7 +41,8 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeAccess().getGroup_3(), "rule__Attribute__Group_3__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
-					put(grammarAccess.getModelAccess().getElementsAssignment(), "rule__Model__ElementsAssignment");
+					put(grammarAccess.getModelAccess().getTypesAssignment_0(), "rule__Model__TypesAssignment_0");
+					put(grammarAccess.getModelAccess().getUseCasesAssignment_1(), "rule__Model__UseCasesAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getNameAssignment_1(), "rule__UseCase__NameAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getDescriptionsAssignment_2(), "rule__UseCase__DescriptionsAssignment_2");
 					put(grammarAccess.getUseCaseAccess().getSectionsAssignment_3(), "rule__UseCase__SectionsAssignment_3");

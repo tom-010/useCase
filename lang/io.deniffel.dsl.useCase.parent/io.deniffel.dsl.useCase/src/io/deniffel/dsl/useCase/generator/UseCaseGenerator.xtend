@@ -2,28 +2,36 @@ package io.deniffel.dsl.useCase.generator
 
 import io.deniffel.dsl.useCase.useCase.Attributes
 import io.deniffel.dsl.useCase.useCase.Attribute
+import io.deniffel.dsl.useCase.useCase.Model
 import io.deniffel.dsl.useCase.useCase.Description
 import io.deniffel.dsl.useCase.useCase.UseCase
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.emf.common.util.EList
+import io.deniffel.dsl.useCase.useCase.Type
 
 class UseCaseGenerator extends AbstractGenerator {
 	
 	ClassNamingStrategy classNamingStrategy = new ClassNamingStrategy();
 		
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		
-		
-		
-		for(e : resource.allContents.toIterable.filter(UseCase)) {
-			e.name = classNamingStrategy.convert(e.name); 
-			fsa.generateFile(e.name + ".java", "import" + e.compile);
+
+		for(model : resource.allContents.toIterable.filter(Model)) {
+			
+			for(usecase : model.useCases) {
+				usecase.name = classNamingStrategy.convert(usecase.name); 
+				fsa.generateFile(usecase.name + ".java", usecase.compile(model.types));	
+			}
 		}
 	}
 	
-	def compile(UseCase usecase) '''	
+	def compile(UseCase usecase, EList<Type> types) '''	
+	«FOR t:types»
+		«t.compile»
+	«ENDFOR»
+	
 	«FOR d:usecase.descriptions»
 		«d.compile»
     «ENDFOR»
@@ -48,6 +56,14 @@ class UseCaseGenerator extends AbstractGenerator {
 	
 	def compile(Attribute attribute) '''
 		«attribute.type.name» «attribute.content»;
+	'''
+	
+	def compile(Type type) '''
+	«IF type.importInfo !== null»
+		import «type.importInfo»;
+	«ELSE»
+		import «type.name»;
+	«ENDIF»
 	'''
 	
 	

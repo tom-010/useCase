@@ -81,11 +81,6 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseAbstractElement(AbstractElement object)
-      {
-        return createAbstractElementAdapter();
-      }
-      @Override
       public Adapter caseUseCase(UseCase object)
       {
         return createUseCaseAdapter();
@@ -143,21 +138,6 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.AbstractElement <em>Abstract Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see io.deniffel.dsl.useCase.useCase.AbstractElement
-   * @generated
-   */
-  public Adapter createAbstractElementAdapter()
   {
     return null;
   }

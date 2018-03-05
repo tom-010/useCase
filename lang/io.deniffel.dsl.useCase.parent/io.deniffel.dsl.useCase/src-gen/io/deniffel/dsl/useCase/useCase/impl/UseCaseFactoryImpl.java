@@ -66,7 +66,6 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
     switch (eClass.getClassifierID())
     {
       case UseCasePackage.MODEL: return createModel();
-      case UseCasePackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case UseCasePackage.USE_CASE: return createUseCase();
       case UseCasePackage.DESCRIPTION: return createDescription();
       case UseCasePackage.ATTRIBUTES: return createAttributes();
@@ -86,17 +85,6 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractElement createAbstractElement()
-  {
-    AbstractElementImpl abstractElement = new AbstractElementImpl();
-    return abstractElement;
   }
 
   /**

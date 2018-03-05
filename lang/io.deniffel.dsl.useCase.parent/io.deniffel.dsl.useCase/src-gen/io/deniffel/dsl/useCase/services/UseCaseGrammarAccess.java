@@ -6,7 +6,6 @@ package io.deniffel.dsl.useCase.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
@@ -25,37 +24,31 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Model");
-		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElementsAbstractElementParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTypesTypeParserRuleCall_0_0 = (RuleCall)cTypesAssignment_0.eContents().get(0);
+		private final Assignment cUseCasesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cUseCasesUseCaseParserRuleCall_1_0 = (RuleCall)cUseCasesAssignment_1.eContents().get(0);
 		
 		//Model:
-		//	elements+=AbstractElement*;
+		//	types+=Type*
+		//	useCases+=UseCase*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//elements+=AbstractElement*
-		public Assignment getElementsAssignment() { return cElementsAssignment; }
+		//types+=Type* useCases+=UseCase*
+		public Group getGroup() { return cGroup; }
 		
-		//AbstractElement
-		public RuleCall getElementsAbstractElementParserRuleCall_0() { return cElementsAbstractElementParserRuleCall_0; }
-	}
-	public class AbstractElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.AbstractElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cUseCaseParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//AbstractElement:
-		//	UseCase | Type;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//UseCase | Type
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//UseCase
-		public RuleCall getUseCaseParserRuleCall_0() { return cUseCaseParserRuleCall_0; }
+		//types+=Type*
+		public Assignment getTypesAssignment_0() { return cTypesAssignment_0; }
 		
 		//Type
-		public RuleCall getTypeParserRuleCall_1() { return cTypeParserRuleCall_1; }
+		public RuleCall getTypesTypeParserRuleCall_0_0() { return cTypesTypeParserRuleCall_0_0; }
+		
+		//useCases+=UseCase*
+		public Assignment getUseCasesAssignment_1() { return cUseCasesAssignment_1; }
+		
+		//UseCase
+		public RuleCall getUseCasesUseCaseParserRuleCall_1_0() { return cUseCasesUseCaseParserRuleCall_1_0; }
 	}
 	public class UseCaseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.UseCase");
@@ -298,7 +291,6 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final ModelElements pModel;
-	private final AbstractElementElements pAbstractElement;
 	private final UseCaseElements pUseCase;
 	private final DescriptionElements pDescription;
 	private final AttributesElements pAttributes;
@@ -316,7 +308,6 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pAbstractElement = new AbstractElementElements();
 		this.pUseCase = new UseCaseElements();
 		this.pDescription = new DescriptionElements();
 		this.pAttributes = new AttributesElements();
@@ -353,23 +344,14 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	elements+=AbstractElement*;
+	//	types+=Type*
+	//	useCases+=UseCase*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
 	
 	public ParserRule getModelRule() {
 		return getModelAccess().getRule();
-	}
-	
-	//AbstractElement:
-	//	UseCase | Type;
-	public AbstractElementElements getAbstractElementAccess() {
-		return pAbstractElement;
-	}
-	
-	public ParserRule getAbstractElementRule() {
-		return getAbstractElementAccess().getRule();
 	}
 	
 	//UseCase:

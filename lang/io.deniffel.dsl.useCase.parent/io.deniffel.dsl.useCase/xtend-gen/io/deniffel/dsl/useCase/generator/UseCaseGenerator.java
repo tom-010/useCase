@@ -5,6 +5,8 @@ import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 import io.deniffel.dsl.useCase.useCase.Attribute;
 import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Model;
+import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -21,26 +23,35 @@ public class UseCaseGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    Iterable<UseCase> _filter = Iterables.<UseCase>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), UseCase.class);
-    for (final UseCase e : _filter) {
-      {
-        e.setName(this.classNamingStrategy.convert(e.getName()));
-        String _name = e.getName();
-        String _plus = (_name + ".java");
-        CharSequence _compile = this.compile(e);
-        String _plus_1 = ("import" + _compile);
-        fsa.generateFile(_plus, _plus_1);
+    Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
+    for (final Model model : _filter) {
+      EList<UseCase> _useCases = model.getUseCases();
+      for (final UseCase usecase : _useCases) {
+        {
+          usecase.setName(this.classNamingStrategy.convert(usecase.getName()));
+          String _name = usecase.getName();
+          String _plus = (_name + ".java");
+          fsa.generateFile(_plus, this.compile(usecase, model.getTypes()));
+        }
       }
     }
   }
   
-  public CharSequence compile(final UseCase usecase) {
+  public CharSequence compile(final UseCase usecase, final EList<Type> types) {
     StringConcatenation _builder = new StringConcatenation();
+    {
+      for(final Type t : types) {
+        CharSequence _compile = this.compile(t);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
     {
       EList<Description> _descriptions = usecase.getDescriptions();
       for(final Description d : _descriptions) {
-        CharSequence _compile = this.compile(d);
-        _builder.append(_compile);
+        CharSequence _compile_1 = this.compile(d);
+        _builder.append(_compile_1);
         _builder.newLineIfNotEmpty();
       }
     }
@@ -53,8 +64,8 @@ public class UseCaseGenerator extends AbstractGenerator {
       EList<Attributes> _sections = usecase.getSections();
       for(final Attributes s : _sections) {
         _builder.append("\t");
-        CharSequence _compile_1 = this.compile(s);
-        _builder.append(_compile_1, "\t");
+        CharSequence _compile_2 = this.compile(s);
+        _builder.append(_compile_2, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -98,6 +109,28 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append(_content);
     _builder.append(";");
     _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Type type) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _importInfo = type.getImportInfo();
+      boolean _tripleNotEquals = (_importInfo != null);
+      if (_tripleNotEquals) {
+        _builder.append("import ");
+        String _importInfo_1 = type.getImportInfo();
+        _builder.append(_importInfo_1);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("import ");
+        String _name = type.getName();
+        _builder.append(_name);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
 }

@@ -80,18 +80,10 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UseCasePackage.ABSTRACT_ELEMENT:
-      {
-        AbstractElement abstractElement = (AbstractElement)theEObject;
-        T result = caseAbstractElement(abstractElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case UseCasePackage.USE_CASE:
       {
         UseCase useCase = (UseCase)theEObject;
         T result = caseUseCase(useCase);
-        if (result == null) result = caseAbstractElement(useCase);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -113,7 +105,6 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
-        if (result == null) result = caseAbstractElement(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -140,22 +131,6 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAbstractElement(AbstractElement object)
   {
     return null;
   }

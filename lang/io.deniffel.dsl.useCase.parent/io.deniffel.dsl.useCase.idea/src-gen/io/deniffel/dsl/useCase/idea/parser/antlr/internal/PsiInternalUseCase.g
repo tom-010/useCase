@@ -60,49 +60,35 @@ ruleModel returns [Boolean current=false]
 :
 	(
 		(
-			{
-				markComposite(elementTypeProvider.getModel_ElementsAbstractElementParserRuleCall_0ElementType());
-			}
-			lv_elements_0_0=ruleAbstractElement
-			{
-				doneComposite();
-				if(!$current) {
-					associateWithSemanticElement();
-					$current = true;
+			(
+				{
+					markComposite(elementTypeProvider.getModel_TypesTypeParserRuleCall_0_0ElementType());
 				}
-			}
-		)
-	)*
-;
-
-//Entry rule entryRuleAbstractElement
-entryRuleAbstractElement returns [Boolean current=false]:
-	{ markComposite(elementTypeProvider.getAbstractElementElementType()); }
-	iv_ruleAbstractElement=ruleAbstractElement
-	{ $current=$iv_ruleAbstractElement.current; }
-	EOF;
-
-// Rule AbstractElement
-ruleAbstractElement returns [Boolean current=false]
-:
-	(
-		{
-			markComposite(elementTypeProvider.getAbstractElement_UseCaseParserRuleCall_0ElementType());
-		}
-		this_UseCase_0=ruleUseCase
-		{
-			$current = $this_UseCase_0.current;
-			doneComposite();
-		}
-		    |
-		{
-			markComposite(elementTypeProvider.getAbstractElement_TypeParserRuleCall_1ElementType());
-		}
-		this_Type_1=ruleType
-		{
-			$current = $this_Type_1.current;
-			doneComposite();
-		}
+				lv_types_0_0=ruleType
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_1_0ElementType());
+				}
+				lv_useCases_1_0=ruleUseCase
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
 	)
 ;
 

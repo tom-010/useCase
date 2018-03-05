@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,14 +21,35 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.TypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.TypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.TypeImpl#getImportInfo <em>Import Info</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypeImpl extends AbstractElementImpl implements Type
+public class TypeImpl extends MinimalEObjectImpl.Container implements Type
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -94,6 +116,29 @@ public class TypeImpl extends AbstractElementImpl implements Type
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.TYPE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getDescription()
   {
     return description;
@@ -145,6 +190,8 @@ public class TypeImpl extends AbstractElementImpl implements Type
   {
     switch (featureID)
     {
+      case UseCasePackage.TYPE__NAME:
+        return getName();
       case UseCasePackage.TYPE__DESCRIPTION:
         return getDescription();
       case UseCasePackage.TYPE__IMPORT_INFO:
@@ -163,6 +210,9 @@ public class TypeImpl extends AbstractElementImpl implements Type
   {
     switch (featureID)
     {
+      case UseCasePackage.TYPE__NAME:
+        setName((String)newValue);
+        return;
       case UseCasePackage.TYPE__DESCRIPTION:
         setDescription((String)newValue);
         return;
@@ -183,6 +233,9 @@ public class TypeImpl extends AbstractElementImpl implements Type
   {
     switch (featureID)
     {
+      case UseCasePackage.TYPE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case UseCasePackage.TYPE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
@@ -203,6 +256,8 @@ public class TypeImpl extends AbstractElementImpl implements Type
   {
     switch (featureID)
     {
+      case UseCasePackage.TYPE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCasePackage.TYPE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case UseCasePackage.TYPE__IMPORT_INFO:
@@ -222,7 +277,9 @@ public class TypeImpl extends AbstractElementImpl implements Type
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (description: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", description: ");
     result.append(description);
     result.append(", importInfo: ");
     result.append(importInfo);

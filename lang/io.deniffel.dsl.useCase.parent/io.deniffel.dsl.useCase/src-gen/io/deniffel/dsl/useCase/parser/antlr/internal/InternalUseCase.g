@@ -77,58 +77,43 @@ ruleModel returns [EObject current=null]
 }:
 	(
 		(
-			{
-				newCompositeNode(grammarAccess.getModelAccess().getElementsAbstractElementParserRuleCall_0());
-			}
-			lv_elements_0_0=ruleAbstractElement
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getModelRule());
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getTypesTypeParserRuleCall_0_0());
 				}
-				add(
-					$current,
-					"elements",
-					lv_elements_0_0,
-					"io.deniffel.dsl.useCase.UseCase.AbstractElement");
-				afterParserOrEnumRuleCall();
-			}
-		)
-	)*
-;
-
-// Entry rule entryRuleAbstractElement
-entryRuleAbstractElement returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAbstractElementRule()); }
-	iv_ruleAbstractElement=ruleAbstractElement
-	{ $current=$iv_ruleAbstractElement.current; }
-	EOF;
-
-// Rule AbstractElement
-ruleAbstractElement returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getUseCaseParserRuleCall_0());
-		}
-		this_UseCase_0=ruleUseCase
-		{
-			$current = $this_UseCase_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getTypeParserRuleCall_1());
-		}
-		this_Type_1=ruleType
-		{
-			$current = $this_Type_1.current;
-			afterParserOrEnumRuleCall();
-		}
+				lv_types_0_0=ruleType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					add(
+						$current,
+						"types",
+						lv_types_0_0,
+						"io.deniffel.dsl.useCase.UseCase.Type");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getUseCasesUseCaseParserRuleCall_1_0());
+				}
+				lv_useCases_1_0=ruleUseCase
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					add(
+						$current,
+						"useCases",
+						lv_useCases_1_0,
+						"io.deniffel.dsl.useCase.UseCase.UseCase");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
 	)
 ;
 

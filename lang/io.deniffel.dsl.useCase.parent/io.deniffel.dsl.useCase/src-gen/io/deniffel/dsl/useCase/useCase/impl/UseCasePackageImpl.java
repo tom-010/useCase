@@ -3,7 +3,6 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
-import io.deniffel.dsl.useCase.useCase.AbstractElement;
 import io.deniffel.dsl.useCase.useCase.Attribute;
 import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
@@ -34,13 +33,6 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * @generated
    */
   private EClass modelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass abstractElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -155,7 +147,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Elements()
+  public EReference getModel_Types()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -165,19 +157,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAbstractElement()
+  public EReference getModel_UseCases()
   {
-    return abstractElementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAbstractElement_Name()
-  {
-    return (EAttribute)abstractElementEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -195,9 +177,19 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getUseCase_Name()
+  {
+    return (EAttribute)useCaseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getUseCase_Descriptions()
   {
-    return (EReference)useCaseEClass.getEStructuralFeatures().get(0);
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -207,7 +199,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    */
   public EReference getUseCase_Sections()
   {
-    return (EReference)useCaseEClass.getEStructuralFeatures().get(1);
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -265,7 +257,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getType_Description()
+  public EAttribute getType_Name()
   {
     return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
   }
@@ -275,9 +267,19 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getType_ImportInfo()
+  public EAttribute getType_Description()
   {
     return (EAttribute)typeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getType_ImportInfo()
+  {
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -351,12 +353,11 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__ELEMENTS);
-
-    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
-    createEAttribute(abstractElementEClass, ABSTRACT_ELEMENT__NAME);
+    createEReference(modelEClass, MODEL__TYPES);
+    createEReference(modelEClass, MODEL__USE_CASES);
 
     useCaseEClass = createEClass(USE_CASE);
+    createEAttribute(useCaseEClass, USE_CASE__NAME);
     createEReference(useCaseEClass, USE_CASE__DESCRIPTIONS);
     createEReference(useCaseEClass, USE_CASE__SECTIONS);
 
@@ -367,6 +368,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     createEReference(attributesEClass, ATTRIBUTES__ATTRS);
 
     typeEClass = createEClass(TYPE);
+    createEAttribute(typeEClass, TYPE__NAME);
     createEAttribute(typeEClass, TYPE__DESCRIPTION);
     createEAttribute(typeEClass, TYPE__IMPORT_INFO);
 
@@ -405,17 +407,14 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    useCaseEClass.getESuperTypes().add(this.getAbstractElement());
-    typeEClass.getESuperTypes().add(this.getAbstractElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAbstractElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Types(), this.getType(), null, "types", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Descriptions(), this.getDescription(), null, "descriptions", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Sections(), this.getAttributes(), null, "sections", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -426,6 +425,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     initEReference(getAttributes_Attrs(), this.getAttribute(), null, "attrs", null, 0, -1, Attributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getType_Description(), ecorePackage.getEString(), "description", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getType_ImportInfo(), ecorePackage.getEString(), "importInfo", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
