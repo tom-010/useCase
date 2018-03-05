@@ -7,21 +7,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Description</b></em>'.
+ * A representation of the model object '<em><b>Attributes</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.Description#getName <em>Name</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Attributes#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getDescription()
+ * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getAttributes()
  * @model
  * @generated
  */
-public interface Description extends EObject
+public interface Attributes extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface Description extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getDescription_Name()
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getAttributes_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Description#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Attributes#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -49,4 +49,4 @@ public interface Description extends EObject
    */
   void setName(String value);
 
-} // Description
+} // Attributes

@@ -3,8 +3,8 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
+import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
-import io.deniffel.dsl.useCase.useCase.Section;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCaseFactory;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
@@ -36,14 +36,14 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sectionEClass = null;
+  private EClass descriptionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass descriptionEClass = null;
+  private EClass attributesEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -133,7 +133,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUseCase_Sections()
+  public EReference getUseCase_Descriptions()
   {
     return (EReference)useCaseEClass.getEStructuralFeatures().get(1);
   }
@@ -143,9 +143,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSection()
+  public EReference getUseCase_Sections()
   {
-    return sectionEClass;
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -166,6 +166,26 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
   public EAttribute getDescription_Name()
   {
     return (EAttribute)descriptionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAttributes()
+  {
+    return attributesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAttributes_Name()
+  {
+    return (EAttribute)attributesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -200,12 +220,14 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     // Create classes and their features
     useCaseEClass = createEClass(USE_CASE);
     createEAttribute(useCaseEClass, USE_CASE__NAME);
+    createEReference(useCaseEClass, USE_CASE__DESCRIPTIONS);
     createEReference(useCaseEClass, USE_CASE__SECTIONS);
-
-    sectionEClass = createEClass(SECTION);
 
     descriptionEClass = createEClass(DESCRIPTION);
     createEAttribute(descriptionEClass, DESCRIPTION__NAME);
+
+    attributesEClass = createEClass(ATTRIBUTES);
+    createEAttribute(attributesEClass, ATTRIBUTES__NAME);
   }
 
   /**
@@ -237,17 +259,18 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    descriptionEClass.getESuperTypes().add(this.getSection());
 
     // Initialize classes and features; add operations and parameters
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUseCase_Sections(), this.getSection(), null, "sections", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUseCase_Descriptions(), this.getDescription(), null, "descriptions", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCase_Sections(), this.getAttributes(), null, "sections", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(descriptionEClass, Description.class, "Description", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDescription_Name(), ecorePackage.getEString(), "name", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(attributesEClass, Attributes.class, "Attributes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAttributes_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attributes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

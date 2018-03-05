@@ -82,9 +82,9 @@ ruleUseCase returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getUseCaseAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getUseCaseAccess().getNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -94,16 +94,35 @@ ruleUseCase returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUseCaseAccess().getSectionsSectionParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getUseCaseAccess().getDescriptionsDescriptionParserRuleCall_2_0());
 				}
-				lv_sections_2_0=ruleSection
+				lv_descriptions_2_0=ruleDescription
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
+					}
+					add(
+						$current,
+						"descriptions",
+						lv_descriptions_2_0,
+						"io.deniffel.dsl.useCase.UseCase.Description");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUseCaseAccess().getSectionsAttributesParserRuleCall_3_0());
+				}
+				lv_sections_3_0=ruleAttributes
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -111,50 +130,25 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"sections",
-						lv_sections_2_0,
-						"io.deniffel.dsl.useCase.UseCase.Section");
+						lv_sections_3_0,
+						"io.deniffel.dsl.useCase.UseCase.Attributes");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_3='end'
+		otherlv_4='end'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getUseCaseAccess().getEndKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getUseCaseAccess().getEndKeyword_4());
 		}
-		otherlv_4='of'
+		otherlv_5='of'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getUseCaseAccess().getOfKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getUseCaseAccess().getOfKeyword_5());
 		}
-		otherlv_5='use-case'
+		otherlv_6='use-case'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getUseCaseAccess().getUseCaseKeyword_5());
+			newLeafNode(otherlv_6, grammarAccess.getUseCaseAccess().getUseCaseKeyword_6());
 		}
 	)
-;
-
-// Entry rule entryRuleSection
-entryRuleSection returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSectionRule()); }
-	iv_ruleSection=ruleSection
-	{ $current=$iv_ruleSection.current; }
-	EOF;
-
-// Rule Section
-ruleSection returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	{
-		newCompositeNode(grammarAccess.getSectionAccess().getDescriptionParserRuleCall());
-	}
-	this_Description_0=ruleDescription
-	{
-		$current = $this_Description_0.current;
-		afterParserOrEnumRuleCall();
-	}
 ;
 
 // Entry rule entryRuleDescription
@@ -179,9 +173,9 @@ ruleDescription returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getDescriptionAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getDescriptionAccess().getNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -191,7 +185,48 @@ ruleDescription returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleAttributes
+entryRuleAttributes returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAttributesRule()); }
+	iv_ruleAttributes=ruleAttributes
+	{ $current=$iv_ruleAttributes.current; }
+	EOF;
+
+// Rule Attributes
+ruleAttributes returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='attributes:'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAttributesAccess().getAttributesKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_STRING
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getAttributesAccess().getNameSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAttributesRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)

@@ -26,85 +26,106 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cUseCaseKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cSectionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSectionsSectionParserRuleCall_2_0 = (RuleCall)cSectionsAssignment_2.eContents().get(0);
-		private final Keyword cEndKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cOfKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cUseCaseKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cDescriptionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDescriptionsDescriptionParserRuleCall_2_0 = (RuleCall)cDescriptionsAssignment_2.eContents().get(0);
+		private final Assignment cSectionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSectionsAttributesParserRuleCall_3_0 = (RuleCall)cSectionsAssignment_3.eContents().get(0);
+		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cOfKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cUseCaseKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//UseCase:
-		//	'use-case' name=ID
-		//	sections+=Section*
+		//	'use-case' name=STRING
+		//	descriptions+=Description*
+		//	sections+=Attributes*
 		//	'end' 'of' 'use-case';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'use-case' name=ID sections+=Section* 'end' 'of' 'use-case'
+		//'use-case' name=STRING descriptions+=Description* sections+=Attributes* 'end' 'of' 'use-case'
 		public Group getGroup() { return cGroup; }
 		
 		//'use-case'
 		public Keyword getUseCaseKeyword_0() { return cUseCaseKeyword_0; }
 		
-		//name=ID
+		//name=STRING
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 		
-		//sections+=Section*
-		public Assignment getSectionsAssignment_2() { return cSectionsAssignment_2; }
-		
-		//Section
-		public RuleCall getSectionsSectionParserRuleCall_2_0() { return cSectionsSectionParserRuleCall_2_0; }
-		
-		//'end'
-		public Keyword getEndKeyword_3() { return cEndKeyword_3; }
-		
-		//'of'
-		public Keyword getOfKeyword_4() { return cOfKeyword_4; }
-		
-		//'use-case'
-		public Keyword getUseCaseKeyword_5() { return cUseCaseKeyword_5; }
-	}
-	public class SectionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Section");
-		private final RuleCall cDescriptionParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//Section:
-		//	Description;
-		@Override public ParserRule getRule() { return rule; }
+		//descriptions+=Description*
+		public Assignment getDescriptionsAssignment_2() { return cDescriptionsAssignment_2; }
 		
 		//Description
-		public RuleCall getDescriptionParserRuleCall() { return cDescriptionParserRuleCall; }
+		public RuleCall getDescriptionsDescriptionParserRuleCall_2_0() { return cDescriptionsDescriptionParserRuleCall_2_0; }
+		
+		//sections+=Attributes*
+		public Assignment getSectionsAssignment_3() { return cSectionsAssignment_3; }
+		
+		//Attributes
+		public RuleCall getSectionsAttributesParserRuleCall_3_0() { return cSectionsAttributesParserRuleCall_3_0; }
+		
+		//'end'
+		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
+		
+		//'of'
+		public Keyword getOfKeyword_5() { return cOfKeyword_5; }
+		
+		//'use-case'
+		public Keyword getUseCaseKeyword_6() { return cUseCaseKeyword_6; }
 	}
 	public class DescriptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Description");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDescriptionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Description:
-		//	'description:' name=ID;
+		//	'description:' name=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'description:' name=ID
+		//'description:' name=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'description:'
 		public Keyword getDescriptionKeyword_0() { return cDescriptionKeyword_0; }
 		
-		//name=ID
+		//name=STRING
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+	}
+	public class AttributesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Attributes");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAttributesKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//Attributes:
+		//	'attributes:' name=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'attributes:' name=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'attributes:'
+		public Keyword getAttributesKeyword_0() { return cAttributesKeyword_0; }
+		
+		//name=STRING
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 	}
 	
 	
 	private final UseCaseElements pUseCase;
-	private final SectionElements pSection;
 	private final DescriptionElements pDescription;
+	private final AttributesElements pAttributes;
 	
 	private final Grammar grammar;
 	
@@ -116,8 +137,8 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pUseCase = new UseCaseElements();
-		this.pSection = new SectionElements();
 		this.pDescription = new DescriptionElements();
+		this.pAttributes = new AttributesElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -148,8 +169,9 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//UseCase:
-	//	'use-case' name=ID
-	//	sections+=Section*
+	//	'use-case' name=STRING
+	//	descriptions+=Description*
+	//	sections+=Attributes*
 	//	'end' 'of' 'use-case';
 	public UseCaseElements getUseCaseAccess() {
 		return pUseCase;
@@ -159,24 +181,24 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		return getUseCaseAccess().getRule();
 	}
 	
-	//Section:
-	//	Description;
-	public SectionElements getSectionAccess() {
-		return pSection;
-	}
-	
-	public ParserRule getSectionRule() {
-		return getSectionAccess().getRule();
-	}
-	
 	//Description:
-	//	'description:' name=ID;
+	//	'description:' name=STRING;
 	public DescriptionElements getDescriptionAccess() {
 		return pDescription;
 	}
 	
 	public ParserRule getDescriptionRule() {
 		return getDescriptionAccess().getRule();
+	}
+	
+	//Attributes:
+	//	'attributes:' name=STRING;
+	public AttributesElements getAttributesAccess() {
+		return pAttributes;
+	}
+	
+	public ParserRule getAttributesRule() {
+		return getAttributesAccess().getRule();
 	}
 	
 	//terminal ID:

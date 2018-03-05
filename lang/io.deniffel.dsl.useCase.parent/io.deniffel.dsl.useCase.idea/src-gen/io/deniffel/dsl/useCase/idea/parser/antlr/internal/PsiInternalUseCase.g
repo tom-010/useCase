@@ -69,9 +69,9 @@ ruleUseCase returns [Boolean current=false]
 		(
 			(
 				{
-					markLeaf(elementTypeProvider.getUseCase_NameIDTerminalRuleCall_1_0ElementType());
+					markLeaf(elementTypeProvider.getUseCase_NameSTRINGTerminalRuleCall_1_0ElementType());
 				}
-				lv_name_1_0=RULE_ID
+				lv_name_1_0=RULE_STRING
 				{
 					if(!$current) {
 						associateWithSemanticElement();
@@ -86,9 +86,24 @@ ruleUseCase returns [Boolean current=false]
 		(
 			(
 				{
-					markComposite(elementTypeProvider.getUseCase_SectionsSectionParserRuleCall_2_0ElementType());
+					markComposite(elementTypeProvider.getUseCase_DescriptionsDescriptionParserRuleCall_2_0ElementType());
 				}
-				lv_sections_2_0=ruleSection
+				lv_descriptions_2_0=ruleDescription
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getUseCase_SectionsAttributesParserRuleCall_3_0ElementType());
+				}
+				lv_sections_3_0=ruleAttributes
 				{
 					doneComposite();
 					if(!$current) {
@@ -99,47 +114,27 @@ ruleUseCase returns [Boolean current=false]
 			)
 		)*
 		{
-			markLeaf(elementTypeProvider.getUseCase_EndKeyword_3ElementType());
+			markLeaf(elementTypeProvider.getUseCase_EndKeyword_4ElementType());
 		}
-		otherlv_3='end'
-		{
-			doneLeaf(otherlv_3);
-		}
-		{
-			markLeaf(elementTypeProvider.getUseCase_OfKeyword_4ElementType());
-		}
-		otherlv_4='of'
+		otherlv_4='end'
 		{
 			doneLeaf(otherlv_4);
 		}
 		{
-			markLeaf(elementTypeProvider.getUseCase_UseCaseKeyword_5ElementType());
+			markLeaf(elementTypeProvider.getUseCase_OfKeyword_5ElementType());
 		}
-		otherlv_5='use-case'
+		otherlv_5='of'
 		{
 			doneLeaf(otherlv_5);
 		}
+		{
+			markLeaf(elementTypeProvider.getUseCase_UseCaseKeyword_6ElementType());
+		}
+		otherlv_6='use-case'
+		{
+			doneLeaf(otherlv_6);
+		}
 	)
-;
-
-//Entry rule entryRuleSection
-entryRuleSection returns [Boolean current=false]:
-	{ markComposite(elementTypeProvider.getSectionElementType()); }
-	iv_ruleSection=ruleSection
-	{ $current=$iv_ruleSection.current; }
-	EOF;
-
-// Rule Section
-ruleSection returns [Boolean current=false]
-:
-	{
-		markComposite(elementTypeProvider.getSection_DescriptionParserRuleCallElementType());
-	}
-	this_Description_0=ruleDescription
-	{
-		$current = $this_Description_0.current;
-		doneComposite();
-	}
 ;
 
 //Entry rule entryRuleDescription
@@ -163,9 +158,47 @@ ruleDescription returns [Boolean current=false]
 		(
 			(
 				{
-					markLeaf(elementTypeProvider.getDescription_NameIDTerminalRuleCall_1_0ElementType());
+					markLeaf(elementTypeProvider.getDescription_NameSTRINGTerminalRuleCall_1_0ElementType());
 				}
-				lv_name_1_0=RULE_ID
+				lv_name_1_0=RULE_STRING
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_name_1_0);
+				}
+			)
+		)
+	)
+;
+
+//Entry rule entryRuleAttributes
+entryRuleAttributes returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getAttributesElementType()); }
+	iv_ruleAttributes=ruleAttributes
+	{ $current=$iv_ruleAttributes.current; }
+	EOF;
+
+// Rule Attributes
+ruleAttributes returns [Boolean current=false]
+:
+	(
+		{
+			markLeaf(elementTypeProvider.getAttributes_AttributesKeyword_0ElementType());
+		}
+		otherlv_0='attributes:'
+		{
+			doneLeaf(otherlv_0);
+		}
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getAttributes_NameSTRINGTerminalRuleCall_1_0ElementType());
+				}
+				lv_name_1_0=RULE_STRING
 				{
 					if(!$current) {
 						associateWithSemanticElement();

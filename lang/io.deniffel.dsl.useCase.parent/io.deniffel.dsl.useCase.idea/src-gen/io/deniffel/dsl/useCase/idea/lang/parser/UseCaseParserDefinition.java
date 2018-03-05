@@ -13,7 +13,6 @@ import io.deniffel.dsl.useCase.idea.lang.UseCaseElementTypeProvider;
 import io.deniffel.dsl.useCase.idea.lang.psi.impl.UseCaseFileImpl;
 import org.eclipse.xtext.idea.nodemodel.IASTNodeAwareNodeModelBuilder;
 import org.eclipse.xtext.idea.parser.AbstractXtextParserDefinition;
-import org.eclipse.xtext.psi.impl.PsiEObjectImpl;
 import org.eclipse.xtext.psi.impl.PsiNamedEObjectImpl;
 
 public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
@@ -35,16 +34,16 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getUseCaseElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_SectionsSectionParserRuleCall_2_0ElementType()) {
-				return new PsiEObjectImpl(node) {};
+			if (elementType == elementTypeProvider.getUseCase_DescriptionsDescriptionParserRuleCall_2_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getSectionElementType()) {
-				return new PsiEObjectImpl(node) {};
-			}
-			if (elementType == elementTypeProvider.getSection_DescriptionParserRuleCallElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_SectionsAttributesParserRuleCall_3_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getDescriptionElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAttributesElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
 			throw new IllegalStateException("Unexpected element type: " + elementType);

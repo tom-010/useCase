@@ -80,18 +80,17 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UseCasePackage.SECTION:
-      {
-        Section section = (Section)theEObject;
-        T result = caseSection(section);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case UseCasePackage.DESCRIPTION:
       {
         Description description = (Description)theEObject;
         T result = caseDescription(description);
-        if (result == null) result = caseSection(description);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.ATTRIBUTES:
+      {
+        Attributes attributes = (Attributes)theEObject;
+        T result = caseAttributes(attributes);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -116,22 +115,6 @@ public class UseCaseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Section</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Section</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSection(Section object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Description</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -143,6 +126,22 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDescription(Description object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Attributes</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Attributes</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAttributes(Attributes object)
   {
     return null;
   }

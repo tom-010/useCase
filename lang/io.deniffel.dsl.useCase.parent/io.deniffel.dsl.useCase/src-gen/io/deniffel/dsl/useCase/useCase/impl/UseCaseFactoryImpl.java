@@ -66,8 +66,8 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
     switch (eClass.getClassifierID())
     {
       case UseCasePackage.USE_CASE: return createUseCase();
-      case UseCasePackage.SECTION: return createSection();
       case UseCasePackage.DESCRIPTION: return createDescription();
+      case UseCasePackage.ATTRIBUTES: return createAttributes();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -89,10 +89,10 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Section createSection()
+  public Description createDescription()
   {
-    SectionImpl section = new SectionImpl();
-    return section;
+    DescriptionImpl description = new DescriptionImpl();
+    return description;
   }
 
   /**
@@ -100,10 +100,10 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Description createDescription()
+  public Attributes createAttributes()
   {
-    DescriptionImpl description = new DescriptionImpl();
-    return description;
+    AttributesImpl attributes = new AttributesImpl();
+    return attributes;
   }
 
   /**

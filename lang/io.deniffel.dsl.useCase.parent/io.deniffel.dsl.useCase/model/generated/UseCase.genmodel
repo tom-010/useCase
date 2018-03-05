@@ -8,11 +8,14 @@
       fileExtensions="useCase" ecorePackage="UseCase.ecore#/">
     <genClasses ecoreClass="UseCase.ecore#//UseCase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//UseCase/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/descriptions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/sections"/>
     </genClasses>
-    <genClasses ecoreClass="UseCase.ecore#//Section"/>
     <genClasses ecoreClass="UseCase.ecore#//Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Description/name"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Attributes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Attributes/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

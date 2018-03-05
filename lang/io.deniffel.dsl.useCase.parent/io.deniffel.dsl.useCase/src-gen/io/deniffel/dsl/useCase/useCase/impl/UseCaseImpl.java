@@ -3,7 +3,8 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
-import io.deniffel.dsl.useCase.useCase.Section;
+import io.deniffel.dsl.useCase.useCase.Attributes;
+import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getName <em>Name</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getSections <em>Sections</em>}</li>
  * </ul>
  *
@@ -60,6 +62,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getDescriptions() <em>Descriptions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescriptions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Description> descriptions;
+
+  /**
    * The cached value of the '{@link #getSections() <em>Sections</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -67,7 +79,7 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @generated
    * @ordered
    */
-  protected EList<Section> sections;
+  protected EList<Attributes> sections;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,11 +130,25 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Section> getSections()
+  public EList<Description> getDescriptions()
+  {
+    if (descriptions == null)
+    {
+      descriptions = new EObjectContainmentEList<Description>(Description.class, this, UseCasePackage.USE_CASE__DESCRIPTIONS);
+    }
+    return descriptions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Attributes> getSections()
   {
     if (sections == null)
     {
-      sections = new EObjectContainmentEList<Section>(Section.class, this, UseCasePackage.USE_CASE__SECTIONS);
+      sections = new EObjectContainmentEList<Attributes>(Attributes.class, this, UseCasePackage.USE_CASE__SECTIONS);
     }
     return sections;
   }
@@ -137,6 +163,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
+      case UseCasePackage.USE_CASE__DESCRIPTIONS:
+        return ((InternalEList<?>)getDescriptions()).basicRemove(otherEnd, msgs);
       case UseCasePackage.USE_CASE__SECTIONS:
         return ((InternalEList<?>)getSections()).basicRemove(otherEnd, msgs);
     }
@@ -155,6 +183,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     {
       case UseCasePackage.USE_CASE__NAME:
         return getName();
+      case UseCasePackage.USE_CASE__DESCRIPTIONS:
+        return getDescriptions();
       case UseCasePackage.USE_CASE__SECTIONS:
         return getSections();
     }
@@ -175,9 +205,13 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCasePackage.USE_CASE__NAME:
         setName((String)newValue);
         return;
+      case UseCasePackage.USE_CASE__DESCRIPTIONS:
+        getDescriptions().clear();
+        getDescriptions().addAll((Collection<? extends Description>)newValue);
+        return;
       case UseCasePackage.USE_CASE__SECTIONS:
         getSections().clear();
-        getSections().addAll((Collection<? extends Section>)newValue);
+        getSections().addAll((Collection<? extends Attributes>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -195,6 +229,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     {
       case UseCasePackage.USE_CASE__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case UseCasePackage.USE_CASE__DESCRIPTIONS:
+        getDescriptions().clear();
         return;
       case UseCasePackage.USE_CASE__SECTIONS:
         getSections().clear();
@@ -215,6 +252,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     {
       case UseCasePackage.USE_CASE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case UseCasePackage.USE_CASE__DESCRIPTIONS:
+        return descriptions != null && !descriptions.isEmpty();
       case UseCasePackage.USE_CASE__SECTIONS:
         return sections != null && !sections.isEmpty();
     }

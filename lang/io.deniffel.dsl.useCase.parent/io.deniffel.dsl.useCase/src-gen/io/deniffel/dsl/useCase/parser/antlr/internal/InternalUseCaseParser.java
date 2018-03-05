@@ -21,14 +21,15 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalUseCaseParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'use-case'", "'end'", "'of'", "'description:'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'use-case'", "'end'", "'of'", "'description:'", "'attributes:'"
     };
-    public static final int RULE_ID=4;
+    public static final int RULE_ID=5;
     public static final int RULE_WS=9;
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=4;
     public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
-    public static final int RULE_INT=5;
+    public static final int T__15=15;
+    public static final int RULE_INT=6;
     public static final int T__11=11;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
@@ -112,41 +113,43 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUseCase"
-    // InternalUseCase.g:71:1: ruleUseCase returns [EObject current=null] : (otherlv_0= 'use-case' ( (lv_name_1_0= RULE_ID ) ) ( (lv_sections_2_0= ruleSection ) )* otherlv_3= 'end' otherlv_4= 'of' otherlv_5= 'use-case' ) ;
+    // InternalUseCase.g:71:1: ruleUseCase returns [EObject current=null] : (otherlv_0= 'use-case' ( (lv_name_1_0= RULE_STRING ) ) ( (lv_descriptions_2_0= ruleDescription ) )* ( (lv_sections_3_0= ruleAttributes ) )* otherlv_4= 'end' otherlv_5= 'of' otherlv_6= 'use-case' ) ;
     public final EObject ruleUseCase() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token lv_name_1_0=null;
-        Token otherlv_3=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
-        EObject lv_sections_2_0 = null;
+        Token otherlv_6=null;
+        EObject lv_descriptions_2_0 = null;
+
+        EObject lv_sections_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalUseCase.g:77:2: ( (otherlv_0= 'use-case' ( (lv_name_1_0= RULE_ID ) ) ( (lv_sections_2_0= ruleSection ) )* otherlv_3= 'end' otherlv_4= 'of' otherlv_5= 'use-case' ) )
-            // InternalUseCase.g:78:2: (otherlv_0= 'use-case' ( (lv_name_1_0= RULE_ID ) ) ( (lv_sections_2_0= ruleSection ) )* otherlv_3= 'end' otherlv_4= 'of' otherlv_5= 'use-case' )
+            // InternalUseCase.g:77:2: ( (otherlv_0= 'use-case' ( (lv_name_1_0= RULE_STRING ) ) ( (lv_descriptions_2_0= ruleDescription ) )* ( (lv_sections_3_0= ruleAttributes ) )* otherlv_4= 'end' otherlv_5= 'of' otherlv_6= 'use-case' ) )
+            // InternalUseCase.g:78:2: (otherlv_0= 'use-case' ( (lv_name_1_0= RULE_STRING ) ) ( (lv_descriptions_2_0= ruleDescription ) )* ( (lv_sections_3_0= ruleAttributes ) )* otherlv_4= 'end' otherlv_5= 'of' otherlv_6= 'use-case' )
             {
-            // InternalUseCase.g:78:2: (otherlv_0= 'use-case' ( (lv_name_1_0= RULE_ID ) ) ( (lv_sections_2_0= ruleSection ) )* otherlv_3= 'end' otherlv_4= 'of' otherlv_5= 'use-case' )
-            // InternalUseCase.g:79:3: otherlv_0= 'use-case' ( (lv_name_1_0= RULE_ID ) ) ( (lv_sections_2_0= ruleSection ) )* otherlv_3= 'end' otherlv_4= 'of' otherlv_5= 'use-case'
+            // InternalUseCase.g:78:2: (otherlv_0= 'use-case' ( (lv_name_1_0= RULE_STRING ) ) ( (lv_descriptions_2_0= ruleDescription ) )* ( (lv_sections_3_0= ruleAttributes ) )* otherlv_4= 'end' otherlv_5= 'of' otherlv_6= 'use-case' )
+            // InternalUseCase.g:79:3: otherlv_0= 'use-case' ( (lv_name_1_0= RULE_STRING ) ) ( (lv_descriptions_2_0= ruleDescription ) )* ( (lv_sections_3_0= ruleAttributes ) )* otherlv_4= 'end' otherlv_5= 'of' otherlv_6= 'use-case'
             {
             otherlv_0=(Token)match(input,11,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getUseCaseAccess().getUseCaseKeyword_0());
             		
-            // InternalUseCase.g:83:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalUseCase.g:84:4: (lv_name_1_0= RULE_ID )
+            // InternalUseCase.g:83:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalUseCase.g:84:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalUseCase.g:84:4: (lv_name_1_0= RULE_ID )
-            // InternalUseCase.g:85:5: lv_name_1_0= RULE_ID
+            // InternalUseCase.g:84:4: (lv_name_1_0= RULE_STRING )
+            // InternalUseCase.g:85:5: lv_name_1_0= RULE_STRING
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_4); 
+            lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_4); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getUseCaseAccess().getNameIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_name_1_0, grammarAccess.getUseCaseAccess().getNameSTRINGTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -156,7 +159,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
             						current,
             						"name",
             						lv_name_1_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
@@ -164,7 +167,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalUseCase.g:101:3: ( (lv_sections_2_0= ruleSection ) )*
+            // InternalUseCase.g:101:3: ( (lv_descriptions_2_0= ruleDescription ) )*
             loop1:
             do {
                 int alt1=2;
@@ -177,16 +180,16 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalUseCase.g:102:4: (lv_sections_2_0= ruleSection )
+            	    // InternalUseCase.g:102:4: (lv_descriptions_2_0= ruleDescription )
             	    {
-            	    // InternalUseCase.g:102:4: (lv_sections_2_0= ruleSection )
-            	    // InternalUseCase.g:103:5: lv_sections_2_0= ruleSection
+            	    // InternalUseCase.g:102:4: (lv_descriptions_2_0= ruleDescription )
+            	    // InternalUseCase.g:103:5: lv_descriptions_2_0= ruleDescription
             	    {
 
-            	    					newCompositeNode(grammarAccess.getUseCaseAccess().getSectionsSectionParserRuleCall_2_0());
+            	    					newCompositeNode(grammarAccess.getUseCaseAccess().getDescriptionsDescriptionParserRuleCall_2_0());
             	    				
             	    pushFollow(FOLLOW_4);
-            	    lv_sections_2_0=ruleSection();
+            	    lv_descriptions_2_0=ruleDescription();
 
             	    state._fsp--;
 
@@ -196,9 +199,9 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"sections",
-            	    						lv_sections_2_0,
-            	    						"io.deniffel.dsl.useCase.UseCase.Section");
+            	    						"descriptions",
+            	    						lv_descriptions_2_0,
+            	    						"io.deniffel.dsl.useCase.UseCase.Description");
             	    					afterParserOrEnumRuleCall();
             	    				
 
@@ -213,17 +216,66 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_3=(Token)match(input,12,FOLLOW_5); 
+            // InternalUseCase.g:120:3: ( (lv_sections_3_0= ruleAttributes ) )*
+            loop2:
+            do {
+                int alt2=2;
+                int LA2_0 = input.LA(1);
 
-            			newLeafNode(otherlv_3, grammarAccess.getUseCaseAccess().getEndKeyword_3());
+                if ( (LA2_0==15) ) {
+                    alt2=1;
+                }
+
+
+                switch (alt2) {
+            	case 1 :
+            	    // InternalUseCase.g:121:4: (lv_sections_3_0= ruleAttributes )
+            	    {
+            	    // InternalUseCase.g:121:4: (lv_sections_3_0= ruleAttributes )
+            	    // InternalUseCase.g:122:5: lv_sections_3_0= ruleAttributes
+            	    {
+
+            	    					newCompositeNode(grammarAccess.getUseCaseAccess().getSectionsAttributesParserRuleCall_3_0());
+            	    				
+            	    pushFollow(FOLLOW_5);
+            	    lv_sections_3_0=ruleAttributes();
+
+            	    state._fsp--;
+
+
+            	    					if (current==null) {
+            	    						current = createModelElementForParent(grammarAccess.getUseCaseRule());
+            	    					}
+            	    					add(
+            	    						current,
+            	    						"sections",
+            	    						lv_sections_3_0,
+            	    						"io.deniffel.dsl.useCase.UseCase.Attributes");
+            	    					afterParserOrEnumRuleCall();
+            	    				
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop2;
+                }
+            } while (true);
+
+            otherlv_4=(Token)match(input,12,FOLLOW_6); 
+
+            			newLeafNode(otherlv_4, grammarAccess.getUseCaseAccess().getEndKeyword_4());
             		
-            otherlv_4=(Token)match(input,13,FOLLOW_6); 
+            otherlv_5=(Token)match(input,13,FOLLOW_7); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getUseCaseAccess().getOfKeyword_4());
+            			newLeafNode(otherlv_5, grammarAccess.getUseCaseAccess().getOfKeyword_5());
             		
-            otherlv_5=(Token)match(input,11,FOLLOW_2); 
+            otherlv_6=(Token)match(input,11,FOLLOW_2); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getUseCaseAccess().getUseCaseKeyword_5());
+            			newLeafNode(otherlv_6, grammarAccess.getUseCaseAccess().getUseCaseKeyword_6());
             		
 
             }
@@ -247,90 +299,8 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleUseCase"
 
 
-    // $ANTLR start "entryRuleSection"
-    // InternalUseCase.g:136:1: entryRuleSection returns [EObject current=null] : iv_ruleSection= ruleSection EOF ;
-    public final EObject entryRuleSection() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleSection = null;
-
-
-        try {
-            // InternalUseCase.g:136:48: (iv_ruleSection= ruleSection EOF )
-            // InternalUseCase.g:137:2: iv_ruleSection= ruleSection EOF
-            {
-             newCompositeNode(grammarAccess.getSectionRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleSection=ruleSection();
-
-            state._fsp--;
-
-             current =iv_ruleSection; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleSection"
-
-
-    // $ANTLR start "ruleSection"
-    // InternalUseCase.g:143:1: ruleSection returns [EObject current=null] : this_Description_0= ruleDescription ;
-    public final EObject ruleSection() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_Description_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalUseCase.g:149:2: (this_Description_0= ruleDescription )
-            // InternalUseCase.g:150:2: this_Description_0= ruleDescription
-            {
-
-            		newCompositeNode(grammarAccess.getSectionAccess().getDescriptionParserRuleCall());
-            	
-            pushFollow(FOLLOW_2);
-            this_Description_0=ruleDescription();
-
-            state._fsp--;
-
-
-            		current = this_Description_0;
-            		afterParserOrEnumRuleCall();
-            	
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleSection"
-
-
     // $ANTLR start "entryRuleDescription"
-    // InternalUseCase.g:161:1: entryRuleDescription returns [EObject current=null] : iv_ruleDescription= ruleDescription EOF ;
+    // InternalUseCase.g:155:1: entryRuleDescription returns [EObject current=null] : iv_ruleDescription= ruleDescription EOF ;
     public final EObject entryRuleDescription() throws RecognitionException {
         EObject current = null;
 
@@ -338,8 +308,8 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalUseCase.g:161:52: (iv_ruleDescription= ruleDescription EOF )
-            // InternalUseCase.g:162:2: iv_ruleDescription= ruleDescription EOF
+            // InternalUseCase.g:155:52: (iv_ruleDescription= ruleDescription EOF )
+            // InternalUseCase.g:156:2: iv_ruleDescription= ruleDescription EOF
             {
              newCompositeNode(grammarAccess.getDescriptionRule()); 
             pushFollow(FOLLOW_1);
@@ -366,7 +336,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDescription"
-    // InternalUseCase.g:168:1: ruleDescription returns [EObject current=null] : (otherlv_0= 'description:' ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // InternalUseCase.g:162:1: ruleDescription returns [EObject current=null] : (otherlv_0= 'description:' ( (lv_name_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleDescription() throws RecognitionException {
         EObject current = null;
 
@@ -377,25 +347,25 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalUseCase.g:174:2: ( (otherlv_0= 'description:' ( (lv_name_1_0= RULE_ID ) ) ) )
-            // InternalUseCase.g:175:2: (otherlv_0= 'description:' ( (lv_name_1_0= RULE_ID ) ) )
+            // InternalUseCase.g:168:2: ( (otherlv_0= 'description:' ( (lv_name_1_0= RULE_STRING ) ) ) )
+            // InternalUseCase.g:169:2: (otherlv_0= 'description:' ( (lv_name_1_0= RULE_STRING ) ) )
             {
-            // InternalUseCase.g:175:2: (otherlv_0= 'description:' ( (lv_name_1_0= RULE_ID ) ) )
-            // InternalUseCase.g:176:3: otherlv_0= 'description:' ( (lv_name_1_0= RULE_ID ) )
+            // InternalUseCase.g:169:2: (otherlv_0= 'description:' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalUseCase.g:170:3: otherlv_0= 'description:' ( (lv_name_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,14,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDescriptionAccess().getDescriptionKeyword_0());
             		
-            // InternalUseCase.g:180:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalUseCase.g:181:4: (lv_name_1_0= RULE_ID )
+            // InternalUseCase.g:174:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalUseCase.g:175:4: (lv_name_1_0= RULE_STRING )
             {
-            // InternalUseCase.g:181:4: (lv_name_1_0= RULE_ID )
-            // InternalUseCase.g:182:5: lv_name_1_0= RULE_ID
+            // InternalUseCase.g:175:4: (lv_name_1_0= RULE_STRING )
+            // InternalUseCase.g:176:5: lv_name_1_0= RULE_STRING
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getDescriptionAccess().getNameIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_name_1_0, grammarAccess.getDescriptionAccess().getNameSTRINGTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -405,7 +375,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
             						current,
             						"name",
             						lv_name_1_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
@@ -434,6 +404,112 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleDescription"
 
+
+    // $ANTLR start "entryRuleAttributes"
+    // InternalUseCase.g:196:1: entryRuleAttributes returns [EObject current=null] : iv_ruleAttributes= ruleAttributes EOF ;
+    public final EObject entryRuleAttributes() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAttributes = null;
+
+
+        try {
+            // InternalUseCase.g:196:51: (iv_ruleAttributes= ruleAttributes EOF )
+            // InternalUseCase.g:197:2: iv_ruleAttributes= ruleAttributes EOF
+            {
+             newCompositeNode(grammarAccess.getAttributesRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleAttributes=ruleAttributes();
+
+            state._fsp--;
+
+             current =iv_ruleAttributes; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAttributes"
+
+
+    // $ANTLR start "ruleAttributes"
+    // InternalUseCase.g:203:1: ruleAttributes returns [EObject current=null] : (otherlv_0= 'attributes:' ( (lv_name_1_0= RULE_STRING ) ) ) ;
+    public final EObject ruleAttributes() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token lv_name_1_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalUseCase.g:209:2: ( (otherlv_0= 'attributes:' ( (lv_name_1_0= RULE_STRING ) ) ) )
+            // InternalUseCase.g:210:2: (otherlv_0= 'attributes:' ( (lv_name_1_0= RULE_STRING ) ) )
+            {
+            // InternalUseCase.g:210:2: (otherlv_0= 'attributes:' ( (lv_name_1_0= RULE_STRING ) ) )
+            // InternalUseCase.g:211:3: otherlv_0= 'attributes:' ( (lv_name_1_0= RULE_STRING ) )
+            {
+            otherlv_0=(Token)match(input,15,FOLLOW_3); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getAttributesAccess().getAttributesKeyword_0());
+            		
+            // InternalUseCase.g:215:3: ( (lv_name_1_0= RULE_STRING ) )
+            // InternalUseCase.g:216:4: (lv_name_1_0= RULE_STRING )
+            {
+            // InternalUseCase.g:216:4: (lv_name_1_0= RULE_STRING )
+            // InternalUseCase.g:217:5: lv_name_1_0= RULE_STRING
+            {
+            lv_name_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+
+            					newLeafNode(lv_name_1_0, grammarAccess.getAttributesAccess().getNameSTRINGTerminalRuleCall_1_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getAttributesRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"name",
+            						lv_name_1_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAttributes"
+
     // Delegated rules
 
 
@@ -442,8 +518,9 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000005000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000000000D000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000009000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000800L});
 
 }

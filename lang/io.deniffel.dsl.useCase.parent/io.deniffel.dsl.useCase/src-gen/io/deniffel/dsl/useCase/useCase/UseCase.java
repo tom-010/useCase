@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getName <em>Name</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getSections <em>Sections</em>}</li>
  * </ul>
  *
@@ -53,8 +54,24 @@ public interface UseCase extends EObject
   void setName(String value);
 
   /**
+   * Returns the value of the '<em><b>Descriptions</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Description}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Descriptions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Descriptions</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase_Descriptions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Description> getDescriptions();
+
+  /**
    * Returns the value of the '<em><b>Sections</b></em>' containment reference list.
-   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Section}.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Attributes}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Sections</em>' containment reference list isn't clear,
@@ -66,6 +83,6 @@ public interface UseCase extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Section> getSections();
+  EList<Attributes> getSections();
 
 } // UseCase

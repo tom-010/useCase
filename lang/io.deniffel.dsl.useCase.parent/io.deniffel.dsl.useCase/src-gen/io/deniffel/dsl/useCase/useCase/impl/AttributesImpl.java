@@ -3,7 +3,7 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
-import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,18 +15,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Description</b></em>'.
+ * An implementation of the model object '<em><b>Attributes</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.DescriptionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.AttributesImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DescriptionImpl extends MinimalEObjectImpl.Container implements Description
+public class AttributesImpl extends MinimalEObjectImpl.Container implements Attributes
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -53,7 +53,7 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DescriptionImpl()
+  protected AttributesImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
   @Override
   protected EClass eStaticClass()
   {
-    return UseCasePackage.Literals.DESCRIPTION;
+    return UseCasePackage.Literals.ATTRIBUTES;
   }
 
   /**
@@ -89,7 +89,7 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.DESCRIPTION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.ATTRIBUTES__NAME, oldName, name));
   }
 
   /**
@@ -102,7 +102,7 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
   {
     switch (featureID)
     {
-      case UseCasePackage.DESCRIPTION__NAME:
+      case UseCasePackage.ATTRIBUTES__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -118,7 +118,7 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
   {
     switch (featureID)
     {
-      case UseCasePackage.DESCRIPTION__NAME:
+      case UseCasePackage.ATTRIBUTES__NAME:
         setName((String)newValue);
         return;
     }
@@ -135,7 +135,7 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
   {
     switch (featureID)
     {
-      case UseCasePackage.DESCRIPTION__NAME:
+      case UseCasePackage.ATTRIBUTES__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -152,7 +152,7 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
   {
     switch (featureID)
     {
-      case UseCasePackage.DESCRIPTION__NAME:
+      case UseCasePackage.ATTRIBUTES__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -175,4 +175,4 @@ public class DescriptionImpl extends MinimalEObjectImpl.Container implements Des
     return result.toString();
   }
 
-} //DescriptionImpl
+} //AttributesImpl

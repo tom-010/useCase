@@ -33,15 +33,6 @@ public interface UseCaseFactory extends EFactory
   UseCase createUseCase();
 
   /**
-   * Returns a new object of class '<em>Section</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Section</em>'.
-   * @generated
-   */
-  Section createSection();
-
-  /**
    * Returns a new object of class '<em>Description</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +40,15 @@ public interface UseCaseFactory extends EFactory
    * @generated
    */
   Description createDescription();
+
+  /**
+   * Returns a new object of class '<em>Attributes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Attributes</em>'.
+   * @generated
+   */
+  Attributes createAttributes();
 
   /**
    * Returns the package supported by this factory.

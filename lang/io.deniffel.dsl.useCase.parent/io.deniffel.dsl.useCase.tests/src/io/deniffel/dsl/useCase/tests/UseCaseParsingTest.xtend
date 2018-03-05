@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 import org.junit.Test
 import org.junit.runner.RunWith
 import io.deniffel.dsl.useCase.useCase.UseCase
+import io.deniffel.dsl.useCase.useCase.Description
 
 @RunWith(XtextRunner)
 @InjectWith(UseCaseInjectorProvider)
@@ -18,16 +19,6 @@ class UseCaseParsingTest {
 	@Inject
 	ParseHelper<UseCase> parseHelper
 	
-//	@Test
-//	def void loadModel() {
-//		val result = parseHelper.parse('''
-//			Hello Xtext!
-//		''')
-//		Assert.assertNotNull(result)
-//		val errors = result.eResource.errors
-//		Assert.assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
-//	}
-
 	@Test
 	def void useCaseKeywordGenerationWorks() {
 		val result = parseHelper.parse('''
@@ -40,10 +31,16 @@ class UseCaseParsingTest {
 	}
 	
 	@Test
-	def void useCaseKeyWordWithUnderscore_generatesCamelCaseJavaClassName() {
+	def void descriptionSecionIsAddedToTheModelAsString() {
 		val model = parseHelper.parse('''
-			use-case Create_User
-			use-case-end
+			use-case "Create a new User"
+			description: "This is a test"
+			end of use-case
 		''') 
+		assertNotNull(model);
+		val errors = model.eResource.errors
+		assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
+		assertEquals(1, model.sections.length()); 
+		assertTrue(model.sections.get(0) instanceof Description);
 	}
 }

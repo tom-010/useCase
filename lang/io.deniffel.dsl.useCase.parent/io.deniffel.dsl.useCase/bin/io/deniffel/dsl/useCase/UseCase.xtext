@@ -3,12 +3,13 @@ grammar io.deniffel.dsl.useCase.UseCase with org.eclipse.xtext.common.Terminals
 generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
 
 UseCase:
-	'use-case' name=ID
-	(sections+=Section)*
+	'use-case' name=STRING
+	(descriptions+=Description)*
+	(sections+=Attributes)*
 	'end' 'of' 'use-case';
 	
-Section:
-	Description;
-	
 Description:
-	'description:' name=ID;
+	'description:' name=STRING;
+	
+Attributes:
+	'attributes:' name=STRING;

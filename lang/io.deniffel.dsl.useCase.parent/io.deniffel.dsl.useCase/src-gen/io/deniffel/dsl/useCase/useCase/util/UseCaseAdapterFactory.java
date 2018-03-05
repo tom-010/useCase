@@ -81,14 +81,14 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
         return createUseCaseAdapter();
       }
       @Override
-      public Adapter caseSection(Section object)
-      {
-        return createSectionAdapter();
-      }
-      @Override
       public Adapter caseDescription(Description object)
       {
         return createDescriptionAdapter();
+      }
+      @Override
+      public Adapter caseAttributes(Attributes object)
+      {
+        return createAttributesAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -128,21 +128,6 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.Section <em>Section</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see io.deniffel.dsl.useCase.useCase.Section
-   * @generated
-   */
-  public Adapter createSectionAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.Description <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -153,6 +138,21 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDescriptionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.Attributes <em>Attributes</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.Attributes
+   * @generated
+   */
+  public Adapter createAttributesAdapter()
   {
     return null;
   }
