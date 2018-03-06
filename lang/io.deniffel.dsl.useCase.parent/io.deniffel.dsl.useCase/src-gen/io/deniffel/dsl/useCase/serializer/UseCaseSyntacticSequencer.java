@@ -11,6 +11,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +21,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected UseCaseGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0;
+	protected AbstractElementAlias match_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (UseCaseGrammarAccess) access;
+		match_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputsAccess().getInputKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getInputsKeyword_0_0()));
+		match_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputsAccess().getOutputKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getOutputsKeyword_0_0()));
 	}
 	
 	@Override
@@ -36,8 +43,36 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0.equals(syntax))
+				emit_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0.equals(syntax))
+				emit_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'inputs:' | 'input:'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) inputs+=Input
+	 */
+	protected void emit_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'outputs:' | 'output:'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) outputs+=Output
+	 */
+	protected void emit_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

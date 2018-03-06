@@ -4,8 +4,9 @@
 package io.deniffel.dsl.useCase.useCase.impl;
 
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
-import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
@@ -35,7 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getName <em>Name</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getDescriptions <em>Descriptions</em>}</li>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getSections <em>Sections</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getOutputs <em>Outputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
  * </ul>
  *
@@ -74,14 +76,24 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected EList<Description> descriptions;
 
   /**
-   * The cached value of the '{@link #getSections() <em>Sections</em>}' containment reference list.
+   * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSections()
+   * @see #getInputs()
    * @generated
    * @ordered
    */
-  protected EList<Attributes> sections;
+  protected EList<Inputs> inputs;
+
+  /**
+   * The cached value of the '{@link #getOutputs() <em>Outputs</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOutputs()
+   * @generated
+   * @ordered
+   */
+  protected EList<Outputs> outputs;
 
   /**
    * The cached value of the '{@link #getAllowedUserGroups() <em>Allowed User Groups</em>}' containment reference list.
@@ -156,13 +168,27 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Attributes> getSections()
+  public EList<Inputs> getInputs()
   {
-    if (sections == null)
+    if (inputs == null)
     {
-      sections = new EObjectContainmentEList<Attributes>(Attributes.class, this, UseCasePackage.USE_CASE__SECTIONS);
+      inputs = new EObjectContainmentEList<Inputs>(Inputs.class, this, UseCasePackage.USE_CASE__INPUTS);
     }
-    return sections;
+    return inputs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Outputs> getOutputs()
+  {
+    if (outputs == null)
+    {
+      outputs = new EObjectContainmentEList<Outputs>(Outputs.class, this, UseCasePackage.USE_CASE__OUTPUTS);
+    }
+    return outputs;
   }
 
   /**
@@ -191,8 +217,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     {
       case UseCasePackage.USE_CASE__DESCRIPTIONS:
         return ((InternalEList<?>)getDescriptions()).basicRemove(otherEnd, msgs);
-      case UseCasePackage.USE_CASE__SECTIONS:
-        return ((InternalEList<?>)getSections()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.USE_CASE__INPUTS:
+        return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.USE_CASE__OUTPUTS:
+        return ((InternalEList<?>)getOutputs()).basicRemove(otherEnd, msgs);
       case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
         return ((InternalEList<?>)getAllowedUserGroups()).basicRemove(otherEnd, msgs);
     }
@@ -213,8 +241,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getName();
       case UseCasePackage.USE_CASE__DESCRIPTIONS:
         return getDescriptions();
-      case UseCasePackage.USE_CASE__SECTIONS:
-        return getSections();
+      case UseCasePackage.USE_CASE__INPUTS:
+        return getInputs();
+      case UseCasePackage.USE_CASE__OUTPUTS:
+        return getOutputs();
       case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
         return getAllowedUserGroups();
     }
@@ -239,9 +269,13 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         getDescriptions().clear();
         getDescriptions().addAll((Collection<? extends Description>)newValue);
         return;
-      case UseCasePackage.USE_CASE__SECTIONS:
-        getSections().clear();
-        getSections().addAll((Collection<? extends Attributes>)newValue);
+      case UseCasePackage.USE_CASE__INPUTS:
+        getInputs().clear();
+        getInputs().addAll((Collection<? extends Inputs>)newValue);
+        return;
+      case UseCasePackage.USE_CASE__OUTPUTS:
+        getOutputs().clear();
+        getOutputs().addAll((Collection<? extends Outputs>)newValue);
         return;
       case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
         getAllowedUserGroups().clear();
@@ -267,8 +301,11 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCasePackage.USE_CASE__DESCRIPTIONS:
         getDescriptions().clear();
         return;
-      case UseCasePackage.USE_CASE__SECTIONS:
-        getSections().clear();
+      case UseCasePackage.USE_CASE__INPUTS:
+        getInputs().clear();
+        return;
+      case UseCasePackage.USE_CASE__OUTPUTS:
+        getOutputs().clear();
         return;
       case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
         getAllowedUserGroups().clear();
@@ -291,8 +328,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCasePackage.USE_CASE__DESCRIPTIONS:
         return descriptions != null && !descriptions.isEmpty();
-      case UseCasePackage.USE_CASE__SECTIONS:
-        return sections != null && !sections.isEmpty();
+      case UseCasePackage.USE_CASE__INPUTS:
+        return inputs != null && !inputs.isEmpty();
+      case UseCasePackage.USE_CASE__OUTPUTS:
+        return outputs != null && !outputs.isEmpty();
       case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
         return allowedUserGroups != null && !allowedUserGroups.isEmpty();
     }

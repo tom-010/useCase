@@ -68,9 +68,11 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.MODEL: return createModel();
       case UseCasePackage.USE_CASE: return createUseCase();
       case UseCasePackage.DESCRIPTION: return createDescription();
-      case UseCasePackage.ATTRIBUTES: return createAttributes();
+      case UseCasePackage.INPUTS: return createInputs();
+      case UseCasePackage.OUTPUTS: return createOutputs();
       case UseCasePackage.TYPE: return createType();
-      case UseCasePackage.ATTRIBUTE: return createAttribute();
+      case UseCasePackage.INPUT: return createInput();
+      case UseCasePackage.OUTPUT: return createOutput();
       case UseCasePackage.ALLOWED_USER_GROUPS: return createAllowedUserGroups();
       case UseCasePackage.ALLOWED_USER_GROUP: return createAllowedUserGroup();
       default:
@@ -116,10 +118,21 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Attributes createAttributes()
+  public Inputs createInputs()
   {
-    AttributesImpl attributes = new AttributesImpl();
-    return attributes;
+    InputsImpl inputs = new InputsImpl();
+    return inputs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Outputs createOutputs()
+  {
+    OutputsImpl outputs = new OutputsImpl();
+    return outputs;
   }
 
   /**
@@ -138,10 +151,21 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Attribute createAttribute()
+  public Input createInput()
   {
-    AttributeImpl attribute = new AttributeImpl();
-    return attribute;
+    InputImpl input = new InputImpl();
+    return input;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Output createOutput()
+  {
+    OutputImpl output = new OutputImpl();
+    return output;
   }
 
   /**

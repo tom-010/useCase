@@ -7,10 +7,12 @@ import com.google.inject.Inject;
 import io.deniffel.dsl.useCase.services.UseCaseGrammarAccess;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
-import io.deniffel.dsl.useCase.useCase.Attribute;
-import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Input;
+import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
+import io.deniffel.dsl.useCase.useCase.Output;
+import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
@@ -45,17 +47,23 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case UseCasePackage.ALLOWED_USER_GROUPS:
 				sequence_AllowedUserGroups(context, (AllowedUserGroups) semanticObject); 
 				return; 
-			case UseCasePackage.ATTRIBUTE:
-				sequence_Attribute(context, (Attribute) semanticObject); 
-				return; 
-			case UseCasePackage.ATTRIBUTES:
-				sequence_Attributes(context, (Attributes) semanticObject); 
-				return; 
 			case UseCasePackage.DESCRIPTION:
 				sequence_Description(context, (Description) semanticObject); 
 				return; 
+			case UseCasePackage.INPUT:
+				sequence_Input(context, (Input) semanticObject); 
+				return; 
+			case UseCasePackage.INPUTS:
+				sequence_Inputs(context, (Inputs) semanticObject); 
+				return; 
 			case UseCasePackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case UseCasePackage.OUTPUT:
+				sequence_Output(context, (Output) semanticObject); 
+				return; 
+			case UseCasePackage.OUTPUTS:
+				sequence_Outputs(context, (Outputs) semanticObject); 
 				return; 
 			case UseCasePackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
@@ -94,30 +102,6 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Attribute returns Attribute
-	 *
-	 * Constraint:
-	 *     (many?='many'? content=STRING type=[Type|ID]?)
-	 */
-	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Attributes returns Attributes
-	 *
-	 * Constraint:
-	 *     attrs+=Attribute+
-	 */
-	protected void sequence_Attributes(ISerializationContext context, Attributes semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Description returns Description
 	 *
 	 * Constraint:
@@ -136,12 +120,60 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Input returns Input
+	 *
+	 * Constraint:
+	 *     (many?='many'? content=STRING type=[Type|ID]?)
+	 */
+	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Inputs returns Inputs
+	 *
+	 * Constraint:
+	 *     inputs+=Input+
+	 */
+	protected void sequence_Inputs(ISerializationContext context, Inputs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
 	 *     ((types+=Type+ useCases+=UseCase+) | useCases+=UseCase+)?
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Output returns Output
+	 *
+	 * Constraint:
+	 *     (many?='many'? content=STRING type=[Type|ID]?)
+	 */
+	protected void sequence_Output(ISerializationContext context, Output semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Outputs returns Outputs
+	 *
+	 * Constraint:
+	 *     outputs+=Output+
+	 */
+	protected void sequence_Outputs(ISerializationContext context, Outputs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -163,7 +195,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     UseCase returns UseCase
 	 *
 	 * Constraint:
-	 *     (name=STRING descriptions+=Description? sections+=Attributes? allowedUserGroups+=AllowedUserGroups?)
+	 *     (name=STRING descriptions+=Description? inputs+=Inputs? outputs+=Outputs? allowedUserGroups+=AllowedUserGroups?)
 	 */
 	protected void sequence_UseCase(ISerializationContext context, UseCase semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -51,13 +51,22 @@ public interface UseCaseFactory extends EFactory
   Description createDescription();
 
   /**
-   * Returns a new object of class '<em>Attributes</em>'.
+   * Returns a new object of class '<em>Inputs</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attributes</em>'.
+   * @return a new object of class '<em>Inputs</em>'.
    * @generated
    */
-  Attributes createAttributes();
+  Inputs createInputs();
+
+  /**
+   * Returns a new object of class '<em>Outputs</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Outputs</em>'.
+   * @generated
+   */
+  Outputs createOutputs();
 
   /**
    * Returns a new object of class '<em>Type</em>'.
@@ -69,13 +78,22 @@ public interface UseCaseFactory extends EFactory
   Type createType();
 
   /**
-   * Returns a new object of class '<em>Attribute</em>'.
+   * Returns a new object of class '<em>Input</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attribute</em>'.
+   * @return a new object of class '<em>Input</em>'.
    * @generated
    */
-  Attribute createAttribute();
+  Input createInput();
+
+  /**
+   * Returns a new object of class '<em>Output</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Output</em>'.
+   * @generated
+   */
+  Output createOutput();
 
   /**
    * Returns a new object of class '<em>Allowed User Groups</em>'.

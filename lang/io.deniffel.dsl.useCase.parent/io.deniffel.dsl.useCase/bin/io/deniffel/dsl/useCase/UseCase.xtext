@@ -10,21 +10,29 @@ Model:
 UseCase:
 	'use-case' name=STRING
 	(descriptions+=Description)?
-	(sections+=Attributes)?
+	(inputs+=Inputs)?
+	(outputs+=Outputs)?
 	(allowedUserGroups+=AllowedUserGroups)?
 	'end' 'of' 'use-case';
 
 Description:
 	'description:' name=STRING;
 	
-Attributes:
-	'attributes:'
-	(attrs+=Attribute)*;
+Inputs:
+	('inputs:'|'input:')
+	(inputs+=Input)*;
+	
+Outputs:
+	('outputs:'|'output:')
+	(outputs+=Output)*;
 
 Type:
     'type' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
     
-Attribute:
+Input:
+	(many?='many')? '-' content=STRING ('as' type=[Type])?;
+	
+Output:
 	(many?='many')? '-' content=STRING ('as' type=[Type])?;
 	
 AllowedUserGroups:

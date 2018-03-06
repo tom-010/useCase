@@ -47,25 +47,37 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getUseCase_DescriptionsDescriptionParserRuleCall_2_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_SectionsAttributesParserRuleCall_3_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_InputsInputsParserRuleCall_3_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_4_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_OutputsOutputsParserRuleCall_4_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getDescriptionElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getAttributesElementType()) {
+			if (elementType == elementTypeProvider.getInputsElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getAttributes_AttrsAttributeParserRuleCall_1_0ElementType()) {
+			if (elementType == elementTypeProvider.getInputs_InputsInputParserRuleCall_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getOutputsElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getOutputs_OutputsOutputParserRuleCall_1_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getTypeElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getAttributeElementType()) {
+			if (elementType == elementTypeProvider.getInputElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getOutputElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getAllowedUserGroupsElementType()) {

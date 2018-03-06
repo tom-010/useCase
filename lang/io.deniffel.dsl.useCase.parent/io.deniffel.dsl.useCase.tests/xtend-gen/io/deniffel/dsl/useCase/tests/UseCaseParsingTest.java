@@ -5,8 +5,6 @@ package io.deniffel.dsl.useCase.tests;
 
 import com.google.inject.Inject;
 import io.deniffel.dsl.useCase.tests.UseCaseInjectorProvider;
-import io.deniffel.dsl.useCase.useCase.Attributes;
-import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -14,7 +12,6 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
-import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.Assert;
@@ -51,27 +48,10 @@ public class UseCaseParsingTest {
   
   @Test
   public void descriptionSecionIsAddedToTheModelAsString() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("use-case \"Create a new User\"");
-      _builder.newLine();
-      _builder.append("description: \"This is a test\"");
-      _builder.newLine();
-      _builder.append("end of use-case");
-      _builder.newLine();
-      final UseCase model = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(model);
-      final EList<Resource.Diagnostic> errors = model.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-      Assert.assertEquals(1, ((Object[])Conversions.unwrapArray(model.getSections(), Object.class)).length);
-      Attributes _get = model.getSections().get(0);
-      Assert.assertTrue((_get instanceof Description));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field sections is undefined for the type UseCase"
+      + "\nThe method or field sections is undefined for the type UseCase"
+      + "\nlength cannot be resolved"
+      + "\nget cannot be resolved");
   }
 }

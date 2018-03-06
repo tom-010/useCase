@@ -123,13 +123,22 @@ public interface UseCasePackage extends EPackage
   int USE_CASE__DESCRIPTIONS = 1;
 
   /**
-   * The feature id for the '<em><b>Sections</b></em>' containment reference list.
+   * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__SECTIONS = 2;
+  int USE_CASE__INPUTS = 2;
+
+  /**
+   * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__OUTPUTS = 3;
 
   /**
    * The feature id for the '<em><b>Allowed User Groups</b></em>' containment reference list.
@@ -138,7 +147,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__ALLOWED_USER_GROUPS = 3;
+  int USE_CASE__ALLOWED_USER_GROUPS = 4;
 
   /**
    * The number of structural features of the '<em>Use Case</em>' class.
@@ -147,7 +156,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE_FEATURE_COUNT = 4;
+  int USE_CASE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.DescriptionImpl <em>Description</em>}' class.
@@ -178,32 +187,60 @@ public interface UseCasePackage extends EPackage
   int DESCRIPTION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.AttributesImpl <em>Attributes</em>}' class.
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.InputsImpl <em>Inputs</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see io.deniffel.dsl.useCase.useCase.impl.AttributesImpl
-   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAttributes()
+   * @see io.deniffel.dsl.useCase.useCase.impl.InputsImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getInputs()
    * @generated
    */
-  int ATTRIBUTES = 3;
+  int INPUTS = 3;
 
   /**
-   * The feature id for the '<em><b>Attrs</b></em>' containment reference list.
+   * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTES__ATTRS = 0;
+  int INPUTS__INPUTS = 0;
 
   /**
-   * The number of structural features of the '<em>Attributes</em>' class.
+   * The number of structural features of the '<em>Inputs</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTES_FEATURE_COUNT = 1;
+  int INPUTS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.OutputsImpl <em>Outputs</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.OutputsImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutputs()
+   * @generated
+   */
+  int OUTPUTS = 4;
+
+  /**
+   * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUTS__OUTPUTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Outputs</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUTS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.TypeImpl <em>Type</em>}' class.
@@ -213,7 +250,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getType()
    * @generated
    */
-  int TYPE = 4;
+  int TYPE = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -252,14 +289,14 @@ public interface UseCasePackage extends EPackage
   int TYPE_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.AttributeImpl <em>Attribute</em>}' class.
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.InputImpl <em>Input</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see io.deniffel.dsl.useCase.useCase.impl.AttributeImpl
-   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAttribute()
+   * @see io.deniffel.dsl.useCase.useCase.impl.InputImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getInput()
    * @generated
    */
-  int ATTRIBUTE = 5;
+  int INPUT = 6;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -268,7 +305,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__MANY = 0;
+  int INPUT__MANY = 0;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -277,7 +314,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__CONTENT = 1;
+  int INPUT__CONTENT = 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -286,16 +323,62 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__TYPE = 2;
+  int INPUT__TYPE = 2;
 
   /**
-   * The number of structural features of the '<em>Attribute</em>' class.
+   * The number of structural features of the '<em>Input</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = 3;
+  int INPUT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl <em>Output</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.OutputImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutput()
+   * @generated
+   */
+  int OUTPUT = 7;
+
+  /**
+   * The feature id for the '<em><b>Many</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT__MANY = 0;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT__CONTENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT__TYPE = 2;
+
+  /**
+   * The number of structural features of the '<em>Output</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupsImpl <em>Allowed User Groups</em>}' class.
@@ -305,7 +388,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroups()
    * @generated
    */
-  int ALLOWED_USER_GROUPS = 6;
+  int ALLOWED_USER_GROUPS = 8;
 
   /**
    * The feature id for the '<em><b>Groups</b></em>' containment reference list.
@@ -333,7 +416,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroup()
    * @generated
    */
-  int ALLOWED_USER_GROUP = 7;
+  int ALLOWED_USER_GROUP = 9;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -437,15 +520,26 @@ public interface UseCasePackage extends EPackage
   EReference getUseCase_Descriptions();
 
   /**
-   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getSections <em>Sections</em>}'.
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getInputs <em>Inputs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Sections</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.UseCase#getSections()
+   * @return the meta object for the containment reference list '<em>Inputs</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.UseCase#getInputs()
    * @see #getUseCase()
    * @generated
    */
-  EReference getUseCase_Sections();
+  EReference getUseCase_Inputs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getOutputs <em>Outputs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Outputs</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.UseCase#getOutputs()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_Outputs();
 
   /**
    * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}'.
@@ -480,25 +574,46 @@ public interface UseCasePackage extends EPackage
   EAttribute getDescription_Name();
 
   /**
-   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Attributes <em>Attributes</em>}'.
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Inputs <em>Inputs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Attributes</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.Attributes
+   * @return the meta object for class '<em>Inputs</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Inputs
    * @generated
    */
-  EClass getAttributes();
+  EClass getInputs();
 
   /**
-   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Attributes#getAttrs <em>Attrs</em>}'.
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Inputs#getInputs <em>Inputs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Attrs</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.Attributes#getAttrs()
-   * @see #getAttributes()
+   * @return the meta object for the containment reference list '<em>Inputs</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Inputs#getInputs()
+   * @see #getInputs()
    * @generated
    */
-  EReference getAttributes_Attrs();
+  EReference getInputs_Inputs();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Outputs <em>Outputs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Outputs</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Outputs
+   * @generated
+   */
+  EClass getOutputs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Outputs#getOutputs <em>Outputs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Outputs</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Outputs#getOutputs()
+   * @see #getOutputs()
+   * @generated
+   */
+  EReference getOutputs_Outputs();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Type <em>Type</em>}'.
@@ -544,47 +659,90 @@ public interface UseCasePackage extends EPackage
   EAttribute getType_ImportInfo();
 
   /**
-   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Attribute <em>Attribute</em>}'.
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Input <em>Input</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Attribute</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.Attribute
+   * @return the meta object for class '<em>Input</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Input
    * @generated
    */
-  EClass getAttribute();
+  EClass getInput();
 
   /**
-   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Attribute#isMany <em>Many</em>}'.
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Input#isMany <em>Many</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Many</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.Attribute#isMany()
-   * @see #getAttribute()
+   * @see io.deniffel.dsl.useCase.useCase.Input#isMany()
+   * @see #getInput()
    * @generated
    */
-  EAttribute getAttribute_Many();
+  EAttribute getInput_Many();
 
   /**
-   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Attribute#getContent <em>Content</em>}'.
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Input#getContent <em>Content</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Content</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.Attribute#getContent()
-   * @see #getAttribute()
+   * @see io.deniffel.dsl.useCase.useCase.Input#getContent()
+   * @see #getInput()
    * @generated
    */
-  EAttribute getAttribute_Content();
+  EAttribute getInput_Content();
 
   /**
-   * Returns the meta object for the reference '{@link io.deniffel.dsl.useCase.useCase.Attribute#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link io.deniffel.dsl.useCase.useCase.Input#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Type</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.Attribute#getType()
-   * @see #getAttribute()
+   * @see io.deniffel.dsl.useCase.useCase.Input#getType()
+   * @see #getInput()
    * @generated
    */
-  EReference getAttribute_Type();
+  EReference getInput_Type();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Output <em>Output</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Output</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Output
+   * @generated
+   */
+  EClass getOutput();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Output#isMany <em>Many</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Many</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Output#isMany()
+   * @see #getOutput()
+   * @generated
+   */
+  EAttribute getOutput_Many();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Output#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Output#getContent()
+   * @see #getOutput()
+   * @generated
+   */
+  EAttribute getOutput_Content();
+
+  /**
+   * Returns the meta object for the reference '{@link io.deniffel.dsl.useCase.useCase.Output#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Output#getType()
+   * @see #getOutput()
+   * @generated
+   */
+  EReference getOutput_Type();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroups <em>Allowed User Groups</em>}'.
@@ -726,12 +884,20 @@ public interface UseCasePackage extends EPackage
     EReference USE_CASE__DESCRIPTIONS = eINSTANCE.getUseCase_Descriptions();
 
     /**
-     * The meta object literal for the '<em><b>Sections</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Inputs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference USE_CASE__SECTIONS = eINSTANCE.getUseCase_Sections();
+    EReference USE_CASE__INPUTS = eINSTANCE.getUseCase_Inputs();
+
+    /**
+     * The meta object literal for the '<em><b>Outputs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__OUTPUTS = eINSTANCE.getUseCase_Outputs();
 
     /**
      * The meta object literal for the '<em><b>Allowed User Groups</b></em>' containment reference list feature.
@@ -760,22 +926,40 @@ public interface UseCasePackage extends EPackage
     EAttribute DESCRIPTION__NAME = eINSTANCE.getDescription_Name();
 
     /**
-     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.AttributesImpl <em>Attributes</em>}' class.
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.InputsImpl <em>Inputs</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see io.deniffel.dsl.useCase.useCase.impl.AttributesImpl
-     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAttributes()
+     * @see io.deniffel.dsl.useCase.useCase.impl.InputsImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getInputs()
      * @generated
      */
-    EClass ATTRIBUTES = eINSTANCE.getAttributes();
+    EClass INPUTS = eINSTANCE.getInputs();
 
     /**
-     * The meta object literal for the '<em><b>Attrs</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Inputs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ATTRIBUTES__ATTRS = eINSTANCE.getAttributes_Attrs();
+    EReference INPUTS__INPUTS = eINSTANCE.getInputs_Inputs();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.OutputsImpl <em>Outputs</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.OutputsImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutputs()
+     * @generated
+     */
+    EClass OUTPUTS = eINSTANCE.getOutputs();
+
+    /**
+     * The meta object literal for the '<em><b>Outputs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OUTPUTS__OUTPUTS = eINSTANCE.getOutputs_Outputs();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.TypeImpl <em>Type</em>}' class.
@@ -812,14 +996,14 @@ public interface UseCasePackage extends EPackage
     EAttribute TYPE__IMPORT_INFO = eINSTANCE.getType_ImportInfo();
 
     /**
-     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.AttributeImpl <em>Attribute</em>}' class.
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.InputImpl <em>Input</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see io.deniffel.dsl.useCase.useCase.impl.AttributeImpl
-     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAttribute()
+     * @see io.deniffel.dsl.useCase.useCase.impl.InputImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getInput()
      * @generated
      */
-    EClass ATTRIBUTE = eINSTANCE.getAttribute();
+    EClass INPUT = eINSTANCE.getInput();
 
     /**
      * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
@@ -827,7 +1011,7 @@ public interface UseCasePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE__MANY = eINSTANCE.getAttribute_Many();
+    EAttribute INPUT__MANY = eINSTANCE.getInput_Many();
 
     /**
      * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
@@ -835,7 +1019,7 @@ public interface UseCasePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE__CONTENT = eINSTANCE.getAttribute_Content();
+    EAttribute INPUT__CONTENT = eINSTANCE.getInput_Content();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -843,7 +1027,41 @@ public interface UseCasePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+    EReference INPUT__TYPE = eINSTANCE.getInput_Type();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl <em>Output</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.OutputImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutput()
+     * @generated
+     */
+    EClass OUTPUT = eINSTANCE.getOutput();
+
+    /**
+     * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTPUT__MANY = eINSTANCE.getOutput_Many();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTPUT__CONTENT = eINSTANCE.getOutput_Content();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OUTPUT__TYPE = eINSTANCE.getOutput_Type();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupsImpl <em>Allowed User Groups</em>}' class.

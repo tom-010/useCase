@@ -3,7 +3,7 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
-import io.deniffel.dsl.useCase.useCase.Attribute;
+import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
@@ -17,20 +17,20 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attribute</b></em>'.
+ * An implementation of the model object '<em><b>Output</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.AttributeImpl#isMany <em>Many</em>}</li>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.AttributeImpl#getContent <em>Content</em>}</li>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.AttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AttributeImpl extends MinimalEObjectImpl.Container implements Attribute
+public class OutputImpl extends MinimalEObjectImpl.Container implements Output
 {
   /**
    * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
@@ -87,7 +87,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AttributeImpl()
+  protected OutputImpl()
   {
     super();
   }
@@ -100,7 +100,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   @Override
   protected EClass eStaticClass()
   {
-    return UseCasePackage.Literals.ATTRIBUTE;
+    return UseCasePackage.Literals.OUTPUT;
   }
 
   /**
@@ -123,7 +123,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     boolean oldMany = many;
     many = newMany;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.ATTRIBUTE__MANY, oldMany, many));
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.OUTPUT__MANY, oldMany, many));
   }
 
   /**
@@ -146,7 +146,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     String oldContent = content;
     content = newContent;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.ATTRIBUTE__CONTENT, oldContent, content));
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.OUTPUT__CONTENT, oldContent, content));
   }
 
   /**
@@ -163,7 +163,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       if (type != oldType)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UseCasePackage.ATTRIBUTE__TYPE, oldType, type));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UseCasePackage.OUTPUT__TYPE, oldType, type));
       }
     }
     return type;
@@ -189,7 +189,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     Type oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.ATTRIBUTE__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.OUTPUT__TYPE, oldType, type));
   }
 
   /**
@@ -202,11 +202,11 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTE__MANY:
+      case UseCasePackage.OUTPUT__MANY:
         return isMany();
-      case UseCasePackage.ATTRIBUTE__CONTENT:
+      case UseCasePackage.OUTPUT__CONTENT:
         return getContent();
-      case UseCasePackage.ATTRIBUTE__TYPE:
+      case UseCasePackage.OUTPUT__TYPE:
         if (resolve) return getType();
         return basicGetType();
     }
@@ -223,13 +223,13 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTE__MANY:
+      case UseCasePackage.OUTPUT__MANY:
         setMany((Boolean)newValue);
         return;
-      case UseCasePackage.ATTRIBUTE__CONTENT:
+      case UseCasePackage.OUTPUT__CONTENT:
         setContent((String)newValue);
         return;
-      case UseCasePackage.ATTRIBUTE__TYPE:
+      case UseCasePackage.OUTPUT__TYPE:
         setType((Type)newValue);
         return;
     }
@@ -246,13 +246,13 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTE__MANY:
+      case UseCasePackage.OUTPUT__MANY:
         setMany(MANY_EDEFAULT);
         return;
-      case UseCasePackage.ATTRIBUTE__CONTENT:
+      case UseCasePackage.OUTPUT__CONTENT:
         setContent(CONTENT_EDEFAULT);
         return;
-      case UseCasePackage.ATTRIBUTE__TYPE:
+      case UseCasePackage.OUTPUT__TYPE:
         setType((Type)null);
         return;
     }
@@ -269,11 +269,11 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTE__MANY:
+      case UseCasePackage.OUTPUT__MANY:
         return many != MANY_EDEFAULT;
-      case UseCasePackage.ATTRIBUTE__CONTENT:
+      case UseCasePackage.OUTPUT__CONTENT:
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
-      case UseCasePackage.ATTRIBUTE__TYPE:
+      case UseCasePackage.OUTPUT__TYPE:
         return type != null;
     }
     return super.eIsSet(featureID);
@@ -298,4 +298,4 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     return result.toString();
   }
 
-} //AttributeImpl
+} //OutputImpl

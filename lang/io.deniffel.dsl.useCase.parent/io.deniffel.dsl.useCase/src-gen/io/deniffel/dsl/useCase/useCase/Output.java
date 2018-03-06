@@ -7,23 +7,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Attribute</b></em>'.
+ * A representation of the model object '<em><b>Output</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.Attribute#isMany <em>Many</em>}</li>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.Attribute#getContent <em>Content</em>}</li>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.Attribute#getType <em>Type</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Output#isMany <em>Many</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Output#getContent <em>Content</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Output#getType <em>Type</em>}</li>
  * </ul>
  *
- * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getAttribute()
+ * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getOutput()
  * @model
  * @generated
  */
-public interface Attribute extends EObject
+public interface Output extends EObject
 {
   /**
    * Returns the value of the '<em><b>Many</b></em>' attribute.
@@ -35,14 +35,14 @@ public interface Attribute extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Many</em>' attribute.
    * @see #setMany(boolean)
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getAttribute_Many()
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getOutput_Many()
    * @model
    * @generated
    */
   boolean isMany();
 
   /**
-   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Attribute#isMany <em>Many</em>}' attribute.
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Output#isMany <em>Many</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Many</em>' attribute.
@@ -61,14 +61,14 @@ public interface Attribute extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Content</em>' attribute.
    * @see #setContent(String)
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getAttribute_Content()
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getOutput_Content()
    * @model
    * @generated
    */
   String getContent();
 
   /**
-   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Attribute#getContent <em>Content</em>}' attribute.
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Output#getContent <em>Content</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Content</em>' attribute.
@@ -87,14 +87,14 @@ public interface Attribute extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' reference.
    * @see #setType(Type)
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getAttribute_Type()
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getOutput_Type()
    * @model
    * @generated
    */
   Type getType();
 
   /**
-   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Attribute#getType <em>Type</em>}' reference.
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Output#getType <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' reference.
@@ -103,4 +103,4 @@ public interface Attribute extends EObject
    */
   void setType(Type value);
 
-} // Attribute
+} // Output

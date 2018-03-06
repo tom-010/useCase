@@ -13,24 +13,33 @@
     <genClasses ecoreClass="UseCase.ecore#//UseCase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//UseCase/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/descriptions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/sections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/outputs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/allowedUserGroups"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Description/name"/>
     </genClasses>
-    <genClasses ecoreClass="UseCase.ecore#//Attributes">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Attributes/attrs"/>
+    <genClasses ecoreClass="UseCase.ecore#//Inputs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Inputs/inputs"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Outputs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Outputs/outputs"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Type/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Type/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Type/importInfo"/>
     </genClasses>
-    <genClasses ecoreClass="UseCase.ecore#//Attribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Attribute/many"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Attribute/content"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCase.ecore#//Attribute/type"/>
+    <genClasses ecoreClass="UseCase.ecore#//Input">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Input/many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Input/content"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCase.ecore#//Input/type"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Output">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Output/many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Output/content"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCase.ecore#//Output/type"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//AllowedUserGroups">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//AllowedUserGroups/groups"/>

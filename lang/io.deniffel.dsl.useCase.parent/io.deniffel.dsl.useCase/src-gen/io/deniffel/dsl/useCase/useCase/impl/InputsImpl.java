@@ -3,8 +3,8 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
-import io.deniffel.dsl.useCase.useCase.Attribute;
-import io.deniffel.dsl.useCase.useCase.Attributes;
+import io.deniffel.dsl.useCase.useCase.Input;
+import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import java.util.Collection;
@@ -23,35 +23,35 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attributes</b></em>'.
+ * An implementation of the model object '<em><b>Inputs</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.AttributesImpl#getAttrs <em>Attrs</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.InputsImpl#getInputs <em>Inputs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AttributesImpl extends MinimalEObjectImpl.Container implements Attributes
+public class InputsImpl extends MinimalEObjectImpl.Container implements Inputs
 {
   /**
-   * The cached value of the '{@link #getAttrs() <em>Attrs</em>}' containment reference list.
+   * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttrs()
+   * @see #getInputs()
    * @generated
    * @ordered
    */
-  protected EList<Attribute> attrs;
+  protected EList<Input> inputs;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AttributesImpl()
+  protected InputsImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   @Override
   protected EClass eStaticClass()
   {
-    return UseCasePackage.Literals.ATTRIBUTES;
+    return UseCasePackage.Literals.INPUTS;
   }
 
   /**
@@ -72,13 +72,13 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Attribute> getAttrs()
+  public EList<Input> getInputs()
   {
-    if (attrs == null)
+    if (inputs == null)
     {
-      attrs = new EObjectContainmentEList<Attribute>(Attribute.class, this, UseCasePackage.ATTRIBUTES__ATTRS);
+      inputs = new EObjectContainmentEList<Input>(Input.class, this, UseCasePackage.INPUTS__INPUTS);
     }
-    return attrs;
+    return inputs;
   }
 
   /**
@@ -91,8 +91,8 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTES__ATTRS:
-        return ((InternalEList<?>)getAttrs()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.INPUTS__INPUTS:
+        return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTES__ATTRS:
-        return getAttrs();
+      case UseCasePackage.INPUTS__INPUTS:
+        return getInputs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTES__ATTRS:
-        getAttrs().clear();
-        getAttrs().addAll((Collection<? extends Attribute>)newValue);
+      case UseCasePackage.INPUTS__INPUTS:
+        getInputs().clear();
+        getInputs().addAll((Collection<? extends Input>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTES__ATTRS:
-        getAttrs().clear();
+      case UseCasePackage.INPUTS__INPUTS:
+        getInputs().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +159,10 @@ public class AttributesImpl extends MinimalEObjectImpl.Container implements Attr
   {
     switch (featureID)
     {
-      case UseCasePackage.ATTRIBUTES__ATTRS:
-        return attrs != null && !attrs.isEmpty();
+      case UseCasePackage.INPUTS__INPUTS:
+        return inputs != null && !inputs.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //AttributesImpl
+} //InputsImpl

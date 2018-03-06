@@ -3,10 +3,12 @@ package io.deniffel.dsl.useCase.generator;
 import com.google.common.collect.Iterables;
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
-import io.deniffel.dsl.useCase.useCase.Attribute;
-import io.deniffel.dsl.useCase.useCase.Attributes;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Input;
+import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
+import io.deniffel.dsl.useCase.useCase.Output;
+import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import org.eclipse.emf.common.util.EList;
@@ -86,12 +88,25 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append(_convert);
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
     {
-      EList<Attributes> _sections = usecase.getSections();
-      for(final Attributes s : _sections) {
+      EList<Inputs> _inputs = usecase.getInputs();
+      for(final Inputs s : _inputs) {
         _builder.append("\t");
         CharSequence _compile_2 = this.compile(s);
         _builder.append(_compile_2, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<Outputs> _outputs = usecase.getOutputs();
+      for(final Outputs s_1 : _outputs) {
+        _builder.append("\t");
+        CharSequence _compile_3 = this.compile(s_1);
+        _builder.append(_compile_3, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -125,28 +140,120 @@ public class UseCaseGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final Attributes attrs) {
+  public CharSequence compile(final Inputs inputs) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public static class Input {");
+    _builder.newLine();
     {
-      EList<Attribute> _attrs = attrs.getAttrs();
-      for(final Attribute a : _attrs) {
-        CharSequence _compile = this.compile(a);
-        _builder.append(_compile);
+      EList<Input> _inputs = inputs.getInputs();
+      for(final Input i : _inputs) {
+        _builder.append("\t");
+        _builder.append("public ");
+        CharSequence _compile = this.compile(i);
+        _builder.append(_compile, "\t");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public Input(");
+    final Function1<Input, CharSequence> _function = (Input it) -> {
+      return this.compile(it);
+    };
+    String _join = IterableExtensions.<Input>join(inputs.getInputs(), ", ", _function);
+    _builder.append(_join, "\t");
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Input> _inputs_1 = inputs.getInputs();
+      for(final Input i_1 : _inputs_1) {
+        _builder.append("\t\t");
+        _builder.append("this.");
+        String _content = i_1.getContent();
+        _builder.append(_content, "\t\t");
+        _builder.append(" = ");
+        String _content_1 = i_1.getContent();
+        _builder.append(_content_1, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     return _builder;
   }
   
-  public CharSequence compile(final Attribute attribute) {
+  public CharSequence compile(final Outputs outputs) {
     StringConcatenation _builder = new StringConcatenation();
-    String _name = attribute.getType().getName();
+    _builder.append("public static class Output {");
+    _builder.newLine();
+    {
+      EList<Output> _outputs = outputs.getOutputs();
+      for(final Output o : _outputs) {
+        _builder.append("\t");
+        _builder.append("public ");
+        CharSequence _compile = this.compile(o);
+        _builder.append(_compile, "\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public Output(");
+    final Function1<Output, CharSequence> _function = (Output it) -> {
+      return this.compile(it);
+    };
+    String _join = IterableExtensions.<Output>join(outputs.getOutputs(), ", ", _function);
+    _builder.append(_join, "\t");
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Output> _outputs_1 = outputs.getOutputs();
+      for(final Output o_1 : _outputs_1) {
+        _builder.append("\t\t");
+        _builder.append("this.");
+        String _content = o_1.getContent();
+        _builder.append(_content, "\t\t");
+        _builder.append(" = ");
+        String _content_1 = o_1.getContent();
+        _builder.append(_content_1, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Output output) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = output.getType().getName();
     _builder.append(_name);
     _builder.append(" ");
-    String _content = attribute.getContent();
+    String _content = output.getContent();
     _builder.append(_content);
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Input input) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = input.getType().getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    String _content = input.getContent();
+    _builder.append(_content);
     return _builder;
   }
   
