@@ -9,4 +9,9 @@ import { environment } from '../environments/environment';
 export class AppComponent {
   title = 'Use-Case';
   production = environment.production
+  showBanner = true;
+
+  hideBanner() {
+    this.showBanner = false;
+  }
 }

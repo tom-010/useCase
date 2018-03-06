@@ -1,10 +1,9 @@
-<hr>
+
 <h2>My Heroes</h2>
-    <ul class="heroes">
-        <li *ngFor="let hero of heroes">
-            <a routerLink="/use-case/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span> {{hero.name}}
-            </a>
-        </li>
-    </ul>
-<hr>
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <a routerLink="/use-case/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+    </li>
+</ul>
