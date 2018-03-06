@@ -94,6 +94,13 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UseCasePackage.NOTES:
+      {
+        Notes notes = (Notes)theEObject;
+        T result = caseNotes(notes);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case UseCasePackage.INPUTS:
       {
         Inputs inputs = (Inputs)theEObject;
@@ -191,6 +198,22 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDescription(Description object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Notes</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Notes</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNotes(Notes object)
   {
     return null;
   }

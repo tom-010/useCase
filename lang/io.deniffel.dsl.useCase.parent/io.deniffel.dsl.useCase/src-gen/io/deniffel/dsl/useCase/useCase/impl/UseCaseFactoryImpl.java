@@ -68,6 +68,7 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.MODEL: return createModel();
       case UseCasePackage.USE_CASE: return createUseCase();
       case UseCasePackage.DESCRIPTION: return createDescription();
+      case UseCasePackage.NOTES: return createNotes();
       case UseCasePackage.INPUTS: return createInputs();
       case UseCasePackage.OUTPUTS: return createOutputs();
       case UseCasePackage.TYPE: return createType();
@@ -111,6 +112,17 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     DescriptionImpl description = new DescriptionImpl();
     return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Notes createNotes()
+  {
+    NotesImpl notes = new NotesImpl();
+    return notes;
   }
 
   /**

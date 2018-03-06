@@ -91,6 +91,11 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
         return createDescriptionAdapter();
       }
       @Override
+      public Adapter caseNotes(Notes object)
+      {
+        return createNotesAdapter();
+      }
+      @Override
       public Adapter caseInputs(Inputs object)
       {
         return createInputsAdapter();
@@ -188,6 +193,21 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDescriptionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.Notes <em>Notes</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.Notes
+   * @generated
+   */
+  public Adapter createNotesAdapter()
   {
     return null;
   }

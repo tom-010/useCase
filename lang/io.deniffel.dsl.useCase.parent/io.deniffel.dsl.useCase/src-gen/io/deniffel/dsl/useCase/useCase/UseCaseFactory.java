@@ -51,6 +51,15 @@ public interface UseCaseFactory extends EFactory
   Description createDescription();
 
   /**
+   * Returns a new object of class '<em>Notes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Notes</em>'.
+   * @generated
+   */
+  Notes createNotes();
+
+  /**
    * Returns a new object of class '<em>Inputs</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

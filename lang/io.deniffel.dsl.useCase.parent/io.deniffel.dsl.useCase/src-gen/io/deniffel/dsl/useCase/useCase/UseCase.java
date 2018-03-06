@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getInputs <em>Inputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getOutputs <em>Outputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getNotes <em>Notes</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase()
@@ -118,5 +119,21 @@ public interface UseCase extends EObject
    * @generated
    */
   EList<AllowedUserGroups> getAllowedUserGroups();
+
+  /**
+   * Returns the value of the '<em><b>Notes</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Notes}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Notes</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Notes</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase_Notes()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Notes> getNotes();
 
 } // UseCase

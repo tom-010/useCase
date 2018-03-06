@@ -6,6 +6,7 @@ package io.deniffel.dsl.useCase.useCase.impl;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
@@ -39,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getInputs <em>Inputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getOutputs <em>Outputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getNotes <em>Notes</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,6 +106,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected EList<AllowedUserGroups> allowedUserGroups;
+
+  /**
+   * The cached value of the '{@link #getNotes() <em>Notes</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNotes()
+   * @generated
+   * @ordered
+   */
+  protected EList<Notes> notes;
 
   /**
    * <!-- begin-user-doc -->
@@ -210,6 +222,20 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Notes> getNotes()
+  {
+    if (notes == null)
+    {
+      notes = new EObjectContainmentEList<Notes>(Notes.class, this, UseCasePackage.USE_CASE__NOTES);
+    }
+    return notes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -223,6 +249,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return ((InternalEList<?>)getOutputs()).basicRemove(otherEnd, msgs);
       case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
         return ((InternalEList<?>)getAllowedUserGroups()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.USE_CASE__NOTES:
+        return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -247,6 +275,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getOutputs();
       case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
         return getAllowedUserGroups();
+      case UseCasePackage.USE_CASE__NOTES:
+        return getNotes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -281,6 +311,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         getAllowedUserGroups().clear();
         getAllowedUserGroups().addAll((Collection<? extends AllowedUserGroups>)newValue);
         return;
+      case UseCasePackage.USE_CASE__NOTES:
+        getNotes().clear();
+        getNotes().addAll((Collection<? extends Notes>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -310,6 +344,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
         getAllowedUserGroups().clear();
         return;
+      case UseCasePackage.USE_CASE__NOTES:
+        getNotes().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -334,6 +371,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return outputs != null && !outputs.isEmpty();
       case UseCasePackage.USE_CASE__ALLOWED_USER_GROUPS:
         return allowedUserGroups != null && !allowedUserGroups.isEmpty();
+      case UseCasePackage.USE_CASE__NOTES:
+        return notes != null && !notes.isEmpty();
     }
     return super.eIsSet(featureID);
   }

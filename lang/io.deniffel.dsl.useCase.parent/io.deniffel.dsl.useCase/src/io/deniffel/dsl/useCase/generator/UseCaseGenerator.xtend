@@ -55,6 +55,13 @@ class UseCaseGenerator extends AbstractGenerator {
 		«FOR s:usecase.outputs»
 			«s.compile»
 		«ENDFOR»
+		
+		
+		/* NOTES:
+		«FOR n:usecase.notes»
+		«n.content»
+		«ENDFOR»
+		*/
 	}
 	'''
 	

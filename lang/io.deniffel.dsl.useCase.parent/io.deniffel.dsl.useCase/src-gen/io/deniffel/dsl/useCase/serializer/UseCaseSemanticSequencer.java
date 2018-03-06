@@ -11,6 +11,7 @@ import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
+import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.Type;
@@ -58,6 +59,9 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case UseCasePackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case UseCasePackage.NOTES:
+				sequence_Notes(context, (Notes) semanticObject); 
 				return; 
 			case UseCasePackage.OUTPUT:
 				sequence_Output(context, (Output) semanticObject); 
@@ -156,6 +160,24 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Notes returns Notes
+	 *
+	 * Constraint:
+	 *     content=STRING
+	 */
+	protected void sequence_Notes(ISerializationContext context, Notes semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.NOTES__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.NOTES__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNotesAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Output returns Output
 	 *
 	 * Constraint:
@@ -195,7 +217,14 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     UseCase returns UseCase
 	 *
 	 * Constraint:
-	 *     (name=STRING descriptions+=Description? inputs+=Inputs? outputs+=Outputs? allowedUserGroups+=AllowedUserGroups?)
+	 *     (
+	 *         name=STRING 
+	 *         descriptions+=Description? 
+	 *         inputs+=Inputs? 
+	 *         outputs+=Outputs? 
+	 *         allowedUserGroups+=AllowedUserGroups? 
+	 *         notes+=Notes?
+	 *     )
 	 */
 	protected void sequence_UseCase(ISerializationContext context, UseCase semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

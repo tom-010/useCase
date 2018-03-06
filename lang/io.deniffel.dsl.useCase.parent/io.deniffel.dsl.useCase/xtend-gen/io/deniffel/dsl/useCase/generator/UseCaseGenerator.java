@@ -7,6 +7,7 @@ import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
+import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.Type;
@@ -110,6 +111,25 @@ public class UseCaseGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("/* NOTES:");
+    _builder.newLine();
+    {
+      EList<Notes> _notes = usecase.getNotes();
+      for(final Notes n : _notes) {
+        _builder.append("\t");
+        String _content = n.getContent();
+        _builder.append(_content, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;

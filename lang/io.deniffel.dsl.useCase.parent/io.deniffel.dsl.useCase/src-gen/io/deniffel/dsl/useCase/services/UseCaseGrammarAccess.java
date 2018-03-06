@@ -65,9 +65,11 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOutputsOutputsParserRuleCall_4_0 = (RuleCall)cOutputsAssignment_4.eContents().get(0);
 		private final Assignment cAllowedUserGroupsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cAllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0 = (RuleCall)cAllowedUserGroupsAssignment_5.eContents().get(0);
-		private final Keyword cEndKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cOfKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cUseCaseKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cNotesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cNotesNotesParserRuleCall_6_0 = (RuleCall)cNotesAssignment_6.eContents().get(0);
+		private final Keyword cEndKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cOfKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cUseCaseKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//UseCase:
 		//	'use-case' name=STRING
@@ -75,11 +77,12 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//	inputs+=Inputs?
 		//	outputs+=Outputs?
 		//	allowedUserGroups+=AllowedUserGroups?
+		//	notes+=Notes?
 		//	'end' 'of' 'use-case';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'use-case' name=STRING descriptions+=Description? inputs+=Inputs? outputs+=Outputs?
-		//allowedUserGroups+=AllowedUserGroups? 'end' 'of' 'use-case'
+		//allowedUserGroups+=AllowedUserGroups? notes+=Notes? 'end' 'of' 'use-case'
 		public Group getGroup() { return cGroup; }
 		
 		//'use-case'
@@ -115,14 +118,20 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//AllowedUserGroups
 		public RuleCall getAllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0() { return cAllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0; }
 		
+		//notes+=Notes?
+		public Assignment getNotesAssignment_6() { return cNotesAssignment_6; }
+		
+		//Notes
+		public RuleCall getNotesNotesParserRuleCall_6_0() { return cNotesNotesParserRuleCall_6_0; }
+		
 		//'end'
-		public Keyword getEndKeyword_6() { return cEndKeyword_6; }
+		public Keyword getEndKeyword_7() { return cEndKeyword_7; }
 		
 		//'of'
-		public Keyword getOfKeyword_7() { return cOfKeyword_7; }
+		public Keyword getOfKeyword_8() { return cOfKeyword_8; }
 		
 		//'use-case'
-		public Keyword getUseCaseKeyword_8() { return cUseCaseKeyword_8; }
+		public Keyword getUseCaseKeyword_9() { return cUseCaseKeyword_9; }
 	}
 	public class DescriptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Description");
@@ -146,6 +155,37 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+	}
+	public class NotesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Notes");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cNotesKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cNoteKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		
+		//Notes:
+		//	('notes:' | 'note:') content=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('notes:' | 'note:') content=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'notes:' | 'note:'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'notes:'
+		public Keyword getNotesKeyword_0_0() { return cNotesKeyword_0_0; }
+		
+		//'note:'
+		public Keyword getNoteKeyword_0_1() { return cNoteKeyword_0_1; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_1_0() { return cContentSTRINGTerminalRuleCall_1_0; }
 	}
 	public class InputsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Inputs");
@@ -477,6 +517,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	private final ModelElements pModel;
 	private final UseCaseElements pUseCase;
 	private final DescriptionElements pDescription;
+	private final NotesElements pNotes;
 	private final InputsElements pInputs;
 	private final OutputsElements pOutputs;
 	private final TypeElements pType;
@@ -498,6 +539,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pUseCase = new UseCaseElements();
 		this.pDescription = new DescriptionElements();
+		this.pNotes = new NotesElements();
 		this.pInputs = new InputsElements();
 		this.pOutputs = new OutputsElements();
 		this.pType = new TypeElements();
@@ -552,6 +594,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	//	inputs+=Inputs?
 	//	outputs+=Outputs?
 	//	allowedUserGroups+=AllowedUserGroups?
+	//	notes+=Notes?
 	//	'end' 'of' 'use-case';
 	public UseCaseElements getUseCaseAccess() {
 		return pUseCase;
@@ -569,6 +612,16 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDescriptionRule() {
 		return getDescriptionAccess().getRule();
+	}
+	
+	//Notes:
+	//	('notes:' | 'note:') content=STRING;
+	public NotesElements getNotesAccess() {
+		return pNotes;
+	}
+	
+	public ParserRule getNotesRule() {
+		return getNotesAccess().getRule();
 	}
 	
 	//Inputs:

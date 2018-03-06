@@ -13,10 +13,14 @@ UseCase:
 	(inputs+=Inputs)?
 	(outputs+=Outputs)?
 	(allowedUserGroups+=AllowedUserGroups)?
+	(notes+=Notes)?
 	'end' 'of' 'use-case';
 
 Description:
 	'description:' name=STRING;
+
+Notes:
+	('notes:'|'note:') content=STRING;
 	
 Inputs:
 	('inputs:'|'input:')

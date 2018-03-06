@@ -31,11 +31,13 @@ public class UseCaseParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getNotesAccess().getAlternatives_0(), "rule__Notes__Alternatives_0");
 					put(grammarAccess.getInputsAccess().getAlternatives_0(), "rule__Inputs__Alternatives_0");
 					put(grammarAccess.getOutputsAccess().getAlternatives_0(), "rule__Outputs__Alternatives_0");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getUseCaseAccess().getGroup(), "rule__UseCase__Group__0");
 					put(grammarAccess.getDescriptionAccess().getGroup(), "rule__Description__Group__0");
+					put(grammarAccess.getNotesAccess().getGroup(), "rule__Notes__Group__0");
 					put(grammarAccess.getInputsAccess().getGroup(), "rule__Inputs__Group__0");
 					put(grammarAccess.getOutputsAccess().getGroup(), "rule__Outputs__Group__0");
 					put(grammarAccess.getTypeAccess().getGroup(), "rule__Type__Group__0");
@@ -56,7 +58,9 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUseCaseAccess().getInputsAssignment_3(), "rule__UseCase__InputsAssignment_3");
 					put(grammarAccess.getUseCaseAccess().getOutputsAssignment_4(), "rule__UseCase__OutputsAssignment_4");
 					put(grammarAccess.getUseCaseAccess().getAllowedUserGroupsAssignment_5(), "rule__UseCase__AllowedUserGroupsAssignment_5");
+					put(grammarAccess.getUseCaseAccess().getNotesAssignment_6(), "rule__UseCase__NotesAssignment_6");
 					put(grammarAccess.getDescriptionAccess().getNameAssignment_1(), "rule__Description__NameAssignment_1");
+					put(grammarAccess.getNotesAccess().getContentAssignment_1(), "rule__Notes__ContentAssignment_1");
 					put(grammarAccess.getInputsAccess().getInputsAssignment_1(), "rule__Inputs__InputsAssignment_1");
 					put(grammarAccess.getOutputsAccess().getOutputsAssignment_1(), "rule__Outputs__OutputsAssignment_1");
 					put(grammarAccess.getTypeAccess().getNameAssignment_1(), "rule__Type__NameAssignment_1");

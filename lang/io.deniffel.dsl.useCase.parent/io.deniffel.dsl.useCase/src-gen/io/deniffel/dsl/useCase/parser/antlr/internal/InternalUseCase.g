@@ -231,17 +231,36 @@ ruleUseCase returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_6='end'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUseCaseAccess().getNotesNotesParserRuleCall_6_0());
+				}
+				lv_notes_6_0=ruleNotes
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
+					}
+					add(
+						$current,
+						"notes",
+						lv_notes_6_0,
+						"io.deniffel.dsl.useCase.UseCase.Notes");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_7='end'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getUseCaseAccess().getEndKeyword_6());
+			newLeafNode(otherlv_7, grammarAccess.getUseCaseAccess().getEndKeyword_7());
 		}
-		otherlv_7='of'
+		otherlv_8='of'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getUseCaseAccess().getOfKeyword_7());
+			newLeafNode(otherlv_8, grammarAccess.getUseCaseAccess().getOfKeyword_8());
 		}
-		otherlv_8='use-case'
+		otherlv_9='use-case'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getUseCaseAccess().getUseCaseKeyword_8());
+			newLeafNode(otherlv_9, grammarAccess.getUseCaseAccess().getUseCaseKeyword_9());
 		}
 	)
 ;
@@ -280,6 +299,54 @@ ruleDescription returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleNotes
+entryRuleNotes returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNotesRule()); }
+	iv_ruleNotes=ruleNotes
+	{ $current=$iv_ruleNotes.current; }
+	EOF;
+
+// Rule Notes
+ruleNotes returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			otherlv_0='notes:'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getNotesAccess().getNotesKeyword_0_0());
+			}
+			    |
+			otherlv_1='note:'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getNotesAccess().getNoteKeyword_0_1());
+			}
+		)
+		(
+			(
+				lv_content_2_0=RULE_STRING
+				{
+					newLeafNode(lv_content_2_0, grammarAccess.getNotesAccess().getContentSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getNotesRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"content",
+						lv_content_2_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)

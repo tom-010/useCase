@@ -16,9 +16,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/inputs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/outputs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/allowedUserGroups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/notes"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Description/name"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Notes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Notes/content"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Inputs">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Inputs/inputs"/>

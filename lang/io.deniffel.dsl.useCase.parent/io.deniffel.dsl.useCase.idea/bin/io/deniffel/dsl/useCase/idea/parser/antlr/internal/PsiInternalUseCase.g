@@ -187,26 +187,41 @@ ruleUseCase returns [Boolean current=false]
 				}
 			)
 		)?
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getUseCase_NotesNotesParserRuleCall_6_0ElementType());
+				}
+				lv_notes_6_0=ruleNotes
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)?
 		{
-			markLeaf(elementTypeProvider.getUseCase_EndKeyword_6ElementType());
+			markLeaf(elementTypeProvider.getUseCase_EndKeyword_7ElementType());
 		}
-		otherlv_6='end'
-		{
-			doneLeaf(otherlv_6);
-		}
-		{
-			markLeaf(elementTypeProvider.getUseCase_OfKeyword_7ElementType());
-		}
-		otherlv_7='of'
+		otherlv_7='end'
 		{
 			doneLeaf(otherlv_7);
 		}
 		{
-			markLeaf(elementTypeProvider.getUseCase_UseCaseKeyword_8ElementType());
+			markLeaf(elementTypeProvider.getUseCase_OfKeyword_8ElementType());
 		}
-		otherlv_8='use-case'
+		otherlv_8='of'
 		{
 			doneLeaf(otherlv_8);
+		}
+		{
+			markLeaf(elementTypeProvider.getUseCase_UseCaseKeyword_9ElementType());
+		}
+		otherlv_9='use-case'
+		{
+			doneLeaf(otherlv_9);
 		}
 	)
 ;
@@ -243,6 +258,54 @@ ruleDescription returns [Boolean current=false]
 				}
 				{
 					doneLeaf(lv_name_1_0);
+				}
+			)
+		)
+	)
+;
+
+//Entry rule entryRuleNotes
+entryRuleNotes returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getNotesElementType()); }
+	iv_ruleNotes=ruleNotes
+	{ $current=$iv_ruleNotes.current; }
+	EOF;
+
+// Rule Notes
+ruleNotes returns [Boolean current=false]
+:
+	(
+		(
+			{
+				markLeaf(elementTypeProvider.getNotes_NotesKeyword_0_0ElementType());
+			}
+			otherlv_0='notes:'
+			{
+				doneLeaf(otherlv_0);
+			}
+			    |
+			{
+				markLeaf(elementTypeProvider.getNotes_NoteKeyword_0_1ElementType());
+			}
+			otherlv_1='note:'
+			{
+				doneLeaf(otherlv_1);
+			}
+		)
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getNotes_ContentSTRINGTerminalRuleCall_1_0ElementType());
+				}
+				lv_content_2_0=RULE_STRING
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_content_2_0);
 				}
 			)
 		)
