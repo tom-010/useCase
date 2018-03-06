@@ -1,12 +1,104 @@
 <div *ngIf="hero">
+  <mat-card-title>
+    <span>Use-Case: {{ hero.name | uppercase }}</span>
+  </mat-card-title>
+  
 
-  <h2>{{ hero.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label>
+  <p>A user should be identified by its login, therefore this must be unique against all other users.</p>
+
+  <h2>Scenarios</h2>
+  <div class="scenario">
+    <h3>Scenario: User tries to use a username that already exists</h3>
+    <pre>
+Given a already existing user "Tom" 
+And the user "Klaus" does not exist in the system
+When "Klaus" tries to create a User with login "Tom"
+Then a exception is triggered
+    </pre>
   </div>
+  <div class="scenario">
+      <h3>Scenario: User tries to use a username that already exists</h3>
+      <pre>
+Given a already existing user "Tom" 
+And the user "Klaus" does not exist in the system
+When "Klaus" tries to create a User with login "Tom"
+Then a exception is triggered
+      </pre>
+  </div>
+<hr>
+<button mat-button style="float: right; margin-bottom: -40px">Edit</button>
+  <div class="row">
+    <div class="col m6">
+      <h2>Input</h2>
+      <p>Requires following Input:</p>
+      <pre>
+- username as String
+- password as String
+- firstname as String
+- lastname as String         
+      </pre>
+    </div>
+    <div class="col m6">
+      <h2>Output</h2>
+      <p>produces</p>
+      <pre>
+- created user as User
+      </pre>
+    </div>
+    <div class="clearfix" style="clear: both"></div>
+  </div>
+
+  <h2>Steps</h2>
+  <pre>
+1. Lookup for user with the given username
+  1.1 If a user was found trigger user-exist-exception
+2. Create the user in the database (if error occurs: 
+  trigger user-unable-to-create-exception)
+3. Trigger a notification, that user was created
+4. Send welcome message
+  </pre>
+
+  <h2>Notes</h2>
+  <p>The notes come here (optionally)</p>
+  <!--
+## Steps
+
+'''
+use-case UserCreate
+	
+	description: 
+		A user should be identified by its login, therefore this must be unique 
+		against all other users.
+
+	roles:
+		- Admin
+		- Group-Member
+
+	requires following input:
+
+	
+
+	steps:	
+		1. Lookup for user with the given username
+			1.1 If a user was found trigger user-exist-exception
+		2. Create the user in the database (if error occurs: 
+			trigger user-unable-to-create-exception)
+		3. Trigger a notification, that user was created
+		4. Send welcome message
+
+	notes:
+		The notes come here (optionally)
+
+end of the use-case
+'''
+
+## Diagram
+
+(use-case-diagram-user-create.png)[]
+
+## Notes
+The notes come here (optionally)
+  -->
 
   <button (click)="goBack()">go back</button>
 </div>

@@ -19,3 +19,12 @@ body { margin: 0}
 .mat-toolbar .mat-button-wrapper {
     font-size: 11px;
 }
+
+.row {
+    clear: both;
+}
+
+.m6 {
+    float: left;
+    width: 50%;
+}
