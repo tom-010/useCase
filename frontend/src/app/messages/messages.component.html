@@ -1,8 +1,9 @@
-<div *ngIf="messageService.messages.length">
+<mat-card-title>
+    <span>Messages</span>
+</mat-card-title>
 
-    <h2>Messages</h2>
-    <button class="clear"
-            (click)="messageService.clear()">clear</button>
-    <div *ngFor='let message of messageService.messages'> {{message}} </div>
-  
-  </div>
+<div *ngIf="messageService.messages.length">
+  <button mat-button class="clear"
+          (click)="messageService.clear()">clear</button>
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+</div>

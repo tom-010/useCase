@@ -1,5 +1,50 @@
+<mat-card-title>
+    <span>Use-Cases</span>
+</mat-card-title>
+    
 
-<h2>My Heroes</h2>
+<input matInput class="filter" type="text" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+
+    
+
+<mat-table #table [dataSource]="useCases" matSort>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="createdBy">
+    <mat-header-cell *matHeaderCellDef> Created By </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.createdBy}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="lastChanged">
+    <mat-header-cell *matHeaderCellDef> Last Changed </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.lastChanged | date: 'dd.MM.yyy'}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="lastChangedBy">
+    <mat-header-cell *matHeaderCellDef> Last Changed By</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.lastChangedBy}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row routerLink="/use-case/{{row.id}}" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+
+    
 <ul class="heroes">
     <li *ngFor="let hero of heroes">
         <a routerLink="/use-case/{{hero.id}}">
