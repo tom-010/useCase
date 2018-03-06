@@ -75,3 +75,5 @@ How to configure registry?
 2018-03-06 17:07:09,173[aceSharedPool-3]  [INFO ] [o.e.c.a.w.s.WorkspaceRuntimes 375]   - Workspace 'che/wksp-ybgx' with id 'workspacehaofxtlezsgd8vci' stopped by user 'activity-checker'
 2018-03-06 17:49:09,582[ted-scheduler-8]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
 2018-03-06 18:49:09,594[ted-scheduler-0]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-06 19:49:09,583[ted-scheduler-6]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-06 20:49:09,588[ted-scheduler-7]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []

@@ -82,38 +82,44 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		public static IGrammarAwareElementType createUseCase_DescriptionsDescriptionParserRuleCall_2_0ElementType() {
 			return new IGrammarAwareElementType("UseCase_DescriptionsDescriptionParserRuleCall_2_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getDescriptionsDescriptionParserRuleCall_2_0());
 		}
-		public static IGrammarAwareElementType createUseCase_InputsAssignment_3ElementType() {
-			return new IGrammarAwareElementType("UseCase_InputsAssignment_3_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getInputsAssignment_3());
+		public static IGrammarAwareElementType createUseCase_AllowedUserGroupsAssignment_3ElementType() {
+			return new IGrammarAwareElementType("UseCase_AllowedUserGroupsAssignment_3_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getAllowedUserGroupsAssignment_3());
 		}
-		public static IGrammarAwareElementType createUseCase_InputsInputsParserRuleCall_3_0ElementType() {
-			return new IGrammarAwareElementType("UseCase_InputsInputsParserRuleCall_3_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getInputsInputsParserRuleCall_3_0());
+		public static IGrammarAwareElementType createUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0ElementType() {
+			return new IGrammarAwareElementType("UseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getAllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0());
 		}
-		public static IGrammarAwareElementType createUseCase_OutputsAssignment_4ElementType() {
-			return new IGrammarAwareElementType("UseCase_OutputsAssignment_4_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getOutputsAssignment_4());
+		public static IGrammarAwareElementType createUseCase_InputsAssignment_4ElementType() {
+			return new IGrammarAwareElementType("UseCase_InputsAssignment_4_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getInputsAssignment_4());
 		}
-		public static IGrammarAwareElementType createUseCase_OutputsOutputsParserRuleCall_4_0ElementType() {
-			return new IGrammarAwareElementType("UseCase_OutputsOutputsParserRuleCall_4_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getOutputsOutputsParserRuleCall_4_0());
+		public static IGrammarAwareElementType createUseCase_InputsInputsParserRuleCall_4_0ElementType() {
+			return new IGrammarAwareElementType("UseCase_InputsInputsParserRuleCall_4_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getInputsInputsParserRuleCall_4_0());
 		}
-		public static IGrammarAwareElementType createUseCase_AllowedUserGroupsAssignment_5ElementType() {
-			return new IGrammarAwareElementType("UseCase_AllowedUserGroupsAssignment_5_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getAllowedUserGroupsAssignment_5());
+		public static IGrammarAwareElementType createUseCase_OutputsAssignment_5ElementType() {
+			return new IGrammarAwareElementType("UseCase_OutputsAssignment_5_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getOutputsAssignment_5());
 		}
-		public static IGrammarAwareElementType createUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0ElementType() {
-			return new IGrammarAwareElementType("UseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getAllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0());
+		public static IGrammarAwareElementType createUseCase_OutputsOutputsParserRuleCall_5_0ElementType() {
+			return new IGrammarAwareElementType("UseCase_OutputsOutputsParserRuleCall_5_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getOutputsOutputsParserRuleCall_5_0());
 		}
-		public static IGrammarAwareElementType createUseCase_NotesAssignment_6ElementType() {
-			return new IGrammarAwareElementType("UseCase_NotesAssignment_6_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getNotesAssignment_6());
+		public static IGrammarAwareElementType createUseCase_StepsAssignment_6ElementType() {
+			return new IGrammarAwareElementType("UseCase_StepsAssignment_6_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getStepsAssignment_6());
 		}
-		public static IGrammarAwareElementType createUseCase_NotesNotesParserRuleCall_6_0ElementType() {
-			return new IGrammarAwareElementType("UseCase_NotesNotesParserRuleCall_6_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getNotesNotesParserRuleCall_6_0());
+		public static IGrammarAwareElementType createUseCase_StepsStepsParserRuleCall_6_0ElementType() {
+			return new IGrammarAwareElementType("UseCase_StepsStepsParserRuleCall_6_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getStepsStepsParserRuleCall_6_0());
 		}
-		public static IGrammarAwareElementType createUseCase_EndKeyword_7ElementType() {
-			return new IGrammarAwareElementType("UseCase_EndKeyword_7_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getEndKeyword_7());
+		public static IGrammarAwareElementType createUseCase_NotesAssignment_7ElementType() {
+			return new IGrammarAwareElementType("UseCase_NotesAssignment_7_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getNotesAssignment_7());
 		}
-		public static IGrammarAwareElementType createUseCase_OfKeyword_8ElementType() {
-			return new IGrammarAwareElementType("UseCase_OfKeyword_8_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getOfKeyword_8());
+		public static IGrammarAwareElementType createUseCase_NotesNotesParserRuleCall_7_0ElementType() {
+			return new IGrammarAwareElementType("UseCase_NotesNotesParserRuleCall_7_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getNotesNotesParserRuleCall_7_0());
 		}
-		public static IGrammarAwareElementType createUseCase_UseCaseKeyword_9ElementType() {
-			return new IGrammarAwareElementType("UseCase_UseCaseKeyword_9_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getUseCaseKeyword_9());
+		public static IGrammarAwareElementType createUseCase_EndKeyword_8ElementType() {
+			return new IGrammarAwareElementType("UseCase_EndKeyword_8_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getEndKeyword_8());
+		}
+		public static IGrammarAwareElementType createUseCase_OfKeyword_9ElementType() {
+			return new IGrammarAwareElementType("UseCase_OfKeyword_9_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getOfKeyword_9());
+		}
+		public static IGrammarAwareElementType createUseCase_UseCaseKeyword_10ElementType() {
+			return new IGrammarAwareElementType("UseCase_UseCaseKeyword_10_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUseCaseAccess().getUseCaseKeyword_10());
 		}
 	}
 
@@ -131,27 +137,92 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 
 	public static final IGrammarAwareElementType UseCase_DescriptionsDescriptionParserRuleCall_2_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_DescriptionsDescriptionParserRuleCall_2_0ElementType());
 
-	public static final IGrammarAwareElementType UseCase_InputsAssignment_3_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_InputsAssignment_3ElementType());
+	public static final IGrammarAwareElementType UseCase_AllowedUserGroupsAssignment_3_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_AllowedUserGroupsAssignment_3ElementType());
 
-	public static final IGrammarAwareElementType UseCase_InputsInputsParserRuleCall_3_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_InputsInputsParserRuleCall_3_0ElementType());
+	public static final IGrammarAwareElementType UseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0ElementType());
 
-	public static final IGrammarAwareElementType UseCase_OutputsAssignment_4_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_OutputsAssignment_4ElementType());
+	public static final IGrammarAwareElementType UseCase_InputsAssignment_4_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_InputsAssignment_4ElementType());
 
-	public static final IGrammarAwareElementType UseCase_OutputsOutputsParserRuleCall_4_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_OutputsOutputsParserRuleCall_4_0ElementType());
+	public static final IGrammarAwareElementType UseCase_InputsInputsParserRuleCall_4_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_InputsInputsParserRuleCall_4_0ElementType());
 
-	public static final IGrammarAwareElementType UseCase_AllowedUserGroupsAssignment_5_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_AllowedUserGroupsAssignment_5ElementType());
+	public static final IGrammarAwareElementType UseCase_OutputsAssignment_5_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_OutputsAssignment_5ElementType());
 
-	public static final IGrammarAwareElementType UseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0ElementType());
+	public static final IGrammarAwareElementType UseCase_OutputsOutputsParserRuleCall_5_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_OutputsOutputsParserRuleCall_5_0ElementType());
 
-	public static final IGrammarAwareElementType UseCase_NotesAssignment_6_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_NotesAssignment_6ElementType());
+	public static final IGrammarAwareElementType UseCase_StepsAssignment_6_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_StepsAssignment_6ElementType());
 
-	public static final IGrammarAwareElementType UseCase_NotesNotesParserRuleCall_6_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_NotesNotesParserRuleCall_6_0ElementType());
+	public static final IGrammarAwareElementType UseCase_StepsStepsParserRuleCall_6_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_StepsStepsParserRuleCall_6_0ElementType());
 
-	public static final IGrammarAwareElementType UseCase_EndKeyword_7_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_EndKeyword_7ElementType());
+	public static final IGrammarAwareElementType UseCase_NotesAssignment_7_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_NotesAssignment_7ElementType());
 
-	public static final IGrammarAwareElementType UseCase_OfKeyword_8_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_OfKeyword_8ElementType());
+	public static final IGrammarAwareElementType UseCase_NotesNotesParserRuleCall_7_0_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_NotesNotesParserRuleCall_7_0ElementType());
 
-	public static final IGrammarAwareElementType UseCase_UseCaseKeyword_9_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_UseCaseKeyword_9ElementType());
+	public static final IGrammarAwareElementType UseCase_EndKeyword_8_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_EndKeyword_8ElementType());
+
+	public static final IGrammarAwareElementType UseCase_OfKeyword_9_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_OfKeyword_9ElementType());
+
+	public static final IGrammarAwareElementType UseCase_UseCaseKeyword_10_ELEMENT_TYPE = associate(UseCaseFactory.createUseCase_UseCaseKeyword_10ElementType());
+
+	private static class StepsFactory {
+		public static IGrammarAwareElementType createStepsElementType() {
+			return new IGrammarAwareElementType("Steps_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepsRule());
+		}
+		public static IGrammarAwareElementType createSteps_GroupElementType() {
+			return new IGrammarAwareElementType("Steps_Group_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepsAccess().getGroup());
+		}
+		public static IGrammarAwareElementType createSteps_StepsKeyword_0ElementType() {
+			return new IGrammarAwareElementType("Steps_StepsKeyword_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepsAccess().getStepsKeyword_0());
+		}
+		public static IGrammarAwareElementType createSteps_StepsAssignment_1ElementType() {
+			return new IGrammarAwareElementType("Steps_StepsAssignment_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepsAccess().getStepsAssignment_1());
+		}
+		public static IGrammarAwareElementType createSteps_StepsStepParserRuleCall_1_0ElementType() {
+			return new IGrammarAwareElementType("Steps_StepsStepParserRuleCall_1_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepsAccess().getStepsStepParserRuleCall_1_0());
+		}
+	}
+
+	public static final IGrammarAwareElementType Steps_ELEMENT_TYPE = associate(StepsFactory.createStepsElementType());
+
+	public static final IGrammarAwareElementType Steps_Group_ELEMENT_TYPE = associate(StepsFactory.createSteps_GroupElementType());
+
+	public static final IGrammarAwareElementType Steps_StepsKeyword_0_ELEMENT_TYPE = associate(StepsFactory.createSteps_StepsKeyword_0ElementType());
+
+	public static final IGrammarAwareElementType Steps_StepsAssignment_1_ELEMENT_TYPE = associate(StepsFactory.createSteps_StepsAssignment_1ElementType());
+
+	public static final IGrammarAwareElementType Steps_StepsStepParserRuleCall_1_0_ELEMENT_TYPE = associate(StepsFactory.createSteps_StepsStepParserRuleCall_1_0ElementType());
+
+	private static class StepFactory {
+		public static IGrammarAwareElementType createStepElementType() {
+			return new IGrammarAwareElementType("Step_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepRule());
+		}
+		public static IGrammarAwareElementType createStep_GroupElementType() {
+			return new IGrammarAwareElementType("Step_Group_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepAccess().getGroup());
+		}
+		public static IGrammarAwareElementType createStep_NumberAssignment_0ElementType() {
+			return new IGrammarAwareElementType("Step_NumberAssignment_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepAccess().getNumberAssignment_0());
+		}
+		public static IGrammarAwareElementType createStep_NumberQualifiedNumberParserRuleCall_0_0ElementType() {
+			return new IGrammarAwareElementType("Step_NumberQualifiedNumberParserRuleCall_0_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepAccess().getNumberQualifiedNumberParserRuleCall_0_0());
+		}
+		public static IGrammarAwareElementType createStep_ActionAssignment_1ElementType() {
+			return new IGrammarAwareElementType("Step_ActionAssignment_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepAccess().getActionAssignment_1());
+		}
+		public static IGrammarAwareElementType createStep_ActionSTRINGTerminalRuleCall_1_0ElementType() {
+			return new IGrammarAwareElementType("Step_ActionSTRINGTerminalRuleCall_1_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getStepAccess().getActionSTRINGTerminalRuleCall_1_0());
+		}
+	}
+
+	public static final IGrammarAwareElementType Step_ELEMENT_TYPE = associate(StepFactory.createStepElementType());
+
+	public static final IGrammarAwareElementType Step_Group_ELEMENT_TYPE = associate(StepFactory.createStep_GroupElementType());
+
+	public static final IGrammarAwareElementType Step_NumberAssignment_0_ELEMENT_TYPE = associate(StepFactory.createStep_NumberAssignment_0ElementType());
+
+	public static final IGrammarAwareElementType Step_NumberQualifiedNumberParserRuleCall_0_0_ELEMENT_TYPE = associate(StepFactory.createStep_NumberQualifiedNumberParserRuleCall_0_0ElementType());
+
+	public static final IGrammarAwareElementType Step_ActionAssignment_1_ELEMENT_TYPE = associate(StepFactory.createStep_ActionAssignment_1ElementType());
+
+	public static final IGrammarAwareElementType Step_ActionSTRINGTerminalRuleCall_1_0_ELEMENT_TYPE = associate(StepFactory.createStep_ActionSTRINGTerminalRuleCall_1_0ElementType());
 
 	private static class DescriptionFactory {
 		public static IGrammarAwareElementType createDescriptionElementType() {
@@ -229,11 +300,29 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		public static IGrammarAwareElementType createInputs_Alternatives_0ElementType() {
 			return new IGrammarAwareElementType("Inputs_Alternatives_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getAlternatives_0());
 		}
-		public static IGrammarAwareElementType createInputs_InputsKeyword_0_0ElementType() {
-			return new IGrammarAwareElementType("Inputs_InputsKeyword_0_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getInputsKeyword_0_0());
+		public static IGrammarAwareElementType createInputs_RequiresKeyword_0_0ElementType() {
+			return new IGrammarAwareElementType("Inputs_RequiresKeyword_0_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getRequiresKeyword_0_0());
 		}
-		public static IGrammarAwareElementType createInputs_InputKeyword_0_1ElementType() {
-			return new IGrammarAwareElementType("Inputs_InputKeyword_0_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getInputKeyword_0_1());
+		public static IGrammarAwareElementType createInputs_RequireKeyword_0_1ElementType() {
+			return new IGrammarAwareElementType("Inputs_RequireKeyword_0_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getRequireKeyword_0_1());
+		}
+		public static IGrammarAwareElementType createInputs_Group_0_2ElementType() {
+			return new IGrammarAwareElementType("Inputs_Group_0_2_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getGroup_0_2());
+		}
+		public static IGrammarAwareElementType createInputs_RequiresKeyword_0_2_0ElementType() {
+			return new IGrammarAwareElementType("Inputs_RequiresKeyword_0_2_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getRequiresKeyword_0_2_0());
+		}
+		public static IGrammarAwareElementType createInputs_TheKeyword_0_2_1ElementType() {
+			return new IGrammarAwareElementType("Inputs_TheKeyword_0_2_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getTheKeyword_0_2_1());
+		}
+		public static IGrammarAwareElementType createInputs_FollowingKeyword_0_2_2ElementType() {
+			return new IGrammarAwareElementType("Inputs_FollowingKeyword_0_2_2_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getFollowingKeyword_0_2_2());
+		}
+		public static IGrammarAwareElementType createInputs_InputKeyword_0_2_3ElementType() {
+			return new IGrammarAwareElementType("Inputs_InputKeyword_0_2_3_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getInputKeyword_0_2_3());
+		}
+		public static IGrammarAwareElementType createInputs_ColonKeyword_0_2_4ElementType() {
+			return new IGrammarAwareElementType("Inputs_ColonKeyword_0_2_4_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getColonKeyword_0_2_4());
 		}
 		public static IGrammarAwareElementType createInputs_InputsAssignment_1ElementType() {
 			return new IGrammarAwareElementType("Inputs_InputsAssignment_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getInputsAccess().getInputsAssignment_1());
@@ -249,9 +338,21 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 
 	public static final IGrammarAwareElementType Inputs_Alternatives_0_ELEMENT_TYPE = associate(InputsFactory.createInputs_Alternatives_0ElementType());
 
-	public static final IGrammarAwareElementType Inputs_InputsKeyword_0_0_ELEMENT_TYPE = associate(InputsFactory.createInputs_InputsKeyword_0_0ElementType());
+	public static final IGrammarAwareElementType Inputs_RequiresKeyword_0_0_ELEMENT_TYPE = associate(InputsFactory.createInputs_RequiresKeyword_0_0ElementType());
 
-	public static final IGrammarAwareElementType Inputs_InputKeyword_0_1_ELEMENT_TYPE = associate(InputsFactory.createInputs_InputKeyword_0_1ElementType());
+	public static final IGrammarAwareElementType Inputs_RequireKeyword_0_1_ELEMENT_TYPE = associate(InputsFactory.createInputs_RequireKeyword_0_1ElementType());
+
+	public static final IGrammarAwareElementType Inputs_Group_0_2_ELEMENT_TYPE = associate(InputsFactory.createInputs_Group_0_2ElementType());
+
+	public static final IGrammarAwareElementType Inputs_RequiresKeyword_0_2_0_ELEMENT_TYPE = associate(InputsFactory.createInputs_RequiresKeyword_0_2_0ElementType());
+
+	public static final IGrammarAwareElementType Inputs_TheKeyword_0_2_1_ELEMENT_TYPE = associate(InputsFactory.createInputs_TheKeyword_0_2_1ElementType());
+
+	public static final IGrammarAwareElementType Inputs_FollowingKeyword_0_2_2_ELEMENT_TYPE = associate(InputsFactory.createInputs_FollowingKeyword_0_2_2ElementType());
+
+	public static final IGrammarAwareElementType Inputs_InputKeyword_0_2_3_ELEMENT_TYPE = associate(InputsFactory.createInputs_InputKeyword_0_2_3ElementType());
+
+	public static final IGrammarAwareElementType Inputs_ColonKeyword_0_2_4_ELEMENT_TYPE = associate(InputsFactory.createInputs_ColonKeyword_0_2_4ElementType());
 
 	public static final IGrammarAwareElementType Inputs_InputsAssignment_1_ELEMENT_TYPE = associate(InputsFactory.createInputs_InputsAssignment_1ElementType());
 
@@ -267,11 +368,29 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		public static IGrammarAwareElementType createOutputs_Alternatives_0ElementType() {
 			return new IGrammarAwareElementType("Outputs_Alternatives_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getAlternatives_0());
 		}
-		public static IGrammarAwareElementType createOutputs_OutputsKeyword_0_0ElementType() {
-			return new IGrammarAwareElementType("Outputs_OutputsKeyword_0_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getOutputsKeyword_0_0());
+		public static IGrammarAwareElementType createOutputs_ProducesKeyword_0_0ElementType() {
+			return new IGrammarAwareElementType("Outputs_ProducesKeyword_0_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getProducesKeyword_0_0());
 		}
-		public static IGrammarAwareElementType createOutputs_OutputKeyword_0_1ElementType() {
-			return new IGrammarAwareElementType("Outputs_OutputKeyword_0_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getOutputKeyword_0_1());
+		public static IGrammarAwareElementType createOutputs_ProduceKeyword_0_1ElementType() {
+			return new IGrammarAwareElementType("Outputs_ProduceKeyword_0_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getProduceKeyword_0_1());
+		}
+		public static IGrammarAwareElementType createOutputs_Group_0_2ElementType() {
+			return new IGrammarAwareElementType("Outputs_Group_0_2_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getGroup_0_2());
+		}
+		public static IGrammarAwareElementType createOutputs_ProducesKeyword_0_2_0ElementType() {
+			return new IGrammarAwareElementType("Outputs_ProducesKeyword_0_2_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getProducesKeyword_0_2_0());
+		}
+		public static IGrammarAwareElementType createOutputs_TheKeyword_0_2_1ElementType() {
+			return new IGrammarAwareElementType("Outputs_TheKeyword_0_2_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getTheKeyword_0_2_1());
+		}
+		public static IGrammarAwareElementType createOutputs_FollowingKeyword_0_2_2ElementType() {
+			return new IGrammarAwareElementType("Outputs_FollowingKeyword_0_2_2_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getFollowingKeyword_0_2_2());
+		}
+		public static IGrammarAwareElementType createOutputs_OutputKeyword_0_2_3ElementType() {
+			return new IGrammarAwareElementType("Outputs_OutputKeyword_0_2_3_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getOutputKeyword_0_2_3());
+		}
+		public static IGrammarAwareElementType createOutputs_ColonKeyword_0_2_4ElementType() {
+			return new IGrammarAwareElementType("Outputs_ColonKeyword_0_2_4_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getColonKeyword_0_2_4());
 		}
 		public static IGrammarAwareElementType createOutputs_OutputsAssignment_1ElementType() {
 			return new IGrammarAwareElementType("Outputs_OutputsAssignment_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getOutputsAccess().getOutputsAssignment_1());
@@ -287,9 +406,21 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 
 	public static final IGrammarAwareElementType Outputs_Alternatives_0_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_Alternatives_0ElementType());
 
-	public static final IGrammarAwareElementType Outputs_OutputsKeyword_0_0_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_OutputsKeyword_0_0ElementType());
+	public static final IGrammarAwareElementType Outputs_ProducesKeyword_0_0_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_ProducesKeyword_0_0ElementType());
 
-	public static final IGrammarAwareElementType Outputs_OutputKeyword_0_1_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_OutputKeyword_0_1ElementType());
+	public static final IGrammarAwareElementType Outputs_ProduceKeyword_0_1_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_ProduceKeyword_0_1ElementType());
+
+	public static final IGrammarAwareElementType Outputs_Group_0_2_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_Group_0_2ElementType());
+
+	public static final IGrammarAwareElementType Outputs_ProducesKeyword_0_2_0_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_ProducesKeyword_0_2_0ElementType());
+
+	public static final IGrammarAwareElementType Outputs_TheKeyword_0_2_1_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_TheKeyword_0_2_1ElementType());
+
+	public static final IGrammarAwareElementType Outputs_FollowingKeyword_0_2_2_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_FollowingKeyword_0_2_2ElementType());
+
+	public static final IGrammarAwareElementType Outputs_OutputKeyword_0_2_3_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_OutputKeyword_0_2_3ElementType());
+
+	public static final IGrammarAwareElementType Outputs_ColonKeyword_0_2_4_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_ColonKeyword_0_2_4ElementType());
 
 	public static final IGrammarAwareElementType Outputs_OutputsAssignment_1_ELEMENT_TYPE = associate(OutputsFactory.createOutputs_OutputsAssignment_1ElementType());
 
@@ -618,6 +749,44 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 
 	public static final IGrammarAwareElementType QualifiedName_IDTerminalRuleCall_1_1_ELEMENT_TYPE = associate(QualifiedNameFactory.createQualifiedName_IDTerminalRuleCall_1_1ElementType());
 
+	private static class QualifiedNumberFactory {
+		public static IGrammarAwareElementType createQualifiedNumberElementType() {
+			return new IGrammarAwareElementType("QualifiedNumber_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getQualifiedNumberRule());
+		}
+		public static IGrammarAwareElementType createQualifiedNumber_GroupElementType() {
+			return new IGrammarAwareElementType("QualifiedNumber_Group_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getQualifiedNumberAccess().getGroup());
+		}
+		public static IGrammarAwareElementType createQualifiedNumber_INTTerminalRuleCall_0ElementType() {
+			return new IGrammarAwareElementType("QualifiedNumber_INTTerminalRuleCall_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getQualifiedNumberAccess().getINTTerminalRuleCall_0());
+		}
+		public static IGrammarAwareElementType createQualifiedNumber_Group_1ElementType() {
+			return new IGrammarAwareElementType("QualifiedNumber_Group_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getQualifiedNumberAccess().getGroup_1());
+		}
+		public static IGrammarAwareElementType createQualifiedNumber_FullStopKeyword_1_0ElementType() {
+			return new IGrammarAwareElementType("QualifiedNumber_FullStopKeyword_1_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getQualifiedNumberAccess().getFullStopKeyword_1_0());
+		}
+		public static IGrammarAwareElementType createQualifiedNumber_INTTerminalRuleCall_1_1ElementType() {
+			return new IGrammarAwareElementType("QualifiedNumber_INTTerminalRuleCall_1_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getQualifiedNumberAccess().getINTTerminalRuleCall_1_1());
+		}
+		public static IGrammarAwareElementType createQualifiedNumber_FullStopKeyword_2ElementType() {
+			return new IGrammarAwareElementType("QualifiedNumber_FullStopKeyword_2_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getQualifiedNumberAccess().getFullStopKeyword_2());
+		}
+	}
+
+	public static final IGrammarAwareElementType QualifiedNumber_ELEMENT_TYPE = associate(QualifiedNumberFactory.createQualifiedNumberElementType());
+
+	public static final IGrammarAwareElementType QualifiedNumber_Group_ELEMENT_TYPE = associate(QualifiedNumberFactory.createQualifiedNumber_GroupElementType());
+
+	public static final IGrammarAwareElementType QualifiedNumber_INTTerminalRuleCall_0_ELEMENT_TYPE = associate(QualifiedNumberFactory.createQualifiedNumber_INTTerminalRuleCall_0ElementType());
+
+	public static final IGrammarAwareElementType QualifiedNumber_Group_1_ELEMENT_TYPE = associate(QualifiedNumberFactory.createQualifiedNumber_Group_1ElementType());
+
+	public static final IGrammarAwareElementType QualifiedNumber_FullStopKeyword_1_0_ELEMENT_TYPE = associate(QualifiedNumberFactory.createQualifiedNumber_FullStopKeyword_1_0ElementType());
+
+	public static final IGrammarAwareElementType QualifiedNumber_INTTerminalRuleCall_1_1_ELEMENT_TYPE = associate(QualifiedNumberFactory.createQualifiedNumber_INTTerminalRuleCall_1_1ElementType());
+
+	public static final IGrammarAwareElementType QualifiedNumber_FullStopKeyword_2_ELEMENT_TYPE = associate(QualifiedNumberFactory.createQualifiedNumber_FullStopKeyword_2ElementType());
+
 	@Override
 	public IFileElementType getFileType() {
 		return FILE_TYPE;
@@ -680,48 +849,100 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		return UseCase_DescriptionsDescriptionParserRuleCall_2_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_InputsAssignment_3ElementType() {
-		return UseCase_InputsAssignment_3_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_AllowedUserGroupsAssignment_3ElementType() {
+		return UseCase_AllowedUserGroupsAssignment_3_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_InputsInputsParserRuleCall_3_0ElementType() {
-		return UseCase_InputsInputsParserRuleCall_3_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0ElementType() {
+		return UseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_OutputsAssignment_4ElementType() {
-		return UseCase_OutputsAssignment_4_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_InputsAssignment_4ElementType() {
+		return UseCase_InputsAssignment_4_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_OutputsOutputsParserRuleCall_4_0ElementType() {
-		return UseCase_OutputsOutputsParserRuleCall_4_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_InputsInputsParserRuleCall_4_0ElementType() {
+		return UseCase_InputsInputsParserRuleCall_4_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_AllowedUserGroupsAssignment_5ElementType() {
-		return UseCase_AllowedUserGroupsAssignment_5_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_OutputsAssignment_5ElementType() {
+		return UseCase_OutputsAssignment_5_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0ElementType() {
-		return UseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_OutputsOutputsParserRuleCall_5_0ElementType() {
+		return UseCase_OutputsOutputsParserRuleCall_5_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_NotesAssignment_6ElementType() {
-		return UseCase_NotesAssignment_6_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_StepsAssignment_6ElementType() {
+		return UseCase_StepsAssignment_6_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_NotesNotesParserRuleCall_6_0ElementType() {
-		return UseCase_NotesNotesParserRuleCall_6_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_StepsStepsParserRuleCall_6_0ElementType() {
+		return UseCase_StepsStepsParserRuleCall_6_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_EndKeyword_7ElementType() {
-		return UseCase_EndKeyword_7_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_NotesAssignment_7ElementType() {
+		return UseCase_NotesAssignment_7_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_OfKeyword_8ElementType() {
-		return UseCase_OfKeyword_8_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_NotesNotesParserRuleCall_7_0ElementType() {
+		return UseCase_NotesNotesParserRuleCall_7_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getUseCase_UseCaseKeyword_9ElementType() {
-		return UseCase_UseCaseKeyword_9_ELEMENT_TYPE;
+	public IGrammarAwareElementType getUseCase_EndKeyword_8ElementType() {
+		return UseCase_EndKeyword_8_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUseCase_OfKeyword_9ElementType() {
+		return UseCase_OfKeyword_9_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUseCase_UseCaseKeyword_10ElementType() {
+		return UseCase_UseCaseKeyword_10_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getStepsElementType() {
+		return Steps_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSteps_GroupElementType() {
+		return Steps_Group_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSteps_StepsKeyword_0ElementType() {
+		return Steps_StepsKeyword_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSteps_StepsAssignment_1ElementType() {
+		return Steps_StepsAssignment_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSteps_StepsStepParserRuleCall_1_0ElementType() {
+		return Steps_StepsStepParserRuleCall_1_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getStepElementType() {
+		return Step_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getStep_GroupElementType() {
+		return Step_Group_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getStep_NumberAssignment_0ElementType() {
+		return Step_NumberAssignment_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getStep_NumberQualifiedNumberParserRuleCall_0_0ElementType() {
+		return Step_NumberQualifiedNumberParserRuleCall_0_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getStep_ActionAssignment_1ElementType() {
+		return Step_ActionAssignment_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getStep_ActionSTRINGTerminalRuleCall_1_0ElementType() {
+		return Step_ActionSTRINGTerminalRuleCall_1_0_ELEMENT_TYPE;
 	}
 	
 	public IGrammarAwareElementType getDescriptionElementType() {
@@ -784,12 +1005,36 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		return Inputs_Alternatives_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getInputs_InputsKeyword_0_0ElementType() {
-		return Inputs_InputsKeyword_0_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getInputs_RequiresKeyword_0_0ElementType() {
+		return Inputs_RequiresKeyword_0_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getInputs_InputKeyword_0_1ElementType() {
-		return Inputs_InputKeyword_0_1_ELEMENT_TYPE;
+	public IGrammarAwareElementType getInputs_RequireKeyword_0_1ElementType() {
+		return Inputs_RequireKeyword_0_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getInputs_Group_0_2ElementType() {
+		return Inputs_Group_0_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getInputs_RequiresKeyword_0_2_0ElementType() {
+		return Inputs_RequiresKeyword_0_2_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getInputs_TheKeyword_0_2_1ElementType() {
+		return Inputs_TheKeyword_0_2_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getInputs_FollowingKeyword_0_2_2ElementType() {
+		return Inputs_FollowingKeyword_0_2_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getInputs_InputKeyword_0_2_3ElementType() {
+		return Inputs_InputKeyword_0_2_3_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getInputs_ColonKeyword_0_2_4ElementType() {
+		return Inputs_ColonKeyword_0_2_4_ELEMENT_TYPE;
 	}
 	
 	public IGrammarAwareElementType getInputs_InputsAssignment_1ElementType() {
@@ -812,12 +1057,36 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		return Outputs_Alternatives_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getOutputs_OutputsKeyword_0_0ElementType() {
-		return Outputs_OutputsKeyword_0_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getOutputs_ProducesKeyword_0_0ElementType() {
+		return Outputs_ProducesKeyword_0_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getOutputs_OutputKeyword_0_1ElementType() {
-		return Outputs_OutputKeyword_0_1_ELEMENT_TYPE;
+	public IGrammarAwareElementType getOutputs_ProduceKeyword_0_1ElementType() {
+		return Outputs_ProduceKeyword_0_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getOutputs_Group_0_2ElementType() {
+		return Outputs_Group_0_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getOutputs_ProducesKeyword_0_2_0ElementType() {
+		return Outputs_ProducesKeyword_0_2_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getOutputs_TheKeyword_0_2_1ElementType() {
+		return Outputs_TheKeyword_0_2_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getOutputs_FollowingKeyword_0_2_2ElementType() {
+		return Outputs_FollowingKeyword_0_2_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getOutputs_OutputKeyword_0_2_3ElementType() {
+		return Outputs_OutputKeyword_0_2_3_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getOutputs_ColonKeyword_0_2_4ElementType() {
+		return Outputs_ColonKeyword_0_2_4_ELEMENT_TYPE;
 	}
 	
 	public IGrammarAwareElementType getOutputs_OutputsAssignment_1ElementType() {
@@ -1070,6 +1339,34 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 	
 	public IGrammarAwareElementType getQualifiedName_IDTerminalRuleCall_1_1ElementType() {
 		return QualifiedName_IDTerminalRuleCall_1_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getQualifiedNumberElementType() {
+		return QualifiedNumber_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getQualifiedNumber_GroupElementType() {
+		return QualifiedNumber_Group_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getQualifiedNumber_INTTerminalRuleCall_0ElementType() {
+		return QualifiedNumber_INTTerminalRuleCall_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getQualifiedNumber_Group_1ElementType() {
+		return QualifiedNumber_Group_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getQualifiedNumber_FullStopKeyword_1_0ElementType() {
+		return QualifiedNumber_FullStopKeyword_1_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getQualifiedNumber_INTTerminalRuleCall_1_1ElementType() {
+		return QualifiedNumber_INTTerminalRuleCall_1_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getQualifiedNumber_FullStopKeyword_2ElementType() {
+		return QualifiedNumber_FullStopKeyword_2_ELEMENT_TYPE;
 	}
 
 }

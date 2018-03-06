@@ -123,13 +123,22 @@ public interface UseCasePackage extends EPackage
   int USE_CASE__DESCRIPTIONS = 1;
 
   /**
+   * The feature id for the '<em><b>Allowed User Groups</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__ALLOWED_USER_GROUPS = 2;
+
+  /**
    * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__INPUTS = 2;
+  int USE_CASE__INPUTS = 3;
 
   /**
    * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -138,16 +147,16 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__OUTPUTS = 3;
+  int USE_CASE__OUTPUTS = 4;
 
   /**
-   * The feature id for the '<em><b>Allowed User Groups</b></em>' containment reference list.
+   * The feature id for the '<em><b>Steps</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__ALLOWED_USER_GROUPS = 4;
+  int USE_CASE__STEPS = 5;
 
   /**
    * The feature id for the '<em><b>Notes</b></em>' containment reference list.
@@ -156,7 +165,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__NOTES = 5;
+  int USE_CASE__NOTES = 6;
 
   /**
    * The number of structural features of the '<em>Use Case</em>' class.
@@ -165,7 +174,72 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE_FEATURE_COUNT = 6;
+  int USE_CASE_FEATURE_COUNT = 7;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.StepsImpl <em>Steps</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.StepsImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getSteps()
+   * @generated
+   */
+  int STEPS = 2;
+
+  /**
+   * The feature id for the '<em><b>Steps</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEPS__STEPS = 0;
+
+  /**
+   * The number of structural features of the '<em>Steps</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEPS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl <em>Step</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.StepImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getStep()
+   * @generated
+   */
+  int STEP = 3;
+
+  /**
+   * The feature id for the '<em><b>Number</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEP__NUMBER = 0;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEP__ACTION = 1;
+
+  /**
+   * The number of structural features of the '<em>Step</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEP_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.DescriptionImpl <em>Description</em>}' class.
@@ -175,7 +249,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getDescription()
    * @generated
    */
-  int DESCRIPTION = 2;
+  int DESCRIPTION = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -203,7 +277,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getNotes()
    * @generated
    */
-  int NOTES = 3;
+  int NOTES = 5;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -231,7 +305,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getInputs()
    * @generated
    */
-  int INPUTS = 4;
+  int INPUTS = 6;
 
   /**
    * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -259,7 +333,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutputs()
    * @generated
    */
-  int OUTPUTS = 5;
+  int OUTPUTS = 7;
 
   /**
    * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -287,7 +361,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getType()
    * @generated
    */
-  int TYPE = 6;
+  int TYPE = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -333,7 +407,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getInput()
    * @generated
    */
-  int INPUT = 7;
+  int INPUT = 9;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -379,7 +453,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutput()
    * @generated
    */
-  int OUTPUT = 8;
+  int OUTPUT = 10;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -425,7 +499,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroups()
    * @generated
    */
-  int ALLOWED_USER_GROUPS = 9;
+  int ALLOWED_USER_GROUPS = 11;
 
   /**
    * The feature id for the '<em><b>Groups</b></em>' containment reference list.
@@ -453,7 +527,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroup()
    * @generated
    */
-  int ALLOWED_USER_GROUP = 10;
+  int ALLOWED_USER_GROUP = 12;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -557,6 +631,17 @@ public interface UseCasePackage extends EPackage
   EReference getUseCase_Descriptions();
 
   /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Allowed User Groups</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_AllowedUserGroups();
+
+  /**
    * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getInputs <em>Inputs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -579,15 +664,15 @@ public interface UseCasePackage extends EPackage
   EReference getUseCase_Outputs();
 
   /**
-   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}'.
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getSteps <em>Steps</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Allowed User Groups</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups()
+   * @return the meta object for the containment reference list '<em>Steps</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.UseCase#getSteps()
    * @see #getUseCase()
    * @generated
    */
-  EReference getUseCase_AllowedUserGroups();
+  EReference getUseCase_Steps();
 
   /**
    * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getNotes <em>Notes</em>}'.
@@ -599,6 +684,59 @@ public interface UseCasePackage extends EPackage
    * @generated
    */
   EReference getUseCase_Notes();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Steps <em>Steps</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Steps</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Steps
+   * @generated
+   */
+  EClass getSteps();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Steps#getSteps <em>Steps</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Steps</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Steps#getSteps()
+   * @see #getSteps()
+   * @generated
+   */
+  EReference getSteps_Steps();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Step <em>Step</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Step</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Step
+   * @generated
+   */
+  EClass getStep();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Step#getNumber <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Number</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Step#getNumber()
+   * @see #getStep()
+   * @generated
+   */
+  EAttribute getStep_Number();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Step#getAction <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Action</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Step#getAction()
+   * @see #getStep()
+   * @generated
+   */
+  EAttribute getStep_Action();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Description <em>Description</em>}'.
@@ -953,6 +1091,14 @@ public interface UseCasePackage extends EPackage
     EReference USE_CASE__DESCRIPTIONS = eINSTANCE.getUseCase_Descriptions();
 
     /**
+     * The meta object literal for the '<em><b>Allowed User Groups</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__ALLOWED_USER_GROUPS = eINSTANCE.getUseCase_AllowedUserGroups();
+
+    /**
      * The meta object literal for the '<em><b>Inputs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -969,12 +1115,12 @@ public interface UseCasePackage extends EPackage
     EReference USE_CASE__OUTPUTS = eINSTANCE.getUseCase_Outputs();
 
     /**
-     * The meta object literal for the '<em><b>Allowed User Groups</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Steps</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference USE_CASE__ALLOWED_USER_GROUPS = eINSTANCE.getUseCase_AllowedUserGroups();
+    EReference USE_CASE__STEPS = eINSTANCE.getUseCase_Steps();
 
     /**
      * The meta object literal for the '<em><b>Notes</b></em>' containment reference list feature.
@@ -983,6 +1129,50 @@ public interface UseCasePackage extends EPackage
      * @generated
      */
     EReference USE_CASE__NOTES = eINSTANCE.getUseCase_Notes();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.StepsImpl <em>Steps</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.StepsImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getSteps()
+     * @generated
+     */
+    EClass STEPS = eINSTANCE.getSteps();
+
+    /**
+     * The meta object literal for the '<em><b>Steps</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STEPS__STEPS = eINSTANCE.getSteps_Steps();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl <em>Step</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.StepImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getStep()
+     * @generated
+     */
+    EClass STEP = eINSTANCE.getStep();
+
+    /**
+     * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STEP__NUMBER = eINSTANCE.getStep_Number();
+
+    /**
+     * The meta object literal for the '<em><b>Action</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STEP__ACTION = eINSTANCE.getStep_Action();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.DescriptionImpl <em>Description</em>}' class.

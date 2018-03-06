@@ -14,11 +14,14 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import io.deniffel.dsl.useCase.useCase.Outputs
 import io.deniffel.dsl.useCase.useCase.Output
+import io.deniffel.dsl.useCase.useCase.Steps
+import io.deniffel.dsl.useCase.useCase.Step
 
 class UseCaseGenerator extends AbstractGenerator {
 	
 	ClassNamingStrategy classNamingStrategy = new ClassNamingStrategy();
-	
+	ClassMemberNamingStrategy variableNaming = new ClassMemberNamingStrategy();
+	ClassMemberNamingStrategy methodNaming = new ClassMemberNamingStrategy();
 	
 		
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
@@ -38,15 +41,19 @@ class UseCaseGenerator extends AbstractGenerator {
 	
 	«IF usecase.allowedUserGroups.size() > 0 »
 		import io.deniffel.auth.ACL;
+		import io.deniffel.useCase.UseCase;
 	«ENDIF»
 	
 	«FOR d:usecase.descriptions»
 		«d.compile»
     «ENDFOR»
-    «IF usecase.allowedUserGroups.size() > 0 »
-		@ACL(allowedFor={«usecase.allowedUserGroups.get(0).groups.join(', ') [name]»})
-    «ENDIF»
-	public class «classNamingStrategy.convert(usecase.name)» {
+	public interface «classNamingStrategy.convert(usecase.name)» extends UseCase<Input, Output> {
+		
+		«IF usecase.allowedUserGroups.size() > 0 »
+		default String[] allowedFor {
+			return new String[] {«usecase.allowedUserGroups.get(0).groups.join(', ') [compile]»};
+		}
+		«ENDIF»
 		
 		«FOR s:usecase.inputs»
 			«s.compile»
@@ -55,29 +62,45 @@ class UseCaseGenerator extends AbstractGenerator {
 		«FOR s:usecase.outputs»
 			«s.compile»
 		«ENDFOR»
-		
+		«FOR s:usecase.steps»
+			«s.compile»
+		«ENDFOR»
 		
 		/* NOTES:
 		«FOR n:usecase.notes»
 		«n.content»
 		«ENDFOR»
 		*/
+		
+		«FOR steps:usecase.steps»
+		«FOR s:steps.steps»
+			void «s.compile»;
+		«ENDFOR»
+		«ENDFOR»
+		Output getOutput();	
 	}
 	'''
-	
-	def getName(AllowedUserGroup group) {
-		return group.name
-	}
 	
 	def compile(AllowedUserGroup group) '''
-	«group.name»
-	'''
+	"«group.name»"'''
 	
 	def compile(Description description) '''
 	/**
 	* «description.name»
 	*/
 	'''
+	
+	def compile(Steps steps) '''
+		default Output steps {
+			«FOR s:steps.steps»
+				«s.compile»;
+			«ENDFOR»
+			return getOutput();
+		}
+	'''
+	
+	def compile(Step step) '''
+		«methodNaming.convert(step.action)»()'''
 	
 	def compile(Inputs inputs) '''
 		public static class Input {
@@ -87,7 +110,7 @@ class UseCaseGenerator extends AbstractGenerator {
 			
 			public Input(«inputs.inputs.join(', ') [compile]») {
 				«FOR i:inputs.inputs»
-				    this.«i.content» = «i.content»;
+				    this.«variableNaming.convert(i.content)» = «variableNaming.convert(i.content)»;
 				«ENDFOR»
 			}
 		}
@@ -109,10 +132,10 @@ class UseCaseGenerator extends AbstractGenerator {
 	'''
 	
 	def compile(Output output) '''
-		«output.type.name» «output.content»'''
+		«output.type.name» «variableNaming.convert(output.content)»'''
 	
 	def compile(Input input) '''
-		«input.type.name» «input.content»'''
+		«input.type.name» «variableNaming.convert(input.content)»'''
 	
 	def compile(Type type) '''
 	«IF type.importInfo !== null»

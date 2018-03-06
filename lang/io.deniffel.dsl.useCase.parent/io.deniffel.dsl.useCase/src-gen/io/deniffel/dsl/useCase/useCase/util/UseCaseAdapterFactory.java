@@ -86,6 +86,16 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
         return createUseCaseAdapter();
       }
       @Override
+      public Adapter caseSteps(Steps object)
+      {
+        return createStepsAdapter();
+      }
+      @Override
+      public Adapter caseStep(Step object)
+      {
+        return createStepAdapter();
+      }
+      @Override
       public Adapter caseDescription(Description object)
       {
         return createDescriptionAdapter();
@@ -178,6 +188,36 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUseCaseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.Steps <em>Steps</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.Steps
+   * @generated
+   */
+  public Adapter createStepsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.Step <em>Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.Step
+   * @generated
+   */
+  public Adapter createStepAdapter()
   {
     return null;
   }

@@ -23,19 +23,19 @@ public class ClassNamingStrategy {
 		input = input.trim();
 		
 		if(startsWithNumber(input))
-			throw new IllegalArgumentException("Class name can't start with a number");
+			throw new IllegalArgumentException("Class name can't start with a number but was " + input);
 		
 		if(!startsWithLetter(input))
-			throw new IllegalArgumentException("Class must start with an letter");
+			throw new IllegalArgumentException("Class must start with an letter but was " + input);
 		
-		if(!includesForbiddenCharacters(input)) {
+		if(includesForbiddenCharacters(input)) {
 			throw new IllegalArgumentException("Classname can only contain numbers, letters, '-' and '_'");
 		}
 	}
 	
 	private String trim(String input) {
 		
-		while(isSpecial(input.charAt(input.length()-1)) && input.length() > 0) {
+		while(isSplitChar(input.charAt(input.length()-1)) && input.length() > 0) {
 			input = input.substring(0, input.length()-1);
 		}
 		
@@ -44,16 +44,16 @@ public class ClassNamingStrategy {
 		for(int i=0; i<input.length(); i++) {
 			char c = input.charAt(i);
 			
-			if(!(isSpecial(c) && lastWasSpecial)) 
+			if(!(isSplitChar(c) && lastWasSpecial)) 
 				res += c; 
 		
-			lastWasSpecial = isSpecial(c);
+			lastWasSpecial = isSplitChar(c);
 		}
 		
 		return res;
 	}
 	
-	private boolean isSpecial(char c) {
+	protected boolean isSplitChar(char c) {
 		return splitChars.contains(c);
 	}
 	
@@ -86,7 +86,7 @@ public class ClassNamingStrategy {
 		return s.matches("^([A-Z]|[a-z]).*$");
 	}
 	
-	private boolean includesForbiddenCharacters(String s) {
-		return s.matches("^[a-zA-Z-_0-9 \t]+$");
+	protected boolean includesForbiddenCharacters(String s) {
+		return !s.matches("^[a-zA-Z-_0-9 \t]+$");
 	}
 }

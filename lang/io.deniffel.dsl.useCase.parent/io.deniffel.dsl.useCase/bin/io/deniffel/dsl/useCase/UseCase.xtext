@@ -10,11 +10,19 @@ Model:
 UseCase:
 	'use-case' name=STRING
 	(descriptions+=Description)?
+	(allowedUserGroups+=AllowedUserGroups)?
 	(inputs+=Inputs)?
 	(outputs+=Outputs)?
-	(allowedUserGroups+=AllowedUserGroups)?
+	(steps+=Steps)?
 	(notes+=Notes)?
 	'end' 'of' 'use-case';
+
+Steps: 
+	'steps:'
+		(steps+=Step)*;
+
+Step:
+	number=QualifiedNumber action=STRING;
 
 Description:
 	'description:' name=STRING;
@@ -23,11 +31,11 @@ Notes:
 	('notes:'|'note:') content=STRING;
 	
 Inputs:
-	('inputs:'|'input:')
+	('requires:'|'require:'|'requires' 'the' 'following' 'input' ':')
 	(inputs+=Input)*;
 	
 Outputs:
-	('outputs:'|'output:')
+	('produces:'|'produce:'|'produces' 'the' 'following' 'output' ':')
 	(outputs+=Output)*;
 
 Type:
@@ -48,7 +56,6 @@ AllowedUserGroup:
   
 QualifiedName:
     ID ('.' ID)*;
-	
-
     
-
+QualifiedNumber:
+	INT ('.' INT)*'.';

@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getName <em>Name</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getDescriptions <em>Descriptions</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getInputs <em>Inputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getOutputs <em>Outputs</em>}</li>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getSteps <em>Steps</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getNotes <em>Notes</em>}</li>
  * </ul>
  *
@@ -73,6 +74,22 @@ public interface UseCase extends EObject
   EList<Description> getDescriptions();
 
   /**
+   * Returns the value of the '<em><b>Allowed User Groups</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.AllowedUserGroups}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Allowed User Groups</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Allowed User Groups</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase_AllowedUserGroups()
+   * @model containment="true"
+   * @generated
+   */
+  EList<AllowedUserGroups> getAllowedUserGroups();
+
+  /**
    * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
    * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Inputs}.
    * <!-- begin-user-doc -->
@@ -105,20 +122,20 @@ public interface UseCase extends EObject
   EList<Outputs> getOutputs();
 
   /**
-   * Returns the value of the '<em><b>Allowed User Groups</b></em>' containment reference list.
-   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.AllowedUserGroups}.
+   * Returns the value of the '<em><b>Steps</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Steps}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Allowed User Groups</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Steps</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Allowed User Groups</em>' containment reference list.
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase_AllowedUserGroups()
+   * @return the value of the '<em>Steps</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase_Steps()
    * @model containment="true"
    * @generated
    */
-  EList<AllowedUserGroups> getAllowedUserGroups();
+  EList<Steps> getSteps();
 
   /**
    * Returns the value of the '<em><b>Notes</b></em>' containment reference list.

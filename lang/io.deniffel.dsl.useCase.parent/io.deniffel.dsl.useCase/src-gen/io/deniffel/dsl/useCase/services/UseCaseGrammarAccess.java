@@ -59,30 +59,33 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cDescriptionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDescriptionsDescriptionParserRuleCall_2_0 = (RuleCall)cDescriptionsAssignment_2.eContents().get(0);
-		private final Assignment cInputsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cInputsInputsParserRuleCall_3_0 = (RuleCall)cInputsAssignment_3.eContents().get(0);
-		private final Assignment cOutputsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cOutputsOutputsParserRuleCall_4_0 = (RuleCall)cOutputsAssignment_4.eContents().get(0);
-		private final Assignment cAllowedUserGroupsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cAllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0 = (RuleCall)cAllowedUserGroupsAssignment_5.eContents().get(0);
-		private final Assignment cNotesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cNotesNotesParserRuleCall_6_0 = (RuleCall)cNotesAssignment_6.eContents().get(0);
-		private final Keyword cEndKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cOfKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cUseCaseKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cAllowedUserGroupsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cAllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0 = (RuleCall)cAllowedUserGroupsAssignment_3.eContents().get(0);
+		private final Assignment cInputsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cInputsInputsParserRuleCall_4_0 = (RuleCall)cInputsAssignment_4.eContents().get(0);
+		private final Assignment cOutputsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cOutputsOutputsParserRuleCall_5_0 = (RuleCall)cOutputsAssignment_5.eContents().get(0);
+		private final Assignment cStepsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cStepsStepsParserRuleCall_6_0 = (RuleCall)cStepsAssignment_6.eContents().get(0);
+		private final Assignment cNotesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cNotesNotesParserRuleCall_7_0 = (RuleCall)cNotesAssignment_7.eContents().get(0);
+		private final Keyword cEndKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cOfKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cUseCaseKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//UseCase:
 		//	'use-case' name=STRING
 		//	descriptions+=Description?
+		//	allowedUserGroups+=AllowedUserGroups?
 		//	inputs+=Inputs?
 		//	outputs+=Outputs?
-		//	allowedUserGroups+=AllowedUserGroups?
+		//	steps+=Steps?
 		//	notes+=Notes?
 		//	'end' 'of' 'use-case';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'use-case' name=STRING descriptions+=Description? inputs+=Inputs? outputs+=Outputs?
-		//allowedUserGroups+=AllowedUserGroups? notes+=Notes? 'end' 'of' 'use-case'
+		//'use-case' name=STRING descriptions+=Description? allowedUserGroups+=AllowedUserGroups? inputs+=Inputs?
+		//outputs+=Outputs? steps+=Steps? notes+=Notes? 'end' 'of' 'use-case'
 		public Group getGroup() { return cGroup; }
 		
 		//'use-case'
@@ -100,38 +103,95 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//Description
 		public RuleCall getDescriptionsDescriptionParserRuleCall_2_0() { return cDescriptionsDescriptionParserRuleCall_2_0; }
 		
-		//inputs+=Inputs?
-		public Assignment getInputsAssignment_3() { return cInputsAssignment_3; }
-		
-		//Inputs
-		public RuleCall getInputsInputsParserRuleCall_3_0() { return cInputsInputsParserRuleCall_3_0; }
-		
-		//outputs+=Outputs?
-		public Assignment getOutputsAssignment_4() { return cOutputsAssignment_4; }
-		
-		//Outputs
-		public RuleCall getOutputsOutputsParserRuleCall_4_0() { return cOutputsOutputsParserRuleCall_4_0; }
-		
 		//allowedUserGroups+=AllowedUserGroups?
-		public Assignment getAllowedUserGroupsAssignment_5() { return cAllowedUserGroupsAssignment_5; }
+		public Assignment getAllowedUserGroupsAssignment_3() { return cAllowedUserGroupsAssignment_3; }
 		
 		//AllowedUserGroups
-		public RuleCall getAllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0() { return cAllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0; }
+		public RuleCall getAllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0() { return cAllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0; }
+		
+		//inputs+=Inputs?
+		public Assignment getInputsAssignment_4() { return cInputsAssignment_4; }
+		
+		//Inputs
+		public RuleCall getInputsInputsParserRuleCall_4_0() { return cInputsInputsParserRuleCall_4_0; }
+		
+		//outputs+=Outputs?
+		public Assignment getOutputsAssignment_5() { return cOutputsAssignment_5; }
+		
+		//Outputs
+		public RuleCall getOutputsOutputsParserRuleCall_5_0() { return cOutputsOutputsParserRuleCall_5_0; }
+		
+		//steps+=Steps?
+		public Assignment getStepsAssignment_6() { return cStepsAssignment_6; }
+		
+		//Steps
+		public RuleCall getStepsStepsParserRuleCall_6_0() { return cStepsStepsParserRuleCall_6_0; }
 		
 		//notes+=Notes?
-		public Assignment getNotesAssignment_6() { return cNotesAssignment_6; }
+		public Assignment getNotesAssignment_7() { return cNotesAssignment_7; }
 		
 		//Notes
-		public RuleCall getNotesNotesParserRuleCall_6_0() { return cNotesNotesParserRuleCall_6_0; }
+		public RuleCall getNotesNotesParserRuleCall_7_0() { return cNotesNotesParserRuleCall_7_0; }
 		
 		//'end'
-		public Keyword getEndKeyword_7() { return cEndKeyword_7; }
+		public Keyword getEndKeyword_8() { return cEndKeyword_8; }
 		
 		//'of'
-		public Keyword getOfKeyword_8() { return cOfKeyword_8; }
+		public Keyword getOfKeyword_9() { return cOfKeyword_9; }
 		
 		//'use-case'
-		public Keyword getUseCaseKeyword_9() { return cUseCaseKeyword_9; }
+		public Keyword getUseCaseKeyword_10() { return cUseCaseKeyword_10; }
+	}
+	public class StepsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Steps");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cStepsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cStepsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStepsStepParserRuleCall_1_0 = (RuleCall)cStepsAssignment_1.eContents().get(0);
+		
+		//Steps:
+		//	'steps:'
+		//	steps+=Step*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'steps:' steps+=Step*
+		public Group getGroup() { return cGroup; }
+		
+		//'steps:'
+		public Keyword getStepsKeyword_0() { return cStepsKeyword_0; }
+		
+		//steps+=Step*
+		public Assignment getStepsAssignment_1() { return cStepsAssignment_1; }
+		
+		//Step
+		public RuleCall getStepsStepParserRuleCall_1_0() { return cStepsStepParserRuleCall_1_0; }
+	}
+	public class StepElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Step");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNumberAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNumberQualifiedNumberParserRuleCall_0_0 = (RuleCall)cNumberAssignment_0.eContents().get(0);
+		private final Assignment cActionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cActionSTRINGTerminalRuleCall_1_0 = (RuleCall)cActionAssignment_1.eContents().get(0);
+		
+		//Step:
+		//	number=QualifiedNumber action=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//number=QualifiedNumber action=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//number=QualifiedNumber
+		public Assignment getNumberAssignment_0() { return cNumberAssignment_0; }
+		
+		//QualifiedNumber
+		public RuleCall getNumberQualifiedNumberParserRuleCall_0_0() { return cNumberQualifiedNumberParserRuleCall_0_0; }
+		
+		//action=STRING
+		public Assignment getActionAssignment_1() { return cActionAssignment_1; }
+		
+		//STRING
+		public RuleCall getActionSTRINGTerminalRuleCall_1_0() { return cActionSTRINGTerminalRuleCall_1_0; }
 	}
 	public class DescriptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Description");
@@ -191,26 +251,50 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Inputs");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cInputsKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cInputKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Keyword cRequiresKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cRequireKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Group cGroup_0_2 = (Group)cAlternatives_0.eContents().get(2);
+		private final Keyword cRequiresKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
+		private final Keyword cTheKeyword_0_2_1 = (Keyword)cGroup_0_2.eContents().get(1);
+		private final Keyword cFollowingKeyword_0_2_2 = (Keyword)cGroup_0_2.eContents().get(2);
+		private final Keyword cInputKeyword_0_2_3 = (Keyword)cGroup_0_2.eContents().get(3);
+		private final Keyword cColonKeyword_0_2_4 = (Keyword)cGroup_0_2.eContents().get(4);
 		private final Assignment cInputsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cInputsInputParserRuleCall_1_0 = (RuleCall)cInputsAssignment_1.eContents().get(0);
 		
 		//Inputs:
-		//	('inputs:' | 'input:') inputs+=Input*;
+		//	('requires:' | 'require:' | 'requires' 'the' 'following' 'input' ':') inputs+=Input*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('inputs:' | 'input:') inputs+=Input*
+		//('requires:' | 'require:' | 'requires' 'the' 'following' 'input' ':') inputs+=Input*
 		public Group getGroup() { return cGroup; }
 		
-		//'inputs:' | 'input:'
+		//'requires:' | 'require:' | 'requires' 'the' 'following' 'input' ':'
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//'inputs:'
-		public Keyword getInputsKeyword_0_0() { return cInputsKeyword_0_0; }
+		//'requires:'
+		public Keyword getRequiresKeyword_0_0() { return cRequiresKeyword_0_0; }
 		
-		//'input:'
-		public Keyword getInputKeyword_0_1() { return cInputKeyword_0_1; }
+		//'require:'
+		public Keyword getRequireKeyword_0_1() { return cRequireKeyword_0_1; }
+		
+		//'requires' 'the' 'following' 'input' ':'
+		public Group getGroup_0_2() { return cGroup_0_2; }
+		
+		//'requires'
+		public Keyword getRequiresKeyword_0_2_0() { return cRequiresKeyword_0_2_0; }
+		
+		//'the'
+		public Keyword getTheKeyword_0_2_1() { return cTheKeyword_0_2_1; }
+		
+		//'following'
+		public Keyword getFollowingKeyword_0_2_2() { return cFollowingKeyword_0_2_2; }
+		
+		//'input'
+		public Keyword getInputKeyword_0_2_3() { return cInputKeyword_0_2_3; }
+		
+		//':'
+		public Keyword getColonKeyword_0_2_4() { return cColonKeyword_0_2_4; }
 		
 		//inputs+=Input*
 		public Assignment getInputsAssignment_1() { return cInputsAssignment_1; }
@@ -222,26 +306,50 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Outputs");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cOutputsKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cOutputKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Keyword cProducesKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cProduceKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Group cGroup_0_2 = (Group)cAlternatives_0.eContents().get(2);
+		private final Keyword cProducesKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
+		private final Keyword cTheKeyword_0_2_1 = (Keyword)cGroup_0_2.eContents().get(1);
+		private final Keyword cFollowingKeyword_0_2_2 = (Keyword)cGroup_0_2.eContents().get(2);
+		private final Keyword cOutputKeyword_0_2_3 = (Keyword)cGroup_0_2.eContents().get(3);
+		private final Keyword cColonKeyword_0_2_4 = (Keyword)cGroup_0_2.eContents().get(4);
 		private final Assignment cOutputsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cOutputsOutputParserRuleCall_1_0 = (RuleCall)cOutputsAssignment_1.eContents().get(0);
 		
 		//Outputs:
-		//	('outputs:' | 'output:') outputs+=Output*;
+		//	('produces:' | 'produce:' | 'produces' 'the' 'following' 'output' ':') outputs+=Output*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('outputs:' | 'output:') outputs+=Output*
+		//('produces:' | 'produce:' | 'produces' 'the' 'following' 'output' ':') outputs+=Output*
 		public Group getGroup() { return cGroup; }
 		
-		//'outputs:' | 'output:'
+		//'produces:' | 'produce:' | 'produces' 'the' 'following' 'output' ':'
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//'outputs:'
-		public Keyword getOutputsKeyword_0_0() { return cOutputsKeyword_0_0; }
+		//'produces:'
+		public Keyword getProducesKeyword_0_0() { return cProducesKeyword_0_0; }
 		
-		//'output:'
-		public Keyword getOutputKeyword_0_1() { return cOutputKeyword_0_1; }
+		//'produce:'
+		public Keyword getProduceKeyword_0_1() { return cProduceKeyword_0_1; }
+		
+		//'produces' 'the' 'following' 'output' ':'
+		public Group getGroup_0_2() { return cGroup_0_2; }
+		
+		//'produces'
+		public Keyword getProducesKeyword_0_2_0() { return cProducesKeyword_0_2_0; }
+		
+		//'the'
+		public Keyword getTheKeyword_0_2_1() { return cTheKeyword_0_2_1; }
+		
+		//'following'
+		public Keyword getFollowingKeyword_0_2_2() { return cFollowingKeyword_0_2_2; }
+		
+		//'output'
+		public Keyword getOutputKeyword_0_2_3() { return cOutputKeyword_0_2_3; }
+		
+		//':'
+		public Keyword getColonKeyword_0_2_4() { return cColonKeyword_0_2_4; }
 		
 		//outputs+=Output*
 		public Assignment getOutputsAssignment_1() { return cOutputsAssignment_1; }
@@ -512,10 +620,43 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
+	public class QualifiedNumberElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.QualifiedNumber");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//QualifiedNumber:
+		//	INT ('.' INT)* '.';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//INT ('.' INT)* '.'
+		public Group getGroup() { return cGroup; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		
+		//('.' INT)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1_1() { return cINTTerminalRuleCall_1_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
+	}
 	
 	
 	private final ModelElements pModel;
 	private final UseCaseElements pUseCase;
+	private final StepsElements pSteps;
+	private final StepElements pStep;
 	private final DescriptionElements pDescription;
 	private final NotesElements pNotes;
 	private final InputsElements pInputs;
@@ -526,6 +667,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	private final AllowedUserGroupsElements pAllowedUserGroups;
 	private final AllowedUserGroupElements pAllowedUserGroup;
 	private final QualifiedNameElements pQualifiedName;
+	private final QualifiedNumberElements pQualifiedNumber;
 	
 	private final Grammar grammar;
 	
@@ -538,6 +680,8 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pUseCase = new UseCaseElements();
+		this.pSteps = new StepsElements();
+		this.pStep = new StepElements();
 		this.pDescription = new DescriptionElements();
 		this.pNotes = new NotesElements();
 		this.pInputs = new InputsElements();
@@ -548,6 +692,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAllowedUserGroups = new AllowedUserGroupsElements();
 		this.pAllowedUserGroup = new AllowedUserGroupElements();
 		this.pQualifiedName = new QualifiedNameElements();
+		this.pQualifiedNumber = new QualifiedNumberElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -591,9 +736,10 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	//UseCase:
 	//	'use-case' name=STRING
 	//	descriptions+=Description?
+	//	allowedUserGroups+=AllowedUserGroups?
 	//	inputs+=Inputs?
 	//	outputs+=Outputs?
-	//	allowedUserGroups+=AllowedUserGroups?
+	//	steps+=Steps?
 	//	notes+=Notes?
 	//	'end' 'of' 'use-case';
 	public UseCaseElements getUseCaseAccess() {
@@ -602,6 +748,27 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUseCaseRule() {
 		return getUseCaseAccess().getRule();
+	}
+	
+	//Steps:
+	//	'steps:'
+	//	steps+=Step*;
+	public StepsElements getStepsAccess() {
+		return pSteps;
+	}
+	
+	public ParserRule getStepsRule() {
+		return getStepsAccess().getRule();
+	}
+	
+	//Step:
+	//	number=QualifiedNumber action=STRING;
+	public StepElements getStepAccess() {
+		return pStep;
+	}
+	
+	public ParserRule getStepRule() {
+		return getStepAccess().getRule();
 	}
 	
 	//Description:
@@ -625,7 +792,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Inputs:
-	//	('inputs:' | 'input:') inputs+=Input*;
+	//	('requires:' | 'require:' | 'requires' 'the' 'following' 'input' ':') inputs+=Input*;
 	public InputsElements getInputsAccess() {
 		return pInputs;
 	}
@@ -635,7 +802,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Outputs:
-	//	('outputs:' | 'output:') outputs+=Output*;
+	//	('produces:' | 'produce:' | 'produces' 'the' 'following' 'output' ':') outputs+=Output*;
 	public OutputsElements getOutputsAccess() {
 		return pOutputs;
 	}
@@ -703,6 +870,16 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getQualifiedNameRule() {
 		return getQualifiedNameAccess().getRule();
+	}
+	
+	//QualifiedNumber:
+	//	INT ('.' INT)* '.';
+	public QualifiedNumberElements getQualifiedNumberAccess() {
+		return pQualifiedNumber;
+	}
+	
+	public ParserRule getQualifiedNumberRule() {
+		return getQualifiedNumberAccess().getRule();
 	}
 	
 	//terminal ID:

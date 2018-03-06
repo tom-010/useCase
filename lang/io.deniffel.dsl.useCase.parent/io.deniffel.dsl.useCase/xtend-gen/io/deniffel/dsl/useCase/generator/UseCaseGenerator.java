@@ -1,6 +1,7 @@
 package io.deniffel.dsl.useCase.generator;
 
 import com.google.common.collect.Iterables;
+import io.deniffel.dsl.useCase.generator.ClassMemberNamingStrategy;
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.Description;
@@ -10,6 +11,8 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.Step;
+import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import org.eclipse.emf.common.util.EList;
@@ -26,6 +29,10 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 @SuppressWarnings("all")
 public class UseCaseGenerator extends AbstractGenerator {
   private ClassNamingStrategy classNamingStrategy = new ClassNamingStrategy();
+  
+  private ClassMemberNamingStrategy variableNaming = new ClassMemberNamingStrategy();
+  
+  private ClassMemberNamingStrategy methodNaming = new ClassMemberNamingStrategy();
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
@@ -59,6 +66,8 @@ public class UseCaseGenerator extends AbstractGenerator {
       if (_greaterThan) {
         _builder.append("import io.deniffel.auth.ACL;");
         _builder.newLine();
+        _builder.append("import io.deniffel.useCase.UseCase;");
+        _builder.newLine();
       }
     }
     _builder.newLine();
@@ -70,25 +79,35 @@ public class UseCaseGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("public interface ");
+    String _convert = this.classNamingStrategy.convert(usecase.getName());
+    _builder.append(_convert);
+    _builder.append(" extends UseCase<Input, Output> {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
     {
       int _size_1 = usecase.getAllowedUserGroups().size();
       boolean _greaterThan_1 = (_size_1 > 0);
       if (_greaterThan_1) {
-        _builder.append("@ACL(allowedFor={");
+        _builder.append("\t");
+        _builder.append("default String[] allowedFor {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("return new String[] {");
         final Function1<AllowedUserGroup, CharSequence> _function = (AllowedUserGroup it) -> {
-          return it.getName();
+          return this.compile(it);
         };
         String _join = IterableExtensions.<AllowedUserGroup>join(usecase.getAllowedUserGroups().get(0).getGroups(), ", ", _function);
-        _builder.append(_join);
-        _builder.append("})");
+        _builder.append(_join, "\t\t");
+        _builder.append("};");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
       }
     }
-    _builder.append("public class ");
-    String _convert = this.classNamingStrategy.convert(usecase.getName());
-    _builder.append(_convert);
-    _builder.append(" {");
-    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
     {
@@ -111,8 +130,15 @@ public class UseCaseGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t");
-    _builder.newLine();
+    {
+      EList<Steps> _steps = usecase.getSteps();
+      for(final Steps s_2 : _steps) {
+        _builder.append("\t");
+        CharSequence _compile_4 = this.compile(s_2);
+        _builder.append(_compile_4, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
@@ -130,20 +156,38 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("*/");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<Steps> _steps_1 = usecase.getSteps();
+      for(final Steps steps : _steps_1) {
+        {
+          EList<Step> _steps_2 = steps.getSteps();
+          for(final Step s_3 : _steps_2) {
+            _builder.append("\t");
+            _builder.append("void ");
+            CharSequence _compile_5 = this.compile(s_3);
+            _builder.append(_compile_5, "\t");
+            _builder.append(";");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.append("Output getOutput();\t");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
   }
   
-  public String getName(final AllowedUserGroup group) {
-    return group.getName();
-  }
-  
   public CharSequence compile(final AllowedUserGroup group) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\"");
     String _name = group.getName();
     _builder.append(_name);
-    _builder.newLineIfNotEmpty();
+    _builder.append("\"");
     return _builder;
   }
   
@@ -157,6 +201,36 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("*/");
     _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Steps steps) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("default Output steps {");
+    _builder.newLine();
+    {
+      EList<Step> _steps = steps.getSteps();
+      for(final Step s : _steps) {
+        _builder.append("\t");
+        CharSequence _compile = this.compile(s);
+        _builder.append(_compile, "\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("return getOutput();");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Step step) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _convert = this.methodNaming.convert(step.getAction());
+    _builder.append(_convert);
+    _builder.append("()");
     return _builder;
   }
   
@@ -191,11 +265,11 @@ public class UseCaseGenerator extends AbstractGenerator {
       for(final Input i_1 : _inputs_1) {
         _builder.append("\t\t");
         _builder.append("this.");
-        String _content = i_1.getContent();
-        _builder.append(_content, "\t\t");
+        String _convert = this.variableNaming.convert(i_1.getContent());
+        _builder.append(_convert, "\t\t");
         _builder.append(" = ");
-        String _content_1 = i_1.getContent();
-        _builder.append(_content_1, "\t\t");
+        String _convert_1 = this.variableNaming.convert(i_1.getContent());
+        _builder.append(_convert_1, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
@@ -262,8 +336,8 @@ public class UseCaseGenerator extends AbstractGenerator {
     String _name = output.getType().getName();
     _builder.append(_name);
     _builder.append(" ");
-    String _content = output.getContent();
-    _builder.append(_content);
+    String _convert = this.variableNaming.convert(output.getContent());
+    _builder.append(_convert);
     return _builder;
   }
   
@@ -272,8 +346,8 @@ public class UseCaseGenerator extends AbstractGenerator {
     String _name = input.getType().getName();
     _builder.append(_name);
     _builder.append(" ");
-    String _content = input.getContent();
-    _builder.append(_content);
+    String _convert = this.variableNaming.convert(input.getContent());
+    _builder.append(_convert);
     return _builder;
   }
   

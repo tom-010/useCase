@@ -47,16 +47,28 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getUseCase_DescriptionsDescriptionParserRuleCall_2_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_InputsInputsParserRuleCall_3_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_OutputsOutputsParserRuleCall_4_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_InputsInputsParserRuleCall_4_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_AllowedUserGroupsAllowedUserGroupsParserRuleCall_5_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_OutputsOutputsParserRuleCall_5_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_NotesNotesParserRuleCall_6_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_StepsStepsParserRuleCall_6_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getUseCase_NotesNotesParserRuleCall_7_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getStepsElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getSteps_StepsStepParserRuleCall_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getStepElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getDescriptionElementType()) {

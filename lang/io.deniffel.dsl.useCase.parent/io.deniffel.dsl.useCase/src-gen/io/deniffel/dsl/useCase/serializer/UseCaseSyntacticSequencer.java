@@ -12,6 +12,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -21,16 +22,16 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected UseCaseGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0;
+	protected AbstractElementAlias match_Inputs_RequireKeyword_0_1_or_RequiresKeyword_0_0_or___RequiresKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_InputKeyword_0_2_3_ColonKeyword_0_2_4__;
 	protected AbstractElementAlias match_Notes_NoteKeyword_0_1_or_NotesKeyword_0_0;
-	protected AbstractElementAlias match_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0;
+	protected AbstractElementAlias match_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (UseCaseGrammarAccess) access;
-		match_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputsAccess().getInputKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getInputsKeyword_0_0()));
+		match_Inputs_RequireKeyword_0_1_or_RequiresKeyword_0_0_or___RequiresKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_InputKeyword_0_2_3_ColonKeyword_0_2_4__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputsAccess().getRequiresKeyword_0_2_0()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getTheKeyword_0_2_1()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getFollowingKeyword_0_2_2()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getInputKeyword_0_2_3()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getColonKeyword_0_2_4())), new TokenAlias(false, false, grammarAccess.getInputsAccess().getRequireKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getRequiresKeyword_0_0()));
 		match_Notes_NoteKeyword_0_1_or_NotesKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getNotesAccess().getNoteKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getNotesAccess().getNotesKeyword_0_0()));
-		match_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputsAccess().getOutputKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getOutputsKeyword_0_0()));
+		match_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_2_0()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getTheKeyword_0_2_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getFollowingKeyword_0_2_2()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getOutputKeyword_0_2_3()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getColonKeyword_0_2_4())), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProduceKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_0()));
 	}
 	
 	@Override
@@ -45,25 +46,25 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0.equals(syntax))
-				emit_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Inputs_RequireKeyword_0_1_or_RequiresKeyword_0_0_or___RequiresKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_InputKeyword_0_2_3_ColonKeyword_0_2_4__.equals(syntax))
+				emit_Inputs_RequireKeyword_0_1_or_RequiresKeyword_0_0_or___RequiresKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_InputKeyword_0_2_3_ColonKeyword_0_2_4__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Notes_NoteKeyword_0_1_or_NotesKeyword_0_0.equals(syntax))
 				emit_Notes_NoteKeyword_0_1_or_NotesKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0.equals(syntax))
-				emit_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__.equals(syntax))
+				emit_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     'inputs:' | 'input:'
+	 *     ('requires' 'the' 'following' 'input' ':') | 'requires:' | 'require:'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
 	 *     (rule start) (ambiguity) inputs+=Input
 	 */
-	protected void emit_Inputs_InputKeyword_0_1_or_InputsKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Inputs_RequireKeyword_0_1_or_RequiresKeyword_0_0_or___RequiresKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_InputKeyword_0_2_3_ColonKeyword_0_2_4__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -80,13 +81,13 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     'outputs:' | 'output:'
+	 *     ('produces' 'the' 'following' 'output' ':') | 'produces:' | 'produce:'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
 	 *     (rule start) (ambiguity) outputs+=Output
 	 */
-	protected void emit_Outputs_OutputKeyword_0_1_or_OutputsKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

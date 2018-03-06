@@ -12,14 +12,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptions" upperBound="-1"
         eType="#//Description" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allowedUserGroups" upperBound="-1"
+        eType="#//AllowedUserGroups" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
         eType="#//Inputs" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
         eType="#//Outputs" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="allowedUserGroups" upperBound="-1"
-        eType="#//AllowedUserGroups" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
+        eType="#//Steps" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="notes" upperBound="-1"
         eType="#//Notes" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Steps">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
+        eType="#//Step" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Description">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

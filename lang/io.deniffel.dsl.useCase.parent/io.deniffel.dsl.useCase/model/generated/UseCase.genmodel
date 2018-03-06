@@ -13,10 +13,18 @@
     <genClasses ecoreClass="UseCase.ecore#//UseCase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//UseCase/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/descriptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/allowedUserGroups"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/inputs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/outputs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/allowedUserGroups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/steps"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/notes"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Steps">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Steps/steps"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Step">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Step/number"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Step/action"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Description/name"/>

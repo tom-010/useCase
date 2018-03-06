@@ -14,6 +14,8 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.Step;
+import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
@@ -68,6 +70,12 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case UseCasePackage.OUTPUTS:
 				sequence_Outputs(context, (Outputs) semanticObject); 
+				return; 
+			case UseCasePackage.STEP:
+				sequence_Step(context, (Step) semanticObject); 
+				return; 
+			case UseCasePackage.STEPS:
+				sequence_Steps(context, (Steps) semanticObject); 
 				return; 
 			case UseCasePackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
@@ -202,6 +210,39 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Step returns Step
+	 *
+	 * Constraint:
+	 *     (number=QualifiedNumber action=STRING)
+	 */
+	protected void sequence_Step(ISerializationContext context, Step semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.STEP__NUMBER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.STEP__NUMBER));
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.STEP__ACTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.STEP__ACTION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStepAccess().getNumberQualifiedNumberParserRuleCall_0_0(), semanticObject.getNumber());
+		feeder.accept(grammarAccess.getStepAccess().getActionSTRINGTerminalRuleCall_1_0(), semanticObject.getAction());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Steps returns Steps
+	 *
+	 * Constraint:
+	 *     steps+=Step+
+	 */
+	protected void sequence_Steps(ISerializationContext context, Steps semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Type returns Type
 	 *
 	 * Constraint:
@@ -220,9 +261,10 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     (
 	 *         name=STRING 
 	 *         descriptions+=Description? 
+	 *         allowedUserGroups+=AllowedUserGroups? 
 	 *         inputs+=Inputs? 
 	 *         outputs+=Outputs? 
-	 *         allowedUserGroups+=AllowedUserGroups? 
+	 *         steps+=Steps? 
 	 *         notes+=Notes?
 	 *     )
 	 */

@@ -87,6 +87,20 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UseCasePackage.STEPS:
+      {
+        Steps steps = (Steps)theEObject;
+        T result = caseSteps(steps);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.STEP:
+      {
+        Step step = (Step)theEObject;
+        T result = caseStep(step);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case UseCasePackage.DESCRIPTION:
       {
         Description description = (Description)theEObject;
@@ -182,6 +196,38 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUseCase(UseCase object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Steps</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Steps</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSteps(Steps object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Step</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Step</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStep(Step object)
   {
     return null;
   }
