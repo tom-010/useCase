@@ -8,20 +8,26 @@ import { AppComponent } from './app.component';
 import { UseCaseService } from './use-case.service';
 import { UseCasesComponent } from './use-cases/use-cases.component';
 import { UseCaseDetailComponent } from './use-case-detail/use-case-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UseCasesComponent,
-    UseCaseDetailComponent
+    UseCaseDetailComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatCheckboxModule
+    MatButtonModule, MatCheckboxModule, AppRoutingModule
   ],
-  providers: [UseCaseService],
+  providers: [UseCaseService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
