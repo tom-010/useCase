@@ -36,10 +36,10 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//Model:
 		//	useCases+=UseCase*
 		//	types=UsedTypes
-		//	exceptions+=UsedExceptions;
+		//	exceptions=UsedExceptions;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//useCases+=UseCase* types=UsedTypes exceptions+=UsedExceptions
+		//useCases+=UseCase* types=UsedTypes exceptions=UsedExceptions
 		public Group getGroup() { return cGroup; }
 		
 		//useCases+=UseCase*
@@ -54,7 +54,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//UsedTypes
 		public RuleCall getTypesUsedTypesParserRuleCall_1_0() { return cTypesUsedTypesParserRuleCall_1_0; }
 		
-		//exceptions+=UsedExceptions
+		//exceptions=UsedExceptions
 		public Assignment getExceptionsAssignment_2() { return cExceptionsAssignment_2; }
 		
 		//UsedExceptions
@@ -208,15 +208,15 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cUsedKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cErrorsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cExceptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExceptionExceptionDeclerationParserRuleCall_2_0 = (RuleCall)cExceptionAssignment_2.eContents().get(0);
+		private final Assignment cExceptionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExceptionsExceptionDeclerationParserRuleCall_2_0 = (RuleCall)cExceptionsAssignment_2.eContents().get(0);
 		
 		//UsedExceptions:
 		//	'used' 'errors:'
-		//	exception+=ExceptionDecleration*;
+		//	exceptions+=ExceptionDecleration*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'used' 'errors:' exception+=ExceptionDecleration*
+		//'used' 'errors:' exceptions+=ExceptionDecleration*
 		public Group getGroup() { return cGroup; }
 		
 		//'used'
@@ -225,11 +225,11 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//'errors:'
 		public Keyword getErrorsKeyword_1() { return cErrorsKeyword_1; }
 		
-		//exception+=ExceptionDecleration*
-		public Assignment getExceptionAssignment_2() { return cExceptionAssignment_2; }
+		//exceptions+=ExceptionDecleration*
+		public Assignment getExceptionsAssignment_2() { return cExceptionsAssignment_2; }
 		
 		//ExceptionDecleration
-		public RuleCall getExceptionExceptionDeclerationParserRuleCall_2_0() { return cExceptionExceptionDeclerationParserRuleCall_2_0; }
+		public RuleCall getExceptionsExceptionDeclerationParserRuleCall_2_0() { return cExceptionsExceptionDeclerationParserRuleCall_2_0; }
 	}
 	public class StepElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Step");
@@ -981,7 +981,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	//Model:
 	//	useCases+=UseCase*
 	//	types=UsedTypes
-	//	exceptions+=UsedExceptions;
+	//	exceptions=UsedExceptions;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -1031,7 +1031,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//UsedExceptions:
 	//	'used' 'errors:'
-	//	exception+=ExceptionDecleration*;
+	//	exceptions+=ExceptionDecleration*;
 	public UsedExceptionsElements getUsedExceptionsAccess() {
 		return pUsedExceptions;
 	}

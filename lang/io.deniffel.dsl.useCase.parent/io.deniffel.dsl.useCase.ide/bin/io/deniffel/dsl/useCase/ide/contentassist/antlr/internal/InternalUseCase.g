@@ -1229,9 +1229,9 @@ rule__UsedExceptions__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getUsedExceptionsAccess().getExceptionAssignment_2()); }
-	(rule__UsedExceptions__ExceptionAssignment_2)*
-	{ after(grammarAccess.getUsedExceptionsAccess().getExceptionAssignment_2()); }
+	{ before(grammarAccess.getUsedExceptionsAccess().getExceptionsAssignment_2()); }
+	(rule__UsedExceptions__ExceptionsAssignment_2)*
+	{ after(grammarAccess.getUsedExceptionsAccess().getExceptionsAssignment_2()); }
 )
 ;
 finally {
@@ -3687,15 +3687,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__UsedExceptions__ExceptionAssignment_2
+rule__UsedExceptions__ExceptionsAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getUsedExceptionsAccess().getExceptionExceptionDeclerationParserRuleCall_2_0()); }
+		{ before(grammarAccess.getUsedExceptionsAccess().getExceptionsExceptionDeclerationParserRuleCall_2_0()); }
 		ruleExceptionDecleration
-		{ after(grammarAccess.getUsedExceptionsAccess().getExceptionExceptionDeclerationParserRuleCall_2_0()); }
+		{ after(grammarAccess.getUsedExceptionsAccess().getExceptionsExceptionDeclerationParserRuleCall_2_0()); }
 	)
 ;
 finally {

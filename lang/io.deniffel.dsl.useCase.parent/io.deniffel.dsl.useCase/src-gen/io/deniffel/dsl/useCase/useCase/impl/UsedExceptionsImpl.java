@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UsedExceptionsImpl#getException <em>Exception</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UsedExceptionsImpl#getExceptions <em>Exceptions</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class UsedExceptionsImpl extends MinimalEObjectImpl.Container implements UsedExceptions
 {
   /**
-   * The cached value of the '{@link #getException() <em>Exception</em>}' containment reference list.
+   * The cached value of the '{@link #getExceptions() <em>Exceptions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getException()
+   * @see #getExceptions()
    * @generated
    * @ordered
    */
-  protected EList<ExceptionDecleration> exception;
+  protected EList<ExceptionDecleration> exceptions;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +72,13 @@ public class UsedExceptionsImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ExceptionDecleration> getException()
+  public EList<ExceptionDecleration> getExceptions()
   {
-    if (exception == null)
+    if (exceptions == null)
     {
-      exception = new EObjectContainmentEList<ExceptionDecleration>(ExceptionDecleration.class, this, UseCasePackage.USED_EXCEPTIONS__EXCEPTION);
+      exceptions = new EObjectContainmentEList<ExceptionDecleration>(ExceptionDecleration.class, this, UseCasePackage.USED_EXCEPTIONS__EXCEPTIONS);
     }
-    return exception;
+    return exceptions;
   }
 
   /**
@@ -91,8 +91,8 @@ public class UsedExceptionsImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case UseCasePackage.USED_EXCEPTIONS__EXCEPTION:
-        return ((InternalEList<?>)getException()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.USED_EXCEPTIONS__EXCEPTIONS:
+        return ((InternalEList<?>)getExceptions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class UsedExceptionsImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case UseCasePackage.USED_EXCEPTIONS__EXCEPTION:
-        return getException();
+      case UseCasePackage.USED_EXCEPTIONS__EXCEPTIONS:
+        return getExceptions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class UsedExceptionsImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case UseCasePackage.USED_EXCEPTIONS__EXCEPTION:
-        getException().clear();
-        getException().addAll((Collection<? extends ExceptionDecleration>)newValue);
+      case UseCasePackage.USED_EXCEPTIONS__EXCEPTIONS:
+        getExceptions().clear();
+        getExceptions().addAll((Collection<? extends ExceptionDecleration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class UsedExceptionsImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case UseCasePackage.USED_EXCEPTIONS__EXCEPTION:
-        getException().clear();
+      case UseCasePackage.USED_EXCEPTIONS__EXCEPTIONS:
+        getExceptions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +159,8 @@ public class UsedExceptionsImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case UseCasePackage.USED_EXCEPTIONS__EXCEPTION:
-        return exception != null && !exception.isEmpty();
+      case UseCasePackage.USED_EXCEPTIONS__EXCEPTIONS:
+        return exceptions != null && !exceptions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

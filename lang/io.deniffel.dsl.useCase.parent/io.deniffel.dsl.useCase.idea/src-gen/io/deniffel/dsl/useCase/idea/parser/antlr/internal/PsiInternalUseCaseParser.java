@@ -922,21 +922,21 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
 
     // $ANTLR start "ruleUsedExceptions"
-    // PsiInternalUseCase.g:346:1: ruleUsedExceptions returns [Boolean current=false] : (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )* ) ;
+    // PsiInternalUseCase.g:346:1: ruleUsedExceptions returns [Boolean current=false] : (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )* ) ;
     public final Boolean ruleUsedExceptions() throws RecognitionException {
         Boolean current = false;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
-        Boolean lv_exception_2_0 = null;
+        Boolean lv_exceptions_2_0 = null;
 
 
         try {
-            // PsiInternalUseCase.g:347:1: ( (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )* ) )
-            // PsiInternalUseCase.g:348:2: (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )* )
+            // PsiInternalUseCase.g:347:1: ( (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )* ) )
+            // PsiInternalUseCase.g:348:2: (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )* )
             {
-            // PsiInternalUseCase.g:348:2: (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )* )
-            // PsiInternalUseCase.g:349:3: otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )*
+            // PsiInternalUseCase.g:348:2: (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )* )
+            // PsiInternalUseCase.g:349:3: otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )*
             {
 
             			markLeaf(elementTypeProvider.getUsedExceptions_UsedKeyword_0ElementType());
@@ -952,7 +952,7 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
             			doneLeaf(otherlv_1);
             		
-            // PsiInternalUseCase.g:363:3: ( (lv_exception_2_0= ruleExceptionDecleration ) )*
+            // PsiInternalUseCase.g:363:3: ( (lv_exceptions_2_0= ruleExceptionDecleration ) )*
             loop10:
             do {
                 int alt10=2;
@@ -965,16 +965,16 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
                 switch (alt10) {
             	case 1 :
-            	    // PsiInternalUseCase.g:364:4: (lv_exception_2_0= ruleExceptionDecleration )
+            	    // PsiInternalUseCase.g:364:4: (lv_exceptions_2_0= ruleExceptionDecleration )
             	    {
-            	    // PsiInternalUseCase.g:364:4: (lv_exception_2_0= ruleExceptionDecleration )
-            	    // PsiInternalUseCase.g:365:5: lv_exception_2_0= ruleExceptionDecleration
+            	    // PsiInternalUseCase.g:364:4: (lv_exceptions_2_0= ruleExceptionDecleration )
+            	    // PsiInternalUseCase.g:365:5: lv_exceptions_2_0= ruleExceptionDecleration
             	    {
 
-            	    					markComposite(elementTypeProvider.getUsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0ElementType());
+            	    					markComposite(elementTypeProvider.getUsedExceptions_ExceptionsExceptionDeclerationParserRuleCall_2_0ElementType());
             	    				
             	    pushFollow(FOLLOW_17);
-            	    lv_exception_2_0=ruleExceptionDecleration();
+            	    lv_exceptions_2_0=ruleExceptionDecleration();
 
             	    state._fsp--;
 

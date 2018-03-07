@@ -262,7 +262,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
             					if (current==null) {
             						current = createModelElementForParent(grammarAccess.getModelRule());
             					}
-            					add(
+            					set(
             						current,
             						"exceptions",
             						lv_exceptions_2_0,
@@ -984,24 +984,24 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUsedExceptions"
-    // InternalUseCase.g:402:1: ruleUsedExceptions returns [EObject current=null] : (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )* ) ;
+    // InternalUseCase.g:402:1: ruleUsedExceptions returns [EObject current=null] : (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )* ) ;
     public final EObject ruleUsedExceptions() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
-        EObject lv_exception_2_0 = null;
+        EObject lv_exceptions_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalUseCase.g:408:2: ( (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )* ) )
-            // InternalUseCase.g:409:2: (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )* )
+            // InternalUseCase.g:408:2: ( (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )* ) )
+            // InternalUseCase.g:409:2: (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )* )
             {
-            // InternalUseCase.g:409:2: (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )* )
-            // InternalUseCase.g:410:3: otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exception_2_0= ruleExceptionDecleration ) )*
+            // InternalUseCase.g:409:2: (otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )* )
+            // InternalUseCase.g:410:3: otherlv_0= 'used' otherlv_1= 'errors:' ( (lv_exceptions_2_0= ruleExceptionDecleration ) )*
             {
             otherlv_0=(Token)match(input,15,FOLLOW_18); 
 
@@ -1011,7 +1011,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getUsedExceptionsAccess().getErrorsKeyword_1());
             		
-            // InternalUseCase.g:418:3: ( (lv_exception_2_0= ruleExceptionDecleration ) )*
+            // InternalUseCase.g:418:3: ( (lv_exceptions_2_0= ruleExceptionDecleration ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1024,16 +1024,16 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalUseCase.g:419:4: (lv_exception_2_0= ruleExceptionDecleration )
+            	    // InternalUseCase.g:419:4: (lv_exceptions_2_0= ruleExceptionDecleration )
             	    {
-            	    // InternalUseCase.g:419:4: (lv_exception_2_0= ruleExceptionDecleration )
-            	    // InternalUseCase.g:420:5: lv_exception_2_0= ruleExceptionDecleration
+            	    // InternalUseCase.g:419:4: (lv_exceptions_2_0= ruleExceptionDecleration )
+            	    // InternalUseCase.g:420:5: lv_exceptions_2_0= ruleExceptionDecleration
             	    {
 
-            	    					newCompositeNode(grammarAccess.getUsedExceptionsAccess().getExceptionExceptionDeclerationParserRuleCall_2_0());
+            	    					newCompositeNode(grammarAccess.getUsedExceptionsAccess().getExceptionsExceptionDeclerationParserRuleCall_2_0());
             	    				
             	    pushFollow(FOLLOW_17);
-            	    lv_exception_2_0=ruleExceptionDecleration();
+            	    lv_exceptions_2_0=ruleExceptionDecleration();
 
             	    state._fsp--;
 
@@ -1043,8 +1043,8 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"exception",
-            	    						lv_exception_2_0,
+            	    						"exceptions",
+            	    						lv_exceptions_2_0,
             	    						"io.deniffel.dsl.useCase.UseCase.ExceptionDecleration");
             	    					afterParserOrEnumRuleCall();
             	    				

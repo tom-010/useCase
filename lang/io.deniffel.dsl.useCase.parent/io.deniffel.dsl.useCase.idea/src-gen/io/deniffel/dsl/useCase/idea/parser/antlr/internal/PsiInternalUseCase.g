@@ -363,9 +363,9 @@ ruleUsedExceptions returns [Boolean current=false]
 		(
 			(
 				{
-					markComposite(elementTypeProvider.getUsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0ElementType());
+					markComposite(elementTypeProvider.getUsedExceptions_ExceptionsExceptionDeclerationParserRuleCall_2_0ElementType());
 				}
-				lv_exception_2_0=ruleExceptionDecleration
+				lv_exceptions_2_0=ruleExceptionDecleration
 				{
 					doneComposite();
 					if(!$current) {

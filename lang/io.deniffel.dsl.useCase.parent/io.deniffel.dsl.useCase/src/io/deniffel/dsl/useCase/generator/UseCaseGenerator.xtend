@@ -16,6 +16,7 @@ import io.deniffel.dsl.useCase.useCase.Outputs
 import io.deniffel.dsl.useCase.useCase.Output
 import io.deniffel.dsl.useCase.useCase.Steps
 import io.deniffel.dsl.useCase.useCase.Step
+import io.deniffel.dsl.useCase.useCase.UsedExceptions
 
 class UseCaseGenerator extends AbstractGenerator {
 	
@@ -29,12 +30,12 @@ class UseCaseGenerator extends AbstractGenerator {
 		for(model : resource.allContents.toIterable.filter(Model)) {
 			for(usecase : model.useCases) {
 				usecase.name = classNamingStrategy.convert(usecase.name); 
-				fsa.generateFile(usecase.name + ".java", usecase.compile(model.types.types));	
+				fsa.generateFile(usecase.name + ".java", usecase.compile(model.types.types, model.exceptions));	
 			}
 		}
 	}
 	
-	def compile(UseCase usecase, EList<Type> types) '''	
+	def compile(UseCase usecase, EList<Type> types, UsedExceptions exceptions) '''	
 	«FOR t:types»
 		«t.compile»
 	«ENDFOR»
@@ -77,7 +78,9 @@ class UseCaseGenerator extends AbstractGenerator {
 			void «s.compile»«IF s.error !== null» throws «s.error.exception.type.name»«ENDIF»;
 		«ENDFOR»
 		«ENDFOR»
-		Output getOutput();	
+		Output getOutput();
+		
+		«exceptions.compile»
 	}
 	'''
 	
@@ -88,6 +91,13 @@ class UseCaseGenerator extends AbstractGenerator {
 	/**
 	* «description.name»
 	*/
+	'''
+	
+	def compile(UsedExceptions exeptions)'''
+		«FOR e:exeptions.exceptions»
+			public static class «e.name» extends Error { public «e.name»(){super("«e.message»");} }
+		«ENDFOR»
+		
 	'''
 	
 	def compile(Steps steps) '''

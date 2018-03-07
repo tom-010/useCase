@@ -5,6 +5,7 @@ import io.deniffel.dsl.useCase.generator.ClassMemberNamingStrategy;
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
@@ -16,6 +17,7 @@ import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
+import io.deniffel.dsl.useCase.useCase.UsedExceptions;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -45,13 +47,13 @@ public class UseCaseGenerator extends AbstractGenerator {
           usecase.setName(this.classNamingStrategy.convert(usecase.getName()));
           String _name = usecase.getName();
           String _plus = (_name + ".java");
-          fsa.generateFile(_plus, this.compile(usecase, model.getTypes().getTypes()));
+          fsa.generateFile(_plus, this.compile(usecase, model.getTypes().getTypes(), model.getExceptions()));
         }
       }
     }
   }
   
-  public CharSequence compile(final UseCase usecase, final EList<Type> types) {
+  public CharSequence compile(final UseCase usecase, final EList<Type> types, final UsedExceptions exceptions) {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final Type t : types) {
@@ -185,8 +187,14 @@ public class UseCaseGenerator extends AbstractGenerator {
       }
     }
     _builder.append("\t");
-    _builder.append("Output getOutput();\t");
+    _builder.append("Output getOutput();");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _compile_6 = this.compile(exceptions);
+    _builder.append(_compile_6, "\t");
+    _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -210,6 +218,28 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.newLineIfNotEmpty();
     _builder.append("*/");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final UsedExceptions exeptions) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<ExceptionDecleration> _exceptions = exeptions.getExceptions();
+      for(final ExceptionDecleration e : _exceptions) {
+        _builder.append("public static class ");
+        String _name = e.getName();
+        _builder.append(_name);
+        _builder.append(" extends Error { public ");
+        String _name_1 = e.getName();
+        _builder.append(_name_1);
+        _builder.append("(){super(\"");
+        String _message = e.getMessage();
+        _builder.append(_message);
+        _builder.append("\");} }");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.newLine();
     return _builder;
   }

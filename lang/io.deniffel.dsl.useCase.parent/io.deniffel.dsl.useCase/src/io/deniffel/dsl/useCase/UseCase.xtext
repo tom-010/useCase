@@ -5,7 +5,7 @@ generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
 Model:
 	(useCases+=UseCase)*
 	types=UsedTypes
-	exceptions+=UsedExceptions;
+	exceptions=UsedExceptions;
 	
  
 UseCase:
@@ -28,7 +28,7 @@ UsedTypes:
 
 UsedExceptions:
 	'used' 'errors:'
-	(exception+=ExceptionDecleration)*;
+	(exceptions+=ExceptionDecleration)*;
 
 Step:
 	number=QualifiedNumber action=STRING(error=RaiseError)?;

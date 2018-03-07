@@ -86,7 +86,7 @@ public interface UseCasePackage extends EPackage
   int MODEL__TYPES = 1;
 
   /**
-   * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Exceptions</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -252,13 +252,13 @@ public interface UseCasePackage extends EPackage
   int USED_EXCEPTIONS = 4;
 
   /**
-   * The feature id for the '<em><b>Exception</b></em>' containment reference list.
+   * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USED_EXCEPTIONS__EXCEPTION = 0;
+  int USED_EXCEPTIONS__EXCEPTIONS = 0;
 
   /**
    * The number of structural features of the '<em>Used Exceptions</em>' class.
@@ -793,10 +793,10 @@ public interface UseCasePackage extends EPackage
   EReference getModel_Types();
 
   /**
-   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Model#getExceptions <em>Exceptions</em>}'.
+   * Returns the meta object for the containment reference '{@link io.deniffel.dsl.useCase.useCase.Model#getExceptions <em>Exceptions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Exceptions</em>'.
+   * @return the meta object for the containment reference '<em>Exceptions</em>'.
    * @see io.deniffel.dsl.useCase.useCase.Model#getExceptions()
    * @see #getModel()
    * @generated
@@ -943,15 +943,15 @@ public interface UseCasePackage extends EPackage
   EClass getUsedExceptions();
 
   /**
-   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UsedExceptions#getException <em>Exception</em>}'.
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UsedExceptions#getExceptions <em>Exceptions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Exception</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.UsedExceptions#getException()
+   * @return the meta object for the containment reference list '<em>Exceptions</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.UsedExceptions#getExceptions()
    * @see #getUsedExceptions()
    * @generated
    */
-  EReference getUsedExceptions_Exception();
+  EReference getUsedExceptions_Exceptions();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Step <em>Step</em>}'.
@@ -1430,7 +1430,7 @@ public interface UseCasePackage extends EPackage
     EReference MODEL__TYPES = eINSTANCE.getModel_Types();
 
     /**
-     * The meta object literal for the '<em><b>Exceptions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Exceptions</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1550,12 +1550,12 @@ public interface UseCasePackage extends EPackage
     EClass USED_EXCEPTIONS = eINSTANCE.getUsedExceptions();
 
     /**
-     * The meta object literal for the '<em><b>Exception</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Exceptions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference USED_EXCEPTIONS__EXCEPTION = eINSTANCE.getUsedExceptions_Exception();
+    EReference USED_EXCEPTIONS__EXCEPTIONS = eINSTANCE.getUsedExceptions_Exceptions();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl <em>Step</em>}' class.

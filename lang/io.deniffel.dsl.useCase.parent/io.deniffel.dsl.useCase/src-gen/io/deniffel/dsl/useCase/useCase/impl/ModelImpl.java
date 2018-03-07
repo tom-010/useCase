@@ -63,14 +63,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected UsedTypes types;
 
   /**
-   * The cached value of the '{@link #getExceptions() <em>Exceptions</em>}' containment reference list.
+   * The cached value of the '{@link #getExceptions() <em>Exceptions</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExceptions()
    * @generated
    * @ordered
    */
-  protected EList<UsedExceptions> exceptions;
+  protected UsedExceptions exceptions;
 
   /**
    * <!-- begin-user-doc -->
@@ -160,13 +160,47 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<UsedExceptions> getExceptions()
+  public UsedExceptions getExceptions()
   {
-    if (exceptions == null)
-    {
-      exceptions = new EObjectContainmentEList<UsedExceptions>(UsedExceptions.class, this, UseCasePackage.MODEL__EXCEPTIONS);
-    }
     return exceptions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExceptions(UsedExceptions newExceptions, NotificationChain msgs)
+  {
+    UsedExceptions oldExceptions = exceptions;
+    exceptions = newExceptions;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.MODEL__EXCEPTIONS, oldExceptions, newExceptions);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExceptions(UsedExceptions newExceptions)
+  {
+    if (newExceptions != exceptions)
+    {
+      NotificationChain msgs = null;
+      if (exceptions != null)
+        msgs = ((InternalEObject)exceptions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.MODEL__EXCEPTIONS, null, msgs);
+      if (newExceptions != null)
+        msgs = ((InternalEObject)newExceptions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.MODEL__EXCEPTIONS, null, msgs);
+      msgs = basicSetExceptions(newExceptions, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.MODEL__EXCEPTIONS, newExceptions, newExceptions));
   }
 
   /**
@@ -184,7 +218,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case UseCasePackage.MODEL__TYPES:
         return basicSetTypes(null, msgs);
       case UseCasePackage.MODEL__EXCEPTIONS:
-        return ((InternalEList<?>)getExceptions()).basicRemove(otherEnd, msgs);
+        return basicSetExceptions(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -228,8 +262,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         setTypes((UsedTypes)newValue);
         return;
       case UseCasePackage.MODEL__EXCEPTIONS:
-        getExceptions().clear();
-        getExceptions().addAll((Collection<? extends UsedExceptions>)newValue);
+        setExceptions((UsedExceptions)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -252,7 +285,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         setTypes((UsedTypes)null);
         return;
       case UseCasePackage.MODEL__EXCEPTIONS:
-        getExceptions().clear();
+        setExceptions((UsedExceptions)null);
         return;
     }
     super.eUnset(featureID);
@@ -273,7 +306,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case UseCasePackage.MODEL__TYPES:
         return types != null;
       case UseCasePackage.MODEL__EXCEPTIONS:
-        return exceptions != null && !exceptions.isEmpty();
+        return exceptions != null;
     }
     return super.eIsSet(featureID);
   }

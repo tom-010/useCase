@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.UsedExceptions#getException <em>Exception</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.UsedExceptions#getExceptions <em>Exceptions</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUsedExceptions()
@@ -26,19 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface UsedExceptions extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Exception</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Exceptions</b></em>' containment reference list.
    * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.ExceptionDecleration}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Exception</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Exceptions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exception</em>' containment reference list.
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUsedExceptions_Exception()
+   * @return the value of the '<em>Exceptions</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUsedExceptions_Exceptions()
    * @model containment="true"
    * @generated
    */
-  EList<ExceptionDecleration> getException();
+  EList<ExceptionDecleration> getExceptions();
 
 } // UsedExceptions

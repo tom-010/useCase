@@ -3834,20 +3834,20 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UsedExceptions__Group__2__Impl"
-    // InternalUseCase.g:1226:1: rule__UsedExceptions__Group__2__Impl : ( ( rule__UsedExceptions__ExceptionAssignment_2 )* ) ;
+    // InternalUseCase.g:1226:1: rule__UsedExceptions__Group__2__Impl : ( ( rule__UsedExceptions__ExceptionsAssignment_2 )* ) ;
     public final void rule__UsedExceptions__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUseCase.g:1230:1: ( ( ( rule__UsedExceptions__ExceptionAssignment_2 )* ) )
-            // InternalUseCase.g:1231:1: ( ( rule__UsedExceptions__ExceptionAssignment_2 )* )
+            // InternalUseCase.g:1230:1: ( ( ( rule__UsedExceptions__ExceptionsAssignment_2 )* ) )
+            // InternalUseCase.g:1231:1: ( ( rule__UsedExceptions__ExceptionsAssignment_2 )* )
             {
-            // InternalUseCase.g:1231:1: ( ( rule__UsedExceptions__ExceptionAssignment_2 )* )
-            // InternalUseCase.g:1232:2: ( rule__UsedExceptions__ExceptionAssignment_2 )*
+            // InternalUseCase.g:1231:1: ( ( rule__UsedExceptions__ExceptionsAssignment_2 )* )
+            // InternalUseCase.g:1232:2: ( rule__UsedExceptions__ExceptionsAssignment_2 )*
             {
-             before(grammarAccess.getUsedExceptionsAccess().getExceptionAssignment_2()); 
-            // InternalUseCase.g:1233:2: ( rule__UsedExceptions__ExceptionAssignment_2 )*
+             before(grammarAccess.getUsedExceptionsAccess().getExceptionsAssignment_2()); 
+            // InternalUseCase.g:1233:2: ( rule__UsedExceptions__ExceptionsAssignment_2 )*
             loop14:
             do {
                 int alt14=2;
@@ -3860,10 +3860,10 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalUseCase.g:1233:3: rule__UsedExceptions__ExceptionAssignment_2
+            	    // InternalUseCase.g:1233:3: rule__UsedExceptions__ExceptionsAssignment_2
             	    {
             	    pushFollow(FOLLOW_13);
-            	    rule__UsedExceptions__ExceptionAssignment_2();
+            	    rule__UsedExceptions__ExceptionsAssignment_2();
 
             	    state._fsp--;
 
@@ -3876,7 +3876,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
                 }
             } while (true);
 
-             after(grammarAccess.getUsedExceptionsAccess().getExceptionAssignment_2()); 
+             after(grammarAccess.getUsedExceptionsAccess().getExceptionsAssignment_2()); 
 
             }
 
@@ -11163,9 +11163,9 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__UsedTypes__TypesAssignment_2"
 
 
-    // $ANTLR start "rule__UsedExceptions__ExceptionAssignment_2"
-    // InternalUseCase.g:3690:1: rule__UsedExceptions__ExceptionAssignment_2 : ( ruleExceptionDecleration ) ;
-    public final void rule__UsedExceptions__ExceptionAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__UsedExceptions__ExceptionsAssignment_2"
+    // InternalUseCase.g:3690:1: rule__UsedExceptions__ExceptionsAssignment_2 : ( ruleExceptionDecleration ) ;
+    public final void rule__UsedExceptions__ExceptionsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -11176,13 +11176,13 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
             // InternalUseCase.g:3695:2: ( ruleExceptionDecleration )
             // InternalUseCase.g:3696:3: ruleExceptionDecleration
             {
-             before(grammarAccess.getUsedExceptionsAccess().getExceptionExceptionDeclerationParserRuleCall_2_0()); 
+             before(grammarAccess.getUsedExceptionsAccess().getExceptionsExceptionDeclerationParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
             ruleExceptionDecleration();
 
             state._fsp--;
 
-             after(grammarAccess.getUsedExceptionsAccess().getExceptionExceptionDeclerationParserRuleCall_2_0()); 
+             after(grammarAccess.getUsedExceptionsAccess().getExceptionsExceptionDeclerationParserRuleCall_2_0()); 
 
             }
 
@@ -11201,7 +11201,7 @@ public class InternalUseCaseParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__UsedExceptions__ExceptionAssignment_2"
+    // $ANTLR end "rule__UsedExceptions__ExceptionsAssignment_2"
 
 
     // $ANTLR start "rule__Step__NumberAssignment_0"

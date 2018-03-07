@@ -78,7 +78,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUseCaseAccess().getNotesAssignment_7(), "rule__UseCase__NotesAssignment_7");
 					put(grammarAccess.getStepsAccess().getStepsAssignment_1(), "rule__Steps__StepsAssignment_1");
 					put(grammarAccess.getUsedTypesAccess().getTypesAssignment_2(), "rule__UsedTypes__TypesAssignment_2");
-					put(grammarAccess.getUsedExceptionsAccess().getExceptionAssignment_2(), "rule__UsedExceptions__ExceptionAssignment_2");
+					put(grammarAccess.getUsedExceptionsAccess().getExceptionsAssignment_2(), "rule__UsedExceptions__ExceptionsAssignment_2");
 					put(grammarAccess.getStepAccess().getNumberAssignment_0(), "rule__Step__NumberAssignment_0");
 					put(grammarAccess.getStepAccess().getActionAssignment_1(), "rule__Step__ActionAssignment_1");
 					put(grammarAccess.getStepAccess().getErrorAssignment_2(), "rule__Step__ErrorAssignment_2");

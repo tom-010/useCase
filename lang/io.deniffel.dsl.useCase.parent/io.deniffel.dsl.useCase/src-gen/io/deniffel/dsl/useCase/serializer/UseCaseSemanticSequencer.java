@@ -208,7 +208,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (useCases+=UseCase* types=UsedTypes exceptions+=UsedExceptions)
+	 *     (useCases+=UseCase* types=UsedTypes exceptions=UsedExceptions)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -336,7 +336,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     UsedExceptions returns UsedExceptions
 	 *
 	 * Constraint:
-	 *     exception+=ExceptionDecleration+
+	 *     exceptions+=ExceptionDecleration+
 	 */
 	protected void sequence_UsedExceptions(ISerializationContext context, UsedExceptions semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

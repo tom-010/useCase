@@ -27,7 +27,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UsedTypes/types"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//UsedExceptions">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UsedExceptions/exception"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UsedExceptions/exceptions"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Step">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Step/number"/>

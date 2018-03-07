@@ -124,7 +124,7 @@ ruleModel returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
 					}
-					add(
+					set(
 						$current,
 						"exceptions",
 						lv_exceptions_2_0,
@@ -418,17 +418,17 @@ ruleUsedExceptions returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUsedExceptionsAccess().getExceptionExceptionDeclerationParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getUsedExceptionsAccess().getExceptionsExceptionDeclerationParserRuleCall_2_0());
 				}
-				lv_exception_2_0=ruleExceptionDecleration
+				lv_exceptions_2_0=ruleExceptionDecleration
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUsedExceptionsRule());
 					}
 					add(
 						$current,
-						"exception",
-						lv_exception_2_0,
+						"exceptions",
+						lv_exceptions_2_0,
 						"io.deniffel.dsl.useCase.UseCase.ExceptionDecleration");
 					afterParserOrEnumRuleCall();
 				}
