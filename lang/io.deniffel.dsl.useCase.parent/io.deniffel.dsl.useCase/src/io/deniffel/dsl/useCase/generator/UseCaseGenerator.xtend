@@ -40,6 +40,8 @@ class UseCaseGenerator extends AbstractGenerator {
 		«t.compile»
 	«ENDFOR»
 	
+	«exceptions.compileImport»
+	
 	«IF usecase.allowedUserGroups.size() > 0 »
 		import io.deniffel.auth.ACL;
 		import io.deniffel.useCase.UseCase;
@@ -69,7 +71,7 @@ class UseCaseGenerator extends AbstractGenerator {
 		
 		/* NOTES:
 		«FOR n:usecase.notes»
-		«n.content»
+		«n.content» 
 		«ENDFOR»
 		*/
 		
@@ -93,9 +95,17 @@ class UseCaseGenerator extends AbstractGenerator {
 	*/
 	'''
 	
+	def compileImport(UsedExceptions exeptions)'''
+		«FOR e:exeptions.exceptions»
+			«IF e.importInfo !== null»import «e.importInfo»;
+			«ENDIF»«ENDFOR»
+		'''
+	
 	def compile(UsedExceptions exeptions)'''
 		«FOR e:exeptions.exceptions»
-			public static class «e.name» extends Error { public «e.name»(){super("«e.message»");} }
+			«IF e.importInfo === null»
+				public static class «e.name» extends Error { public «e.name»(){super("«e.message»");} }
+			«ENDIF»
 		«ENDFOR»
 		
 	'''

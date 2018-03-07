@@ -63,6 +63,10 @@ public class UseCaseGenerator extends AbstractGenerator {
       }
     }
     _builder.newLine();
+    CharSequence _compileImport = this.compileImport(exceptions);
+    _builder.append(_compileImport);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     {
       int _size = usecase.getAllowedUserGroups().size();
       boolean _greaterThan = (_size > 0);
@@ -153,6 +157,7 @@ public class UseCaseGenerator extends AbstractGenerator {
         _builder.append("\t");
         String _content = n.getContent();
         _builder.append(_content, "\t");
+        _builder.append(" ");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -222,22 +227,49 @@ public class UseCaseGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  public CharSequence compileImport(final UsedExceptions exeptions) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<ExceptionDecleration> _exceptions = exeptions.getExceptions();
+      for(final ExceptionDecleration e : _exceptions) {
+        {
+          String _importInfo = e.getImportInfo();
+          boolean _tripleNotEquals = (_importInfo != null);
+          if (_tripleNotEquals) {
+            _builder.append("import ");
+            String _importInfo_1 = e.getImportInfo();
+            _builder.append(_importInfo_1);
+            _builder.append(";");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
   public CharSequence compile(final UsedExceptions exeptions) {
     StringConcatenation _builder = new StringConcatenation();
     {
       EList<ExceptionDecleration> _exceptions = exeptions.getExceptions();
       for(final ExceptionDecleration e : _exceptions) {
-        _builder.append("public static class ");
-        String _name = e.getName();
-        _builder.append(_name);
-        _builder.append(" extends Error { public ");
-        String _name_1 = e.getName();
-        _builder.append(_name_1);
-        _builder.append("(){super(\"");
-        String _message = e.getMessage();
-        _builder.append(_message);
-        _builder.append("\");} }");
-        _builder.newLineIfNotEmpty();
+        {
+          String _importInfo = e.getImportInfo();
+          boolean _tripleEquals = (_importInfo == null);
+          if (_tripleEquals) {
+            _builder.append("public static class ");
+            String _name = e.getName();
+            _builder.append(_name);
+            _builder.append(" extends Error { public ");
+            String _name_1 = e.getName();
+            _builder.append(_name_1);
+            _builder.append("(){super(\"");
+            String _message = e.getMessage();
+            _builder.append(_message);
+            _builder.append("\");} }");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     _builder.newLine();
