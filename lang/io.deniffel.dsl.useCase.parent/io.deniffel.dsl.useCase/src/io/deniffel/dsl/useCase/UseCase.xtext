@@ -22,7 +22,13 @@ Steps:
 		(steps+=Step)*;
 
 Step:
-	number=QualifiedNumber action=STRING;
+	number=QualifiedNumber action=STRING(error=RaiseError)?;
+
+RaiseError:
+	'.' ('Raise'|'On' 'error' 'raise') exception=Exception;
+
+Exception:
+	name=STRING;
 
 Description:
 	'description:' name=STRING;
@@ -42,10 +48,10 @@ Type:
     'type' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
     
 Input:
-	(many?='many')? '-' content=STRING ('as' type=[Type])?;
+	(many?='many')? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
 	
 Output:
-	(many?='many')? '-' content=STRING ('as' type=[Type])?;
+	(many?='many')? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
 	
 AllowedUserGroups:
 	'allowed-usergroups:'

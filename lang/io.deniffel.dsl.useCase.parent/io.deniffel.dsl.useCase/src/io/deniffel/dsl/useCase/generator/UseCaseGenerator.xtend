@@ -82,7 +82,7 @@ class UseCaseGenerator extends AbstractGenerator {
 	'''
 	
 	def compile(AllowedUserGroup group) '''
-	"«group.name»"'''
+	"«group.name.toUpperCase()»"'''
 	
 	def compile(Description description) '''
 	/**

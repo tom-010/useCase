@@ -60,6 +60,24 @@ public interface UseCaseFactory extends EFactory
   Step createStep();
 
   /**
+   * Returns a new object of class '<em>Raise Error</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Raise Error</em>'.
+   * @generated
+   */
+  RaiseError createRaiseError();
+
+  /**
+   * Returns a new object of class '<em>Exception</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exception</em>'.
+   * @generated
+   */
+  Exception createException();
+
+  /**
    * Returns a new object of class '<em>Description</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

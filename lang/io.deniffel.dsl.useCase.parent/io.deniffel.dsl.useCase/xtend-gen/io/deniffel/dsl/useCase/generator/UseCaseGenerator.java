@@ -185,8 +185,8 @@ public class UseCaseGenerator extends AbstractGenerator {
   public CharSequence compile(final AllowedUserGroup group) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\"");
-    String _name = group.getName();
-    _builder.append(_name);
+    String _upperCase = group.getName().toUpperCase();
+    _builder.append(_upperCase);
     _builder.append("\"");
     return _builder;
   }

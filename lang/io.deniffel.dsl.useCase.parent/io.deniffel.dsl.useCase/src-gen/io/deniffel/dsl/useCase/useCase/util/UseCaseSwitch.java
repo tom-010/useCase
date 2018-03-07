@@ -3,7 +3,21 @@
  */
 package io.deniffel.dsl.useCase.useCase.util;
 
-import io.deniffel.dsl.useCase.useCase.*;
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Input;
+import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Model;
+import io.deniffel.dsl.useCase.useCase.Notes;
+import io.deniffel.dsl.useCase.useCase.Output;
+import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.RaiseError;
+import io.deniffel.dsl.useCase.useCase.Step;
+import io.deniffel.dsl.useCase.useCase.Steps;
+import io.deniffel.dsl.useCase.useCase.Type;
+import io.deniffel.dsl.useCase.useCase.UseCase;
+import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -98,6 +112,20 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         Step step = (Step)theEObject;
         T result = caseStep(step);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.RAISE_ERROR:
+      {
+        RaiseError raiseError = (RaiseError)theEObject;
+        T result = caseRaiseError(raiseError);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.EXCEPTION:
+      {
+        io.deniffel.dsl.useCase.useCase.Exception exception = (io.deniffel.dsl.useCase.useCase.Exception)theEObject;
+        T result = caseException(exception);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -228,6 +256,38 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStep(Step object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Raise Error</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Raise Error</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRaiseError(RaiseError object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Exception</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exception</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseException(io.deniffel.dsl.useCase.useCase.Exception object)
   {
     return null;
   }

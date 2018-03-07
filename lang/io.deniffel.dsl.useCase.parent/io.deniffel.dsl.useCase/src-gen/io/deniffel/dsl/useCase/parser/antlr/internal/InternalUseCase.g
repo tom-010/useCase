@@ -379,6 +379,123 @@ ruleStep returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getStepAccess().getErrorRaiseErrorParserRuleCall_2_0());
+				}
+				lv_error_2_0=ruleRaiseError
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getStepRule());
+					}
+					set(
+						$current,
+						"error",
+						lv_error_2_0,
+						"io.deniffel.dsl.useCase.UseCase.RaiseError");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleRaiseError
+entryRuleRaiseError returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRaiseErrorRule()); }
+	iv_ruleRaiseError=ruleRaiseError
+	{ $current=$iv_ruleRaiseError.current; }
+	EOF;
+
+// Rule RaiseError
+ruleRaiseError returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='.'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getRaiseErrorAccess().getFullStopKeyword_0());
+		}
+		(
+			otherlv_1='Raise'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_0());
+			}
+			    |
+			(
+				otherlv_2='On'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getRaiseErrorAccess().getOnKeyword_1_1_0());
+				}
+				otherlv_3='error'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getRaiseErrorAccess().getErrorKeyword_1_1_1());
+				}
+				otherlv_4='raise'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_1_2());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRaiseErrorAccess().getExceptionExceptionParserRuleCall_2_0());
+				}
+				lv_exception_5_0=ruleException
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRaiseErrorRule());
+					}
+					set(
+						$current,
+						"exception",
+						lv_exception_5_0,
+						"io.deniffel.dsl.useCase.UseCase.Exception");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleException
+entryRuleException returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExceptionRule()); }
+	iv_ruleException=ruleException
+	{ $current=$iv_ruleException.current; }
+	EOF;
+
+// Rule Exception
+ruleException returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_STRING
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getExceptionAccess().getNameSTRINGTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getExceptionRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.STRING");
+			}
+		)
 	)
 ;
 
@@ -782,6 +899,38 @@ ruleInput returns [EObject current=null]
 				)
 			)
 		)?
+		(
+			otherlv_5='('
+			{
+				newLeafNode(otherlv_5, grammarAccess.getInputAccess().getLeftParenthesisKeyword_4_0());
+			}
+			otherlv_6='e.g'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getInputAccess().getEGKeyword_4_1());
+			}
+			(
+				(
+					lv_example_7_0=RULE_STRING
+					{
+						newLeafNode(lv_example_7_0, grammarAccess.getInputAccess().getExampleSTRINGTerminalRuleCall_4_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getInputRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"example",
+							lv_example_7_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			otherlv_8=')'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getInputAccess().getRightParenthesisKeyword_4_3());
+			}
+		)?
 	)
 ;
 
@@ -855,6 +1004,38 @@ ruleOutput returns [EObject current=null]
 					}
 				)
 			)
+		)?
+		(
+			otherlv_5='('
+			{
+				newLeafNode(otherlv_5, grammarAccess.getOutputAccess().getLeftParenthesisKeyword_4_0());
+			}
+			otherlv_6='e.g'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getOutputAccess().getEGKeyword_4_1());
+			}
+			(
+				(
+					lv_example_7_0=RULE_STRING
+					{
+						newLeafNode(lv_example_7_0, grammarAccess.getOutputAccess().getExampleSTRINGTerminalRuleCall_4_2_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getOutputRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"example",
+							lv_example_7_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			otherlv_8=')'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getOutputAccess().getRightParenthesisKeyword_4_3());
+			}
 		)?
 	)
 ;

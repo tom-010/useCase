@@ -320,6 +320,119 @@ ruleStep returns [Boolean current=false]
 				}
 			)
 		)
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getStep_ErrorRaiseErrorParserRuleCall_2_0ElementType());
+				}
+				lv_error_2_0=ruleRaiseError
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)?
+	)
+;
+
+//Entry rule entryRuleRaiseError
+entryRuleRaiseError returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getRaiseErrorElementType()); }
+	iv_ruleRaiseError=ruleRaiseError
+	{ $current=$iv_ruleRaiseError.current; }
+	EOF;
+
+// Rule RaiseError
+ruleRaiseError returns [Boolean current=false]
+:
+	(
+		{
+			markLeaf(elementTypeProvider.getRaiseError_FullStopKeyword_0ElementType());
+		}
+		otherlv_0='.'
+		{
+			doneLeaf(otherlv_0);
+		}
+		(
+			{
+				markLeaf(elementTypeProvider.getRaiseError_RaiseKeyword_1_0ElementType());
+			}
+			otherlv_1='Raise'
+			{
+				doneLeaf(otherlv_1);
+			}
+			    |
+			(
+				{
+					markLeaf(elementTypeProvider.getRaiseError_OnKeyword_1_1_0ElementType());
+				}
+				otherlv_2='On'
+				{
+					doneLeaf(otherlv_2);
+				}
+				{
+					markLeaf(elementTypeProvider.getRaiseError_ErrorKeyword_1_1_1ElementType());
+				}
+				otherlv_3='error'
+				{
+					doneLeaf(otherlv_3);
+				}
+				{
+					markLeaf(elementTypeProvider.getRaiseError_RaiseKeyword_1_1_2ElementType());
+				}
+				otherlv_4='raise'
+				{
+					doneLeaf(otherlv_4);
+				}
+			)
+		)
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getRaiseError_ExceptionExceptionParserRuleCall_2_0ElementType());
+				}
+				lv_exception_5_0=ruleException
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)
+	)
+;
+
+//Entry rule entryRuleException
+entryRuleException returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getExceptionElementType()); }
+	iv_ruleException=ruleException
+	{ $current=$iv_ruleException.current; }
+	EOF;
+
+// Rule Exception
+ruleException returns [Boolean current=false]
+:
+	(
+		(
+			{
+				markLeaf(elementTypeProvider.getException_NameSTRINGTerminalRuleCall_0ElementType());
+			}
+			lv_name_0_0=RULE_STRING
+			{
+				if(!$current) {
+					associateWithSemanticElement();
+					$current = true;
+				}
+			}
+			{
+				doneLeaf(lv_name_0_0);
+			}
+		)
 	)
 ;
 
@@ -755,6 +868,46 @@ ruleInput returns [Boolean current=false]
 				)
 			)
 		)?
+		(
+			{
+				markLeaf(elementTypeProvider.getInput_LeftParenthesisKeyword_4_0ElementType());
+			}
+			otherlv_5='('
+			{
+				doneLeaf(otherlv_5);
+			}
+			{
+				markLeaf(elementTypeProvider.getInput_EGKeyword_4_1ElementType());
+			}
+			otherlv_6='e.g'
+			{
+				doneLeaf(otherlv_6);
+			}
+			(
+				(
+					{
+						markLeaf(elementTypeProvider.getInput_ExampleSTRINGTerminalRuleCall_4_2_0ElementType());
+					}
+					lv_example_7_0=RULE_STRING
+					{
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+					{
+						doneLeaf(lv_example_7_0);
+					}
+				)
+			)
+			{
+				markLeaf(elementTypeProvider.getInput_RightParenthesisKeyword_4_3ElementType());
+			}
+			otherlv_8=')'
+			{
+				doneLeaf(otherlv_8);
+			}
+		)?
 	)
 ;
 
@@ -835,6 +988,46 @@ ruleOutput returns [Boolean current=false]
 					}
 				)
 			)
+		)?
+		(
+			{
+				markLeaf(elementTypeProvider.getOutput_LeftParenthesisKeyword_4_0ElementType());
+			}
+			otherlv_5='('
+			{
+				doneLeaf(otherlv_5);
+			}
+			{
+				markLeaf(elementTypeProvider.getOutput_EGKeyword_4_1ElementType());
+			}
+			otherlv_6='e.g'
+			{
+				doneLeaf(otherlv_6);
+			}
+			(
+				(
+					{
+						markLeaf(elementTypeProvider.getOutput_ExampleSTRINGTerminalRuleCall_4_2_0ElementType());
+					}
+					lv_example_7_0=RULE_STRING
+					{
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+					{
+						doneLeaf(lv_example_7_0);
+					}
+				)
+			)
+			{
+				markLeaf(elementTypeProvider.getOutput_RightParenthesisKeyword_4_3ElementType());
+			}
+			otherlv_8=')'
+			{
+				doneLeaf(otherlv_8);
+			}
 		)?
 	)
 ;

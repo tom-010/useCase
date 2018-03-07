@@ -14,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
@@ -53,6 +54,9 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case UseCasePackage.DESCRIPTION:
 				sequence_Description(context, (Description) semanticObject); 
 				return; 
+			case UseCasePackage.EXCEPTION:
+				sequence_Exception(context, (io.deniffel.dsl.useCase.useCase.Exception) semanticObject); 
+				return; 
 			case UseCasePackage.INPUT:
 				sequence_Input(context, (Input) semanticObject); 
 				return; 
@@ -70,6 +74,9 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case UseCasePackage.OUTPUTS:
 				sequence_Outputs(context, (Outputs) semanticObject); 
+				return; 
+			case UseCasePackage.RAISE_ERROR:
+				sequence_RaiseError(context, (RaiseError) semanticObject); 
 				return; 
 			case UseCasePackage.STEP:
 				sequence_Step(context, (Step) semanticObject); 
@@ -132,10 +139,28 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Exception returns Exception
+	 *
+	 * Constraint:
+	 *     name=STRING
+	 */
+	protected void sequence_Exception(ISerializationContext context, io.deniffel.dsl.useCase.useCase.Exception semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.EXCEPTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.EXCEPTION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExceptionAccess().getNameSTRINGTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Input returns Input
 	 *
 	 * Constraint:
-	 *     (many?='many'? content=STRING type=[Type|ID]?)
+	 *     (many?='many'? content=STRING type=[Type|ID]? example=STRING?)
 	 */
 	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -189,7 +214,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Output returns Output
 	 *
 	 * Constraint:
-	 *     (many?='many'? content=STRING type=[Type|ID]?)
+	 *     (many?='many'? content=STRING type=[Type|ID]? example=STRING?)
 	 */
 	protected void sequence_Output(ISerializationContext context, Output semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -210,22 +235,31 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     RaiseError returns RaiseError
+	 *
+	 * Constraint:
+	 *     exception=Exception
+	 */
+	protected void sequence_RaiseError(ISerializationContext context, RaiseError semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.RAISE_ERROR__EXCEPTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.RAISE_ERROR__EXCEPTION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRaiseErrorAccess().getExceptionExceptionParserRuleCall_2_0(), semanticObject.getException());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Step returns Step
 	 *
 	 * Constraint:
-	 *     (number=QualifiedNumber action=STRING)
+	 *     (number=QualifiedNumber action=STRING error=RaiseError?)
 	 */
 	protected void sequence_Step(ISerializationContext context, Step semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.STEP__NUMBER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.STEP__NUMBER));
-			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.STEP__ACTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.STEP__ACTION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStepAccess().getNumberQualifiedNumberParserRuleCall_0_0(), semanticObject.getNumber());
-		feeder.accept(grammarAccess.getStepAccess().getActionSTRINGTerminalRuleCall_1_0(), semanticObject.getAction());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -3,12 +3,15 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
+import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -23,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl#getError <em>Error</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +72,16 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @ordered
    */
   protected String action = ACTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getError() <em>Error</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getError()
+   * @generated
+   * @ordered
+   */
+  protected RaiseError error;
 
   /**
    * <!-- begin-user-doc -->
@@ -141,6 +155,70 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
+  public RaiseError getError()
+  {
+    return error;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetError(RaiseError newError, NotificationChain msgs)
+  {
+    RaiseError oldError = error;
+    error = newError;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.STEP__ERROR, oldError, newError);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setError(RaiseError newError)
+  {
+    if (newError != error)
+    {
+      NotificationChain msgs = null;
+      if (error != null)
+        msgs = ((InternalEObject)error).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.STEP__ERROR, null, msgs);
+      if (newError != null)
+        msgs = ((InternalEObject)newError).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.STEP__ERROR, null, msgs);
+      msgs = basicSetError(newError, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.STEP__ERROR, newError, newError));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case UseCasePackage.STEP__ERROR:
+        return basicSetError(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -150,6 +228,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         return getNumber();
       case UseCasePackage.STEP__ACTION:
         return getAction();
+      case UseCasePackage.STEP__ERROR:
+        return getError();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -169,6 +249,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         return;
       case UseCasePackage.STEP__ACTION:
         setAction((String)newValue);
+        return;
+      case UseCasePackage.STEP__ERROR:
+        setError((RaiseError)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -190,6 +273,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
       case UseCasePackage.STEP__ACTION:
         setAction(ACTION_EDEFAULT);
         return;
+      case UseCasePackage.STEP__ERROR:
+        setError((RaiseError)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -208,6 +294,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
       case UseCasePackage.STEP__ACTION:
         return ACTION_EDEFAULT == null ? action != null : !ACTION_EDEFAULT.equals(action);
+      case UseCasePackage.STEP__ERROR:
+        return error != null;
     }
     return super.eIsSet(featureID);
   }

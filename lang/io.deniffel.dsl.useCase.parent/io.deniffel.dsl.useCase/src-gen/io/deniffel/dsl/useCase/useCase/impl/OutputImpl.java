@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl#isMany <em>Many</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl#getContent <em>Content</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl#getType <em>Type</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl#getExample <em>Example</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +82,26 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
    * @ordered
    */
   protected Type type;
+
+  /**
+   * The default value of the '{@link #getExample() <em>Example</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExample()
+   * @generated
+   * @ordered
+   */
+  protected static final String EXAMPLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getExample() <em>Example</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExample()
+   * @generated
+   * @ordered
+   */
+  protected String example = EXAMPLE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -197,6 +218,29 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getExample()
+  {
+    return example;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExample(String newExample)
+  {
+    String oldExample = example;
+    example = newExample;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.OUTPUT__EXAMPLE, oldExample, example));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -209,6 +253,8 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
       case UseCasePackage.OUTPUT__TYPE:
         if (resolve) return getType();
         return basicGetType();
+      case UseCasePackage.OUTPUT__EXAMPLE:
+        return getExample();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -231,6 +277,9 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
         return;
       case UseCasePackage.OUTPUT__TYPE:
         setType((Type)newValue);
+        return;
+      case UseCasePackage.OUTPUT__EXAMPLE:
+        setExample((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -255,6 +304,9 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
       case UseCasePackage.OUTPUT__TYPE:
         setType((Type)null);
         return;
+      case UseCasePackage.OUTPUT__EXAMPLE:
+        setExample(EXAMPLE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -275,6 +327,8 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
       case UseCasePackage.OUTPUT__TYPE:
         return type != null;
+      case UseCasePackage.OUTPUT__EXAMPLE:
+        return EXAMPLE_EDEFAULT == null ? example != null : !EXAMPLE_EDEFAULT.equals(example);
     }
     return super.eIsSet(featureID);
   }
@@ -294,6 +348,8 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
     result.append(many);
     result.append(", content: ");
     result.append(content);
+    result.append(", example: ");
+    result.append(example);
     result.append(')');
     return result.toString();
   }

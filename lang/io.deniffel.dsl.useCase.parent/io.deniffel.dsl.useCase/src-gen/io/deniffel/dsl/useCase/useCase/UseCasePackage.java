@@ -233,13 +233,78 @@ public interface UseCasePackage extends EPackage
   int STEP__ACTION = 1;
 
   /**
+   * The feature id for the '<em><b>Error</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEP__ERROR = 2;
+
+  /**
    * The number of structural features of the '<em>Step</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STEP_FEATURE_COUNT = 2;
+  int STEP_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorImpl <em>Raise Error</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.RaiseErrorImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseError()
+   * @generated
+   */
+  int RAISE_ERROR = 4;
+
+  /**
+   * The feature id for the '<em><b>Exception</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAISE_ERROR__EXCEPTION = 0;
+
+  /**
+   * The number of structural features of the '<em>Raise Error</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAISE_ERROR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.ExceptionImpl <em>Exception</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.ExceptionImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getException()
+   * @generated
+   */
+  int EXCEPTION = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXCEPTION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Exception</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXCEPTION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.DescriptionImpl <em>Description</em>}' class.
@@ -249,7 +314,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getDescription()
    * @generated
    */
-  int DESCRIPTION = 4;
+  int DESCRIPTION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -277,7 +342,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getNotes()
    * @generated
    */
-  int NOTES = 5;
+  int NOTES = 7;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -305,7 +370,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getInputs()
    * @generated
    */
-  int INPUTS = 6;
+  int INPUTS = 8;
 
   /**
    * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -333,7 +398,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutputs()
    * @generated
    */
-  int OUTPUTS = 7;
+  int OUTPUTS = 9;
 
   /**
    * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -361,7 +426,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getType()
    * @generated
    */
-  int TYPE = 8;
+  int TYPE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -407,7 +472,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getInput()
    * @generated
    */
-  int INPUT = 9;
+  int INPUT = 11;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -437,13 +502,22 @@ public interface UseCasePackage extends EPackage
   int INPUT__TYPE = 2;
 
   /**
+   * The feature id for the '<em><b>Example</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__EXAMPLE = 3;
+
+  /**
    * The number of structural features of the '<em>Input</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT_FEATURE_COUNT = 3;
+  int INPUT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl <em>Output</em>}' class.
@@ -453,7 +527,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutput()
    * @generated
    */
-  int OUTPUT = 10;
+  int OUTPUT = 12;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -483,13 +557,22 @@ public interface UseCasePackage extends EPackage
   int OUTPUT__TYPE = 2;
 
   /**
+   * The feature id for the '<em><b>Example</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT__EXAMPLE = 3;
+
+  /**
    * The number of structural features of the '<em>Output</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OUTPUT_FEATURE_COUNT = 3;
+  int OUTPUT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupsImpl <em>Allowed User Groups</em>}' class.
@@ -499,7 +582,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroups()
    * @generated
    */
-  int ALLOWED_USER_GROUPS = 11;
+  int ALLOWED_USER_GROUPS = 13;
 
   /**
    * The feature id for the '<em><b>Groups</b></em>' containment reference list.
@@ -527,7 +610,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getAllowedUserGroup()
    * @generated
    */
-  int ALLOWED_USER_GROUP = 12;
+  int ALLOWED_USER_GROUP = 14;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -739,6 +822,59 @@ public interface UseCasePackage extends EPackage
   EAttribute getStep_Action();
 
   /**
+   * Returns the meta object for the containment reference '{@link io.deniffel.dsl.useCase.useCase.Step#getError <em>Error</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Error</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Step#getError()
+   * @see #getStep()
+   * @generated
+   */
+  EReference getStep_Error();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.RaiseError <em>Raise Error</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Raise Error</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.RaiseError
+   * @generated
+   */
+  EClass getRaiseError();
+
+  /**
+   * Returns the meta object for the containment reference '{@link io.deniffel.dsl.useCase.useCase.RaiseError#getException <em>Exception</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exception</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.RaiseError#getException()
+   * @see #getRaiseError()
+   * @generated
+   */
+  EReference getRaiseError_Exception();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Exception <em>Exception</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Exception</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Exception
+   * @generated
+   */
+  EClass getException();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Exception#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Exception#getName()
+   * @see #getException()
+   * @generated
+   */
+  EAttribute getException_Name();
+
+  /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Description <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -909,6 +1045,17 @@ public interface UseCasePackage extends EPackage
   EReference getInput_Type();
 
   /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Input#getExample <em>Example</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Example</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Input#getExample()
+   * @see #getInput()
+   * @generated
+   */
+  EAttribute getInput_Example();
+
+  /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Output <em>Output</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -950,6 +1097,17 @@ public interface UseCasePackage extends EPackage
    * @generated
    */
   EReference getOutput_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Output#getExample <em>Example</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Example</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Output#getExample()
+   * @see #getOutput()
+   * @generated
+   */
+  EAttribute getOutput_Example();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.AllowedUserGroups <em>Allowed User Groups</em>}'.
@@ -1175,6 +1333,50 @@ public interface UseCasePackage extends EPackage
     EAttribute STEP__ACTION = eINSTANCE.getStep_Action();
 
     /**
+     * The meta object literal for the '<em><b>Error</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STEP__ERROR = eINSTANCE.getStep_Error();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorImpl <em>Raise Error</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.RaiseErrorImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseError()
+     * @generated
+     */
+    EClass RAISE_ERROR = eINSTANCE.getRaiseError();
+
+    /**
+     * The meta object literal for the '<em><b>Exception</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RAISE_ERROR__EXCEPTION = eINSTANCE.getRaiseError_Exception();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.ExceptionImpl <em>Exception</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.ExceptionImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getException()
+     * @generated
+     */
+    EClass EXCEPTION = eINSTANCE.getException();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXCEPTION__NAME = eINSTANCE.getException_Name();
+
+    /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.DescriptionImpl <em>Description</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1315,6 +1517,14 @@ public interface UseCasePackage extends EPackage
     EReference INPUT__TYPE = eINSTANCE.getInput_Type();
 
     /**
+     * The meta object literal for the '<em><b>Example</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INPUT__EXAMPLE = eINSTANCE.getInput_Example();
+
+    /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl <em>Output</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1347,6 +1557,14 @@ public interface UseCasePackage extends EPackage
      * @generated
      */
     EReference OUTPUT__TYPE = eINSTANCE.getOutput_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Example</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTPUT__EXAMPLE = eINSTANCE.getOutput_Example();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.AllowedUserGroupsImpl <em>Allowed User Groups</em>}' class.

@@ -3,7 +3,22 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
-import io.deniffel.dsl.useCase.useCase.*;
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
+import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Input;
+import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Model;
+import io.deniffel.dsl.useCase.useCase.Notes;
+import io.deniffel.dsl.useCase.useCase.Output;
+import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.RaiseError;
+import io.deniffel.dsl.useCase.useCase.Step;
+import io.deniffel.dsl.useCase.useCase.Steps;
+import io.deniffel.dsl.useCase.useCase.Type;
+import io.deniffel.dsl.useCase.useCase.UseCase;
+import io.deniffel.dsl.useCase.useCase.UseCaseFactory;
+import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -69,6 +84,8 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.USE_CASE: return createUseCase();
       case UseCasePackage.STEPS: return createSteps();
       case UseCasePackage.STEP: return createStep();
+      case UseCasePackage.RAISE_ERROR: return createRaiseError();
+      case UseCasePackage.EXCEPTION: return createException();
       case UseCasePackage.DESCRIPTION: return createDescription();
       case UseCasePackage.NOTES: return createNotes();
       case UseCasePackage.INPUTS: return createInputs();
@@ -125,6 +142,28 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     StepImpl step = new StepImpl();
     return step;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RaiseError createRaiseError()
+  {
+    RaiseErrorImpl raiseError = new RaiseErrorImpl();
+    return raiseError;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public io.deniffel.dsl.useCase.useCase.Exception createException()
+  {
+    ExceptionImpl exception = new ExceptionImpl();
+    return exception;
   }
 
   /**

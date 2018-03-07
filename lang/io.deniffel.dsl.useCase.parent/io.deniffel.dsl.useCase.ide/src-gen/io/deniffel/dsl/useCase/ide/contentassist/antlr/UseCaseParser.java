@@ -31,6 +31,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getRaiseErrorAccess().getAlternatives_1(), "rule__RaiseError__Alternatives_1");
 					put(grammarAccess.getNotesAccess().getAlternatives_0(), "rule__Notes__Alternatives_0");
 					put(grammarAccess.getInputsAccess().getAlternatives_0(), "rule__Inputs__Alternatives_0");
 					put(grammarAccess.getOutputsAccess().getAlternatives_0(), "rule__Outputs__Alternatives_0");
@@ -38,6 +39,8 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUseCaseAccess().getGroup(), "rule__UseCase__Group__0");
 					put(grammarAccess.getStepsAccess().getGroup(), "rule__Steps__Group__0");
 					put(grammarAccess.getStepAccess().getGroup(), "rule__Step__Group__0");
+					put(grammarAccess.getRaiseErrorAccess().getGroup(), "rule__RaiseError__Group__0");
+					put(grammarAccess.getRaiseErrorAccess().getGroup_1_1(), "rule__RaiseError__Group_1_1__0");
 					put(grammarAccess.getDescriptionAccess().getGroup(), "rule__Description__Group__0");
 					put(grammarAccess.getNotesAccess().getGroup(), "rule__Notes__Group__0");
 					put(grammarAccess.getInputsAccess().getGroup(), "rule__Inputs__Group__0");
@@ -48,8 +51,10 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAccess().getGroup_5(), "rule__Type__Group_5__0");
 					put(grammarAccess.getInputAccess().getGroup(), "rule__Input__Group__0");
 					put(grammarAccess.getInputAccess().getGroup_3(), "rule__Input__Group_3__0");
+					put(grammarAccess.getInputAccess().getGroup_4(), "rule__Input__Group_4__0");
 					put(grammarAccess.getOutputAccess().getGroup(), "rule__Output__Group__0");
 					put(grammarAccess.getOutputAccess().getGroup_3(), "rule__Output__Group_3__0");
+					put(grammarAccess.getOutputAccess().getGroup_4(), "rule__Output__Group_4__0");
 					put(grammarAccess.getAllowedUserGroupsAccess().getGroup(), "rule__AllowedUserGroups__Group__0");
 					put(grammarAccess.getAllowedUserGroupAccess().getGroup(), "rule__AllowedUserGroup__Group__0");
 					put(grammarAccess.getAllowedUserGroupAccess().getGroup_3(), "rule__AllowedUserGroup__Group_3__0");
@@ -69,6 +74,9 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStepsAccess().getStepsAssignment_1(), "rule__Steps__StepsAssignment_1");
 					put(grammarAccess.getStepAccess().getNumberAssignment_0(), "rule__Step__NumberAssignment_0");
 					put(grammarAccess.getStepAccess().getActionAssignment_1(), "rule__Step__ActionAssignment_1");
+					put(grammarAccess.getStepAccess().getErrorAssignment_2(), "rule__Step__ErrorAssignment_2");
+					put(grammarAccess.getRaiseErrorAccess().getExceptionAssignment_2(), "rule__RaiseError__ExceptionAssignment_2");
+					put(grammarAccess.getExceptionAccess().getNameAssignment(), "rule__Exception__NameAssignment");
 					put(grammarAccess.getDescriptionAccess().getNameAssignment_1(), "rule__Description__NameAssignment_1");
 					put(grammarAccess.getNotesAccess().getContentAssignment_1(), "rule__Notes__ContentAssignment_1");
 					put(grammarAccess.getInputsAccess().getInputsAssignment_1(), "rule__Inputs__InputsAssignment_1");
@@ -79,9 +87,11 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInputAccess().getManyAssignment_0(), "rule__Input__ManyAssignment_0");
 					put(grammarAccess.getInputAccess().getContentAssignment_2(), "rule__Input__ContentAssignment_2");
 					put(grammarAccess.getInputAccess().getTypeAssignment_3_1(), "rule__Input__TypeAssignment_3_1");
+					put(grammarAccess.getInputAccess().getExampleAssignment_4_2(), "rule__Input__ExampleAssignment_4_2");
 					put(grammarAccess.getOutputAccess().getManyAssignment_0(), "rule__Output__ManyAssignment_0");
 					put(grammarAccess.getOutputAccess().getContentAssignment_2(), "rule__Output__ContentAssignment_2");
 					put(grammarAccess.getOutputAccess().getTypeAssignment_3_1(), "rule__Output__TypeAssignment_3_1");
+					put(grammarAccess.getOutputAccess().getExampleAssignment_4_2(), "rule__Output__ExampleAssignment_4_2");
 					put(grammarAccess.getAllowedUserGroupsAccess().getGroupsAssignment_1(), "rule__AllowedUserGroups__GroupsAssignment_1");
 					put(grammarAccess.getAllowedUserGroupAccess().getManyAssignment_0(), "rule__AllowedUserGroup__ManyAssignment_0");
 					put(grammarAccess.getAllowedUserGroupAccess().getNameAssignment_2(), "rule__AllowedUserGroup__NameAssignment_2");

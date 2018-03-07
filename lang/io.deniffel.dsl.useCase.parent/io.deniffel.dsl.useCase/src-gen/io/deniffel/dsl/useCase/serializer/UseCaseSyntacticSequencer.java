@@ -25,6 +25,7 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Inputs_RequireKeyword_0_1_or_RequiresKeyword_0_0_or___RequiresKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_InputKeyword_0_2_3_ColonKeyword_0_2_4__;
 	protected AbstractElementAlias match_Notes_NoteKeyword_0_1_or_NotesKeyword_0_0;
 	protected AbstractElementAlias match_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__;
+	protected AbstractElementAlias match_RaiseError_RaiseKeyword_1_0_or___OnKeyword_1_1_0_ErrorKeyword_1_1_1_RaiseKeyword_1_1_2__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -32,6 +33,7 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Inputs_RequireKeyword_0_1_or_RequiresKeyword_0_0_or___RequiresKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_InputKeyword_0_2_3_ColonKeyword_0_2_4__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputsAccess().getRequiresKeyword_0_2_0()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getTheKeyword_0_2_1()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getFollowingKeyword_0_2_2()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getInputKeyword_0_2_3()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getColonKeyword_0_2_4())), new TokenAlias(false, false, grammarAccess.getInputsAccess().getRequireKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getRequiresKeyword_0_0()));
 		match_Notes_NoteKeyword_0_1_or_NotesKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getNotesAccess().getNoteKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getNotesAccess().getNotesKeyword_0_0()));
 		match_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_2_0()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getTheKeyword_0_2_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getFollowingKeyword_0_2_2()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getOutputKeyword_0_2_3()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getColonKeyword_0_2_4())), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProduceKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_0()));
+		match_RaiseError_RaiseKeyword_1_0_or___OnKeyword_1_1_0_ErrorKeyword_1_1_1_RaiseKeyword_1_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getOnKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getErrorKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_1_2())), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_0()));
 	}
 	
 	@Override
@@ -52,6 +54,8 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Notes_NoteKeyword_0_1_or_NotesKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__.equals(syntax))
 				emit_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RaiseError_RaiseKeyword_1_0_or___OnKeyword_1_1_0_ErrorKeyword_1_1_1_RaiseKeyword_1_1_2__.equals(syntax))
+				emit_RaiseError_RaiseKeyword_1_0_or___OnKeyword_1_1_0_ErrorKeyword_1_1_1_RaiseKeyword_1_1_2__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -88,6 +92,17 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) outputs+=Output
 	 */
 	protected void emit_Outputs_ProduceKeyword_0_1_or_ProducesKeyword_0_0_or___ProducesKeyword_0_2_0_TheKeyword_0_2_1_FollowingKeyword_0_2_2_OutputKeyword_0_2_3_ColonKeyword_0_2_4__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'Raise' | ('On' 'error' 'raise')
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '.' (ambiguity) exception=Exception
+	 */
+	protected void emit_RaiseError_RaiseKeyword_1_0_or___OnKeyword_1_1_0_ErrorKeyword_1_1_1_RaiseKeyword_1_1_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -25,6 +25,13 @@
     <genClasses ecoreClass="UseCase.ecore#//Step">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Step/number"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Step/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Step/error"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//RaiseError">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//RaiseError/exception"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Exception">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Exception/name"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Description/name"/>
@@ -47,11 +54,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Input/many"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Input/content"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCase.ecore#//Input/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Input/example"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Output">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Output/many"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Output/content"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCase.ecore#//Output/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Output/example"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//AllowedUserGroups">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//AllowedUserGroups/groups"/>

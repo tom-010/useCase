@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#isMany <em>Many</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getContent <em>Content</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getType <em>Type</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getExample <em>Example</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getInput()
@@ -102,5 +103,31 @@ public interface Input extends EObject
    * @generated
    */
   void setType(Type value);
+
+  /**
+   * Returns the value of the '<em><b>Example</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Example</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Example</em>' attribute.
+   * @see #setExample(String)
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getInput_Example()
+   * @model
+   * @generated
+   */
+  String getExample();
+
+  /**
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Input#getExample <em>Example</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Example</em>' attribute.
+   * @see #getExample()
+   * @generated
+   */
+  void setExample(String value);
 
 } // Input
