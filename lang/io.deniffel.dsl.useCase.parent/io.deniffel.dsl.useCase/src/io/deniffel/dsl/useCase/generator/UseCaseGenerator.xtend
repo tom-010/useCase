@@ -17,6 +17,7 @@ import io.deniffel.dsl.useCase.useCase.Output
 import io.deniffel.dsl.useCase.useCase.Steps
 import io.deniffel.dsl.useCase.useCase.Step
 import io.deniffel.dsl.useCase.useCase.UsedExceptions
+import io.deniffel.dsl.useCase.useCase.PreConditions
 
 class UseCaseGenerator extends AbstractGenerator {
 	
@@ -45,6 +46,7 @@ class UseCaseGenerator extends AbstractGenerator {
 	«IF usecase.allowedUserGroups.size() > 0 »
 		import io.deniffel.auth.ACL;
 		import io.deniffel.useCase.UseCase;
+		import io.deniffel.useCase.ErrorMessages;
 	«ENDIF»
 	
 	«FOR d:usecase.descriptions»
@@ -65,6 +67,8 @@ class UseCaseGenerator extends AbstractGenerator {
 		«FOR s:usecase.outputs»
 			«s.compile»
 		«ENDFOR»
+		«usecase.preconditions.compile»
+		
 		«FOR s:usecase.steps»
 			«s.compile»
 		«ENDFOR»
@@ -75,15 +79,41 @@ class UseCaseGenerator extends AbstractGenerator {
 		«ENDFOR»
 		*/
 		
+		// steps
 		«FOR steps:usecase.steps»
 		«FOR s:steps.steps»
 			void «s.compile»«IF s.error !== null» throws «s.error.exception.type.name»«ENDIF»;
 		«ENDFOR»
 		«ENDFOR»
+		
+		// I/O
+		Input getInput();
 		Output getOutput();
 		
+		«IF usecase.preconditions !== null && usecase.preconditions.conditions.size() > 0»
+		// precoditions
+		«usecase.preconditions.compileMethods»
+		«ENDIF»
+		
+		// exceptions
 		«exceptions.compile»
 	}
+	'''
+	
+	def compile(PreConditions pcs)'''		
+		default ErrorMessages checkPreconditions() {
+			ErrorMessages errors = new ErrorMessages();
+			«FOR p:pcs.conditions»
+				«methodNaming.convert(p.content)»(getInput(), errors);
+			«ENDFOR»
+			return errors;
+		}
+	'''
+	
+	def compileMethods(PreConditions pcs)'''
+		«FOR p:pcs.conditions»
+			void «methodNaming.convert(p.content)»(Input input, ErrorMessages errors);
+		«ENDFOR»
 	'''
 	
 	def compile(AllowedUserGroup group) '''
@@ -107,11 +137,14 @@ class UseCaseGenerator extends AbstractGenerator {
 				public static class «e.name» extends Error { public «e.name»(){super("«e.message»");} }
 			«ENDIF»
 		«ENDFOR»
-		
 	'''
 	
 	def compile(Steps steps) '''
-		default Output steps {
+		default Output steps() {
+			ErrorMessages errors = checkPreconditions();
+			if(errors.size() > 0) 
+				return new Output(errors); 
+				
 			«FOR s:steps.steps»
 				«s.compile»;
 			«ENDFOR»
@@ -141,11 +174,20 @@ class UseCaseGenerator extends AbstractGenerator {
 			«FOR o:outputs.outputs»
 				public «o.compile»;
 			«ENDFOR»
+			public ErrorMessages errors;
 			
 			public Output(«outputs.outputs.join(', ') [compile]») {
 				«FOR o:outputs.outputs»
 					this.«o.content» = «o.content»;
 				«ENDFOR»
+			}
+			
+			public Output(ErrorMessages errors) {
+				this.errors = errors;
+			}
+			
+			public boolean wasSuccessful() {
+				return errors == null || errors.size() == 0;
 			}
 		}
 		

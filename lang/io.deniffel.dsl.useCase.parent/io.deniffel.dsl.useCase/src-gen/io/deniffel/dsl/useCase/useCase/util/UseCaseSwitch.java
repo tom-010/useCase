@@ -5,6 +5,7 @@ package io.deniffel.dsl.useCase.useCase.util;
 
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
@@ -13,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
@@ -101,6 +103,20 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         UseCase useCase = (UseCase)theEObject;
         T result = caseUseCase(useCase);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.PRE_CONDITIONS:
+      {
+        PreConditions preConditions = (PreConditions)theEObject;
+        T result = casePreConditions(preConditions);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.CONDITION:
+      {
+        Condition condition = (Condition)theEObject;
+        T result = caseCondition(condition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -248,6 +264,38 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUseCase(UseCase object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Pre Conditions</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pre Conditions</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePreConditions(PreConditions object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCondition(Condition object)
   {
     return null;
   }

@@ -14,11 +14,19 @@ UseCase:
 	(allowedUserGroups+=AllowedUserGroups)?
 	(inputs+=Inputs)?
 	(outputs+=Outputs)?
+	(preconditions=PreConditions)?
 	(steps+=Steps)?
 	(notes+=Notes)?
 	'end' 'of' 'use-case';
 
-Steps: 
+PreConditions:
+	('pre-condition:'|'pre-conditions:')
+	(conditions+=Condition)*;
+
+Condition:
+	'-' content=STRING;
+
+Steps:
 	'steps:'
 		(steps+=Step)*;
 

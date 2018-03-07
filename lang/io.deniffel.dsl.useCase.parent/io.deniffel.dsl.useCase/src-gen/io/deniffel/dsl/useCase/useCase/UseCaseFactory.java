@@ -42,6 +42,24 @@ public interface UseCaseFactory extends EFactory
   UseCase createUseCase();
 
   /**
+   * Returns a new object of class '<em>Pre Conditions</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pre Conditions</em>'.
+   * @generated
+   */
+  PreConditions createPreConditions();
+
+  /**
+   * Returns a new object of class '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Condition</em>'.
+   * @generated
+   */
+  Condition createCondition();
+
+  /**
    * Returns a new object of class '<em>Steps</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

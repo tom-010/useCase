@@ -253,9 +253,28 @@ ruleUseCase returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUseCaseAccess().getStepsStepsParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getUseCaseAccess().getPreconditionsPreConditionsParserRuleCall_6_0());
 				}
-				lv_steps_6_0=ruleSteps
+				lv_preconditions_6_0=rulePreConditions
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
+					}
+					set(
+						$current,
+						"preconditions",
+						lv_preconditions_6_0,
+						"io.deniffel.dsl.useCase.UseCase.PreConditions");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUseCaseAccess().getStepsStepsParserRuleCall_7_0());
+				}
+				lv_steps_7_0=ruleSteps
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -263,7 +282,7 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"steps",
-						lv_steps_6_0,
+						lv_steps_7_0,
 						"io.deniffel.dsl.useCase.UseCase.Steps");
 					afterParserOrEnumRuleCall();
 				}
@@ -272,9 +291,9 @@ ruleUseCase returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUseCaseAccess().getNotesNotesParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getUseCaseAccess().getNotesNotesParserRuleCall_8_0());
 				}
-				lv_notes_7_0=ruleNotes
+				lv_notes_8_0=ruleNotes
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -282,24 +301,114 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"notes",
-						lv_notes_7_0,
+						lv_notes_8_0,
 						"io.deniffel.dsl.useCase.UseCase.Notes");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_8='end'
+		otherlv_9='end'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getUseCaseAccess().getEndKeyword_8());
+			newLeafNode(otherlv_9, grammarAccess.getUseCaseAccess().getEndKeyword_9());
 		}
-		otherlv_9='of'
+		otherlv_10='of'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getUseCaseAccess().getOfKeyword_9());
+			newLeafNode(otherlv_10, grammarAccess.getUseCaseAccess().getOfKeyword_10());
 		}
-		otherlv_10='use-case'
+		otherlv_11='use-case'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getUseCaseAccess().getUseCaseKeyword_10());
+			newLeafNode(otherlv_11, grammarAccess.getUseCaseAccess().getUseCaseKeyword_11());
 		}
+	)
+;
+
+// Entry rule entryRulePreConditions
+entryRulePreConditions returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPreConditionsRule()); }
+	iv_rulePreConditions=rulePreConditions
+	{ $current=$iv_rulePreConditions.current; }
+	EOF;
+
+// Rule PreConditions
+rulePreConditions returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			otherlv_0='pre-condition:'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getPreConditionsAccess().getPreConditionKeyword_0_0());
+			}
+			    |
+			otherlv_1='pre-conditions:'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getPreConditionsAccess().getPreConditionsKeyword_0_1());
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPreConditionsAccess().getConditionsConditionParserRuleCall_1_0());
+				}
+				lv_conditions_2_0=ruleCondition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPreConditionsRule());
+					}
+					add(
+						$current,
+						"conditions",
+						lv_conditions_2_0,
+						"io.deniffel.dsl.useCase.UseCase.Condition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleCondition
+entryRuleCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConditionRule()); }
+	iv_ruleCondition=ruleCondition
+	{ $current=$iv_ruleCondition.current; }
+	EOF;
+
+// Rule Condition
+ruleCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='-'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getHyphenMinusKeyword_0());
+		}
+		(
+			(
+				lv_content_1_0=RULE_STRING
+				{
+					newLeafNode(lv_content_1_0, grammarAccess.getConditionAccess().getContentSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getConditionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"content",
+						lv_content_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
 	)
 ;
 

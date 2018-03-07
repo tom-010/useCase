@@ -5,6 +5,7 @@ package io.deniffel.dsl.useCase.useCase.impl;
 
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
@@ -13,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
@@ -85,6 +87,8 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
     {
       case UseCasePackage.MODEL: return createModel();
       case UseCasePackage.USE_CASE: return createUseCase();
+      case UseCasePackage.PRE_CONDITIONS: return createPreConditions();
+      case UseCasePackage.CONDITION: return createCondition();
       case UseCasePackage.STEPS: return createSteps();
       case UseCasePackage.USED_TYPES: return createUsedTypes();
       case UseCasePackage.USED_EXCEPTIONS: return createUsedExceptions();
@@ -126,6 +130,28 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     UseCaseImpl useCase = new UseCaseImpl();
     return useCase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PreConditions createPreConditions()
+  {
+    PreConditionsImpl preConditions = new PreConditionsImpl();
+    return preConditions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
   }
 
   /**

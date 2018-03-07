@@ -17,8 +17,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/allowedUserGroups"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/inputs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/outputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/preconditions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/steps"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UseCase/notes"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//PreConditions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//PreConditions/conditions"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Condition/content"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Steps">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Steps/steps"/>

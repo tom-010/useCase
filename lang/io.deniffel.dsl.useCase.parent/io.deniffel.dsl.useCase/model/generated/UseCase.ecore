@@ -20,10 +20,19 @@
         eType="#//Inputs" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
         eType="#//Outputs" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditions" eType="#//PreConditions"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
         eType="#//Steps" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="notes" upperBound="-1"
         eType="#//Notes" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PreConditions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
+        eType="#//Condition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Steps">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"

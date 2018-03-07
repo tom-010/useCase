@@ -5,6 +5,7 @@ package io.deniffel.dsl.useCase.useCase.impl;
 
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
@@ -13,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
@@ -51,6 +53,20 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * @generated
    */
   private EClass useCaseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass preConditionsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -332,7 +348,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUseCase_Steps()
+  public EReference getUseCase_Preconditions()
   {
     return (EReference)useCaseEClass.getEStructuralFeatures().get(5);
   }
@@ -342,9 +358,59 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUseCase_Notes()
+  public EReference getUseCase_Steps()
   {
     return (EReference)useCaseEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUseCase_Notes()
+  {
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPreConditions()
+  {
+    return preConditionsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPreConditions_Conditions()
+  {
+    return (EReference)preConditionsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCondition()
+  {
+    return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCondition_Content()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -848,8 +914,15 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     createEReference(useCaseEClass, USE_CASE__ALLOWED_USER_GROUPS);
     createEReference(useCaseEClass, USE_CASE__INPUTS);
     createEReference(useCaseEClass, USE_CASE__OUTPUTS);
+    createEReference(useCaseEClass, USE_CASE__PRECONDITIONS);
     createEReference(useCaseEClass, USE_CASE__STEPS);
     createEReference(useCaseEClass, USE_CASE__NOTES);
+
+    preConditionsEClass = createEClass(PRE_CONDITIONS);
+    createEReference(preConditionsEClass, PRE_CONDITIONS__CONDITIONS);
+
+    conditionEClass = createEClass(CONDITION);
+    createEAttribute(conditionEClass, CONDITION__CONTENT);
 
     stepsEClass = createEClass(STEPS);
     createEReference(stepsEClass, STEPS__STEPS);
@@ -956,8 +1029,15 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     initEReference(getUseCase_AllowedUserGroups(), this.getAllowedUserGroups(), null, "allowedUserGroups", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Inputs(), this.getInputs(), null, "inputs", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Outputs(), this.getOutputs(), null, "outputs", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCase_Preconditions(), this.getPreConditions(), null, "preconditions", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Steps(), this.getSteps(), null, "steps", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Notes(), this.getNotes(), null, "notes", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(preConditionsEClass, PreConditions.class, "PreConditions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPreConditions_Conditions(), this.getCondition(), null, "conditions", null, 0, -1, PreConditions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCondition_Content(), ecorePackage.getEString(), "content", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stepsEClass, Steps.class, "Steps", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSteps_Steps(), this.getStep(), null, "steps", null, 0, -1, Steps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import io.deniffel.dsl.useCase.services.UseCaseGrammarAccess;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
@@ -15,6 +16,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
@@ -54,6 +56,9 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case UseCasePackage.ALLOWED_USER_GROUPS:
 				sequence_AllowedUserGroups(context, (AllowedUserGroups) semanticObject); 
 				return; 
+			case UseCasePackage.CONDITION:
+				sequence_Condition(context, (Condition) semanticObject); 
+				return; 
 			case UseCasePackage.DESCRIPTION:
 				sequence_Description(context, (Description) semanticObject); 
 				return; 
@@ -80,6 +85,9 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case UseCasePackage.OUTPUTS:
 				sequence_Outputs(context, (Outputs) semanticObject); 
+				return; 
+			case UseCasePackage.PRE_CONDITIONS:
+				sequence_PreConditions(context, (PreConditions) semanticObject); 
 				return; 
 			case UseCasePackage.RAISE_ERROR:
 				sequence_RaiseError(context, (RaiseError) semanticObject); 
@@ -128,6 +136,24 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_AllowedUserGroups(ISerializationContext context, AllowedUserGroups semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Condition returns Condition
+	 *
+	 * Constraint:
+	 *     content=STRING
+	 */
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.CONDITION__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.CONDITION__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConditionAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
+		feeder.finish();
 	}
 	
 	
@@ -259,6 +285,18 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     PreConditions returns PreConditions
+	 *
+	 * Constraint:
+	 *     conditions+=Condition+
+	 */
+	protected void sequence_PreConditions(ISerializationContext context, PreConditions semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     RaiseError returns RaiseError
 	 *
 	 * Constraint:
@@ -322,6 +360,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         allowedUserGroups+=AllowedUserGroups? 
 	 *         inputs+=Inputs? 
 	 *         outputs+=Outputs? 
+	 *         preconditions=PreConditions? 
 	 *         steps+=Steps? 
 	 *         notes+=Notes?
 	 *     )

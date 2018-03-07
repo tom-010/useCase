@@ -5,6 +5,7 @@ package io.deniffel.dsl.useCase.useCase.util;
 
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
@@ -13,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
@@ -101,6 +103,16 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseUseCase(UseCase object)
       {
         return createUseCaseAdapter();
+      }
+      @Override
+      public Adapter casePreConditions(PreConditions object)
+      {
+        return createPreConditionsAdapter();
+      }
+      @Override
+      public Adapter caseCondition(Condition object)
+      {
+        return createConditionAdapter();
       }
       @Override
       public Adapter caseSteps(Steps object)
@@ -230,6 +242,36 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUseCaseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.PreConditions <em>Pre Conditions</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.PreConditions
+   * @generated
+   */
+  public Adapter createPreConditionsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.Condition
+   * @generated
+   */
+  public Adapter createConditionAdapter()
   {
     return null;
   }

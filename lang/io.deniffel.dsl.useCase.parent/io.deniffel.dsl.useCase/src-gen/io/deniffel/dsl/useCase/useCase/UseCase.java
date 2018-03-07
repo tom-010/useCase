@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getInputs <em>Inputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getOutputs <em>Outputs</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getPreconditions <em>Preconditions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getSteps <em>Steps</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getNotes <em>Notes</em>}</li>
  * </ul>
@@ -120,6 +121,32 @@ public interface UseCase extends EObject
    * @generated
    */
   EList<Outputs> getOutputs();
+
+  /**
+   * Returns the value of the '<em><b>Preconditions</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Preconditions</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Preconditions</em>' containment reference.
+   * @see #setPreconditions(PreConditions)
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase_Preconditions()
+   * @model containment="true"
+   * @generated
+   */
+  PreConditions getPreconditions();
+
+  /**
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.UseCase#getPreconditions <em>Preconditions</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Preconditions</em>' containment reference.
+   * @see #getPreconditions()
+   * @generated
+   */
+  void setPreconditions(PreConditions value);
 
   /**
    * Returns the value of the '<em><b>Steps</b></em>' containment reference list.

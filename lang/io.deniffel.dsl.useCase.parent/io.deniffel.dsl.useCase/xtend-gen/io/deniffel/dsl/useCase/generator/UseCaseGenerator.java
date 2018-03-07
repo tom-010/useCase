@@ -4,6 +4,7 @@ import com.google.common.collect.Iterables;
 import io.deniffel.dsl.useCase.generator.ClassMemberNamingStrategy;
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
+import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
@@ -12,6 +13,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
@@ -75,6 +77,8 @@ public class UseCaseGenerator extends AbstractGenerator {
         _builder.newLine();
         _builder.append("import io.deniffel.useCase.UseCase;");
         _builder.newLine();
+        _builder.append("import io.deniffel.useCase.ErrorMessages;");
+        _builder.newLine();
       }
     }
     _builder.newLine();
@@ -137,12 +141,18 @@ public class UseCaseGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t");
+    CharSequence _compile_4 = this.compile(usecase.getPreconditions());
+    _builder.append(_compile_4, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
     {
       EList<Steps> _steps = usecase.getSteps();
       for(final Steps s_2 : _steps) {
         _builder.append("\t");
-        CharSequence _compile_4 = this.compile(s_2);
-        _builder.append(_compile_4, "\t");
+        CharSequence _compile_5 = this.compile(s_2);
+        _builder.append(_compile_5, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -166,6 +176,9 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("// steps");
+    _builder.newLine();
     {
       EList<Steps> _steps_1 = usecase.getSteps();
       for(final Steps steps : _steps_1) {
@@ -174,8 +187,8 @@ public class UseCaseGenerator extends AbstractGenerator {
           for(final Step s_3 : _steps_2) {
             _builder.append("\t");
             _builder.append("void ");
-            CharSequence _compile_5 = this.compile(s_3);
-            _builder.append(_compile_5, "\t");
+            CharSequence _compile_6 = this.compile(s_3);
+            _builder.append(_compile_6, "\t");
             {
               RaiseError _error = s_3.getError();
               boolean _tripleNotEquals = (_error != null);
@@ -192,16 +205,80 @@ public class UseCaseGenerator extends AbstractGenerator {
       }
     }
     _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("// I/O");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Input getInput();");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("Output getOutput();");
     _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
+    {
+      if (((usecase.getPreconditions() != null) && (usecase.getPreconditions().getConditions().size() > 0))) {
+        _builder.append("\t");
+        _builder.append("// precoditions");
+        _builder.newLine();
+        _builder.append("\t");
+        CharSequence _compileMethods = this.compileMethods(usecase.getPreconditions());
+        _builder.append(_compileMethods, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t");
-    CharSequence _compile_6 = this.compile(exceptions);
-    _builder.append(_compile_6, "\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("// exceptions");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _compile_7 = this.compile(exceptions);
+    _builder.append(_compile_7, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final PreConditions pcs) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("default ErrorMessages checkPreconditions() {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("ErrorMessages errors = new ErrorMessages();");
+    _builder.newLine();
+    {
+      EList<Condition> _conditions = pcs.getConditions();
+      for(final Condition p : _conditions) {
+        _builder.append("\t");
+        String _convert = this.methodNaming.convert(p.getContent());
+        _builder.append(_convert, "\t");
+        _builder.append("(getInput(), errors);");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("return errors;");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compileMethods(final PreConditions pcs) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Condition> _conditions = pcs.getConditions();
+      for(final Condition p : _conditions) {
+        _builder.append("void ");
+        String _convert = this.methodNaming.convert(p.getContent());
+        _builder.append(_convert);
+        _builder.append("(Input input, ErrorMessages errors);");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -272,13 +349,23 @@ public class UseCaseGenerator extends AbstractGenerator {
         }
       }
     }
-    _builder.newLine();
     return _builder;
   }
   
   public CharSequence compile(final Steps steps) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("default Output steps {");
+    _builder.append("default Output steps() {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("ErrorMessages errors = checkPreconditions();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("if(errors.size() > 0) ");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return new Output(errors); ");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.newLine();
     {
       EList<Step> _steps = steps.getSteps();
@@ -370,6 +457,9 @@ public class UseCaseGenerator extends AbstractGenerator {
       }
     }
     _builder.append("\t");
+    _builder.append("public ErrorMessages errors;");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public Output(");
@@ -394,6 +484,28 @@ public class UseCaseGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public Output(ErrorMessages errors) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("this.errors = errors;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public boolean wasSuccessful() {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return errors == null || errors.size() == 0;");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();

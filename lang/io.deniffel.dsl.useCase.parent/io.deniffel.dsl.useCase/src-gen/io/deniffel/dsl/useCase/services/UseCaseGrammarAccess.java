@@ -74,13 +74,15 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cInputsInputsParserRuleCall_4_0 = (RuleCall)cInputsAssignment_4.eContents().get(0);
 		private final Assignment cOutputsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cOutputsOutputsParserRuleCall_5_0 = (RuleCall)cOutputsAssignment_5.eContents().get(0);
-		private final Assignment cStepsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cStepsStepsParserRuleCall_6_0 = (RuleCall)cStepsAssignment_6.eContents().get(0);
-		private final Assignment cNotesAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cNotesNotesParserRuleCall_7_0 = (RuleCall)cNotesAssignment_7.eContents().get(0);
-		private final Keyword cEndKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cOfKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cUseCaseKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cPreconditionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPreconditionsPreConditionsParserRuleCall_6_0 = (RuleCall)cPreconditionsAssignment_6.eContents().get(0);
+		private final Assignment cStepsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cStepsStepsParserRuleCall_7_0 = (RuleCall)cStepsAssignment_7.eContents().get(0);
+		private final Assignment cNotesAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cNotesNotesParserRuleCall_8_0 = (RuleCall)cNotesAssignment_8.eContents().get(0);
+		private final Keyword cEndKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cOfKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cUseCaseKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//UseCase:
 		//	'use-case' name=STRING
@@ -88,13 +90,14 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//	allowedUserGroups+=AllowedUserGroups?
 		//	inputs+=Inputs?
 		//	outputs+=Outputs?
+		//	preconditions=PreConditions?
 		//	steps+=Steps?
 		//	notes+=Notes?
 		//	'end' 'of' 'use-case';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'use-case' name=STRING descriptions+=Description? allowedUserGroups+=AllowedUserGroups? inputs+=Inputs?
-		//outputs+=Outputs? steps+=Steps? notes+=Notes? 'end' 'of' 'use-case'
+		//outputs+=Outputs? preconditions=PreConditions? steps+=Steps? notes+=Notes? 'end' 'of' 'use-case'
 		public Group getGroup() { return cGroup; }
 		
 		//'use-case'
@@ -130,26 +133,86 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//Outputs
 		public RuleCall getOutputsOutputsParserRuleCall_5_0() { return cOutputsOutputsParserRuleCall_5_0; }
 		
+		//preconditions=PreConditions?
+		public Assignment getPreconditionsAssignment_6() { return cPreconditionsAssignment_6; }
+		
+		//PreConditions
+		public RuleCall getPreconditionsPreConditionsParserRuleCall_6_0() { return cPreconditionsPreConditionsParserRuleCall_6_0; }
+		
 		//steps+=Steps?
-		public Assignment getStepsAssignment_6() { return cStepsAssignment_6; }
+		public Assignment getStepsAssignment_7() { return cStepsAssignment_7; }
 		
 		//Steps
-		public RuleCall getStepsStepsParserRuleCall_6_0() { return cStepsStepsParserRuleCall_6_0; }
+		public RuleCall getStepsStepsParserRuleCall_7_0() { return cStepsStepsParserRuleCall_7_0; }
 		
 		//notes+=Notes?
-		public Assignment getNotesAssignment_7() { return cNotesAssignment_7; }
+		public Assignment getNotesAssignment_8() { return cNotesAssignment_8; }
 		
 		//Notes
-		public RuleCall getNotesNotesParserRuleCall_7_0() { return cNotesNotesParserRuleCall_7_0; }
+		public RuleCall getNotesNotesParserRuleCall_8_0() { return cNotesNotesParserRuleCall_8_0; }
 		
 		//'end'
-		public Keyword getEndKeyword_8() { return cEndKeyword_8; }
+		public Keyword getEndKeyword_9() { return cEndKeyword_9; }
 		
 		//'of'
-		public Keyword getOfKeyword_9() { return cOfKeyword_9; }
+		public Keyword getOfKeyword_10() { return cOfKeyword_10; }
 		
 		//'use-case'
-		public Keyword getUseCaseKeyword_10() { return cUseCaseKeyword_10; }
+		public Keyword getUseCaseKeyword_11() { return cUseCaseKeyword_11; }
+	}
+	public class PreConditionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.PreConditions");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cPreConditionKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cPreConditionsKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cConditionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConditionsConditionParserRuleCall_1_0 = (RuleCall)cConditionsAssignment_1.eContents().get(0);
+		
+		//PreConditions:
+		//	('pre-condition:' | 'pre-conditions:') conditions+=Condition*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('pre-condition:' | 'pre-conditions:') conditions+=Condition*
+		public Group getGroup() { return cGroup; }
+		
+		//'pre-condition:' | 'pre-conditions:'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'pre-condition:'
+		public Keyword getPreConditionKeyword_0_0() { return cPreConditionKeyword_0_0; }
+		
+		//'pre-conditions:'
+		public Keyword getPreConditionsKeyword_0_1() { return cPreConditionsKeyword_0_1; }
+		
+		//conditions+=Condition*
+		public Assignment getConditionsAssignment_1() { return cConditionsAssignment_1; }
+		
+		//Condition
+		public RuleCall getConditionsConditionParserRuleCall_1_0() { return cConditionsConditionParserRuleCall_1_0; }
+	}
+	public class ConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Condition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		
+		//Condition:
+		//	'-' content=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'-' content=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'-'
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_1_0() { return cContentSTRINGTerminalRuleCall_1_0; }
 	}
 	public class StepsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Steps");
@@ -901,6 +964,8 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ModelElements pModel;
 	private final UseCaseElements pUseCase;
+	private final PreConditionsElements pPreConditions;
+	private final ConditionElements pCondition;
 	private final StepsElements pSteps;
 	private final UsedTypesElements pUsedTypes;
 	private final UsedExceptionsElements pUsedExceptions;
@@ -931,6 +996,8 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
 		this.pUseCase = new UseCaseElements();
+		this.pPreConditions = new PreConditionsElements();
+		this.pCondition = new ConditionElements();
 		this.pSteps = new StepsElements();
 		this.pUsedTypes = new UsedTypesElements();
 		this.pUsedExceptions = new UsedExceptionsElements();
@@ -996,6 +1063,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	//	allowedUserGroups+=AllowedUserGroups?
 	//	inputs+=Inputs?
 	//	outputs+=Outputs?
+	//	preconditions=PreConditions?
 	//	steps+=Steps?
 	//	notes+=Notes?
 	//	'end' 'of' 'use-case';
@@ -1005,6 +1073,26 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getUseCaseRule() {
 		return getUseCaseAccess().getRule();
+	}
+	
+	//PreConditions:
+	//	('pre-condition:' | 'pre-conditions:') conditions+=Condition*;
+	public PreConditionsElements getPreConditionsAccess() {
+		return pPreConditions;
+	}
+	
+	public ParserRule getPreConditionsRule() {
+		return getPreConditionsAccess().getRule();
+	}
+	
+	//Condition:
+	//	'-' content=STRING;
+	public ConditionElements getConditionAccess() {
+		return pCondition;
+	}
+	
+	public ParserRule getConditionRule() {
+		return getConditionAccess().getRule();
 	}
 	
 	//Steps:

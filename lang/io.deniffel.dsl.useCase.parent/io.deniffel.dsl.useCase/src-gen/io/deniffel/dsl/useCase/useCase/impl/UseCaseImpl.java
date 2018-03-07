@@ -8,6 +8,7 @@ import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getInputs <em>Inputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getOutputs <em>Outputs</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getPreconditions <em>Preconditions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getSteps <em>Steps</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getNotes <em>Notes</em>}</li>
  * </ul>
@@ -108,6 +110,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected EList<Outputs> outputs;
+
+  /**
+   * The cached value of the '{@link #getPreconditions() <em>Preconditions</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPreconditions()
+   * @generated
+   * @ordered
+   */
+  protected PreConditions preconditions;
 
   /**
    * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
@@ -234,6 +246,54 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
+  public PreConditions getPreconditions()
+  {
+    return preconditions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPreconditions(PreConditions newPreconditions, NotificationChain msgs)
+  {
+    PreConditions oldPreconditions = preconditions;
+    preconditions = newPreconditions;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.USE_CASE__PRECONDITIONS, oldPreconditions, newPreconditions);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPreconditions(PreConditions newPreconditions)
+  {
+    if (newPreconditions != preconditions)
+    {
+      NotificationChain msgs = null;
+      if (preconditions != null)
+        msgs = ((InternalEObject)preconditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.USE_CASE__PRECONDITIONS, null, msgs);
+      if (newPreconditions != null)
+        msgs = ((InternalEObject)newPreconditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.USE_CASE__PRECONDITIONS, null, msgs);
+      msgs = basicSetPreconditions(newPreconditions, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.USE_CASE__PRECONDITIONS, newPreconditions, newPreconditions));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Steps> getSteps()
   {
     if (steps == null)
@@ -275,6 +335,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
       case UseCasePackage.USE_CASE__OUTPUTS:
         return ((InternalEList<?>)getOutputs()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.USE_CASE__PRECONDITIONS:
+        return basicSetPreconditions(null, msgs);
       case UseCasePackage.USE_CASE__STEPS:
         return ((InternalEList<?>)getSteps()).basicRemove(otherEnd, msgs);
       case UseCasePackage.USE_CASE__NOTES:
@@ -303,6 +365,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getInputs();
       case UseCasePackage.USE_CASE__OUTPUTS:
         return getOutputs();
+      case UseCasePackage.USE_CASE__PRECONDITIONS:
+        return getPreconditions();
       case UseCasePackage.USE_CASE__STEPS:
         return getSteps();
       case UseCasePackage.USE_CASE__NOTES:
@@ -341,6 +405,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         getOutputs().clear();
         getOutputs().addAll((Collection<? extends Outputs>)newValue);
         return;
+      case UseCasePackage.USE_CASE__PRECONDITIONS:
+        setPreconditions((PreConditions)newValue);
+        return;
       case UseCasePackage.USE_CASE__STEPS:
         getSteps().clear();
         getSteps().addAll((Collection<? extends Steps>)newValue);
@@ -378,6 +445,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCasePackage.USE_CASE__OUTPUTS:
         getOutputs().clear();
         return;
+      case UseCasePackage.USE_CASE__PRECONDITIONS:
+        setPreconditions((PreConditions)null);
+        return;
       case UseCasePackage.USE_CASE__STEPS:
         getSteps().clear();
         return;
@@ -408,6 +478,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return inputs != null && !inputs.isEmpty();
       case UseCasePackage.USE_CASE__OUTPUTS:
         return outputs != null && !outputs.isEmpty();
+      case UseCasePackage.USE_CASE__PRECONDITIONS:
+        return preconditions != null;
       case UseCasePackage.USE_CASE__STEPS:
         return steps != null && !steps.isEmpty();
       case UseCasePackage.USE_CASE__NOTES:
