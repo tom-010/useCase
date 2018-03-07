@@ -5,10 +5,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="useCases" upperBound="-1"
         eType="#//UseCase" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//Type" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptionDeclerations"
-        upperBound="-1" eType="#//ExceptionDecleration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" eType="#//UsedTypes"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
+        eType="#//UsedExceptions" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UseCase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -28,6 +28,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Steps">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
         eType="#//Step" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UsedTypes">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+        eType="#//Type" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UsedExceptions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exception" upperBound="-1"
+        eType="#//ExceptionDecleration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Step">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

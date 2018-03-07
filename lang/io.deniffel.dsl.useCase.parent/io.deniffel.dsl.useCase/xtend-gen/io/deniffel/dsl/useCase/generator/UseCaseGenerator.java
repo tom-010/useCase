@@ -45,7 +45,7 @@ public class UseCaseGenerator extends AbstractGenerator {
           usecase.setName(this.classNamingStrategy.convert(usecase.getName()));
           String _name = usecase.getName();
           String _plus = (_name + ".java");
-          fsa.generateFile(_plus, this.compile(usecase, model.getTypes()));
+          fsa.generateFile(_plus, this.compile(usecase, model.getTypes().getTypes()));
         }
       }
     }

@@ -43,14 +43,14 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		public static IGrammarAwareElementType createModel_TypesAssignment_1ElementType() {
 			return new IGrammarAwareElementType("Model_TypesAssignment_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getModelAccess().getTypesAssignment_1());
 		}
-		public static IGrammarAwareElementType createModel_TypesTypeParserRuleCall_1_0ElementType() {
-			return new IGrammarAwareElementType("Model_TypesTypeParserRuleCall_1_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getModelAccess().getTypesTypeParserRuleCall_1_0());
+		public static IGrammarAwareElementType createModel_TypesUsedTypesParserRuleCall_1_0ElementType() {
+			return new IGrammarAwareElementType("Model_TypesUsedTypesParserRuleCall_1_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getModelAccess().getTypesUsedTypesParserRuleCall_1_0());
 		}
-		public static IGrammarAwareElementType createModel_ExceptionDeclerationsAssignment_2ElementType() {
-			return new IGrammarAwareElementType("Model_ExceptionDeclerationsAssignment_2_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getModelAccess().getExceptionDeclerationsAssignment_2());
+		public static IGrammarAwareElementType createModel_ExceptionsAssignment_2ElementType() {
+			return new IGrammarAwareElementType("Model_ExceptionsAssignment_2_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getModelAccess().getExceptionsAssignment_2());
 		}
-		public static IGrammarAwareElementType createModel_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0ElementType() {
-			return new IGrammarAwareElementType("Model_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getModelAccess().getExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0());
+		public static IGrammarAwareElementType createModel_ExceptionsUsedExceptionsParserRuleCall_2_0ElementType() {
+			return new IGrammarAwareElementType("Model_ExceptionsUsedExceptionsParserRuleCall_2_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getModelAccess().getExceptionsUsedExceptionsParserRuleCall_2_0());
 		}
 	}
 
@@ -64,11 +64,11 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 
 	public static final IGrammarAwareElementType Model_TypesAssignment_1_ELEMENT_TYPE = associate(ModelFactory.createModel_TypesAssignment_1ElementType());
 
-	public static final IGrammarAwareElementType Model_TypesTypeParserRuleCall_1_0_ELEMENT_TYPE = associate(ModelFactory.createModel_TypesTypeParserRuleCall_1_0ElementType());
+	public static final IGrammarAwareElementType Model_TypesUsedTypesParserRuleCall_1_0_ELEMENT_TYPE = associate(ModelFactory.createModel_TypesUsedTypesParserRuleCall_1_0ElementType());
 
-	public static final IGrammarAwareElementType Model_ExceptionDeclerationsAssignment_2_ELEMENT_TYPE = associate(ModelFactory.createModel_ExceptionDeclerationsAssignment_2ElementType());
+	public static final IGrammarAwareElementType Model_ExceptionsAssignment_2_ELEMENT_TYPE = associate(ModelFactory.createModel_ExceptionsAssignment_2ElementType());
 
-	public static final IGrammarAwareElementType Model_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0_ELEMENT_TYPE = associate(ModelFactory.createModel_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0ElementType());
+	public static final IGrammarAwareElementType Model_ExceptionsUsedExceptionsParserRuleCall_2_0_ELEMENT_TYPE = associate(ModelFactory.createModel_ExceptionsUsedExceptionsParserRuleCall_2_0ElementType());
 
 	private static class UseCaseFactory {
 		public static IGrammarAwareElementType createUseCaseElementType() {
@@ -200,6 +200,72 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 	public static final IGrammarAwareElementType Steps_StepsAssignment_1_ELEMENT_TYPE = associate(StepsFactory.createSteps_StepsAssignment_1ElementType());
 
 	public static final IGrammarAwareElementType Steps_StepsStepParserRuleCall_1_0_ELEMENT_TYPE = associate(StepsFactory.createSteps_StepsStepParserRuleCall_1_0ElementType());
+
+	private static class UsedTypesFactory {
+		public static IGrammarAwareElementType createUsedTypesElementType() {
+			return new IGrammarAwareElementType("UsedTypes_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedTypesRule());
+		}
+		public static IGrammarAwareElementType createUsedTypes_GroupElementType() {
+			return new IGrammarAwareElementType("UsedTypes_Group_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedTypesAccess().getGroup());
+		}
+		public static IGrammarAwareElementType createUsedTypes_UsedKeyword_0ElementType() {
+			return new IGrammarAwareElementType("UsedTypes_UsedKeyword_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedTypesAccess().getUsedKeyword_0());
+		}
+		public static IGrammarAwareElementType createUsedTypes_TypesKeyword_1ElementType() {
+			return new IGrammarAwareElementType("UsedTypes_TypesKeyword_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedTypesAccess().getTypesKeyword_1());
+		}
+		public static IGrammarAwareElementType createUsedTypes_TypesAssignment_2ElementType() {
+			return new IGrammarAwareElementType("UsedTypes_TypesAssignment_2_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedTypesAccess().getTypesAssignment_2());
+		}
+		public static IGrammarAwareElementType createUsedTypes_TypesTypeParserRuleCall_2_0ElementType() {
+			return new IGrammarAwareElementType("UsedTypes_TypesTypeParserRuleCall_2_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedTypesAccess().getTypesTypeParserRuleCall_2_0());
+		}
+	}
+
+	public static final IGrammarAwareElementType UsedTypes_ELEMENT_TYPE = associate(UsedTypesFactory.createUsedTypesElementType());
+
+	public static final IGrammarAwareElementType UsedTypes_Group_ELEMENT_TYPE = associate(UsedTypesFactory.createUsedTypes_GroupElementType());
+
+	public static final IGrammarAwareElementType UsedTypes_UsedKeyword_0_ELEMENT_TYPE = associate(UsedTypesFactory.createUsedTypes_UsedKeyword_0ElementType());
+
+	public static final IGrammarAwareElementType UsedTypes_TypesKeyword_1_ELEMENT_TYPE = associate(UsedTypesFactory.createUsedTypes_TypesKeyword_1ElementType());
+
+	public static final IGrammarAwareElementType UsedTypes_TypesAssignment_2_ELEMENT_TYPE = associate(UsedTypesFactory.createUsedTypes_TypesAssignment_2ElementType());
+
+	public static final IGrammarAwareElementType UsedTypes_TypesTypeParserRuleCall_2_0_ELEMENT_TYPE = associate(UsedTypesFactory.createUsedTypes_TypesTypeParserRuleCall_2_0ElementType());
+
+	private static class UsedExceptionsFactory {
+		public static IGrammarAwareElementType createUsedExceptionsElementType() {
+			return new IGrammarAwareElementType("UsedExceptions_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedExceptionsRule());
+		}
+		public static IGrammarAwareElementType createUsedExceptions_GroupElementType() {
+			return new IGrammarAwareElementType("UsedExceptions_Group_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedExceptionsAccess().getGroup());
+		}
+		public static IGrammarAwareElementType createUsedExceptions_UsedKeyword_0ElementType() {
+			return new IGrammarAwareElementType("UsedExceptions_UsedKeyword_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedExceptionsAccess().getUsedKeyword_0());
+		}
+		public static IGrammarAwareElementType createUsedExceptions_ErrorsKeyword_1ElementType() {
+			return new IGrammarAwareElementType("UsedExceptions_ErrorsKeyword_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedExceptionsAccess().getErrorsKeyword_1());
+		}
+		public static IGrammarAwareElementType createUsedExceptions_ExceptionAssignment_2ElementType() {
+			return new IGrammarAwareElementType("UsedExceptions_ExceptionAssignment_2_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedExceptionsAccess().getExceptionAssignment_2());
+		}
+		public static IGrammarAwareElementType createUsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0ElementType() {
+			return new IGrammarAwareElementType("UsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getUsedExceptionsAccess().getExceptionExceptionDeclerationParserRuleCall_2_0());
+		}
+	}
+
+	public static final IGrammarAwareElementType UsedExceptions_ELEMENT_TYPE = associate(UsedExceptionsFactory.createUsedExceptionsElementType());
+
+	public static final IGrammarAwareElementType UsedExceptions_Group_ELEMENT_TYPE = associate(UsedExceptionsFactory.createUsedExceptions_GroupElementType());
+
+	public static final IGrammarAwareElementType UsedExceptions_UsedKeyword_0_ELEMENT_TYPE = associate(UsedExceptionsFactory.createUsedExceptions_UsedKeyword_0ElementType());
+
+	public static final IGrammarAwareElementType UsedExceptions_ErrorsKeyword_1_ELEMENT_TYPE = associate(UsedExceptionsFactory.createUsedExceptions_ErrorsKeyword_1ElementType());
+
+	public static final IGrammarAwareElementType UsedExceptions_ExceptionAssignment_2_ELEMENT_TYPE = associate(UsedExceptionsFactory.createUsedExceptions_ExceptionAssignment_2ElementType());
+
+	public static final IGrammarAwareElementType UsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0_ELEMENT_TYPE = associate(UsedExceptionsFactory.createUsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0ElementType());
 
 	private static class StepFactory {
 		public static IGrammarAwareElementType createStepElementType() {
@@ -534,8 +600,8 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		public static IGrammarAwareElementType createType_GroupElementType() {
 			return new IGrammarAwareElementType("Type_Group_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getGroup());
 		}
-		public static IGrammarAwareElementType createType_TypeKeyword_0ElementType() {
-			return new IGrammarAwareElementType("Type_TypeKeyword_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getTypeKeyword_0());
+		public static IGrammarAwareElementType createType_HyphenMinusKeyword_0ElementType() {
+			return new IGrammarAwareElementType("Type_HyphenMinusKeyword_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getHyphenMinusKeyword_0());
 		}
 		public static IGrammarAwareElementType createType_NameAssignment_1ElementType() {
 			return new IGrammarAwareElementType("Type_NameAssignment_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getNameAssignment_1());
@@ -576,7 +642,7 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 
 	public static final IGrammarAwareElementType Type_Group_ELEMENT_TYPE = associate(TypeFactory.createType_GroupElementType());
 
-	public static final IGrammarAwareElementType Type_TypeKeyword_0_ELEMENT_TYPE = associate(TypeFactory.createType_TypeKeyword_0ElementType());
+	public static final IGrammarAwareElementType Type_HyphenMinusKeyword_0_ELEMENT_TYPE = associate(TypeFactory.createType_HyphenMinusKeyword_0ElementType());
 
 	public static final IGrammarAwareElementType Type_NameAssignment_1_ELEMENT_TYPE = associate(TypeFactory.createType_NameAssignment_1ElementType());
 
@@ -607,8 +673,8 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		public static IGrammarAwareElementType createExceptionDecleration_GroupElementType() {
 			return new IGrammarAwareElementType("ExceptionDecleration_Group_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getExceptionDeclerationAccess().getGroup());
 		}
-		public static IGrammarAwareElementType createExceptionDecleration_ErrorKeyword_0ElementType() {
-			return new IGrammarAwareElementType("ExceptionDecleration_ErrorKeyword_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getExceptionDeclerationAccess().getErrorKeyword_0());
+		public static IGrammarAwareElementType createExceptionDecleration_HyphenMinusKeyword_0ElementType() {
+			return new IGrammarAwareElementType("ExceptionDecleration_HyphenMinusKeyword_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getExceptionDeclerationAccess().getHyphenMinusKeyword_0());
 		}
 		public static IGrammarAwareElementType createExceptionDecleration_NameAssignment_1ElementType() {
 			return new IGrammarAwareElementType("ExceptionDecleration_NameAssignment_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getExceptionDeclerationAccess().getNameAssignment_1());
@@ -649,7 +715,7 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 
 	public static final IGrammarAwareElementType ExceptionDecleration_Group_ELEMENT_TYPE = associate(ExceptionDeclerationFactory.createExceptionDecleration_GroupElementType());
 
-	public static final IGrammarAwareElementType ExceptionDecleration_ErrorKeyword_0_ELEMENT_TYPE = associate(ExceptionDeclerationFactory.createExceptionDecleration_ErrorKeyword_0ElementType());
+	public static final IGrammarAwareElementType ExceptionDecleration_HyphenMinusKeyword_0_ELEMENT_TYPE = associate(ExceptionDeclerationFactory.createExceptionDecleration_HyphenMinusKeyword_0ElementType());
 
 	public static final IGrammarAwareElementType ExceptionDecleration_NameAssignment_1_ELEMENT_TYPE = associate(ExceptionDeclerationFactory.createExceptionDecleration_NameAssignment_1ElementType());
 
@@ -1051,16 +1117,16 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		return Model_TypesAssignment_1_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getModel_TypesTypeParserRuleCall_1_0ElementType() {
-		return Model_TypesTypeParserRuleCall_1_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getModel_TypesUsedTypesParserRuleCall_1_0ElementType() {
+		return Model_TypesUsedTypesParserRuleCall_1_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getModel_ExceptionDeclerationsAssignment_2ElementType() {
-		return Model_ExceptionDeclerationsAssignment_2_ELEMENT_TYPE;
+	public IGrammarAwareElementType getModel_ExceptionsAssignment_2ElementType() {
+		return Model_ExceptionsAssignment_2_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getModel_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0ElementType() {
-		return Model_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getModel_ExceptionsUsedExceptionsParserRuleCall_2_0ElementType() {
+		return Model_ExceptionsUsedExceptionsParserRuleCall_2_0_ELEMENT_TYPE;
 	}
 	
 	public IGrammarAwareElementType getUseCaseElementType() {
@@ -1161,6 +1227,54 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 	
 	public IGrammarAwareElementType getSteps_StepsStepParserRuleCall_1_0ElementType() {
 		return Steps_StepsStepParserRuleCall_1_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedTypesElementType() {
+		return UsedTypes_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedTypes_GroupElementType() {
+		return UsedTypes_Group_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedTypes_UsedKeyword_0ElementType() {
+		return UsedTypes_UsedKeyword_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedTypes_TypesKeyword_1ElementType() {
+		return UsedTypes_TypesKeyword_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedTypes_TypesAssignment_2ElementType() {
+		return UsedTypes_TypesAssignment_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedTypes_TypesTypeParserRuleCall_2_0ElementType() {
+		return UsedTypes_TypesTypeParserRuleCall_2_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedExceptionsElementType() {
+		return UsedExceptions_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedExceptions_GroupElementType() {
+		return UsedExceptions_Group_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedExceptions_UsedKeyword_0ElementType() {
+		return UsedExceptions_UsedKeyword_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedExceptions_ErrorsKeyword_1ElementType() {
+		return UsedExceptions_ErrorsKeyword_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedExceptions_ExceptionAssignment_2ElementType() {
+		return UsedExceptions_ExceptionAssignment_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getUsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0ElementType() {
+		return UsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0_ELEMENT_TYPE;
 	}
 	
 	public IGrammarAwareElementType getStepElementType() {
@@ -1415,8 +1529,8 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		return Type_Group_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getType_TypeKeyword_0ElementType() {
-		return Type_TypeKeyword_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getType_HyphenMinusKeyword_0ElementType() {
+		return Type_HyphenMinusKeyword_0_ELEMENT_TYPE;
 	}
 	
 	public IGrammarAwareElementType getType_NameAssignment_1ElementType() {
@@ -1471,8 +1585,8 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		return ExceptionDecleration_Group_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getExceptionDecleration_ErrorKeyword_0ElementType() {
-		return ExceptionDecleration_ErrorKeyword_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getExceptionDecleration_HyphenMinusKeyword_0ElementType() {
+		return ExceptionDecleration_HyphenMinusKeyword_0_ELEMENT_TYPE;
 	}
 	
 	public IGrammarAwareElementType getExceptionDecleration_NameAssignment_1ElementType() {

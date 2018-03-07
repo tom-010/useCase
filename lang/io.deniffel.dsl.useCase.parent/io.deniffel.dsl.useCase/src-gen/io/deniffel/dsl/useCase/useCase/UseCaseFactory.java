@@ -51,6 +51,24 @@ public interface UseCaseFactory extends EFactory
   Steps createSteps();
 
   /**
+   * Returns a new object of class '<em>Used Types</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Used Types</em>'.
+   * @generated
+   */
+  UsedTypes createUsedTypes();
+
+  /**
+   * Returns a new object of class '<em>Used Exceptions</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Used Exceptions</em>'.
+   * @generated
+   */
+  UsedExceptions createUsedExceptions();
+
+  /**
    * Returns a new object of class '<em>Step</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

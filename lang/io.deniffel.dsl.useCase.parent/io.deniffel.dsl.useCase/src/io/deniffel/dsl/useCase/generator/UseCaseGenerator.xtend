@@ -22,14 +22,14 @@ class UseCaseGenerator extends AbstractGenerator {
 	ClassNamingStrategy classNamingStrategy = new ClassNamingStrategy();
 	ClassMemberNamingStrategy variableNaming = new ClassMemberNamingStrategy();
 	ClassMemberNamingStrategy methodNaming = new ClassMemberNamingStrategy();
-	
+	 
 		
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 
 		for(model : resource.allContents.toIterable.filter(Model)) {
 			for(usecase : model.useCases) {
 				usecase.name = classNamingStrategy.convert(usecase.name); 
-				fsa.generateFile(usecase.name + ".java", usecase.compile(model.types));	
+				fsa.generateFile(usecase.name + ".java", usecase.compile(model.types.types));	
 			}
 		}
 	}

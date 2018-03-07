@@ -4,8 +4,8 @@ generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
 
 Model:
 	(useCases+=UseCase)*
-	(types+=Type)*
-	(exceptionDeclerations+=ExceptionDecleration)*;
+	types=UsedTypes
+	exceptions+=UsedExceptions;
 	
  
 UseCase:
@@ -21,6 +21,14 @@ UseCase:
 Steps: 
 	'steps:'
 		(steps+=Step)*;
+
+UsedTypes: 
+	'used' 'types:'
+	(types+=Type)*;
+
+UsedExceptions:
+	'used' 'errors:'
+	(exception+=ExceptionDecleration)*;
 
 Step:
 	number=QualifiedNumber action=STRING(error=RaiseError)?;
@@ -46,10 +54,10 @@ Outputs:
 	(outputs+=Output)*;
 
 Type:
-    'type' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
+    '-' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
 
 ExceptionDecleration: 
-	'error' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;
+	'-' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;
     
 Input:
 	(many?='many')? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;

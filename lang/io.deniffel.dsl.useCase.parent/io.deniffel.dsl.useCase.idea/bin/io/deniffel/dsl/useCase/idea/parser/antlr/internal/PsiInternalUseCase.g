@@ -77,9 +77,9 @@ ruleModel returns [Boolean current=false]
 		(
 			(
 				{
-					markComposite(elementTypeProvider.getModel_TypesTypeParserRuleCall_1_0ElementType());
+					markComposite(elementTypeProvider.getModel_TypesUsedTypesParserRuleCall_1_0ElementType());
 				}
-				lv_types_1_0=ruleType
+				lv_types_1_0=ruleUsedTypes
 				{
 					doneComposite();
 					if(!$current) {
@@ -88,13 +88,13 @@ ruleModel returns [Boolean current=false]
 					}
 				}
 			)
-		)*
+		)
 		(
 			(
 				{
-					markComposite(elementTypeProvider.getModel_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0ElementType());
+					markComposite(elementTypeProvider.getModel_ExceptionsUsedExceptionsParserRuleCall_2_0ElementType());
 				}
-				lv_exceptionDeclerations_2_0=ruleExceptionDecleration
+				lv_exceptions_2_0=ruleUsedExceptions
 				{
 					doneComposite();
 					if(!$current) {
@@ -103,7 +103,7 @@ ruleModel returns [Boolean current=false]
 					}
 				}
 			)
-		)*
+		)
 	)
 ;
 
@@ -280,6 +280,92 @@ ruleSteps returns [Boolean current=false]
 					markComposite(elementTypeProvider.getSteps_StepsStepParserRuleCall_1_0ElementType());
 				}
 				lv_steps_1_0=ruleStep
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
+	)
+;
+
+//Entry rule entryRuleUsedTypes
+entryRuleUsedTypes returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getUsedTypesElementType()); }
+	iv_ruleUsedTypes=ruleUsedTypes
+	{ $current=$iv_ruleUsedTypes.current; }
+	EOF;
+
+// Rule UsedTypes
+ruleUsedTypes returns [Boolean current=false]
+:
+	(
+		{
+			markLeaf(elementTypeProvider.getUsedTypes_UsedKeyword_0ElementType());
+		}
+		otherlv_0='used'
+		{
+			doneLeaf(otherlv_0);
+		}
+		{
+			markLeaf(elementTypeProvider.getUsedTypes_TypesKeyword_1ElementType());
+		}
+		otherlv_1='types:'
+		{
+			doneLeaf(otherlv_1);
+		}
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getUsedTypes_TypesTypeParserRuleCall_2_0ElementType());
+				}
+				lv_types_2_0=ruleType
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
+	)
+;
+
+//Entry rule entryRuleUsedExceptions
+entryRuleUsedExceptions returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getUsedExceptionsElementType()); }
+	iv_ruleUsedExceptions=ruleUsedExceptions
+	{ $current=$iv_ruleUsedExceptions.current; }
+	EOF;
+
+// Rule UsedExceptions
+ruleUsedExceptions returns [Boolean current=false]
+:
+	(
+		{
+			markLeaf(elementTypeProvider.getUsedExceptions_UsedKeyword_0ElementType());
+		}
+		otherlv_0='used'
+		{
+			doneLeaf(otherlv_0);
+		}
+		{
+			markLeaf(elementTypeProvider.getUsedExceptions_ErrorsKeyword_1ElementType());
+		}
+		otherlv_1='errors:'
+		{
+			doneLeaf(otherlv_1);
+		}
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getUsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0ElementType());
+				}
+				lv_exception_2_0=ruleExceptionDecleration
 				{
 					doneComposite();
 					if(!$current) {
@@ -717,9 +803,9 @@ ruleType returns [Boolean current=false]
 :
 	(
 		{
-			markLeaf(elementTypeProvider.getType_TypeKeyword_0ElementType());
+			markLeaf(elementTypeProvider.getType_HyphenMinusKeyword_0ElementType());
 		}
-		otherlv_0='type'
+		otherlv_0='-'
 		{
 			doneLeaf(otherlv_0);
 		}
@@ -817,9 +903,9 @@ ruleExceptionDecleration returns [Boolean current=false]
 :
 	(
 		{
-			markLeaf(elementTypeProvider.getExceptionDecleration_ErrorKeyword_0ElementType());
+			markLeaf(elementTypeProvider.getExceptionDecleration_HyphenMinusKeyword_0ElementType());
 		}
-		otherlv_0='error'
+		otherlv_0='-'
 		{
 			doneLeaf(otherlv_0);
 		}

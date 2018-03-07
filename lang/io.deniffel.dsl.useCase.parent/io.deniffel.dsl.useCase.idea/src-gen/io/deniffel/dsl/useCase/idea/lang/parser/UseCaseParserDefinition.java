@@ -38,11 +38,11 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_0_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getModel_TypesTypeParserRuleCall_1_0ElementType()) {
-				return new PsiNamedEObjectImpl(node) {};
+			if (elementType == elementTypeProvider.getModel_TypesUsedTypesParserRuleCall_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getModel_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0ElementType()) {
-				return new PsiNamedEObjectImpl(node) {};
+			if (elementType == elementTypeProvider.getModel_ExceptionsUsedExceptionsParserRuleCall_2_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getUseCaseElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
@@ -70,6 +70,18 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			}
 			if (elementType == elementTypeProvider.getSteps_StepsStepParserRuleCall_1_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getUsedTypesElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getUsedTypes_TypesTypeParserRuleCall_2_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getUsedExceptionsElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getUsedExceptions_ExceptionExceptionDeclerationParserRuleCall_2_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getStepElementType()) {
 				return new PsiEObjectImpl(node) {};

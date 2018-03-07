@@ -38,6 +38,8 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getUseCaseAccess().getGroup(), "rule__UseCase__Group__0");
 					put(grammarAccess.getStepsAccess().getGroup(), "rule__Steps__Group__0");
+					put(grammarAccess.getUsedTypesAccess().getGroup(), "rule__UsedTypes__Group__0");
+					put(grammarAccess.getUsedExceptionsAccess().getGroup(), "rule__UsedExceptions__Group__0");
 					put(grammarAccess.getStepAccess().getGroup(), "rule__Step__Group__0");
 					put(grammarAccess.getRaiseErrorAccess().getGroup(), "rule__RaiseError__Group__0");
 					put(grammarAccess.getRaiseErrorAccess().getGroup_1_1(), "rule__RaiseError__Group_1_1__0");
@@ -66,7 +68,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNumberAccess().getGroup_1(), "rule__QualifiedNumber__Group_1__0");
 					put(grammarAccess.getModelAccess().getUseCasesAssignment_0(), "rule__Model__UseCasesAssignment_0");
 					put(grammarAccess.getModelAccess().getTypesAssignment_1(), "rule__Model__TypesAssignment_1");
-					put(grammarAccess.getModelAccess().getExceptionDeclerationsAssignment_2(), "rule__Model__ExceptionDeclerationsAssignment_2");
+					put(grammarAccess.getModelAccess().getExceptionsAssignment_2(), "rule__Model__ExceptionsAssignment_2");
 					put(grammarAccess.getUseCaseAccess().getNameAssignment_1(), "rule__UseCase__NameAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getDescriptionsAssignment_2(), "rule__UseCase__DescriptionsAssignment_2");
 					put(grammarAccess.getUseCaseAccess().getAllowedUserGroupsAssignment_3(), "rule__UseCase__AllowedUserGroupsAssignment_3");
@@ -75,6 +77,8 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUseCaseAccess().getStepsAssignment_6(), "rule__UseCase__StepsAssignment_6");
 					put(grammarAccess.getUseCaseAccess().getNotesAssignment_7(), "rule__UseCase__NotesAssignment_7");
 					put(grammarAccess.getStepsAccess().getStepsAssignment_1(), "rule__Steps__StepsAssignment_1");
+					put(grammarAccess.getUsedTypesAccess().getTypesAssignment_2(), "rule__UsedTypes__TypesAssignment_2");
+					put(grammarAccess.getUsedExceptionsAccess().getExceptionAssignment_2(), "rule__UsedExceptions__ExceptionAssignment_2");
 					put(grammarAccess.getStepAccess().getNumberAssignment_0(), "rule__Step__NumberAssignment_0");
 					put(grammarAccess.getStepAccess().getActionAssignment_1(), "rule__Step__ActionAssignment_1");
 					put(grammarAccess.getStepAccess().getErrorAssignment_2(), "rule__Step__ErrorAssignment_2");

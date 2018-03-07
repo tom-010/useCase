@@ -9,7 +9,7 @@
     <genClasses ecoreClass="UseCase.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/useCases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/types"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/exceptionDeclerations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/exceptions"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//UseCase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//UseCase/name"/>
@@ -22,6 +22,12 @@
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Steps">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Steps/steps"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//UsedTypes">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UsedTypes/types"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//UsedExceptions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//UsedExceptions/exception"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Step">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Step/number"/>

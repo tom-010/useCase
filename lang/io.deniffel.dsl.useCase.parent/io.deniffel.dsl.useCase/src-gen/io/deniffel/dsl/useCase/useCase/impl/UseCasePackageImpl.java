@@ -20,6 +20,8 @@ import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCaseFactory;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
+import io.deniffel.dsl.useCase.useCase.UsedExceptions;
+import io.deniffel.dsl.useCase.useCase.UsedTypes;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -56,6 +58,20 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * @generated
    */
   private EClass stepsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass usedTypesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass usedExceptionsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -246,7 +262,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_ExceptionDeclerations()
+  public EReference getModel_Exceptions()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(2);
   }
@@ -349,6 +365,46 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
   public EReference getSteps_Steps()
   {
     return (EReference)stepsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUsedTypes()
+  {
+    return usedTypesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUsedTypes_Types()
+  {
+    return (EReference)usedTypesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUsedExceptions()
+  {
+    return usedExceptionsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUsedExceptions_Exception()
+  {
+    return (EReference)usedExceptionsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -784,7 +840,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__USE_CASES);
     createEReference(modelEClass, MODEL__TYPES);
-    createEReference(modelEClass, MODEL__EXCEPTION_DECLERATIONS);
+    createEReference(modelEClass, MODEL__EXCEPTIONS);
 
     useCaseEClass = createEClass(USE_CASE);
     createEAttribute(useCaseEClass, USE_CASE__NAME);
@@ -797,6 +853,12 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
 
     stepsEClass = createEClass(STEPS);
     createEReference(stepsEClass, STEPS__STEPS);
+
+    usedTypesEClass = createEClass(USED_TYPES);
+    createEReference(usedTypesEClass, USED_TYPES__TYPES);
+
+    usedExceptionsEClass = createEClass(USED_EXCEPTIONS);
+    createEReference(usedExceptionsEClass, USED_EXCEPTIONS__EXCEPTION);
 
     stepEClass = createEClass(STEP);
     createEAttribute(stepEClass, STEP__NUMBER);
@@ -885,8 +947,8 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Types(), this.getType(), null, "types", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_ExceptionDeclerations(), this.getExceptionDecleration(), null, "exceptionDeclerations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Types(), this.getUsedTypes(), null, "types", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Exceptions(), this.getUsedExceptions(), null, "exceptions", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -899,6 +961,12 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
 
     initEClass(stepsEClass, Steps.class, "Steps", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSteps_Steps(), this.getStep(), null, "steps", null, 0, -1, Steps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(usedTypesEClass, UsedTypes.class, "UsedTypes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUsedTypes_Types(), this.getType(), null, "types", null, 0, -1, UsedTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(usedExceptionsEClass, UsedExceptions.class, "UsedExceptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUsedExceptions_Exception(), this.getExceptionDecleration(), null, "exception", null, 0, -1, UsedExceptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStep_Number(), ecorePackage.getEString(), "number", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

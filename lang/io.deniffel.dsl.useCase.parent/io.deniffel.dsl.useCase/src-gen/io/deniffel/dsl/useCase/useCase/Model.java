@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getTypes <em>Types</em>}</li>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getExceptionDeclerations <em>Exception Declerations</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getExceptions <em>Exceptions</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel()
@@ -44,35 +44,45 @@ public interface Model extends EObject
   EList<UseCase> getUseCases();
 
   /**
-   * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Type}.
+   * Returns the value of the '<em><b>Types</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Types</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Types</em>' containment reference list.
+   * @return the value of the '<em>Types</em>' containment reference.
+   * @see #setTypes(UsedTypes)
    * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel_Types()
    * @model containment="true"
    * @generated
    */
-  EList<Type> getTypes();
+  UsedTypes getTypes();
 
   /**
-   * Returns the value of the '<em><b>Exception Declerations</b></em>' containment reference list.
-   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.ExceptionDecleration}.
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Model#getTypes <em>Types</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Types</em>' containment reference.
+   * @see #getTypes()
+   * @generated
+   */
+  void setTypes(UsedTypes value);
+
+  /**
+   * Returns the value of the '<em><b>Exceptions</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.UsedExceptions}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Exception Declerations</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Exceptions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exception Declerations</em>' containment reference list.
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel_ExceptionDeclerations()
+   * @return the value of the '<em>Exceptions</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel_Exceptions()
    * @model containment="true"
    * @generated
    */
-  EList<ExceptionDecleration> getExceptionDeclerations();
+  EList<UsedExceptions> getExceptions();
 
 } // Model

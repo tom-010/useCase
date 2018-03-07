@@ -20,6 +20,8 @@ import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCaseFactory;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
+import io.deniffel.dsl.useCase.useCase.UsedExceptions;
+import io.deniffel.dsl.useCase.useCase.UsedTypes;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -84,6 +86,8 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.MODEL: return createModel();
       case UseCasePackage.USE_CASE: return createUseCase();
       case UseCasePackage.STEPS: return createSteps();
+      case UseCasePackage.USED_TYPES: return createUsedTypes();
+      case UseCasePackage.USED_EXCEPTIONS: return createUsedExceptions();
       case UseCasePackage.STEP: return createStep();
       case UseCasePackage.RAISE_ERROR: return createRaiseError();
       case UseCasePackage.EXCEPTION: return createException();
@@ -133,6 +137,28 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     StepsImpl steps = new StepsImpl();
     return steps;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UsedTypes createUsedTypes()
+  {
+    UsedTypesImpl usedTypes = new UsedTypesImpl();
+    return usedTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UsedExceptions createUsedExceptions()
+  {
+    UsedExceptionsImpl usedExceptions = new UsedExceptionsImpl();
+    return usedExceptions;
   }
 
   /**

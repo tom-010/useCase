@@ -19,6 +19,8 @@ import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
+import io.deniffel.dsl.useCase.useCase.UsedExceptions;
+import io.deniffel.dsl.useCase.useCase.UsedTypes;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -106,6 +108,20 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         Steps steps = (Steps)theEObject;
         T result = caseSteps(steps);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.USED_TYPES:
+      {
+        UsedTypes usedTypes = (UsedTypes)theEObject;
+        T result = caseUsedTypes(usedTypes);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.USED_EXCEPTIONS:
+      {
+        UsedExceptions usedExceptions = (UsedExceptions)theEObject;
+        T result = caseUsedExceptions(usedExceptions);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -248,6 +264,38 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSteps(Steps object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Used Types</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Used Types</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUsedTypes(UsedTypes object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Used Exceptions</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Used Exceptions</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUsedExceptions(UsedExceptions object)
   {
     return null;
   }

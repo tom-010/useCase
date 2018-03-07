@@ -98,41 +98,41 @@ ruleModel returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getTypesTypeParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getModelAccess().getTypesUsedTypesParserRuleCall_1_0());
 				}
-				lv_types_1_0=ruleType
+				lv_types_1_0=ruleUsedTypes
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
 					}
-					add(
+					set(
 						$current,
 						"types",
 						lv_types_1_0,
-						"io.deniffel.dsl.useCase.UseCase.Type");
+						"io.deniffel.dsl.useCase.UseCase.UsedTypes");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getModelAccess().getExceptionsUsedExceptionsParserRuleCall_2_0());
 				}
-				lv_exceptionDeclerations_2_0=ruleExceptionDecleration
+				lv_exceptions_2_0=ruleUsedExceptions
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
 					}
 					add(
 						$current,
-						"exceptionDeclerations",
-						lv_exceptionDeclerations_2_0,
-						"io.deniffel.dsl.useCase.UseCase.ExceptionDecleration");
+						"exceptions",
+						lv_exceptions_2_0,
+						"io.deniffel.dsl.useCase.UseCase.UsedExceptions");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 	)
 ;
 
@@ -338,6 +338,98 @@ ruleSteps returns [EObject current=null]
 						"steps",
 						lv_steps_1_0,
 						"io.deniffel.dsl.useCase.UseCase.Step");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleUsedTypes
+entryRuleUsedTypes returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getUsedTypesRule()); }
+	iv_ruleUsedTypes=ruleUsedTypes
+	{ $current=$iv_ruleUsedTypes.current; }
+	EOF;
+
+// Rule UsedTypes
+ruleUsedTypes returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='used'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getUsedTypesAccess().getUsedKeyword_0());
+		}
+		otherlv_1='types:'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getUsedTypesAccess().getTypesKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUsedTypesAccess().getTypesTypeParserRuleCall_2_0());
+				}
+				lv_types_2_0=ruleType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUsedTypesRule());
+					}
+					add(
+						$current,
+						"types",
+						lv_types_2_0,
+						"io.deniffel.dsl.useCase.UseCase.Type");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleUsedExceptions
+entryRuleUsedExceptions returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getUsedExceptionsRule()); }
+	iv_ruleUsedExceptions=ruleUsedExceptions
+	{ $current=$iv_ruleUsedExceptions.current; }
+	EOF;
+
+// Rule UsedExceptions
+ruleUsedExceptions returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='used'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getUsedExceptionsAccess().getUsedKeyword_0());
+		}
+		otherlv_1='errors:'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getUsedExceptionsAccess().getErrorsKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUsedExceptionsAccess().getExceptionExceptionDeclerationParserRuleCall_2_0());
+				}
+				lv_exception_2_0=ruleExceptionDecleration
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUsedExceptionsRule());
+					}
+					add(
+						$current,
+						"exception",
+						lv_exception_2_0,
+						"io.deniffel.dsl.useCase.UseCase.ExceptionDecleration");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -762,9 +854,9 @@ ruleType returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='type'
+		otherlv_0='-'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getTypeAccess().getTypeKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getTypeAccess().getHyphenMinusKeyword_0());
 		}
 		(
 			(
@@ -858,9 +950,9 @@ ruleExceptionDecleration returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='error'
+		otherlv_0='-'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getExceptionDeclerationAccess().getErrorKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getExceptionDeclerationAccess().getHyphenMinusKeyword_0());
 		}
 		(
 			(

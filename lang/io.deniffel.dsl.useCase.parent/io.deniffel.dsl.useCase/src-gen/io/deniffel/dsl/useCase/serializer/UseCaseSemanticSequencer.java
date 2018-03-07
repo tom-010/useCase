@@ -21,6 +21,8 @@ import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
+import io.deniffel.dsl.useCase.useCase.UsedExceptions;
+import io.deniffel.dsl.useCase.useCase.UsedTypes;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -93,6 +95,12 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case UseCasePackage.USE_CASE:
 				sequence_UseCase(context, (UseCase) semanticObject); 
+				return; 
+			case UseCasePackage.USED_EXCEPTIONS:
+				sequence_UsedExceptions(context, (UsedExceptions) semanticObject); 
+				return; 
+			case UseCasePackage.USED_TYPES:
+				sequence_UsedTypes(context, (UsedTypes) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -200,11 +208,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (
-	 *         (useCases+=UseCase* types+=Type+ exceptionDeclerations+=ExceptionDecleration+) | 
-	 *         (useCases+=UseCase* exceptionDeclerations+=ExceptionDecleration+) | 
-	 *         exceptionDeclerations+=ExceptionDecleration+
-	 *     )?
+	 *     (useCases+=UseCase* types=UsedTypes exceptions+=UsedExceptions)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -323,6 +327,30 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     )
 	 */
 	protected void sequence_UseCase(ISerializationContext context, UseCase semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     UsedExceptions returns UsedExceptions
+	 *
+	 * Constraint:
+	 *     exception+=ExceptionDecleration+
+	 */
+	protected void sequence_UsedExceptions(ISerializationContext context, UsedExceptions semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     UsedTypes returns UsedTypes
+	 *
+	 * Constraint:
+	 *     types+=Type+
+	 */
+	protected void sequence_UsedTypes(ISerializationContext context, UsedTypes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
