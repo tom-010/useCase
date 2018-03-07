@@ -6,6 +6,7 @@ package io.deniffel.dsl.useCase.useCase.impl;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
@@ -117,6 +118,13 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass exceptionDeclerationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass inputEClass = null;
 
   /**
@@ -218,7 +226,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Types()
+  public EReference getModel_UseCases()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -228,9 +236,19 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_UseCases()
+  public EReference getModel_Types()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_ExceptionDeclerations()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -408,9 +426,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getException_Name()
+  public EReference getException_Type()
   {
-    return (EAttribute)exceptionEClass.getEStructuralFeatures().get(0);
+    return (EReference)exceptionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -531,6 +549,46 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
   public EAttribute getType_ImportInfo()
   {
     return (EAttribute)typeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExceptionDecleration()
+  {
+    return exceptionDeclerationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExceptionDecleration_Name()
+  {
+    return (EAttribute)exceptionDeclerationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExceptionDecleration_Message()
+  {
+    return (EAttribute)exceptionDeclerationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExceptionDecleration_ImportInfo()
+  {
+    return (EAttribute)exceptionDeclerationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -724,8 +782,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__TYPES);
     createEReference(modelEClass, MODEL__USE_CASES);
+    createEReference(modelEClass, MODEL__TYPES);
+    createEReference(modelEClass, MODEL__EXCEPTION_DECLERATIONS);
 
     useCaseEClass = createEClass(USE_CASE);
     createEAttribute(useCaseEClass, USE_CASE__NAME);
@@ -748,7 +807,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     createEReference(raiseErrorEClass, RAISE_ERROR__EXCEPTION);
 
     exceptionEClass = createEClass(EXCEPTION);
-    createEAttribute(exceptionEClass, EXCEPTION__NAME);
+    createEReference(exceptionEClass, EXCEPTION__TYPE);
 
     descriptionEClass = createEClass(DESCRIPTION);
     createEAttribute(descriptionEClass, DESCRIPTION__NAME);
@@ -766,6 +825,11 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     createEAttribute(typeEClass, TYPE__NAME);
     createEAttribute(typeEClass, TYPE__DESCRIPTION);
     createEAttribute(typeEClass, TYPE__IMPORT_INFO);
+
+    exceptionDeclerationEClass = createEClass(EXCEPTION_DECLERATION);
+    createEAttribute(exceptionDeclerationEClass, EXCEPTION_DECLERATION__NAME);
+    createEAttribute(exceptionDeclerationEClass, EXCEPTION_DECLERATION__MESSAGE);
+    createEAttribute(exceptionDeclerationEClass, EXCEPTION_DECLERATION__IMPORT_INFO);
 
     inputEClass = createEClass(INPUT);
     createEAttribute(inputEClass, INPUT__MANY);
@@ -820,8 +884,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Types(), this.getType(), null, "types", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Types(), this.getType(), null, "types", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_ExceptionDeclerations(), this.getExceptionDecleration(), null, "exceptionDeclerations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -844,7 +909,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     initEReference(getRaiseError_Exception(), this.getException(), null, "exception", null, 0, 1, RaiseError.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exceptionEClass, io.deniffel.dsl.useCase.useCase.Exception.class, "Exception", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getException_Name(), ecorePackage.getEString(), "name", null, 0, 1, io.deniffel.dsl.useCase.useCase.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getException_Type(), this.getExceptionDecleration(), null, "type", null, 0, 1, io.deniffel.dsl.useCase.useCase.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(descriptionEClass, Description.class, "Description", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDescription_Name(), ecorePackage.getEString(), "name", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -862,6 +927,11 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getType_Description(), ecorePackage.getEString(), "description", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getType_ImportInfo(), ecorePackage.getEString(), "importInfo", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exceptionDeclerationEClass, ExceptionDecleration.class, "ExceptionDecleration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExceptionDecleration_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExceptionDecleration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExceptionDecleration_Message(), ecorePackage.getEString(), "message", null, 0, 1, ExceptionDecleration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExceptionDecleration_ImportInfo(), ecorePackage.getEString(), "importInfo", null, 0, 1, ExceptionDecleration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInput_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

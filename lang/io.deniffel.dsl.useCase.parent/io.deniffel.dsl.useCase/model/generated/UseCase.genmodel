@@ -7,8 +7,9 @@
   <genPackages prefix="UseCase" basePackage="io.deniffel.dsl.useCase" disposableProviderFactory="true"
       fileExtensions="useCase" ecorePackage="UseCase.ecore#/">
     <genClasses ecoreClass="UseCase.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/useCases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/types"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/exceptionDeclerations"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//UseCase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//UseCase/name"/>
@@ -31,7 +32,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//RaiseError/exception"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Exception">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Exception/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCase.ecore#//Exception/type"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Description/name"/>
@@ -49,6 +50,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Type/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Type/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Type/importInfo"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//ExceptionDecleration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//ExceptionDecleration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//ExceptionDecleration/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//ExceptionDecleration/importInfo"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Input">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Input/many"/>

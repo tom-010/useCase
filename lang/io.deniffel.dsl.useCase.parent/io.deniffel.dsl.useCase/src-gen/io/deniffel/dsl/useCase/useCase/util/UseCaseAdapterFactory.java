@@ -6,6 +6,7 @@ package io.deniffel.dsl.useCase.useCase.util;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
@@ -143,6 +144,11 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
+      }
+      @Override
+      public Adapter caseExceptionDecleration(ExceptionDecleration object)
+      {
+        return createExceptionDeclerationAdapter();
       }
       @Override
       public Adapter caseInput(Input object)
@@ -347,6 +353,21 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.ExceptionDecleration <em>Exception Decleration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.ExceptionDecleration
+   * @generated
+   */
+  public Adapter createExceptionDeclerationAdapter()
   {
     return null;
   }

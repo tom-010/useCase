@@ -123,6 +123,15 @@ public interface UseCaseFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Exception Decleration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exception Decleration</em>'.
+   * @generated
+   */
+  ExceptionDecleration createExceptionDecleration();
+
+  /**
    * Returns a new object of class '<em>Input</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -26,30 +26,39 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cTypesAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTypesTypeParserRuleCall_0_0 = (RuleCall)cTypesAssignment_0.eContents().get(0);
-		private final Assignment cUseCasesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUseCasesUseCaseParserRuleCall_1_0 = (RuleCall)cUseCasesAssignment_1.eContents().get(0);
+		private final Assignment cUseCasesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cUseCasesUseCaseParserRuleCall_0_0 = (RuleCall)cUseCasesAssignment_0.eContents().get(0);
+		private final Assignment cTypesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypesTypeParserRuleCall_1_0 = (RuleCall)cTypesAssignment_1.eContents().get(0);
+		private final Assignment cExceptionDeclerationsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0 = (RuleCall)cExceptionDeclerationsAssignment_2.eContents().get(0);
 		
 		//Model:
+		//	useCases+=UseCase*
 		//	types+=Type*
-		//	useCases+=UseCase*;
+		//	exceptionDeclerations+=ExceptionDecleration*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//types+=Type* useCases+=UseCase*
+		//useCases+=UseCase* types+=Type* exceptionDeclerations+=ExceptionDecleration*
 		public Group getGroup() { return cGroup; }
 		
-		//types+=Type*
-		public Assignment getTypesAssignment_0() { return cTypesAssignment_0; }
-		
-		//Type
-		public RuleCall getTypesTypeParserRuleCall_0_0() { return cTypesTypeParserRuleCall_0_0; }
-		
 		//useCases+=UseCase*
-		public Assignment getUseCasesAssignment_1() { return cUseCasesAssignment_1; }
+		public Assignment getUseCasesAssignment_0() { return cUseCasesAssignment_0; }
 		
 		//UseCase
-		public RuleCall getUseCasesUseCaseParserRuleCall_1_0() { return cUseCasesUseCaseParserRuleCall_1_0; }
+		public RuleCall getUseCasesUseCaseParserRuleCall_0_0() { return cUseCasesUseCaseParserRuleCall_0_0; }
+		
+		//types+=Type*
+		public Assignment getTypesAssignment_1() { return cTypesAssignment_1; }
+		
+		//Type
+		public RuleCall getTypesTypeParserRuleCall_1_0() { return cTypesTypeParserRuleCall_1_0; }
+		
+		//exceptionDeclerations+=ExceptionDecleration*
+		public Assignment getExceptionDeclerationsAssignment_2() { return cExceptionDeclerationsAssignment_2; }
+		
+		//ExceptionDecleration
+		public RuleCall getExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0() { return cExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0; }
 	}
 	public class UseCaseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.UseCase");
@@ -250,18 +259,22 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ExceptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Exception");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cTypeExceptionDeclerationCrossReference_0 = (CrossReference)cTypeAssignment.eContents().get(0);
+		private final RuleCall cTypeExceptionDeclerationIDTerminalRuleCall_0_1 = (RuleCall)cTypeExceptionDeclerationCrossReference_0.eContents().get(1);
 		
 		//Exception:
-		//	name=STRING;
+		//	type=[ExceptionDecleration];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=STRING
-		public Assignment getNameAssignment() { return cNameAssignment; }
+		//type=[ExceptionDecleration]
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
 		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_0() { return cNameSTRINGTerminalRuleCall_0; }
+		//[ExceptionDecleration]
+		public CrossReference getTypeExceptionDeclerationCrossReference_0() { return cTypeExceptionDeclerationCrossReference_0; }
+		
+		//ID
+		public RuleCall getTypeExceptionDeclerationIDTerminalRuleCall_0_1() { return cTypeExceptionDeclerationIDTerminalRuleCall_0_1; }
 	}
 	public class DescriptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Description");
@@ -467,6 +480,65 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_3_0() { return cDescriptionSTRINGTerminalRuleCall_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		
+		//('[' importInfo=QualifiedName ']')?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_5_0() { return cLeftSquareBracketKeyword_5_0; }
+		
+		//importInfo=QualifiedName
+		public Assignment getImportInfoAssignment_5_1() { return cImportInfoAssignment_5_1; }
+		
+		//QualifiedName
+		public RuleCall getImportInfoQualifiedNameParserRuleCall_5_1_0() { return cImportInfoQualifiedNameParserRuleCall_5_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_5_2() { return cRightSquareBracketKeyword_5_2; }
+	}
+	public class ExceptionDeclerationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.ExceptionDecleration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cErrorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cMessageAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMessageSTRINGTerminalRuleCall_3_0 = (RuleCall)cMessageAssignment_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLeftSquareBracketKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cImportInfoAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cImportInfoQualifiedNameParserRuleCall_5_1_0 = (RuleCall)cImportInfoAssignment_5_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		
+		//ExceptionDecleration:
+		//	'error' name=ID '(' message=STRING ')' ('[' importInfo=QualifiedName ']')?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'error' name=ID '(' message=STRING ')' ('[' importInfo=QualifiedName ']')?
+		public Group getGroup() { return cGroup; }
+		
+		//'error'
+		public Keyword getErrorKeyword_0() { return cErrorKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		
+		//message=STRING
+		public Assignment getMessageAssignment_3() { return cMessageAssignment_3; }
+		
+		//STRING
+		public RuleCall getMessageSTRINGTerminalRuleCall_3_0() { return cMessageSTRINGTerminalRuleCall_3_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
@@ -782,6 +854,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	private final InputsElements pInputs;
 	private final OutputsElements pOutputs;
 	private final TypeElements pType;
+	private final ExceptionDeclerationElements pExceptionDecleration;
 	private final InputElements pInput;
 	private final OutputElements pOutput;
 	private final AllowedUserGroupsElements pAllowedUserGroups;
@@ -809,6 +882,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pInputs = new InputsElements();
 		this.pOutputs = new OutputsElements();
 		this.pType = new TypeElements();
+		this.pExceptionDecleration = new ExceptionDeclerationElements();
 		this.pInput = new InputElements();
 		this.pOutput = new OutputElements();
 		this.pAllowedUserGroups = new AllowedUserGroupsElements();
@@ -845,8 +919,9 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
+	//	useCases+=UseCase*
 	//	types+=Type*
-	//	useCases+=UseCase*;
+	//	exceptionDeclerations+=ExceptionDecleration*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -904,7 +979,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Exception:
-	//	name=STRING;
+	//	type=[ExceptionDecleration];
 	public ExceptionElements getExceptionAccess() {
 		return pException;
 	}
@@ -961,6 +1036,16 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTypeRule() {
 		return getTypeAccess().getRule();
+	}
+	
+	//ExceptionDecleration:
+	//	'error' name=ID '(' message=STRING ')' ('[' importInfo=QualifiedName ']')?;
+	public ExceptionDeclerationElements getExceptionDeclerationAccess() {
+		return pExceptionDecleration;
+	}
+	
+	public ParserRule getExceptionDeclerationRule() {
+		return getExceptionDeclerationAccess().getRule();
 	}
 	
 	//Input:

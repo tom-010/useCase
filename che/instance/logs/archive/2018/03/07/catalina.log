@@ -41,3 +41,6 @@ How to configure registry?
 	Local registry  -> https://docs.docker.com/registry/
 	Remote registry -> set up 'che.docker.registry.auth.*' properties
 2018-03-07 06:53:40,683[ted-scheduler-2]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-07 07:53:40,678[ted-scheduler-8]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-07 12:48:11,302[ted-scheduler-2]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-07 13:48:11,280[ted-scheduler-6]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []

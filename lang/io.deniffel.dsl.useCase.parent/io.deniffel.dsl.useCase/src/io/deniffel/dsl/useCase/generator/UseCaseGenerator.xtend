@@ -74,7 +74,7 @@ class UseCaseGenerator extends AbstractGenerator {
 		
 		«FOR steps:usecase.steps»
 		«FOR s:steps.steps»
-			void «s.compile»;
+			void «s.compile»«IF s.error !== null» throws «s.error.exception.type.name»«ENDIF»;
 		«ENDFOR»
 		«ENDFOR»
 		Output getOutput();	

@@ -35,10 +35,13 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getModelElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getModel_TypesTypeParserRuleCall_0_0ElementType()) {
+			if (elementType == elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_0_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_1_0ElementType()) {
+			if (elementType == elementTypeProvider.getModel_TypesTypeParserRuleCall_1_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getModel_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getUseCaseElementType()) {
@@ -78,10 +81,10 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getRaiseError_ExceptionExceptionParserRuleCall_2_0ElementType()) {
-				return new PsiNamedEObjectImpl(node) {};
+				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getExceptionElementType()) {
-				return new PsiNamedEObjectImpl(node) {};
+				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getDescriptionElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
@@ -102,6 +105,9 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getTypeElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getExceptionDeclerationElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getInputElementType()) {

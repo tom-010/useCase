@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.Exception#getName <em>Name</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Exception#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getException()
@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Exception extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Type</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getException_Name()
+   * @return the value of the '<em>Type</em>' reference.
+   * @see #setType(ExceptionDecleration)
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getException_Type()
    * @model
    * @generated
    */
-  String getName();
+  ExceptionDecleration getType();
 
   /**
-   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Exception#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Exception#getType <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Type</em>' reference.
+   * @see #getType()
    * @generated
    */
-  void setName(String value);
+  void setType(ExceptionDecleration value);
 
 } // Exception

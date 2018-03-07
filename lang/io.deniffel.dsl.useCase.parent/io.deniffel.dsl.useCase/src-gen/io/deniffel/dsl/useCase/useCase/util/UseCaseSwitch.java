@@ -6,6 +6,7 @@ package io.deniffel.dsl.useCase.useCase.util;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
@@ -161,6 +162,13 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.EXCEPTION_DECLERATION:
+      {
+        ExceptionDecleration exceptionDecleration = (ExceptionDecleration)theEObject;
+        T result = caseExceptionDecleration(exceptionDecleration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -368,6 +376,22 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseType(Type object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Exception Decleration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exception Decleration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExceptionDecleration(ExceptionDecleration object)
   {
     return null;
   }

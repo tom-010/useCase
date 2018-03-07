@@ -3,9 +3,10 @@ grammar io.deniffel.dsl.useCase.UseCase with org.eclipse.xtext.common.Terminals
 generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
 
 Model:
-	(types+=Type)*
 	(useCases+=UseCase)*
-;
+	(types+=Type)*
+	(exceptionDeclerations+=ExceptionDecleration)*;
+	
  
 UseCase:
 	'use-case' name=STRING
@@ -28,7 +29,7 @@ RaiseError:
 	'.' ('Raise'|'On' 'error' 'raise') exception=Exception;
 
 Exception:
-	name=STRING;
+	type=[ExceptionDecleration];
 
 Description:
 	'description:' name=STRING;
@@ -46,6 +47,9 @@ Outputs:
 
 Type:
     'type' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
+
+ExceptionDecleration: 
+	'error' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;
     
 Input:
 	(many?='many')? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;

@@ -3,6 +3,7 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
+import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
@@ -30,14 +31,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getUseCases <em>Use Cases</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getExceptionDeclerations <em>Exception Declerations</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The cached value of the '{@link #getUseCases() <em>Use Cases</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUseCases()
+   * @generated
+   * @ordered
+   */
+  protected EList<UseCase> useCases;
+
   /**
    * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -49,14 +61,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EList<Type> types;
 
   /**
-   * The cached value of the '{@link #getUseCases() <em>Use Cases</em>}' containment reference list.
+   * The cached value of the '{@link #getExceptionDeclerations() <em>Exception Declerations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUseCases()
+   * @see #getExceptionDeclerations()
    * @generated
    * @ordered
    */
-  protected EList<UseCase> useCases;
+  protected EList<ExceptionDecleration> exceptionDeclerations;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,20 +96,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type> getTypes()
-  {
-    if (types == null)
-    {
-      types = new EObjectContainmentEList<Type>(Type.class, this, UseCasePackage.MODEL__TYPES);
-    }
-    return types;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<UseCase> getUseCases()
   {
     if (useCases == null)
@@ -112,15 +110,45 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Type> getTypes()
+  {
+    if (types == null)
+    {
+      types = new EObjectContainmentEList<Type>(Type.class, this, UseCasePackage.MODEL__TYPES);
+    }
+    return types;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ExceptionDecleration> getExceptionDeclerations()
+  {
+    if (exceptionDeclerations == null)
+    {
+      exceptionDeclerations = new EObjectContainmentEList<ExceptionDecleration>(ExceptionDecleration.class, this, UseCasePackage.MODEL__EXCEPTION_DECLERATIONS);
+    }
+    return exceptionDeclerations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case UseCasePackage.MODEL__TYPES:
-        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
       case UseCasePackage.MODEL__USE_CASES:
         return ((InternalEList<?>)getUseCases()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.MODEL__TYPES:
+        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.MODEL__EXCEPTION_DECLERATIONS:
+        return ((InternalEList<?>)getExceptionDeclerations()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,10 +163,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UseCasePackage.MODEL__TYPES:
-        return getTypes();
       case UseCasePackage.MODEL__USE_CASES:
         return getUseCases();
+      case UseCasePackage.MODEL__TYPES:
+        return getTypes();
+      case UseCasePackage.MODEL__EXCEPTION_DECLERATIONS:
+        return getExceptionDeclerations();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -154,13 +184,17 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case UseCasePackage.MODEL__USE_CASES:
+        getUseCases().clear();
+        getUseCases().addAll((Collection<? extends UseCase>)newValue);
+        return;
       case UseCasePackage.MODEL__TYPES:
         getTypes().clear();
         getTypes().addAll((Collection<? extends Type>)newValue);
         return;
-      case UseCasePackage.MODEL__USE_CASES:
-        getUseCases().clear();
-        getUseCases().addAll((Collection<? extends UseCase>)newValue);
+      case UseCasePackage.MODEL__EXCEPTION_DECLERATIONS:
+        getExceptionDeclerations().clear();
+        getExceptionDeclerations().addAll((Collection<? extends ExceptionDecleration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -176,11 +210,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case UseCasePackage.MODEL__USE_CASES:
+        getUseCases().clear();
+        return;
       case UseCasePackage.MODEL__TYPES:
         getTypes().clear();
         return;
-      case UseCasePackage.MODEL__USE_CASES:
-        getUseCases().clear();
+      case UseCasePackage.MODEL__EXCEPTION_DECLERATIONS:
+        getExceptionDeclerations().clear();
         return;
     }
     super.eUnset(featureID);
@@ -196,10 +233,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UseCasePackage.MODEL__TYPES:
-        return types != null && !types.isEmpty();
       case UseCasePackage.MODEL__USE_CASES:
         return useCases != null && !useCases.isEmpty();
+      case UseCasePackage.MODEL__TYPES:
+        return types != null && !types.isEmpty();
+      case UseCasePackage.MODEL__EXCEPTION_DECLERATIONS:
+        return exceptionDeclerations != null && !exceptionDeclerations.isEmpty();
     }
     return super.eIsSet(featureID);
   }

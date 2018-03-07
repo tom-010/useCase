@@ -62,9 +62,9 @@ ruleModel returns [Boolean current=false]
 		(
 			(
 				{
-					markComposite(elementTypeProvider.getModel_TypesTypeParserRuleCall_0_0ElementType());
+					markComposite(elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_0_0ElementType());
 				}
-				lv_types_0_0=ruleType
+				lv_useCases_0_0=ruleUseCase
 				{
 					doneComposite();
 					if(!$current) {
@@ -77,9 +77,24 @@ ruleModel returns [Boolean current=false]
 		(
 			(
 				{
-					markComposite(elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_1_0ElementType());
+					markComposite(elementTypeProvider.getModel_TypesTypeParserRuleCall_1_0ElementType());
 				}
-				lv_useCases_1_0=ruleUseCase
+				lv_types_1_0=ruleType
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getModel_ExceptionDeclerationsExceptionDeclerationParserRuleCall_2_0ElementType());
+				}
+				lv_exceptionDeclerations_2_0=ruleExceptionDecleration
 				{
 					doneComposite();
 					if(!$current) {
@@ -420,17 +435,17 @@ ruleException returns [Boolean current=false]
 	(
 		(
 			{
-				markLeaf(elementTypeProvider.getException_NameSTRINGTerminalRuleCall_0ElementType());
-			}
-			lv_name_0_0=RULE_STRING
-			{
-				if(!$current) {
+				if (!$current) {
 					associateWithSemanticElement();
 					$current = true;
 				}
 			}
 			{
-				doneLeaf(lv_name_0_0);
+				markLeaf(elementTypeProvider.getException_TypeExceptionDeclerationCrossReference_0ElementType());
+			}
+			otherlv_0=RULE_ID
+			{
+				doneLeaf(otherlv_0);
 			}
 		)
 	)
@@ -781,6 +796,106 @@ ruleType returns [Boolean current=false]
 			)
 			{
 				markLeaf(elementTypeProvider.getType_RightSquareBracketKeyword_5_2ElementType());
+			}
+			otherlv_7=']'
+			{
+				doneLeaf(otherlv_7);
+			}
+		)?
+	)
+;
+
+//Entry rule entryRuleExceptionDecleration
+entryRuleExceptionDecleration returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getExceptionDeclerationElementType()); }
+	iv_ruleExceptionDecleration=ruleExceptionDecleration
+	{ $current=$iv_ruleExceptionDecleration.current; }
+	EOF;
+
+// Rule ExceptionDecleration
+ruleExceptionDecleration returns [Boolean current=false]
+:
+	(
+		{
+			markLeaf(elementTypeProvider.getExceptionDecleration_ErrorKeyword_0ElementType());
+		}
+		otherlv_0='error'
+		{
+			doneLeaf(otherlv_0);
+		}
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getExceptionDecleration_NameIDTerminalRuleCall_1_0ElementType());
+				}
+				lv_name_1_0=RULE_ID
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_name_1_0);
+				}
+			)
+		)
+		{
+			markLeaf(elementTypeProvider.getExceptionDecleration_LeftParenthesisKeyword_2ElementType());
+		}
+		otherlv_2='('
+		{
+			doneLeaf(otherlv_2);
+		}
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getExceptionDecleration_MessageSTRINGTerminalRuleCall_3_0ElementType());
+				}
+				lv_message_3_0=RULE_STRING
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_message_3_0);
+				}
+			)
+		)
+		{
+			markLeaf(elementTypeProvider.getExceptionDecleration_RightParenthesisKeyword_4ElementType());
+		}
+		otherlv_4=')'
+		{
+			doneLeaf(otherlv_4);
+		}
+		(
+			{
+				markLeaf(elementTypeProvider.getExceptionDecleration_LeftSquareBracketKeyword_5_0ElementType());
+			}
+			otherlv_5='['
+			{
+				doneLeaf(otherlv_5);
+			}
+			(
+				(
+					{
+						markComposite(elementTypeProvider.getExceptionDecleration_ImportInfoQualifiedNameParserRuleCall_5_1_0ElementType());
+					}
+					lv_importInfo_6_0=ruleQualifiedName
+					{
+						doneComposite();
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+				)
+			)
+			{
+				markLeaf(elementTypeProvider.getExceptionDecleration_RightSquareBracketKeyword_5_2ElementType());
 			}
 			otherlv_7=']'
 			{

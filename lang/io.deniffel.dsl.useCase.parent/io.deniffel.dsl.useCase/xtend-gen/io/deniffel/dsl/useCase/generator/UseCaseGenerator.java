@@ -11,6 +11,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
@@ -168,6 +169,15 @@ public class UseCaseGenerator extends AbstractGenerator {
             _builder.append("void ");
             CharSequence _compile_5 = this.compile(s_3);
             _builder.append(_compile_5, "\t");
+            {
+              RaiseError _error = s_3.getError();
+              boolean _tripleNotEquals = (_error != null);
+              if (_tripleNotEquals) {
+                _builder.append(" throws ");
+                String _name = s_3.getError().getException().getType().getName();
+                _builder.append(_name, "\t");
+              }
+            }
             _builder.append(";");
             _builder.newLineIfNotEmpty();
           }

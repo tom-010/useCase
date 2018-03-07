@@ -49,6 +49,8 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOutputsAccess().getGroup_0_2(), "rule__Outputs__Group_0_2__0");
 					put(grammarAccess.getTypeAccess().getGroup(), "rule__Type__Group__0");
 					put(grammarAccess.getTypeAccess().getGroup_5(), "rule__Type__Group_5__0");
+					put(grammarAccess.getExceptionDeclerationAccess().getGroup(), "rule__ExceptionDecleration__Group__0");
+					put(grammarAccess.getExceptionDeclerationAccess().getGroup_5(), "rule__ExceptionDecleration__Group_5__0");
 					put(grammarAccess.getInputAccess().getGroup(), "rule__Input__Group__0");
 					put(grammarAccess.getInputAccess().getGroup_3(), "rule__Input__Group_3__0");
 					put(grammarAccess.getInputAccess().getGroup_4(), "rule__Input__Group_4__0");
@@ -62,8 +64,9 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getQualifiedNumberAccess().getGroup(), "rule__QualifiedNumber__Group__0");
 					put(grammarAccess.getQualifiedNumberAccess().getGroup_1(), "rule__QualifiedNumber__Group_1__0");
-					put(grammarAccess.getModelAccess().getTypesAssignment_0(), "rule__Model__TypesAssignment_0");
-					put(grammarAccess.getModelAccess().getUseCasesAssignment_1(), "rule__Model__UseCasesAssignment_1");
+					put(grammarAccess.getModelAccess().getUseCasesAssignment_0(), "rule__Model__UseCasesAssignment_0");
+					put(grammarAccess.getModelAccess().getTypesAssignment_1(), "rule__Model__TypesAssignment_1");
+					put(grammarAccess.getModelAccess().getExceptionDeclerationsAssignment_2(), "rule__Model__ExceptionDeclerationsAssignment_2");
 					put(grammarAccess.getUseCaseAccess().getNameAssignment_1(), "rule__UseCase__NameAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getDescriptionsAssignment_2(), "rule__UseCase__DescriptionsAssignment_2");
 					put(grammarAccess.getUseCaseAccess().getAllowedUserGroupsAssignment_3(), "rule__UseCase__AllowedUserGroupsAssignment_3");
@@ -76,7 +79,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStepAccess().getActionAssignment_1(), "rule__Step__ActionAssignment_1");
 					put(grammarAccess.getStepAccess().getErrorAssignment_2(), "rule__Step__ErrorAssignment_2");
 					put(grammarAccess.getRaiseErrorAccess().getExceptionAssignment_2(), "rule__RaiseError__ExceptionAssignment_2");
-					put(grammarAccess.getExceptionAccess().getNameAssignment(), "rule__Exception__NameAssignment");
+					put(grammarAccess.getExceptionAccess().getTypeAssignment(), "rule__Exception__TypeAssignment");
 					put(grammarAccess.getDescriptionAccess().getNameAssignment_1(), "rule__Description__NameAssignment_1");
 					put(grammarAccess.getNotesAccess().getContentAssignment_1(), "rule__Notes__ContentAssignment_1");
 					put(grammarAccess.getInputsAccess().getInputsAssignment_1(), "rule__Inputs__InputsAssignment_1");
@@ -84,6 +87,9 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAccess().getNameAssignment_1(), "rule__Type__NameAssignment_1");
 					put(grammarAccess.getTypeAccess().getDescriptionAssignment_3(), "rule__Type__DescriptionAssignment_3");
 					put(grammarAccess.getTypeAccess().getImportInfoAssignment_5_1(), "rule__Type__ImportInfoAssignment_5_1");
+					put(grammarAccess.getExceptionDeclerationAccess().getNameAssignment_1(), "rule__ExceptionDecleration__NameAssignment_1");
+					put(grammarAccess.getExceptionDeclerationAccess().getMessageAssignment_3(), "rule__ExceptionDecleration__MessageAssignment_3");
+					put(grammarAccess.getExceptionDeclerationAccess().getImportInfoAssignment_5_1(), "rule__ExceptionDecleration__ImportInfoAssignment_5_1");
 					put(grammarAccess.getInputAccess().getManyAssignment_0(), "rule__Input__ManyAssignment_0");
 					put(grammarAccess.getInputAccess().getContentAssignment_2(), "rule__Input__ContentAssignment_2");
 					put(grammarAccess.getInputAccess().getTypeAssignment_3_1(), "rule__Input__TypeAssignment_3_1");

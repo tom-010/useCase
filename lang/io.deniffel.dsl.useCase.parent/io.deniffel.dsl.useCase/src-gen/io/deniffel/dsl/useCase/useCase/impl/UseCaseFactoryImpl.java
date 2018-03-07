@@ -6,6 +6,7 @@ package io.deniffel.dsl.useCase.useCase.impl;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
@@ -91,6 +92,7 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.INPUTS: return createInputs();
       case UseCasePackage.OUTPUTS: return createOutputs();
       case UseCasePackage.TYPE: return createType();
+      case UseCasePackage.EXCEPTION_DECLERATION: return createExceptionDecleration();
       case UseCasePackage.INPUT: return createInput();
       case UseCasePackage.OUTPUT: return createOutput();
       case UseCasePackage.ALLOWED_USER_GROUPS: return createAllowedUserGroups();
@@ -219,6 +221,17 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     TypeImpl type = new TypeImpl();
     return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExceptionDecleration createExceptionDecleration()
+  {
+    ExceptionDeclerationImpl exceptionDecleration = new ExceptionDeclerationImpl();
+    return exceptionDecleration;
   }
 
   /**
