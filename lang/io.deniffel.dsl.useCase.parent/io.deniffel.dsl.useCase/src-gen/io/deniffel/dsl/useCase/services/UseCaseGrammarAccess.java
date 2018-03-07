@@ -677,6 +677,17 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//']'
 		public Keyword getRightSquareBracketKeyword_5_2() { return cRightSquareBracketKeyword_5_2; }
 	}
+	public class OptionalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Optional");
+		private final Keyword cOptionalKeyword = (Keyword)rule.eContents().get(1);
+		
+		//Optional:
+		//	'optional';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'optional'
+		public Keyword getOptionalKeyword() { return cOptionalKeyword; }
+	}
 	public class InputElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Input");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -685,23 +696,25 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cHyphenMinusKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cContentAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cContentSTRINGTerminalRuleCall_2_0 = (RuleCall)cContentAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cAsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cTypeTypeCrossReference_3_1_0 = (CrossReference)cTypeAssignment_3_1.eContents().get(0);
-		private final RuleCall cTypeTypeIDTerminalRuleCall_3_1_0_1 = (RuleCall)cTypeTypeCrossReference_3_1_0.eContents().get(1);
+		private final Assignment cOptionalAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cOptionalOptionalParserRuleCall_3_0 = (RuleCall)cOptionalAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cEGKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cExampleAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cExampleSTRINGTerminalRuleCall_4_2_0 = (RuleCall)cExampleAssignment_4_2.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
+		private final Keyword cAsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cTypeTypeCrossReference_4_1_0 = (CrossReference)cTypeAssignment_4_1.eContents().get(0);
+		private final RuleCall cTypeTypeIDTerminalRuleCall_4_1_0_1 = (RuleCall)cTypeTypeCrossReference_4_1_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cLeftParenthesisKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cEGKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cExampleAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cExampleSTRINGTerminalRuleCall_5_2_0 = (RuleCall)cExampleAssignment_5_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
 		
 		//Input:
-		//	many?='many'? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
+		//	many?='many'? '-' content=STRING optional=Optional? ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//many?='many'? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?
+		//many?='many'? '-' content=STRING optional=Optional? ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?
 		public Group getGroup() { return cGroup; }
 		
 		//many?='many'?
@@ -719,38 +732,44 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getContentSTRINGTerminalRuleCall_2_0() { return cContentSTRINGTerminalRuleCall_2_0; }
 		
+		//optional=Optional?
+		public Assignment getOptionalAssignment_3() { return cOptionalAssignment_3; }
+		
+		//Optional
+		public RuleCall getOptionalOptionalParserRuleCall_3_0() { return cOptionalOptionalParserRuleCall_3_0; }
+		
 		//('as' type=[Type])?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'as'
-		public Keyword getAsKeyword_3_0() { return cAsKeyword_3_0; }
-		
-		//type=[Type]
-		public Assignment getTypeAssignment_3_1() { return cTypeAssignment_3_1; }
-		
-		//[Type]
-		public CrossReference getTypeTypeCrossReference_3_1_0() { return cTypeTypeCrossReference_3_1_0; }
-		
-		//ID
-		public RuleCall getTypeTypeIDTerminalRuleCall_3_1_0_1() { return cTypeTypeIDTerminalRuleCall_3_1_0_1; }
-		
-		//('(' 'e.g' example=STRING ')')?
 		public Group getGroup_4() { return cGroup_4; }
 		
+		//'as'
+		public Keyword getAsKeyword_4_0() { return cAsKeyword_4_0; }
+		
+		//type=[Type]
+		public Assignment getTypeAssignment_4_1() { return cTypeAssignment_4_1; }
+		
+		//[Type]
+		public CrossReference getTypeTypeCrossReference_4_1_0() { return cTypeTypeCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getTypeTypeIDTerminalRuleCall_4_1_0_1() { return cTypeTypeIDTerminalRuleCall_4_1_0_1; }
+		
+		//('(' 'e.g' example=STRING ')')?
+		public Group getGroup_5() { return cGroup_5; }
+		
 		//'('
-		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+		public Keyword getLeftParenthesisKeyword_5_0() { return cLeftParenthesisKeyword_5_0; }
 		
 		//'e.g'
-		public Keyword getEGKeyword_4_1() { return cEGKeyword_4_1; }
+		public Keyword getEGKeyword_5_1() { return cEGKeyword_5_1; }
 		
 		//example=STRING
-		public Assignment getExampleAssignment_4_2() { return cExampleAssignment_4_2; }
+		public Assignment getExampleAssignment_5_2() { return cExampleAssignment_5_2; }
 		
 		//STRING
-		public RuleCall getExampleSTRINGTerminalRuleCall_4_2_0() { return cExampleSTRINGTerminalRuleCall_4_2_0; }
+		public RuleCall getExampleSTRINGTerminalRuleCall_5_2_0() { return cExampleSTRINGTerminalRuleCall_5_2_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_4_3() { return cRightParenthesisKeyword_4_3; }
+		public Keyword getRightParenthesisKeyword_5_3() { return cRightParenthesisKeyword_5_3; }
 	}
 	public class OutputElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Output");
@@ -978,6 +997,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	private final OutputsElements pOutputs;
 	private final TypeElements pType;
 	private final ExceptionDeclerationElements pExceptionDecleration;
+	private final OptionalElements pOptional;
 	private final InputElements pInput;
 	private final OutputElements pOutput;
 	private final AllowedUserGroupsElements pAllowedUserGroups;
@@ -1010,6 +1030,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pOutputs = new OutputsElements();
 		this.pType = new TypeElements();
 		this.pExceptionDecleration = new ExceptionDeclerationElements();
+		this.pOptional = new OptionalElements();
 		this.pInput = new InputElements();
 		this.pOutput = new OutputElements();
 		this.pAllowedUserGroups = new AllowedUserGroupsElements();
@@ -1218,8 +1239,18 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		return getExceptionDeclerationAccess().getRule();
 	}
 	
+	//Optional:
+	//	'optional';
+	public OptionalElements getOptionalAccess() {
+		return pOptional;
+	}
+	
+	public ParserRule getOptionalRule() {
+		return getOptionalAccess().getRule();
+	}
+	
 	//Input:
-	//	many?='many'? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
+	//	many?='many'? '-' content=STRING optional=Optional? ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
 	public InputElements getInputAccess() {
 		return pInput;
 	}

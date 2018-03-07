@@ -748,9 +748,19 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getInput_Optional()
+  {
+    return (EAttribute)inputEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getInput_Type()
   {
-    return (EReference)inputEClass.getEStructuralFeatures().get(2);
+    return (EReference)inputEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -760,7 +770,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    */
   public EAttribute getInput_Example()
   {
-    return (EAttribute)inputEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)inputEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -969,6 +979,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     inputEClass = createEClass(INPUT);
     createEAttribute(inputEClass, INPUT__MANY);
     createEAttribute(inputEClass, INPUT__CONTENT);
+    createEAttribute(inputEClass, INPUT__OPTIONAL);
     createEReference(inputEClass, INPUT__TYPE);
     createEAttribute(inputEClass, INPUT__EXAMPLE);
 
@@ -1084,6 +1095,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInput_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInput_Content(), ecorePackage.getEString(), "content", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInput_Optional(), ecorePackage.getEString(), "optional", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInput_Type(), this.getType(), null, "type", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInput_Example(), ecorePackage.getEString(), "example", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

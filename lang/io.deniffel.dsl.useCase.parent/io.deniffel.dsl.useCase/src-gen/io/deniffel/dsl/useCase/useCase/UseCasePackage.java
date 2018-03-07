@@ -669,13 +669,22 @@ public interface UseCasePackage extends EPackage
   int INPUT__CONTENT = 1;
 
   /**
+   * The feature id for the '<em><b>Optional</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__OPTIONAL = 2;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT__TYPE = 2;
+  int INPUT__TYPE = 3;
 
   /**
    * The feature id for the '<em><b>Example</b></em>' attribute.
@@ -684,7 +693,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int INPUT__EXAMPLE = 3;
+  int INPUT__EXAMPLE = 4;
 
   /**
    * The number of structural features of the '<em>Input</em>' class.
@@ -693,7 +702,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int INPUT_FEATURE_COUNT = 4;
+  int INPUT_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.OutputImpl <em>Output</em>}' class.
@@ -1359,6 +1368,17 @@ public interface UseCasePackage extends EPackage
   EAttribute getInput_Content();
 
   /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Input#getOptional <em>Optional</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Optional</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Input#getOptional()
+   * @see #getInput()
+   * @generated
+   */
+  EAttribute getInput_Optional();
+
+  /**
    * Returns the meta object for the reference '{@link io.deniffel.dsl.useCase.useCase.Input#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1954,6 +1974,14 @@ public interface UseCasePackage extends EPackage
      * @generated
      */
     EAttribute INPUT__CONTENT = eINSTANCE.getInput_Content();
+
+    /**
+     * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INPUT__OPTIONAL = eINSTANCE.getInput_Optional();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.

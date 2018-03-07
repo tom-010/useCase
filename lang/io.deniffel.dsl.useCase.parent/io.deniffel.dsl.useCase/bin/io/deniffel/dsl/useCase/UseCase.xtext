@@ -66,9 +66,12 @@ Type:
 
 ExceptionDecleration: 
 	'-' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;
+
+Optional:
+	'optional';
     
 Input:
-	(many?='many')? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
+	(many?='many')? '-' content=STRING (optional=Optional)? ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
 	
 Output:
 	(many?='many')? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;

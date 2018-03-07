@@ -73,6 +73,10 @@ class UseCaseGenerator extends AbstractGenerator {
 			«s.compile»
 		«ENDFOR»
 		
+		«FOR i:usecase.inputs»
+			«i.compileRequiredInputValidation»
+		«ENDFOR»
+		
 		/* NOTES:
 		«FOR n:usecase.notes»
 		«n.content» 
@@ -100,9 +104,23 @@ class UseCaseGenerator extends AbstractGenerator {
 	}
 	'''
 	
+	def compileRequiredInputValidation(Inputs inputs) {
+		'''
+		default void checkForRequiredInputs(Input input, ErrorMessages errors) {
+			Input input = getInput();
+			«FOR i:inputs.inputs»
+				«IF i.optional === null»
+					if(input.«variableNaming.convert(i.content)»==null) errors.add("'«i.content»' can't be null");
+				«ENDIF»
+			«ENDFOR»
+		}
+		'''
+	}
+	
 	def compile(PreConditions pcs)'''		
 		default ErrorMessages checkPreconditions() {
 			ErrorMessages errors = new ErrorMessages();
+			checkForRequiredInputs(getInput(), errors);
 			«FOR p:pcs.conditions»
 				«methodNaming.convert(p.content)»(getInput(), errors);
 			«ENDFOR»

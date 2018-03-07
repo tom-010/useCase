@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#isMany <em>Many</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getContent <em>Content</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getOptional <em>Optional</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getType <em>Type</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getExample <em>Example</em>}</li>
  * </ul>
@@ -77,6 +78,32 @@ public interface Input extends EObject
    * @generated
    */
   void setContent(String value);
+
+  /**
+   * Returns the value of the '<em><b>Optional</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Optional</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Optional</em>' attribute.
+   * @see #setOptional(String)
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getInput_Optional()
+   * @model
+   * @generated
+   */
+  String getOptional();
+
+  /**
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Input#getOptional <em>Optional</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Optional</em>' attribute.
+   * @see #getOptional()
+   * @generated
+   */
+  void setOptional(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' reference.

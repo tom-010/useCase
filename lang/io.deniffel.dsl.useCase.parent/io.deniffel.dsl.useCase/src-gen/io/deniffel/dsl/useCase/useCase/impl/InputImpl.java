@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.InputImpl#isMany <em>Many</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.InputImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.InputImpl#getOptional <em>Optional</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.InputImpl#getType <em>Type</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.InputImpl#getExample <em>Example</em>}</li>
  * </ul>
@@ -72,6 +73,26 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input
    * @ordered
    */
   protected String content = CONTENT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getOptional() <em>Optional</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOptional()
+   * @generated
+   * @ordered
+   */
+  protected static final String OPTIONAL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOptional() <em>Optional</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOptional()
+   * @generated
+   * @ordered
+   */
+  protected String optional = OPTIONAL_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' reference.
@@ -175,6 +196,29 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getOptional()
+  {
+    return optional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOptional(String newOptional)
+  {
+    String oldOptional = optional;
+    optional = newOptional;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.INPUT__OPTIONAL, oldOptional, optional));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Type getType()
   {
     if (type != null && type.eIsProxy())
@@ -250,6 +294,8 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input
         return isMany();
       case UseCasePackage.INPUT__CONTENT:
         return getContent();
+      case UseCasePackage.INPUT__OPTIONAL:
+        return getOptional();
       case UseCasePackage.INPUT__TYPE:
         if (resolve) return getType();
         return basicGetType();
@@ -274,6 +320,9 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input
         return;
       case UseCasePackage.INPUT__CONTENT:
         setContent((String)newValue);
+        return;
+      case UseCasePackage.INPUT__OPTIONAL:
+        setOptional((String)newValue);
         return;
       case UseCasePackage.INPUT__TYPE:
         setType((Type)newValue);
@@ -301,6 +350,9 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input
       case UseCasePackage.INPUT__CONTENT:
         setContent(CONTENT_EDEFAULT);
         return;
+      case UseCasePackage.INPUT__OPTIONAL:
+        setOptional(OPTIONAL_EDEFAULT);
+        return;
       case UseCasePackage.INPUT__TYPE:
         setType((Type)null);
         return;
@@ -325,6 +377,8 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input
         return many != MANY_EDEFAULT;
       case UseCasePackage.INPUT__CONTENT:
         return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
+      case UseCasePackage.INPUT__OPTIONAL:
+        return OPTIONAL_EDEFAULT == null ? optional != null : !OPTIONAL_EDEFAULT.equals(optional);
       case UseCasePackage.INPUT__TYPE:
         return type != null;
       case UseCasePackage.INPUT__EXAMPLE:
@@ -348,6 +402,8 @@ public class InputImpl extends MinimalEObjectImpl.Container implements Input
     result.append(many);
     result.append(", content: ");
     result.append(content);
+    result.append(", optional: ");
+    result.append(optional);
     result.append(", example: ");
     result.append(example);
     result.append(')');

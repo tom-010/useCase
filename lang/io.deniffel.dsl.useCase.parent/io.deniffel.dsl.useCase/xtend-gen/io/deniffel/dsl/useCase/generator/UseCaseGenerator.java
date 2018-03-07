@@ -158,6 +158,17 @@ public class UseCaseGenerator extends AbstractGenerator {
     }
     _builder.append("\t");
     _builder.newLine();
+    {
+      EList<Inputs> _inputs_1 = usecase.getInputs();
+      for(final Inputs i : _inputs_1) {
+        _builder.append("\t");
+        CharSequence _compileRequiredInputValidation = this.compileRequiredInputValidation(i);
+        _builder.append(_compileRequiredInputValidation, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("/* NOTES:");
     _builder.newLine();
@@ -242,12 +253,47 @@ public class UseCaseGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  public CharSequence compileRequiredInputValidation(final Inputs inputs) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("default void checkForRequiredInputs(Input input, ErrorMessages errors) {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Input input = getInput();");
+    _builder.newLine();
+    {
+      EList<Input> _inputs = inputs.getInputs();
+      for(final Input i : _inputs) {
+        {
+          String _optional = i.getOptional();
+          boolean _tripleEquals = (_optional == null);
+          if (_tripleEquals) {
+            _builder.append("\t");
+            _builder.append("if(input.");
+            String _convert = this.variableNaming.convert(i.getContent());
+            _builder.append(_convert, "\t");
+            _builder.append("==null) errors.add(\"\'");
+            String _content = i.getContent();
+            _builder.append(_content, "\t");
+            _builder.append("\' can\'t be null\");");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
   public CharSequence compile(final PreConditions pcs) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("default ErrorMessages checkPreconditions() {");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("ErrorMessages errors = new ErrorMessages();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("checkForRequiredInputs(getInput(), errors);");
     _builder.newLine();
     {
       EList<Condition> _conditions = pcs.getConditions();

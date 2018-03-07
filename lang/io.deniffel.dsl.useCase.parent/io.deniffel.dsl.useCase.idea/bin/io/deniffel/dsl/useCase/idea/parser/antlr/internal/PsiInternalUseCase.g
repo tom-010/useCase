@@ -1090,6 +1090,25 @@ ruleExceptionDecleration returns [Boolean current=false]
 	)
 ;
 
+//Entry rule entryRuleOptional
+entryRuleOptional returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getOptionalElementType()); }
+	iv_ruleOptional=ruleOptional
+	{ $current=$iv_ruleOptional.current; }
+	EOF;
+
+// Rule Optional
+ruleOptional returns [Boolean current=false]
+:
+	{
+		markLeaf(elementTypeProvider.getOptional_OptionalKeywordElementType());
+	}
+	kw='optional'
+	{
+		doneLeaf(kw);
+	}
+;
+
 //Entry rule entryRuleInput
 entryRuleInput returns [Boolean current=false]:
 	{ markComposite(elementTypeProvider.getInputElementType()); }
@@ -1143,12 +1162,27 @@ ruleInput returns [Boolean current=false]
 			)
 		)
 		(
+			(
+				{
+					markComposite(elementTypeProvider.getInput_OptionalOptionalParserRuleCall_3_0ElementType());
+				}
+				lv_optional_3_0=ruleOptional
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)?
+		(
 			{
-				markLeaf(elementTypeProvider.getInput_AsKeyword_3_0ElementType());
+				markLeaf(elementTypeProvider.getInput_AsKeyword_4_0ElementType());
 			}
-			otherlv_3='as'
+			otherlv_4='as'
 			{
-				doneLeaf(otherlv_3);
+				doneLeaf(otherlv_4);
 			}
 			(
 				(
@@ -1159,36 +1193,36 @@ ruleInput returns [Boolean current=false]
 						}
 					}
 					{
-						markLeaf(elementTypeProvider.getInput_TypeTypeCrossReference_3_1_0ElementType());
+						markLeaf(elementTypeProvider.getInput_TypeTypeCrossReference_4_1_0ElementType());
 					}
-					otherlv_4=RULE_ID
+					otherlv_5=RULE_ID
 					{
-						doneLeaf(otherlv_4);
+						doneLeaf(otherlv_5);
 					}
 				)
 			)
 		)?
 		(
 			{
-				markLeaf(elementTypeProvider.getInput_LeftParenthesisKeyword_4_0ElementType());
+				markLeaf(elementTypeProvider.getInput_LeftParenthesisKeyword_5_0ElementType());
 			}
-			otherlv_5='('
-			{
-				doneLeaf(otherlv_5);
-			}
-			{
-				markLeaf(elementTypeProvider.getInput_EGKeyword_4_1ElementType());
-			}
-			otherlv_6='e.g'
+			otherlv_6='('
 			{
 				doneLeaf(otherlv_6);
+			}
+			{
+				markLeaf(elementTypeProvider.getInput_EGKeyword_5_1ElementType());
+			}
+			otherlv_7='e.g'
+			{
+				doneLeaf(otherlv_7);
 			}
 			(
 				(
 					{
-						markLeaf(elementTypeProvider.getInput_ExampleSTRINGTerminalRuleCall_4_2_0ElementType());
+						markLeaf(elementTypeProvider.getInput_ExampleSTRINGTerminalRuleCall_5_2_0ElementType());
 					}
-					lv_example_7_0=RULE_STRING
+					lv_example_8_0=RULE_STRING
 					{
 						if(!$current) {
 							associateWithSemanticElement();
@@ -1196,16 +1230,16 @@ ruleInput returns [Boolean current=false]
 						}
 					}
 					{
-						doneLeaf(lv_example_7_0);
+						doneLeaf(lv_example_8_0);
 					}
 				)
 			)
 			{
-				markLeaf(elementTypeProvider.getInput_RightParenthesisKeyword_4_3ElementType());
+				markLeaf(elementTypeProvider.getInput_RightParenthesisKeyword_5_3ElementType());
 			}
-			otherlv_8=')'
+			otherlv_9=')'
 			{
-				doneLeaf(otherlv_8);
+				doneLeaf(otherlv_9);
 			}
 		)?
 	)

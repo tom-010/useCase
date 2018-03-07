@@ -57,8 +57,8 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExceptionDeclerationAccess().getGroup(), "rule__ExceptionDecleration__Group__0");
 					put(grammarAccess.getExceptionDeclerationAccess().getGroup_5(), "rule__ExceptionDecleration__Group_5__0");
 					put(grammarAccess.getInputAccess().getGroup(), "rule__Input__Group__0");
-					put(grammarAccess.getInputAccess().getGroup_3(), "rule__Input__Group_3__0");
 					put(grammarAccess.getInputAccess().getGroup_4(), "rule__Input__Group_4__0");
+					put(grammarAccess.getInputAccess().getGroup_5(), "rule__Input__Group_5__0");
 					put(grammarAccess.getOutputAccess().getGroup(), "rule__Output__Group__0");
 					put(grammarAccess.getOutputAccess().getGroup_3(), "rule__Output__Group_3__0");
 					put(grammarAccess.getOutputAccess().getGroup_4(), "rule__Output__Group_4__0");
@@ -102,8 +102,9 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExceptionDeclerationAccess().getImportInfoAssignment_5_1(), "rule__ExceptionDecleration__ImportInfoAssignment_5_1");
 					put(grammarAccess.getInputAccess().getManyAssignment_0(), "rule__Input__ManyAssignment_0");
 					put(grammarAccess.getInputAccess().getContentAssignment_2(), "rule__Input__ContentAssignment_2");
-					put(grammarAccess.getInputAccess().getTypeAssignment_3_1(), "rule__Input__TypeAssignment_3_1");
-					put(grammarAccess.getInputAccess().getExampleAssignment_4_2(), "rule__Input__ExampleAssignment_4_2");
+					put(grammarAccess.getInputAccess().getOptionalAssignment_3(), "rule__Input__OptionalAssignment_3");
+					put(grammarAccess.getInputAccess().getTypeAssignment_4_1(), "rule__Input__TypeAssignment_4_1");
+					put(grammarAccess.getInputAccess().getExampleAssignment_5_2(), "rule__Input__ExampleAssignment_5_2");
 					put(grammarAccess.getOutputAccess().getManyAssignment_0(), "rule__Output__ManyAssignment_0");
 					put(grammarAccess.getOutputAccess().getContentAssignment_2(), "rule__Output__ContentAssignment_2");
 					put(grammarAccess.getOutputAccess().getTypeAssignment_3_1(), "rule__Output__TypeAssignment_3_1");
