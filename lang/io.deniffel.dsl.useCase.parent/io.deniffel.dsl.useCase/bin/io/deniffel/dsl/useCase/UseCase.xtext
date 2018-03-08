@@ -7,7 +7,6 @@ Model:
 	types=UsedTypes
 	exceptions=UsedExceptions;
 	
- 
 UseCase:
 	'use-case' name=STRING
 	(descriptions+=Description)?

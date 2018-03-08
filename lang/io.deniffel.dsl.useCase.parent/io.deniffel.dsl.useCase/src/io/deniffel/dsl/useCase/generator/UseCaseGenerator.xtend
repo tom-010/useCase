@@ -200,13 +200,8 @@ class UseCaseGenerator extends AbstractGenerator {
 				«ENDFOR»
 			}
 			
-			public Output(ErrorMessages errors) {
-				this.errors = errors;
-			}
-			
-			public boolean wasSuccessful() {
-				return errors == null || errors.size() == 0;
-			}
+			public Output(ErrorMessages errors) {this.errors = errors;}
+			public boolean wasSuccessful() {return errors == null || errors.size() == 0;}
 		}
 		
 	'''
