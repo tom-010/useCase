@@ -1,8 +1,8 @@
 
+
 dependencies {
 	compile "org.eclipse.xtext:org.eclipse.xtext:${xtextVersion}"
 	compile "org.eclipse.xtext:org.eclipse.xtext.xbase:${xtextVersion}"
-	testCompile 'junit:junit:5.+'
 }
 configurations {
 	mwe2 {

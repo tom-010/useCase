@@ -1,0 +1,89 @@
+grammar io.deniffel.dsl.useCase.UseCase with org.eclipse.xtext.common.Terminals
+
+generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
+
+Model:
+	(useCases+=UseCase)*
+	types=UsedTypes
+	exceptions=UsedExceptions;
+	
+UseCase:
+	'use-case' name=STRING
+	(descriptions+=Description)?
+	(allowedUserGroups+=AllowedUserGroups)?
+	(inputs+=Inputs)?
+	(outputs+=Outputs)?
+	(preconditions=PreConditions)?
+	(steps+=Steps)?
+	(notes+=Notes)?
+	'end' 'of' 'use-case';
+
+PreConditions:
+	('pre-condition:'|'pre-conditions:')
+	(conditions+=Condition)*;
+
+Condition:
+	'-' content=STRING;
+
+Steps:
+	'steps:'
+		(steps+=Step)*;
+
+UsedTypes: 
+	'used' 'types:'
+	(types+=Type)*;
+
+UsedExceptions:
+	'used' 'errors:'
+	(exceptions+=ExceptionDecleration)*;
+
+Step:
+	number=QualifiedNumber action=STRING(error=RaiseError)?;
+
+RaiseError:
+	'.' ('Raise'|'On' 'error' 'raise') exception=Exception;
+
+Exception:
+	type=[ExceptionDecleration];
+
+Description:
+	'description:' name=STRING;
+
+Notes:
+	('notes:'|'note:') content=STRING;
+	
+Inputs:
+	('requires:'|'require:'|'requires' 'the' 'following' 'input' ':')
+	(inputs+=Input)*;
+	
+Outputs:
+	('produces:'|'produce:'|'produces' 'the' 'following' 'output' ':')
+	(outputs+=Output)*;
+
+Type:
+    '-' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
+
+ExceptionDecleration: 
+	'-' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;
+
+Optional:
+	'optional';
+    
+Input:
+	(many?='many')? '-' content=STRING (optional=Optional)? ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
+	
+Output:
+	(many?='many')? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
+	
+AllowedUserGroups:
+	'allowed-usergroups:'
+	(groups+=AllowedUserGroup )*;
+  
+AllowedUserGroup:
+	(many?='many')? '-' name=STRING ('as' type=[Type])?;
+  
+QualifiedName:
+    ID ('.' ID)*;
+    
+QualifiedNumber:
+	INT ('.' INT)*'.';

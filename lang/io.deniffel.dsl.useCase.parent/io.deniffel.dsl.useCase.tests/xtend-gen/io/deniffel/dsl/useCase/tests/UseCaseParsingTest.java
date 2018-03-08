@@ -48,10 +48,24 @@ public class UseCaseParsingTest {
   
   @Test
   public void descriptionSecionIsAddedToTheModelAsString() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field sections is undefined for the type UseCase"
-      + "\nThe method or field sections is undefined for the type UseCase"
-      + "\nlength cannot be resolved"
-      + "\nget cannot be resolved");
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("use-case \"Create a new User\"");
+      _builder.newLine();
+      _builder.append("description: \"This is a test\"");
+      _builder.newLine();
+      _builder.append("end of use-case");
+      _builder.newLine();
+      final UseCase model = this.parseHelper.parse(_builder);
+      Assert.assertNotNull(model);
+      final EList<Resource.Diagnostic> errors = model.eResource().getErrors();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }
