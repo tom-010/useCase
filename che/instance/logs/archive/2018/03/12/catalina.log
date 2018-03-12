@@ -1,0 +1,4 @@
+2018-03-12 08:55:23,225[ted-scheduler-6]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-12 12:01:38,183[ted-scheduler-2]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-12 13:01:39,611[ted-scheduler-2]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-12 14:01:39,607[ted-scheduler-0]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []

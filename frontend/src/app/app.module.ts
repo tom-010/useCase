@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatCardModule, MatSidenavModule, MatMenuModule, MatToolbarModule, MatTableModule, MatPaginatorModule, MatFormFieldModule } from '@angular/material';
+import { MaterialModule } from './material.module';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -24,10 +24,10 @@ import { StartComponent } from './start/start.component';
     StartComponent
   ],
   imports: [
+    MaterialModule,
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatCheckboxModule, MatCardModule, MatSidenavModule, MatMenuModule, MatToolbarModule, MatTableModule, MatPaginatorModule, MatFormFieldModule,
     AppRoutingModule
   ],
   providers: [UseCaseService, MessageService],
