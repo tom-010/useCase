@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AppModule } from '../app.module'
 import { UseCaseDetailComponent } from './use-case-detail.component';
 
 describe('UseCaseDetailComponent', () => {
@@ -8,7 +8,8 @@ describe('UseCaseDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UseCaseDetailComponent ]
+      imports: [ AppModule ],
+      declarations: []
     })
     .compileComponents();
   }));
