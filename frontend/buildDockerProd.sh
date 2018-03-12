@@ -1,1 +1,1 @@
-docker build -t use-case:prod .
+docker build -t deniffelio/use-case .
