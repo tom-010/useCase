@@ -13,6 +13,7 @@ subprojects {
 	ext.xtextVersion = '2.13.0'
 	repositories {
 		jcenter()
+		mavenCentral()
 	}
 	
 	apply plugin: 'java'
@@ -31,5 +32,14 @@ subprojects {
 	
 	configurations.all {
 		exclude group: 'asm'
+	}
+
+	dependencies {
+    	testCompile(
+            'org.junit.jupiter:junit-jupiter-api:5.0.1'
+    	)
+    	testRuntime(
+            'org.junit.jupiter:junit-jupiter-engine:5.0.1'
+    	)
 	}
 }

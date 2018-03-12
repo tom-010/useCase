@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.005" hostname="thomas-skytala" timestamp="2018-03-12T18:52:52">
+<properties>
+<property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.encoding.pkg" value="sun.io"/>
+<property name="file.separator" value="/"/>
+<property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+<property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+<property name="java.class.path" value="/home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide/build/classes/test:/home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide/build/resources/test:/home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide/build/classes/main:/home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide/build/resources/main:/home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase/build/libs/io.deniffel.dsl.useCase-1.0.0-SNAPSHOT.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.ide/2.13.0/684e2d43864637edcd4f3c426f6b478b7e9651bf/org.eclipse.xtext.ide-2.13.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.xbase.ide/2.13.0/3e01607829e60c02eac0e92b92d83c7f6246a4d1/org.eclipse.xtext.xbase.ide-2.13.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.0.1/30fbf4448c594cb45d8e91630d6bb7f465906b88/junit-jupiter-api-5.0.1.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.0.1/e22d2bf87f43fb03fee14dea447b2a14f41b095f/junit-jupiter-engine-5.0.1.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext/2.13.0/ed3177cfd648405b137fb1d8ef7586ef172a6f93/org.eclipse.xtext-2.13.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.xbase/2.13.0/6b05d2da6757630bb78b86cb2c5270bb091403dc/org.eclipse.xtext.xbase-2.13.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.ecore.change/2.11.0/3e240518c1b7df8a42acb5d54121693128aaa54e/org.eclipse.emf.ecore.change-2.11.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.lsp4j/org.eclipse.lsp4j/0.3.0/cc1df3852ded574cf35a6cb81f1629695bab35eb/org.eclipse.lsp4j-0.3.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.0.0/6f09c598e9ff64bf0ce2fa7e7de49a99ba83c0b4/opentest4j-1.0.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.0.1/3632e4a74a43d3ae8d29e6fa172cbc29590bda03/junit-platform-commons-1.0.1.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.0.1/4ce0a37866312c18ea3f45818f2faec077e46e0/junit-platform-engine-1.0.1.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.util/2.13.0/5933123f49e2c0d6ba64f98026a696ccb6a57c14/org.eclipse.xtext.util-2.13.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.xtend/org.eclipse.xtend.lib/2.13.0/accfb60dda659a31dddb5823d4fbcc7c0c1aa4ae/org.eclipse.xtend.lib-2.13.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.16/7999a63bfccbc7c247a9aea10d83d4272bd492c6/log4j-1.2.16.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.platform/org.eclipse.equinox.common/3.8.0/9a166c07468f7f10c03a9125669406baa05b80d0/org.eclipse.equinox.common-3.8.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.platform/org.eclipse.osgi/3.11.2/e8d062db7f518a41e6b4029a8005b49c855c5aac/org.eclipse.osgi-3.11.2.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.common/2.12.0/ce79e5cc3c2de3e8d96a6df4dad3bf5c9fa6b7d7/org.eclipse.emf.common-2.12.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.ecore.xmi/2.12.0/ad136ea23fcdaebec17ec6c730dfdf74b2077c37/org.eclipse.emf.ecore.xmi-2.12.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/com.google.inject/guice/3.0/9d84f15fe35e2c716a02979fb62f50a29f38aefa/guice-3.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.antlr/antlr-runtime/3.2/31c746001016c6226bd7356c9f87a6a084ce3715/antlr-runtime-3.2.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.common.types/2.13.0/84afcc05b2d2da309cdd25afe55f014feb950a07/org.eclipse.xtext.common.types-2.13.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.lsp4j/org.eclipse.lsp4j.generator/0.3.0/be95c0dcef23d74e9d8418a215aa5584c507f7cb/org.eclipse.lsp4j.generator-0.3.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.lsp4j/org.eclipse.lsp4j.jsonrpc/0.3.0/16296abd1cb9fa647ef0fd6c5615e11c69878bc6/org.eclipse.lsp4j.jsonrpc-0.3.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.emf/org.eclipse.emf.ecore/2.12.0/644751074e8b448526815f9bdeda26770df2e213/org.eclipse.emf.ecore-2.12.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.xtext/org.eclipse.xtext.xbase.lib/2.13.0/ea0734bda785af01c6f02298d25ed3189dd5a2ac/org.eclipse.xtext.xbase.lib-2.13.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.eclipse.xtend/org.eclipse.xtend.lib.macro/2.13.0/4897a782f69cee9326ea1ae7e10078b4d738463/org.eclipse.xtend.lib.macro-2.13.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.1/7b7147a390a93a14d2edfdcf3f7b0e87a0939c3e/asm-commons-5.0.1.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/5.0.1/1b1e6e9d869acd704056d0a4223071a511c619e6/asm-tree-5.0.1.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.1/2fd56467a018aafe6ec6a73ccba520be4a7e1565/asm-5.0.1.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/1.0.1/5562631a34e4eefefdad04cdd49a50774d6ac777/junit-platform-launcher-1.0.1.jar:/home/thomas/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-console/1.0.1/3892e08f30d92a88addc73f3a5f9575be864cec/junit-platform-console-1.0.1.jar"/>
+<property name="java.class.version" value="52.0"/>
+<property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+<property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+<property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
+<property name="java.io.tmpdir" value="/tmp"/>
+<property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+<property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+<property name="java.runtime.version" value="1.8.0_151-8u151-b12-0ubuntu0.17.10.2-b12"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="1.8"/>
+<property name="java.vendor" value="Oracle Corporation"/>
+<property name="java.vendor.url" value="http://java.oracle.com/"/>
+<property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+<property name="java.version" value="1.8.0_151"/>
+<property name="java.vm.info" value="mixed mode"/>
+<property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="1.8"/>
+<property name="java.vm.vendor" value="Oracle Corporation"/>
+<property name="java.vm.version" value="25.151-b12"/>
+<property name="line.separator" value="
+"/>
+<property name="os.arch" value="amd64"/>
+<property name="os.name" value="Linux"/>
+<property name="os.version" value="4.13.0-36-generic"/>
+<property name="path.separator" value=":"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+<property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.cpu.isalist" value=""/>
+<property name="sun.desktop" value="gnome"/>
+<property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+<property name="sun.java.command" value="org.junit.platform.console.ConsoleLauncher --details NONE --scan-class-path /home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide/build/classes/main:/home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide/build/resources/main:/home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide/build/classes/test:/home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide/build/resources/test -n ^.*Tests?$ --reports-dir /home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide/build/test-results/junit-platform"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="sun.os.patch.level" value="unknown"/>
+<property name="user.country" value="US"/>
+<property name="user.dir" value="/home/thomas/Projects/useCase/lang/io.deniffel.dsl.useCase.parent/io.deniffel.dsl.useCase.ide"/>
+<property name="user.home" value="/home/thomas"/>
+<property name="user.language" value="en"/>
+<property name="user.name" value="thomas"/>
+<property name="user.timezone" value="Europe/Berlin"/>
+<property name="user.variant" value=""/>
+</properties>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+</testsuite>
