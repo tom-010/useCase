@@ -1,1 +1,1 @@
-docker rm 
+docker rm $(docker stop $(docker ps -a -q --filter ancestor=deniffelio/use-case --format="{{.ID}}")) 
