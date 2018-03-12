@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Use-Case';
+  title = 'Use Case';
   production = environment.production
   showBanner = true;
 
