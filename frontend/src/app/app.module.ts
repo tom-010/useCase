@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StartComponent } from './start/start.component';
 import { MaterialModule } from './material.module';
 import {APP_BASE_HREF} from '@angular/common';
+import { CreateUseCaseComponent } from './create-use-case/create-use-case.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {APP_BASE_HREF} from '@angular/common';
     UseCaseDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    StartComponent
+    StartComponent,
+    CreateUseCaseComponent
   ],
   imports: [
     BrowserModule,

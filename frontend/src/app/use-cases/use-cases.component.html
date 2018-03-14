@@ -5,7 +5,7 @@
 
 <input matInput class="filter" type="text" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 
-    
+<button mat-button routerLink="/use-case/create" id="use-cases_create-use-case">New Use Case</button>
 
 <mat-table #table [dataSource]="useCases" matSort>
 

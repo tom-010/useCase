@@ -6,7 +6,6 @@ describe('UseCasesComponent', () => {
   let component: UseCasesComponent;
   let fixture: ComponentFixture<UseCasesComponent>;
 
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ AppModule ],
@@ -24,5 +23,23 @@ describe('UseCasesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have a use-case create button', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const btn = compiled.querySelector('#use-cases_create-use-case')
+    expect(btn.textContent).toContain('New Use Case');
+  })
+
+  it('should jump to new-use-case-screen on button click', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const btn = compiled.querySelector('#use-cases_create-use-case')
+    btn.click();
+
+    fixture.whenStable().then(() => {
+      expect(window.location.href).toContain('/use-case/create'); 
+    })
+
+
   });
 });
