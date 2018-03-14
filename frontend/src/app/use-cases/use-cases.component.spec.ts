@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppModule } from '../app.module'
 import { UseCasesComponent } from './use-cases.component';
+import { UseCaseMockService } from './use-case-mock.service'
+import { UseCaseService } from '../use-case.service';
+
 
 describe('UseCasesComponent', () => {
   let component: UseCasesComponent;
@@ -9,6 +12,7 @@ describe('UseCasesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ AppModule ],
+      providers: [ UseCaseMockService ],
       declarations: []
     })
     .compileComponents();
@@ -39,7 +43,19 @@ describe('UseCasesComponent', () => {
     fixture.whenStable().then(() => {
       expect(window.location.href).toContain('/use-case/create'); 
     })
-
-
   });
+
+  it('should ask the use-case-service for data on init', ()=> {
+    let useCaseService = TestBed.get(UseCaseService);
+    spyOn(useCaseService, 'getUseCases').and.callThrough();
+  })
+
+  // it('should show the name of the use-case in the list view', ()=> {
+  //   userService = TestBed.get(UserService);
+  // });
+
+  /*
+  Show all in listview
+  On-Click jump to edit-view
+  */
 });

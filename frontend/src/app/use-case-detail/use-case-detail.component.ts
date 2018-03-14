@@ -25,7 +25,7 @@ export class UseCaseDetailComponent implements OnInit {
 
   getUseCase(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.useCaseService.getHero(id)
+    this.useCaseService.getUseCase(id)
       .subscribe(hero => this.hero = hero);
   }
 

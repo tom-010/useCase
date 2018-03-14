@@ -8,12 +8,12 @@ import { MessageService } from './message.service';
 @Injectable()
 export class UseCaseService {
 
-  getHero(id: number): Observable<UseCase> {
+  getUseCase(id: number): Observable<UseCase> {
     this.messageService.add(`HeroService: fetched hero id=${id}`);
     return of(USE_CASES.find(hero => hero.id === id));
   }
 
-  getHeros(): Observable<UseCase[]> {
+  getUseCases(): Observable<UseCase[]> {
     this.messageService.add('HeroService: fetched heroes');
     return of(USE_CASES);
   }

@@ -28,7 +28,7 @@ export class UseCasesComponent implements OnInit {
   }
 
   getUseCases(): void { 
-    this.useCaseService.getHeros()
+    this.useCaseService.getUseCases()
       .subscribe(ucs => {
         this.useCases = new MatTableDataSource(ucs)
         this.useCases.sort = this.sort;
