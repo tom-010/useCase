@@ -11,7 +11,7 @@ import { UseCaseService }  from '../use-case.service';
 })
 export class UseCaseDetailComponent implements OnInit {
 
-  @Input() hero: UseCase;
+  @Input() useCase: UseCase;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +26,7 @@ export class UseCaseDetailComponent implements OnInit {
   getUseCase(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.useCaseService.getUseCase(id)
-      .subscribe(hero => this.hero = hero);
+      .subscribe(useCase => this.useCase = useCase);
   }
 
   goBack(): void {

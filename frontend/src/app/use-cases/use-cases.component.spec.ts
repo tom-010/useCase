@@ -3,11 +3,24 @@ import { AppModule } from '../app.module'
 import { UseCasesComponent } from './use-cases.component';
 import { UseCaseMockService } from './use-case-mock.service'
 import { UseCaseService } from '../use-case.service';
+import { MessageService } from '../message.service';
+import { UseCase } from '../model/use-case';
 
 
 describe('UseCasesComponent', () => {
   let component: UseCasesComponent;
   let fixture: ComponentFixture<UseCasesComponent>;
+  let mockService: UseCaseMockService
+  let useCase: UseCase;
+  let sampleUseCaseName: string = "unique_name";
+
+  function prepareUseCaseService() {
+    mockService = new UseCaseMockService(TestBed.get(MessageService));
+    useCase = new UseCase();
+    useCase.id = 1;
+    useCase.name = sampleUseCaseName;
+    mockService.addUseCase(useCase);
+  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,6 +32,7 @@ describe('UseCasesComponent', () => {
   }));
 
   beforeEach(() => {
+    prepareUseCaseService();
     fixture = TestBed.createComponent(UseCasesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -50,9 +64,12 @@ describe('UseCasesComponent', () => {
     spyOn(useCaseService, 'getUseCases').and.callThrough();
   })
 
-  // it('should show the name of the use-case in the list view', ()=> {
-  //   userService = TestBed.get(UserService);
-  // });
+  it('should contain the table view', () => {
+    const tableView = fixture.debugElement.nativeElement.querySelector('#use-cases_list-all-table')
+    expect(tableView).not.toBeNull();
+    expect(tableView).not.toBe(undefined);
+  });
+
 
   /*
   Show all in listview
