@@ -3,6 +3,7 @@ import { Example } from './example'
 import { of } from 'rxjs/observable/of';
 import { Observer } from "rxjs/Observer";
 import { ExamplesRepository } from './examples-repository'
+import { DomainContext } from "../domain-context";
 
 export enum UseCaseStatus {
     NEW, SAVED, DELETED, DIRTY
@@ -14,11 +15,15 @@ export class UseCase {
     private $name: string;
     private $examples: Observable<Example[]>;
     private $status: UseCaseStatus = UseCaseStatus.NEW;
-    
     private examplesRepo: ExamplesRepository;
+    private ctx: DomainContext;
 
-    constructor(examplesRepo: ExamplesRepository, id?: number, name?: string) {
-        this.examplesRepo = examplesRepo;
+    constructor(ctx: DomainContext, id?: number, name?: string) {
+        if(ctx) {
+            this.examplesRepo = ctx.examplesRepo;
+            this.ctx = ctx;
+        }
+            
         this.id = id;
         this.name = name;
         this.status = UseCaseStatus.NEW;
@@ -62,12 +67,19 @@ export class UseCase {
 
     public save(): Observable<UseCase> {
         this.status = UseCaseStatus.SAVED;
-        return of(this);
+        const updateMode: boolean = this.id && this.id > 0;
+        const res: Observable<UseCase> = updateMode ? 
+                              this.ctx.useCaseRepo.update(this)
+                            : this.ctx.useCaseRepo.insert(this);
+        res.subscribe(_=> this.ctx.broker.publish( updateMode ? 'UseCase_updated' : 'UseCase_created', this))
+        return res;
     }
 
     public delete(): Observable<UseCase> {
         this.status = UseCaseStatus.DELETED;
-        return of(this);
+        let res: Observable<UseCase> = this.ctx.useCaseRepo.delete(this);
+        res.subscribe((d) => this.ctx.broker.publish('UseCase_deleted', this));
+        return res;
     }
 
     private dirty() {

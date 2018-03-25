@@ -3,4 +3,5 @@ import { Example } from "./example";
 
 export interface ExamplesRepository {
     findAllForUseCase(useCaseId: number): Observable<Example[]>;
+    save(examples: Example[]): Observable<Example[]>;
 }
