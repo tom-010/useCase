@@ -1,1 +1,57 @@
-2018-03-12 09:02:43,757[nio-8080-exec-1]  [INFO ] [o.a.t.util.http.parser.Cookie 590]   - A cookie header was received [Doe; GERRIT_UI=GWT; screenResolution=2048x1152; ACEGI_SECURITY_HASHED_REMEMBER_ME_COOKIE=YWRtaW46MTUyMTcxODAxMjY2NjoyMDhjZjg2MzE3OTFlZWQ0NTI5ZWUyODRlOTZkMTNlYTUxNTdkYWI2NzYyZmNkNGZkYmU1Zjg3YTJkM2RkMTk4; JSESSIONID=fc4x1jbwitmc1hmexhc3cpujl; JSESSIONID.56682e77=node0g25zg5hgcy4q1441whm4ihbsm1403.node0; token=RY31LoPjMFjjdjO0F6JHZBbm9pvAHbIeufAOIbJ7L-kRmZfAeL7px3afCXKbqJVd5zE83c2bZc4aAPBh1dfdiwpTNk1SpphHYCEuTDDhueq4yvm9-Sgn75EaEnfTSdpfKKrXJwm7MxqBxCrQQQCegQ==.whvrcKmp6DRc8FPIY0lg9J9cs86oP5YdvAYRV-7Sn70] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-03-25 09:11:07,736[main]             [INFO ] [o.a.c.s.VersionLoggerListener 89]    - Server version:        Apache Tomcat/8.5.23
+2018-03-25 09:11:07,742[main]             [INFO ] [o.a.c.s.VersionLoggerListener 91]    - Server built:          Sep 28 2017 10:30:11 UTC
+2018-03-25 09:11:07,742[main]             [INFO ] [o.a.c.s.VersionLoggerListener 93]    - Server number:         8.5.23.0
+2018-03-25 09:11:07,742[main]             [INFO ] [o.a.c.s.VersionLoggerListener 95]    - OS Name:               Linux
+2018-03-25 09:11:07,743[main]             [INFO ] [o.a.c.s.VersionLoggerListener 97]    - OS Version:            4.13.0-37-generic
+2018-03-25 09:11:07,743[main]             [INFO ] [o.a.c.s.VersionLoggerListener 99]    - Architecture:          amd64
+2018-03-25 09:11:07,743[main]             [INFO ] [o.a.c.s.VersionLoggerListener 101]   - Java Home:             /usr/lib/jvm/java-1.8-openjdk/jre
+2018-03-25 09:11:07,744[main]             [INFO ] [o.a.c.s.VersionLoggerListener 103]   - JVM Version:           1.8.0_131-b11
+2018-03-25 09:11:07,744[main]             [INFO ] [o.a.c.s.VersionLoggerListener 105]   - JVM Vendor:            Oracle Corporation
+2018-03-25 09:11:07,744[main]             [INFO ] [o.a.c.s.VersionLoggerListener 107]   - CATALINA_BASE:         /home/user/eclipse-che/tomcat
+2018-03-25 09:11:07,745[main]             [INFO ] [o.a.c.s.VersionLoggerListener 109]   - CATALINA_HOME:         /home/user/eclipse-che/tomcat
+2018-03-25 09:11:07,745[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Djava.util.logging.config.file=/home/user/eclipse-che//tomcat/conf/logging.properties
+2018-03-25 09:11:07,745[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+2018-03-25 09:11:07,746[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -XX:MaxRAMFraction=2
+2018-03-25 09:11:07,746[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -XX:+UseParallelGC
+2018-03-25 09:11:07,746[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -XX:MinHeapFreeRatio=10
+2018-03-25 09:11:07,746[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -XX:MaxHeapFreeRatio=20
+2018-03-25 09:11:07,747[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -XX:GCTimeRatio=4
+2018-03-25 09:11:07,747[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -XX:AdaptiveSizePolicyWeight=90
+2018-03-25 09:11:07,747[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -XX:+UnlockExperimentalVMOptions
+2018-03-25 09:11:07,747[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -XX:+UseCGroupMemoryLimitForHeap
+2018-03-25 09:11:07,748[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dsun.zip.disableMemoryMapping=true
+2018-03-25 09:11:07,748[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Xms20m
+2018-03-25 09:11:07,748[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dche.docker.network=bridge
+2018-03-25 09:11:07,748[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dport.http=8080
+2018-03-25 09:11:07,748[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dche.home=/home/user/eclipse-che/
+2018-03-25 09:11:07,749[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dche.logs.dir=/logs
+2018-03-25 09:11:07,749[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dche.logs.level=INFO
+2018-03-25 09:11:07,749[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Djuli-logback.configurationFile=file:/home/user/eclipse-che//tomcat/conf/tomcat-logger.xml
+2018-03-25 09:11:07,750[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+2018-03-25 09:11:07,750[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+2018-03-25 09:11:07,750[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dcom.sun.management.jmxremote
+2018-03-25 09:11:07,750[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dcom.sun.management.jmxremote.ssl=false
+2018-03-25 09:11:07,751[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dcom.sun.management.jmxremote.authenticate=false
+2018-03-25 09:11:07,751[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dche.local.conf.dir=/home/user/eclipse-che//tomcat/conf/
+2018-03-25 09:11:07,751[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dcatalina.base=/home/user/eclipse-che//tomcat
+2018-03-25 09:11:07,751[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Dcatalina.home=/home/user/eclipse-che//tomcat
+2018-03-25 09:11:07,752[main]             [INFO ] [o.a.c.s.VersionLoggerListener 115]   - Command line argument: -Djava.io.tmpdir=/home/user/eclipse-che//tomcat/temp
+2018-03-25 09:11:07,868[main]             [INFO ] [o.a.c.http11.Http11NioProtocol 573]  - Initializing ProtocolHandler ["http-nio-8080"]
+2018-03-25 09:11:07,891[main]             [INFO ] [o.a.t.util.net.NioSelectorPool 67]   - Using a shared selector for servlet write/read
+2018-03-25 09:11:07,894[main]             [INFO ] [o.a.catalina.startup.Catalina 632]   - Initialization processed in 732 ms
+2018-03-25 09:11:07,921[main]             [INFO ] [c.m.JmxRemoteLifecycleListener 336]  - The JMX Remote Listener has configured the registry on port [32001] and the server on port [32101] for the [Platform] server
+2018-03-25 09:11:07,923[main]             [INFO ] [o.a.c.core.StandardService 416]      - Starting service [Catalina]
+2018-03-25 09:11:07,925[main]             [INFO ] [o.a.c.core.StandardEngine 259]       - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-25 09:11:36,479[ost-startStop-1]  [WARN ] [o.a.c.u.SessionIdGeneratorBase 273]  - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [27,973] milliseconds.
+2018-03-25 09:11:36,643[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 959]        - Deploying web application archive [/home/user/eclipse-che/tomcat/webapps/api.war]
+2018-03-25 09:11:41,825[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 1023]       - Deployment of web application archive [/home/user/eclipse-che/tomcat/webapps/api.war] has finished in [5,182] ms
+2018-03-25 09:11:41,827[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 959]        - Deploying web application archive [/home/user/eclipse-che/tomcat/webapps/swagger.war]
+2018-03-25 09:11:41,896[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 1023]       - Deployment of web application archive [/home/user/eclipse-che/tomcat/webapps/swagger.war] has finished in [69] ms
+2018-03-25 09:11:41,899[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 959]        - Deploying web application archive [/home/user/eclipse-che/tomcat/webapps/dashboard.war]
+2018-03-25 09:11:41,964[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 1023]       - Deployment of web application archive [/home/user/eclipse-che/tomcat/webapps/dashboard.war] has finished in [65] ms
+2018-03-25 09:11:41,966[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 959]        - Deploying web application archive [/home/user/eclipse-che/tomcat/webapps/docs.war]
+2018-03-25 09:11:42,018[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 1023]       - Deployment of web application archive [/home/user/eclipse-che/tomcat/webapps/docs.war] has finished in [52] ms
+2018-03-25 09:11:42,020[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 959]        - Deploying web application archive [/home/user/eclipse-che/tomcat/webapps/ROOT.war]
+2018-03-25 09:11:42,640[ost-startStop-1]  [INFO ] [o.a.c.startup.HostConfig 1023]       - Deployment of web application archive [/home/user/eclipse-che/tomcat/webapps/ROOT.war] has finished in [620] ms
+2018-03-25 09:11:42,643[main]             [INFO ] [o.a.c.http11.Http11NioProtocol 632]  - Starting ProtocolHandler ["http-nio-8080"]
+2018-03-25 09:11:42,651[main]             [INFO ] [o.a.catalina.startup.Catalina 683]   - Server startup in 34756 ms

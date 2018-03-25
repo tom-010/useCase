@@ -16,7 +16,7 @@ describe('UseCasesComponent', () => {
 
   function prepareUseCaseService() {
     mockService = new UseCaseMockService(TestBed.get(MessageService));
-    useCase = new UseCase();
+    useCase = new UseCase(null);
     useCase.id = 1;
     useCase.name = sampleUseCaseName;
     mockService.addUseCase(useCase);

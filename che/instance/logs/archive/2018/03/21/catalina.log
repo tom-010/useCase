@@ -1,0 +1,7 @@
+2018-03-21 16:37:16,671[ost-startStop-2]  [INFO ] [o.e.c.a.core.util.FileCleaner 80]    - File cleaner is stopped
+2018-03-21 16:37:16,688[ost-startStop-2]  [INFO ] [o.e.c.a.s.server.SystemManager 92]   - Preparing system to shutdown
+2018-03-21 16:37:16,692[ost-startStop-2]  [INFO ] [o.e.c.a.s.s.ServiceTerminator 46]    - Shutting down 'workspace' service
+2018-03-21 16:37:16,697[ost-startStop-2]  [INFO ] [.e.c.a.w.s.WorkspaceSharedPool 115]  - Shutdown workspace threads pool, wait 30s to stop normally
+2018-03-21 16:37:16,697[ost-startStop-2]  [INFO ] [.e.c.a.w.s.WorkspaceSharedPool 127]  - Workspace threads pool is terminated
+2018-03-21 16:37:16,697[ost-startStop-2]  [INFO ] [o.e.c.a.s.s.ServiceTerminator 55]    - Service 'workspace' is shut down
+2018-03-21 16:37:16,698[ost-startStop-2]  [INFO ] [o.e.c.a.s.server.SystemManager 99]   - System is ready to shutdown

@@ -1,11 +1,27 @@
+import { Observable } from "rxjs/Observable";
+import { Example } from './example'
+import { of } from 'rxjs/observable/of';
+import { Observer } from "rxjs/Observer";
+import { ExamplesRepository } from './examples-repository'
+
+export enum UseCaseStatus {
+    NEW, SAVED, DELETED, DIRTY
+}
+
 export class UseCase {
     
-    $id: number;
-    $name: string;
+    private $id: number;
+    private $name: string;
+    private $examples: Observable<Example[]>;
+    private $status: UseCaseStatus = UseCaseStatus.NEW;
+    
+    private examplesRepo: ExamplesRepository;
 
-    constructor(id?: number, name?: string) {
+    constructor(examplesRepo: ExamplesRepository, id?: number, name?: string) {
+        this.examplesRepo = examplesRepo;
         this.id = id;
         this.name = name;
+        this.status = UseCaseStatus.NEW;
     }
 
     public get id(): number {
@@ -13,7 +29,7 @@ export class UseCase {
     }
 
     public set id(id: number) {
-        this.$id = id;
+        this.$id = id ? id : null;
     }
 
     public get name(): string {
@@ -21,6 +37,43 @@ export class UseCase {
     }
 
     public set name(name: string) {
-        this.$name = name;
+        this.dirty();
+        this.$name = name ? name : null;
+    }
+
+    public get examples(): Observable<Example[]> {
+        if(!this.$examples)
+            this.$examples = this.examplesRepo.findAllForUseCase(this.id);
+        this.$examples = of([]);
+        return this.$examples;
+    }
+
+    public set examples(examples: Observable<Example[]>) {
+        this.$examples = examples;
+    }
+
+    public get status() {
+        return this.$status;
+    }
+
+    public set status(status: UseCaseStatus) { // TODO: make less visible
+        this.$status = status;
+    }
+
+    public save(): Observable<UseCase> {
+        this.status = UseCaseStatus.SAVED;
+        return of(this);
+    }
+
+    public delete(): Observable<UseCase> {
+        this.status = UseCaseStatus.DELETED;
+        return of(this);
+    }
+
+    private dirty() {
+        if(this.status == UseCaseStatus.DELETED)
+            return;
+
+        this.status = UseCaseStatus.DIRTY;
     }
 }

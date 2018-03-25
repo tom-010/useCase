@@ -1,0 +1,77 @@
+2018-03-14 08:56:25,378[ted-scheduler-7]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-14 09:56:25,873[ted-scheduler-0]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-14 10:56:25,868[ted-scheduler-9]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-14 11:56:25,871[ted-scheduler-0]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-14 12:54:53,445[ost-startStop-1]  [INFO ] [.e.c.c.d.JNDIDataSourceFactory 59]   - This=org.eclipse.che.core.db.h2.H2SQLJndiDataSourceFactory@5a0dd78e obj=ResourceRef[className=javax.sql.DataSource,factoryClassLocation=null,factoryClassName=org.apache.naming.factory.ResourceFactory,{type=scope,content=Shareable},{type=auth,content=Container},{type=singleton,content=true},{type=factory,content=org.eclipse.che.api.CommonJndiDataSourceFactory}] name=che Context=org.apache.naming.NamingContext@7acbc7d8 environment={}
+2018-03-14 12:54:56,040[ost-startStop-1]  [INFO ] [o.f.c.i.d.DbSupportFactory 44]       - Database: jdbc:h2:che (H2 1.4)
+2018-03-14 12:54:56,084[ost-startStop-1]  [INFO ] [o.f.c.i.util.VersionPrinter 44]      - Flyway 4.2.0 by Boxfuse
+2018-03-14 12:54:56,086[ost-startStop-1]  [INFO ] [o.f.c.i.d.DbSupportFactory 44]       - Database: jdbc:h2:che (H2 1.4)
+2018-03-14 12:54:56,113[ost-startStop-1]  [INFO ] [i.f.CustomSqlMigrationResolver 157]  - Searching for sql scripts in locations [classpath:che-schema]
+2018-03-14 12:54:56,155[ost-startStop-1]  [INFO ] [o.f.c.i.command.DbValidate 44]       - Successfully validated 27 migrations (execution time 00:00.047s)
+2018-03-14 12:54:56,167[ost-startStop-1]  [INFO ] [o.f.c.i.command.DbMigrate 44]        - Current version of schema "PUBLIC": 6.0.0.12
+2018-03-14 12:54:56,171[ost-startStop-1]  [INFO ] [o.f.c.i.command.DbMigrate 44]        - Schema "PUBLIC" is up to date. No migration necessary.
+2018-03-14 12:54:57,487[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.terminal:1.0.0' is already in the registry.
+2018-03-14 12:54:57,490[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.git-credentials:1.0.0' is already in the registry.
+2018-03-14 12:54:57,495[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ws-agent:1.0.1' is already in the registry.
+2018-03-14 12:54:57,498[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.terminal:1.0.1' is already in the registry.
+2018-03-14 12:54:57,501[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ws-agent:1.0.0' is already in the registry.
+2018-03-14 12:54:57,503[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.js-ts:1.0.1' is already in the registry.
+2018-03-14 12:54:57,506[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ssh:1.0.0' is already in the registry.
+2018-03-14 12:54:57,508[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.php:2.0.1' is already in the registry.
+2018-03-14 12:54:57,511[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.exec:1.0.0' is already in the registry.
+2018-03-14 12:54:57,514[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.exec:1.0.1' is already in the registry.
+2018-03-14 12:54:57,516[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.python:1.0.3' is already in the registry.
+2018-03-14 12:54:57,520[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ws-agent:1.0.2' is already in the registry.
+2018-03-14 12:54:57,522[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.unison:1.0.0' is already in the registry.
+2018-03-14 12:54:57,524[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.json:1.0.1' is already in the registry.
+2018-03-14 12:54:57,527[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ws-agent:1.0.3' is already in the registry.
+2018-03-14 12:54:57,529[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.yaml:1.0.0' is already in the registry.
+2018-03-14 12:54:57,531[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.test.ls:1.0.0' is already in the registry.
+2018-03-14 12:54:57,533[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.csharp:1.0.1' is already in the registry.
+2018-03-14 12:54:57,535[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.camel:1.0.0' is already in the registry.
+2018-03-14 12:54:57,729[ost-startStop-1]  [INFO ] [.i.d.l.p.LocalProjectsMigrator 49]   - Starting migration of workspace project files
+2018-03-14 12:54:57,765[ost-startStop-1]  [INFO ] [o.e.c.a.w.s.WorkspaceRuntimes 113]   - Configured factories for environments: '[compose, dockerimage, dockerfile]'
+2018-03-14 12:54:57,766[ost-startStop-1]  [INFO ] [o.e.c.a.w.s.WorkspaceRuntimes 114]   - Registered infrastructure 'docker'
+2018-03-14 12:54:57,884[ost-startStop-1]  [INFO ] [.c.i.d.c.DockerRegistryChecker 48]   - Probing registry 'http://localhost:5000'
+2018-03-14 12:54:57,899[ost-startStop-1]  [WARN ] [.c.i.d.c.DockerRegistryChecker 58]   - Docker registry http://localhost:5000 is not available, which means that you won't be able to save snapshots of your workspaces.
+How to configure registry?
+	Local registry  -> https://docs.docker.com/registry/
+	Remote registry -> set up 'che.docker.registry.auth.*' properties
+2018-03-14 12:54:57,914[ted-scheduler-2]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-14 13:36:38,781[ost-startStop-1]  [INFO ] [.e.c.c.d.JNDIDataSourceFactory 59]   - This=org.eclipse.che.core.db.h2.H2SQLJndiDataSourceFactory@42e5476d obj=ResourceRef[className=javax.sql.DataSource,factoryClassLocation=null,factoryClassName=org.apache.naming.factory.ResourceFactory,{type=scope,content=Shareable},{type=auth,content=Container},{type=singleton,content=true},{type=factory,content=org.eclipse.che.api.CommonJndiDataSourceFactory}] name=che Context=org.apache.naming.NamingContext@5ae91dec environment={}
+2018-03-14 13:36:41,308[ost-startStop-1]  [INFO ] [o.f.c.i.d.DbSupportFactory 44]       - Database: jdbc:h2:che (H2 1.4)
+2018-03-14 13:36:41,349[ost-startStop-1]  [INFO ] [o.f.c.i.util.VersionPrinter 44]      - Flyway 4.2.0 by Boxfuse
+2018-03-14 13:36:41,350[ost-startStop-1]  [INFO ] [o.f.c.i.d.DbSupportFactory 44]       - Database: jdbc:h2:che (H2 1.4)
+2018-03-14 13:36:41,375[ost-startStop-1]  [INFO ] [i.f.CustomSqlMigrationResolver 157]  - Searching for sql scripts in locations [classpath:che-schema]
+2018-03-14 13:36:41,418[ost-startStop-1]  [INFO ] [o.f.c.i.command.DbValidate 44]       - Successfully validated 27 migrations (execution time 00:00.044s)
+2018-03-14 13:36:41,430[ost-startStop-1]  [INFO ] [o.f.c.i.command.DbMigrate 44]        - Current version of schema "PUBLIC": 6.0.0.12
+2018-03-14 13:36:41,432[ost-startStop-1]  [INFO ] [o.f.c.i.command.DbMigrate 44]        - Schema "PUBLIC" is up to date. No migration necessary.
+2018-03-14 13:36:42,776[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.terminal:1.0.0' is already in the registry.
+2018-03-14 13:36:42,781[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.git-credentials:1.0.0' is already in the registry.
+2018-03-14 13:36:42,787[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ws-agent:1.0.1' is already in the registry.
+2018-03-14 13:36:42,791[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.terminal:1.0.1' is already in the registry.
+2018-03-14 13:36:42,796[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ws-agent:1.0.0' is already in the registry.
+2018-03-14 13:36:42,799[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.js-ts:1.0.1' is already in the registry.
+2018-03-14 13:36:42,803[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ssh:1.0.0' is already in the registry.
+2018-03-14 13:36:42,807[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.php:2.0.1' is already in the registry.
+2018-03-14 13:36:42,811[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.exec:1.0.0' is already in the registry.
+2018-03-14 13:36:42,816[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.exec:1.0.1' is already in the registry.
+2018-03-14 13:36:42,819[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.python:1.0.3' is already in the registry.
+2018-03-14 13:36:42,822[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ws-agent:1.0.2' is already in the registry.
+2018-03-14 13:36:42,824[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.unison:1.0.0' is already in the registry.
+2018-03-14 13:36:42,827[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.json:1.0.1' is already in the registry.
+2018-03-14 13:36:42,831[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ws-agent:1.0.3' is already in the registry.
+2018-03-14 13:36:42,833[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.yaml:1.0.0' is already in the registry.
+2018-03-14 13:36:42,835[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.test.ls:1.0.0' is already in the registry.
+2018-03-14 13:36:42,837[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.csharp:1.0.1' is already in the registry.
+2018-03-14 13:36:42,839[ost-startStop-1]  [INFO ] [a.i.s.i.LocalInstallerRegistry 70]   - Latest version of installer 'org.eclipse.che.ls.camel:1.0.0' is already in the registry.
+2018-03-14 13:36:43,021[ost-startStop-1]  [INFO ] [.i.d.l.p.LocalProjectsMigrator 49]   - Starting migration of workspace project files
+2018-03-14 13:36:43,057[ost-startStop-1]  [INFO ] [o.e.c.a.w.s.WorkspaceRuntimes 113]   - Configured factories for environments: '[compose, dockerimage, dockerfile]'
+2018-03-14 13:36:43,058[ost-startStop-1]  [INFO ] [o.e.c.a.w.s.WorkspaceRuntimes 114]   - Registered infrastructure 'docker'
+2018-03-14 13:36:43,170[ost-startStop-1]  [INFO ] [.c.i.d.c.DockerRegistryChecker 48]   - Probing registry 'http://localhost:5000'
+2018-03-14 13:36:43,182[ost-startStop-1]  [WARN ] [.c.i.d.c.DockerRegistryChecker 58]   - Docker registry http://localhost:5000 is not available, which means that you won't be able to save snapshots of your workspaces.
+How to configure registry?
+	Local registry  -> https://docs.docker.com/registry/
+	Remote registry -> set up 'che.docker.registry.auth.*' properties
+2018-03-14 13:36:43,198[ted-scheduler-2]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-14 14:42:35,546[ted-scheduler-4]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []

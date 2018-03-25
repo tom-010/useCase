@@ -1,0 +1,8 @@
+2018-03-24 18:12:01,618[ted-scheduler-2]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-24 18:17:05,912[ost-startStop-2]  [INFO ] [o.e.c.a.s.server.SystemManager 92]   - Preparing system to shutdown
+2018-03-24 18:17:05,925[ost-startStop-2]  [INFO ] [o.e.c.a.s.s.ServiceTerminator 46]    - Shutting down 'workspace' service
+2018-03-24 18:17:05,928[ost-startStop-2]  [INFO ] [.e.c.a.w.s.WorkspaceSharedPool 115]  - Shutdown workspace threads pool, wait 30s to stop normally
+2018-03-24 18:17:05,928[ost-startStop-2]  [INFO ] [.e.c.a.w.s.WorkspaceSharedPool 127]  - Workspace threads pool is terminated
+2018-03-24 18:17:05,929[ost-startStop-2]  [INFO ] [o.e.c.a.s.s.ServiceTerminator 55]    - Service 'workspace' is shut down
+2018-03-24 18:17:05,929[ost-startStop-2]  [INFO ] [o.e.c.a.s.server.SystemManager 99]   - System is ready to shutdown
+2018-03-24 18:17:05,939[ost-startStop-2]  [INFO ] [o.e.c.a.core.util.FileCleaner 80]    - File cleaner is stopped
