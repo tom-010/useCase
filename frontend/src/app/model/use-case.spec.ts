@@ -38,7 +38,7 @@ describe('UseCase Model Class', () => {
 
     function setUp() {
         const ctx: DomainContext = DomainContext.get();
-        ctx.broker = new Broker();
+        ctx.broker = Broker.get();
         ctx.examplesRepo = new StubExamplesRepo();
         ctx.useCaseRepo = new StubUseCaseRepo(); 
         const uut: UseCase = new UseCase(ctx);
@@ -242,7 +242,9 @@ describe('UseCase Model Class', () => {
         const brokerPublishSpy = spyOn(ctx.broker, "publish");
         uut.id = null;
         uut.save().subscribe(_=> {
-            expect(brokerPublishSpy).toHaveBeenCalled(); v();
+            setTimeout(()=> {
+                expect(brokerPublishSpy).toHaveBeenCalled(); v();
+            }, 10); // Sleep to ensure message sending
         })
     })
 
@@ -252,9 +254,9 @@ describe('UseCase Model Class', () => {
         uut.id = null; // force create
         const ir: Observable<UseCase> = uut.save();
         expect(spy).toHaveBeenCalledTimes(0);
-        ir.subscribe(e => {
+        ir.subscribe(e => { setTimeout(()=> {
             expect(spy).toHaveBeenCalledTimes(1); v();
-        });
+        }, 10); });
     });
 
     it('should send update-event just after Observable has succeed', (v) => {
