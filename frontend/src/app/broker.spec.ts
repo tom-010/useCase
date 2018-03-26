@@ -28,30 +28,30 @@ describe('Broker', () => {
 
     it('should not possible to register on a null channel', () => {
         const { broker } = setUp();
-        const subscriberAmountBefore = broker.getTopics().keys.length;
+        const subscriberAmountBefore = broker.getTopics().size;
         broker.register(null, () => {});
-        expect(broker.getTopics().keys.length).toEqual(subscriberAmountBefore);
+        expect(broker.getTopics().size).toEqual(subscriberAmountBefore);
     });
 
     it('should not possible to register with a empty topic string', () => {
         const { broker } = setUp();
-        const subscriberAmountBefore = broker.getTopics().keys.length;
+        const subscriberAmountBefore = broker.getTopics().size;
         broker.register('', () => {});
-        expect(broker.getTopics().keys.length).toEqual(subscriberAmountBefore);
+        expect(broker.getTopics().size).toEqual(subscriberAmountBefore);
     });
 
     it('should not possible to register with a null subscrier', () => {
         const { broker } = setUp();
-        const subscriberAmountBefore = broker.getTopics().keys.length;
+        const subscriberAmountBefore = broker.getTopics().size;
         broker.register('topic', null);
-        expect(broker.getTopics().keys.length).toEqual(subscriberAmountBefore);
+        expect(broker.getTopics().size).toEqual(subscriberAmountBefore);
     });
 
     it('should not possible to register with a undefined subscrier', () => {
         const { broker } = setUp();
-        const subscriberAmountBefore = broker.getTopics().keys.length;
+        const subscriberAmountBefore = broker.getTopics().size;
         broker.register('topic', undefined);
-        expect(broker.getTopics().keys.length).toEqual(subscriberAmountBefore);
+        expect(broker.getTopics().size).toEqual(subscriberAmountBefore);
     });
 
     it('should possible to register for an topic', () => {
@@ -65,17 +65,34 @@ describe('Broker', () => {
     it('should create a new channel for a new topic listener that listens for a unknown topic', () => {
         const { broker } = setUp();
         broker.register('topic', () => {});
-        expect(broker.getTopics().keys.length).toBe(1);
+        expect(broker.getTopics().size).toBe(1);
         broker.register('topic2', () => {});
-        expect(broker.getTopics().keys.length).toBe(2);
+        expect(broker.getTopics().size).toBe(2);
         broker.register('topic3', () => {});
-        expect(broker.getTopics().keys.length).toBe(3);
+        expect(broker.getTopics().size).toBe(3);
     });
 
     it('should not create a new channel, if topic is already known', () => {
         const { broker } = setUp();
         broker.register('topic', () => {});
         broker.register('topic', () => {});
-        expect(broker.getTopics().keys.length).toBe(1);
+        expect(broker.getTopics().size).toBe(1);
+    });
+
+    it('should send if message with right topic is given', (v) => {
+      const { broker } = setUp();
+      broker.register('topic', (content) => {
+        expect(content.message).toBe('message'); v();
+      });
+      broker.publish('topic', {message: 'message'});
+    });
+
+    it('should not send to a receiver that has registered only for an other topic', (v) => {
+      const { broker } = setUp();
+      broker.register('other_topic', (content) => {
+        expect(false).toBe(true, 'Wrong topic receiver called');
+      });
+      broker.register('topic', () => v());
+      broker.publish('topic', {message: 'message'});
     });
 });
