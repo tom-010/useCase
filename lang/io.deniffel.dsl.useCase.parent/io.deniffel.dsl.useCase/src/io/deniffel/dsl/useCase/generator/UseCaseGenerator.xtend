@@ -25,135 +25,170 @@ class UseCaseGenerator extends AbstractGenerator {
 	ClassMemberNamingStrategy variableNaming = new ClassMemberNamingStrategy();
 	ClassMemberNamingStrategy methodNaming = new ClassMemberNamingStrategy();
 	 
-		
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-
-		for(model : resource.allContents.toIterable.filter(Model)) {
-			for(usecase : model.useCases) {
-				usecase.name = classNamingStrategy.convert(usecase.name); 
-				fsa.generateFile(usecase.name + ".java", usecase.compile(model.types.types, model.exceptions));	
-			}
-		}
+		for(model : resource.allContents.toIterable.filter(Model)) 
+			for(usecase : model.useCases) 
+				usecase.create(model, fsa);
 	}
 	
-	def compile(UseCase usecase, EList<Type> types, UsedExceptions exceptions) '''	
-	«FOR t:types»
-		«t.compile»
-	«ENDFOR»
-	
-	«exceptions.compileImport»
-	
-	«IF usecase.allowedUserGroups.size() > 0 »
-		import io.deniffel.auth.ACL;
-		import io.deniffel.useCase.UseCase;
-		import io.deniffel.useCase.ErrorMessages;
-	«ENDIF»
-	
-	«FOR d:usecase.descriptions»
-		«d.compile»
-    «ENDFOR»
-	public interface «classNamingStrategy.convert(usecase.name)» extends UseCase<Input, Output> {
-		
-		«IF usecase.allowedUserGroups.size() > 0 »
-		default String[] allowedFor {
-			return new String[] {«usecase.allowedUserGroups.get(0).groups.join(', ') [compile]»};
-		}
-		«ENDIF»
-		
-		«FOR s:usecase.inputs»
-			«s.compile»
-		«ENDFOR»
-		
-		«FOR s:usecase.outputs»
-			«s.compile»
-		«ENDFOR»
-		«usecase.preconditions.compile»
-		
-		«FOR s:usecase.steps»
-			«s.compile»
-		«ENDFOR»
-		
-		«FOR i:usecase.inputs»
-			«i.compileRequiredInputValidation»
-		«ENDFOR»
-		
-		/* NOTES:
-		«FOR n:usecase.notes»
-		«n.content» 
-		«ENDFOR»
-		*/
-		
-		// steps
-		«FOR steps:usecase.steps»
-		«FOR s:steps.steps»
-			void «s.compile»«IF s.error !== null» throws «s.error.exception.type.name»«ENDIF»;
-		«ENDFOR»
-		«ENDFOR»
-		
-		// I/O
-		Input getInput();
-		Output getOutput();
-		
-		«IF usecase.preconditions !== null && usecase.preconditions.conditions.size() > 0»
-		// precoditions
-		«usecase.preconditions.compileMethods»
-		«ENDIF»
-		
-		// exceptions
-		«exceptions.compile»
+	def create(UseCase usecase, Model model, IFileSystemAccess2 fsa) {
+		usecase.name = classNamingStrategy.convert(usecase.name); 
+		fsa.generateFile(usecase.name + ".java", usecase.createJavaInterface(model.types.types, model.exceptions));
 	}
+	
+	def createJavaInterface(UseCase usecase, EList<Type> types, UsedExceptions exceptions) '''	
+		«types.importStatements()»
+		
+		«exceptions.importStatements()»
+		
+		«usecase.requiredFormalImports()»
+		
+		«usecase.descriptions()»
+		public interface «classNamingStrategy.convert(usecase.name)» extends UseCase<Input, Output> {
+			
+			«usecase.allowedUserGroups()»
+			
+			«usecase.inputs()»
+			
+			«usecase.outputs()»
+			
+			«usecase.checkPreconditions()»
+			
+			«usecase.steps()»
+			
+			«usecase.inputValidations()»
+			
+			«usecase.notes()»
+			
+			«usecase.stepInterfaceDefinitions()»
+			
+			«usecase.ioInterfaceDefinitions()»
+			
+			«usecase.precoditionInterfaceDefintions()»
+			
+			«exceptions.exceptionInterfaceDefinitions()»
+		}
 	'''
 	
-	def compileRequiredInputValidation(Inputs inputs) {
-		'''
-		default void checkForRequiredInputs(Input input, ErrorMessages errors) {
-			Input input = getInput();
-			«FOR i:inputs.inputs»
-				«IF i.optional === null»
-					if(input.«variableNaming.convert(i.content)»==null) errors.add("'«i.content»' can't be null");
-				«ENDIF»
-			«ENDFOR»
-		}
-		'''
-	}
+	def importStatements(EList<Type> types)'''
+		«FOR type : types»
+			«type.compile»
+		«ENDFOR»
+	'''
 	
-	def compile(PreConditions pcs)'''		
+	def compile(Type type) '''
+		«IF type.importInfo !== null»
+			import «type.importInfo»;
+		«ELSE»
+			import «type.name»;
+		«ENDIF»
+	'''
+	
+	def importStatements(UsedExceptions exceptions)'''
+		«FOR exception : exceptions.exceptions»
+			«IF exception.importInfo !== null»
+				import «exception.importInfo»;
+			«ENDIF»
+		«ENDFOR»
+	'''
+	
+	def requiredFormalImports(UseCase usecase)'''
+		«IF usecase.allowedUserGroups.size() > 0 »
+			import io.deniffel.auth.ACL;
+			import io.deniffel.useCase.UseCase;
+			import io.deniffel.useCase.ErrorMessages;
+		«ENDIF»
+	'''
+		
+	def descriptions(UseCase usecase)'''
+		«FOR description : usecase.descriptions»
+		«description.compile»
+    	«ENDFOR»
+	'''
+	
+	def compile(Description description) '''
+		/**
+		* «description.name»
+		*/
+	'''
+	
+	def allowedUserGroups(UseCase usecase)'''
+		«IF usecase.allowedUserGroups.size() > 0 »
+			default String[] allowedFor {
+				return new String[] {«usecase.allowedUserGroups.get(0).groups.join(', ') [compile]»};
+			}
+		«ENDIF»
+	'''
+	
+	def compile(AllowedUserGroup group) '''
+		"«group.name.toUpperCase()»"
+	'''	
+	
+	def inputs(UseCase usecase)'''
+		«FOR input : usecase.inputs»
+			«input.compile»
+		«ENDFOR»
+	'''
+	
+	def compile(Inputs inputs) '''
+		public static class Input {
+			«FOR i:inputs.inputs»
+				public «i.compile»;
+			«ENDFOR»
+			
+			public Input(«inputs.inputs.join(', ') [compile]») {
+				«FOR i:inputs.inputs»
+				    this.«variableNaming.convert(i.content)» = «variableNaming.convert(i.content)»;
+				«ENDFOR»
+			}
+		}
+	'''
+	
+	def compile(Input input) '''
+		«input.type.name» «variableNaming.convert(input.content)»'''
+	
+	def outputs(UseCase usecase)'''
+		«FOR output : usecase.outputs»
+			«output.generateInnerClass()»
+		«ENDFOR»
+	'''
+	
+	// TODO: it is not nice that the name is Outputs instead of output -> Change this: generateInnerClass(Outputs outputs) 
+	def generateInnerClass(Outputs outputs) '''
+		public static class Output {
+			«FOR output : outputs.outputs»
+				public «output.compile»;
+			«ENDFOR»
+			public ErrorMessages errors;
+			
+			public Output(«outputs.outputs.join(', ') [compile]») {
+				«FOR output : outputs.outputs»
+					this.«output.content» = «output.content»;
+				«ENDFOR»
+			}
+			
+			public Output(ErrorMessages errors) {this.errors = errors;}
+			public boolean wasSuccessful() {return errors == null || errors.size() == 0;}
+		}
+	'''
+	
+	def compile(Output output) '''
+		«output.type.name» «variableNaming.convert(output.content)»'''
+	
+	def checkPreconditions(UseCase usecase)'''		
 		default ErrorMessages checkPreconditions() {
 			ErrorMessages errors = new ErrorMessages();
 			checkForRequiredInputs(getInput(), errors);
-			«FOR p:pcs.conditions»
-				«methodNaming.convert(p.content)»(getInput(), errors);
+			«FOR condition : usecase.preconditions.conditions»
+				«methodNaming.convert(condition.content)»(getInput(), errors);
 			«ENDFOR»
 			return errors;
 		}
 	'''
 	
-	def compileMethods(PreConditions pcs)'''
-		«FOR p:pcs.conditions»
-			void «methodNaming.convert(p.content)»(Input input, ErrorMessages errors);
-		«ENDFOR»
-	'''
-	
-	def compile(AllowedUserGroup group) '''
-	"«group.name.toUpperCase()»"'''
-	
-	def compile(Description description) '''
-	/**
-	* «description.name»
-	*/
-	'''
-	
-	def compileImport(UsedExceptions exeptions)'''
-		«FOR e:exeptions.exceptions»
-			«IF e.importInfo !== null»import «e.importInfo»;
-			«ENDIF»«ENDFOR»
-		'''
-	
-	def compile(UsedExceptions exeptions)'''
-		«FOR e:exeptions.exceptions»
-			«IF e.importInfo === null»
-				public static class «e.name» extends Error { public «e.name»(){super("«e.message»");} }
-			«ENDIF»
+	def steps(UseCase usecase)'''
+		«FOR step : usecase.steps»
+			«step.compile»
 		«ENDFOR»
 	'''
 	
@@ -173,52 +208,64 @@ class UseCaseGenerator extends AbstractGenerator {
 	def compile(Step step) '''
 		«methodNaming.convert(step.action)»()'''
 	
-	def compile(Inputs inputs) '''
-		public static class Input {
+	def inputValidations(UseCase usecase)'''
+		«FOR input : usecase.inputs»
+			«input.compileRequiredInputValidation()»
+		«ENDFOR»
+	'''
+	
+	def compileRequiredInputValidation(Inputs inputs) '''
+		default void checkForRequiredInputs(Input input, ErrorMessages errors) {
+			Input input = getInput();
 			«FOR i:inputs.inputs»
-				public «i.compile»;
+				«IF i.optional === null»
+					if(input.«variableNaming.convert(i.content)»==null) errors.add("'«i.content»' can't be null");
+				«ENDIF»
 			«ENDFOR»
-			
-			public Input(«inputs.inputs.join(', ') [compile]») {
-				«FOR i:inputs.inputs»
-				    this.«variableNaming.convert(i.content)» = «variableNaming.convert(i.content)»;
-				«ENDFOR»
-			}
 		}
 	'''
 	
-	def compile(Outputs outputs) '''
-		public static class Output {
-			«FOR o:outputs.outputs»
-				public «o.compile»;
-			«ENDFOR»
-			public ErrorMessages errors;
-			
-			public Output(«outputs.outputs.join(', ') [compile]») {
-				«FOR o:outputs.outputs»
-					this.«o.content» = «o.content»;
-				«ENDFOR»
-			}
-			
-			public Output(ErrorMessages errors) {this.errors = errors;}
-			public boolean wasSuccessful() {return errors == null || errors.size() == 0;}
-		}
-		
+	def notes(UseCase usecase)'''
+		/* NOTES:
+		«FOR note : usecase.notes»
+			«note.content» 
+		«ENDFOR»
+		*/
 	'''
 	
-	def compile(Output output) '''
-		«output.type.name» «variableNaming.convert(output.content)»'''
-	
-	def compile(Input input) '''
-		«input.type.name» «variableNaming.convert(input.content)»'''
-	
-	def compile(Type type) '''
-	«IF type.importInfo !== null»
-		import «type.importInfo»;
-	«ELSE»
-		import «type.name»;
-	«ENDIF»
+	def stepInterfaceDefinitions(UseCase usecase)'''
+		// steps
+		«FOR steps : usecase.steps»
+		«FOR step : steps.steps»
+			void «step.compile»«IF step.error !== null» throws «step.error.exception.type.name»«ENDIF»;
+		«ENDFOR»
+		«ENDFOR»
 	'''
 	
+	def ioInterfaceDefinitions(UseCase usecase)'''
+		// I/O
+		Input getInput();
+		Output getOutput();
+	'''
 	
+	def precoditionInterfaceDefintions(UseCase usecase)'''
+		«IF usecase.preconditions !== null && usecase.preconditions.conditions.size() > 0»
+			// precoditions
+			«usecase.preconditions.compileMethods»
+		«ENDIF»
+	'''
+	
+	def compileMethods(PreConditions pcs)'''
+		«FOR p:pcs.conditions»
+			void «methodNaming.convert(p.content)»(Input input, ErrorMessages errors);
+		«ENDFOR»
+	'''
+	
+	def exceptionInterfaceDefinitions(UsedExceptions exceptions)'''
+		«FOR e : exceptions.exceptions»
+			«IF e.importInfo === null»
+				public static class «e.name» extends Error { public «e.name»(){super("«e.message»");} }
+			«ENDIF»
+		«ENDFOR»
+	'''
 }

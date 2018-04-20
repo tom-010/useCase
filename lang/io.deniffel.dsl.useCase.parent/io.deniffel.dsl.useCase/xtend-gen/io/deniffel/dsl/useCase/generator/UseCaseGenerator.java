@@ -45,30 +45,168 @@ public class UseCaseGenerator extends AbstractGenerator {
     for (final Model model : _filter) {
       EList<UseCase> _useCases = model.getUseCases();
       for (final UseCase usecase : _useCases) {
-        {
-          usecase.setName(this.classNamingStrategy.convert(usecase.getName()));
-          String _name = usecase.getName();
-          String _plus = (_name + ".java");
-          fsa.generateFile(_plus, this.compile(usecase, model.getTypes().getTypes(), model.getExceptions()));
-        }
+        this.create(usecase, model, fsa);
       }
     }
   }
   
-  public CharSequence compile(final UseCase usecase, final EList<Type> types, final UsedExceptions exceptions) {
+  public void create(final UseCase usecase, final Model model, final IFileSystemAccess2 fsa) {
+    usecase.setName(this.classNamingStrategy.convert(usecase.getName()));
+    String _name = usecase.getName();
+    String _plus = (_name + ".java");
+    fsa.generateFile(_plus, this.createJavaInterface(usecase, model.getTypes().getTypes(), model.getExceptions()));
+  }
+  
+  public CharSequence createJavaInterface(final UseCase usecase, final EList<Type> types, final UsedExceptions exceptions) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _importStatements = this.importStatements(types);
+    _builder.append(_importStatements);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    CharSequence _importStatements_1 = this.importStatements(exceptions);
+    _builder.append(_importStatements_1);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    CharSequence _requiredFormalImports = this.requiredFormalImports(usecase);
+    _builder.append(_requiredFormalImports);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    CharSequence _descriptions = this.descriptions(usecase);
+    _builder.append(_descriptions);
+    _builder.newLineIfNotEmpty();
+    _builder.append("public interface ");
+    String _convert = this.classNamingStrategy.convert(usecase.getName());
+    _builder.append(_convert);
+    _builder.append(" extends UseCase<Input, Output> {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _allowedUserGroups = this.allowedUserGroups(usecase);
+    _builder.append(_allowedUserGroups, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _inputs = this.inputs(usecase);
+    _builder.append(_inputs, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _outputs = this.outputs(usecase);
+    _builder.append(_outputs, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _checkPreconditions = this.checkPreconditions(usecase);
+    _builder.append(_checkPreconditions, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _steps = this.steps(usecase);
+    _builder.append(_steps, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _inputValidations = this.inputValidations(usecase);
+    _builder.append(_inputValidations, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _notes = this.notes(usecase);
+    _builder.append(_notes, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _stepInterfaceDefinitions = this.stepInterfaceDefinitions(usecase);
+    _builder.append(_stepInterfaceDefinitions, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _ioInterfaceDefinitions = this.ioInterfaceDefinitions(usecase);
+    _builder.append(_ioInterfaceDefinitions, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _precoditionInterfaceDefintions = this.precoditionInterfaceDefintions(usecase);
+    _builder.append(_precoditionInterfaceDefintions, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _exceptionInterfaceDefinitions = this.exceptionInterfaceDefinitions(exceptions);
+    _builder.append(_exceptionInterfaceDefinitions, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence importStatements(final EList<Type> types) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      for(final Type t : types) {
-        CharSequence _compile = this.compile(t);
+      for(final Type type : types) {
+        CharSequence _compile = this.compile(type);
         _builder.append(_compile);
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.newLine();
-    CharSequence _compileImport = this.compileImport(exceptions);
-    _builder.append(_compileImport);
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Type type) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _importInfo = type.getImportInfo();
+      boolean _tripleNotEquals = (_importInfo != null);
+      if (_tripleNotEquals) {
+        _builder.append("import ");
+        String _importInfo_1 = type.getImportInfo();
+        _builder.append(_importInfo_1);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("import ");
+        String _name = type.getName();
+        _builder.append(_name);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence importStatements(final UsedExceptions exceptions) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<ExceptionDecleration> _exceptions = exceptions.getExceptions();
+      for(final ExceptionDecleration exception : _exceptions) {
+        {
+          String _importInfo = exception.getImportInfo();
+          boolean _tripleNotEquals = (_importInfo != null);
+          if (_tripleNotEquals) {
+            _builder.append("import ");
+            String _importInfo_1 = exception.getImportInfo();
+            _builder.append(_importInfo_1);
+            _builder.append(";");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence requiredFormalImports(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
     {
       int _size = usecase.getAllowedUserGroups().size();
       boolean _greaterThan = (_size > 0);
@@ -81,259 +219,19 @@ public class UseCaseGenerator extends AbstractGenerator {
         _builder.newLine();
       }
     }
-    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence descriptions(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
     {
       EList<Description> _descriptions = usecase.getDescriptions();
-      for(final Description d : _descriptions) {
-        CharSequence _compile_1 = this.compile(d);
-        _builder.append(_compile_1);
+      for(final Description description : _descriptions) {
+        CharSequence _compile = this.compile(description);
+        _builder.append(_compile);
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("public interface ");
-    String _convert = this.classNamingStrategy.convert(usecase.getName());
-    _builder.append(_convert);
-    _builder.append(" extends UseCase<Input, Output> {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.newLine();
-    {
-      int _size_1 = usecase.getAllowedUserGroups().size();
-      boolean _greaterThan_1 = (_size_1 > 0);
-      if (_greaterThan_1) {
-        _builder.append("\t");
-        _builder.append("default String[] allowedFor {");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("return new String[] {");
-        final Function1<AllowedUserGroup, CharSequence> _function = (AllowedUserGroup it) -> {
-          return this.compile(it);
-        };
-        String _join = IterableExtensions.<AllowedUserGroup>join(usecase.getAllowedUserGroups().get(0).getGroups(), ", ", _function);
-        _builder.append(_join, "\t\t");
-        _builder.append("};");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("}");
-        _builder.newLine();
-      }
-    }
-    _builder.append("\t");
-    _builder.newLine();
-    {
-      EList<Inputs> _inputs = usecase.getInputs();
-      for(final Inputs s : _inputs) {
-        _builder.append("\t");
-        CharSequence _compile_2 = this.compile(s);
-        _builder.append(_compile_2, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t");
-    _builder.newLine();
-    {
-      EList<Outputs> _outputs = usecase.getOutputs();
-      for(final Outputs s_1 : _outputs) {
-        _builder.append("\t");
-        CharSequence _compile_3 = this.compile(s_1);
-        _builder.append(_compile_3, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t");
-    CharSequence _compile_4 = this.compile(usecase.getPreconditions());
-    _builder.append(_compile_4, "\t");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.newLine();
-    {
-      EList<Steps> _steps = usecase.getSteps();
-      for(final Steps s_2 : _steps) {
-        _builder.append("\t");
-        CharSequence _compile_5 = this.compile(s_2);
-        _builder.append(_compile_5, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t");
-    _builder.newLine();
-    {
-      EList<Inputs> _inputs_1 = usecase.getInputs();
-      for(final Inputs i : _inputs_1) {
-        _builder.append("\t");
-        CharSequence _compileRequiredInputValidation = this.compileRequiredInputValidation(i);
-        _builder.append(_compileRequiredInputValidation, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("/* NOTES:");
-    _builder.newLine();
-    {
-      EList<Notes> _notes = usecase.getNotes();
-      for(final Notes n : _notes) {
-        _builder.append("\t");
-        String _content = n.getContent();
-        _builder.append(_content, "\t");
-        _builder.append(" ");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t");
-    _builder.append("*/");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("// steps");
-    _builder.newLine();
-    {
-      EList<Steps> _steps_1 = usecase.getSteps();
-      for(final Steps steps : _steps_1) {
-        {
-          EList<Step> _steps_2 = steps.getSteps();
-          for(final Step s_3 : _steps_2) {
-            _builder.append("\t");
-            _builder.append("void ");
-            CharSequence _compile_6 = this.compile(s_3);
-            _builder.append(_compile_6, "\t");
-            {
-              RaiseError _error = s_3.getError();
-              boolean _tripleNotEquals = (_error != null);
-              if (_tripleNotEquals) {
-                _builder.append(" throws ");
-                String _name = s_3.getError().getException().getType().getName();
-                _builder.append(_name, "\t");
-              }
-            }
-            _builder.append(";");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-      }
-    }
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("// I/O");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("Input getInput();");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("Output getOutput();");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    {
-      if (((usecase.getPreconditions() != null) && (usecase.getPreconditions().getConditions().size() > 0))) {
-        _builder.append("\t");
-        _builder.append("// precoditions");
-        _builder.newLine();
-        _builder.append("\t");
-        CharSequence _compileMethods = this.compileMethods(usecase.getPreconditions());
-        _builder.append(_compileMethods, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("// exceptions");
-    _builder.newLine();
-    _builder.append("\t");
-    CharSequence _compile_7 = this.compile(exceptions);
-    _builder.append(_compile_7, "\t");
-    _builder.newLineIfNotEmpty();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence compileRequiredInputValidation(final Inputs inputs) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("default void checkForRequiredInputs(Input input, ErrorMessages errors) {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("Input input = getInput();");
-    _builder.newLine();
-    {
-      EList<Input> _inputs = inputs.getInputs();
-      for(final Input i : _inputs) {
-        {
-          String _optional = i.getOptional();
-          boolean _tripleEquals = (_optional == null);
-          if (_tripleEquals) {
-            _builder.append("\t");
-            _builder.append("if(input.");
-            String _convert = this.variableNaming.convert(i.getContent());
-            _builder.append(_convert, "\t");
-            _builder.append("==null) errors.add(\"\'");
-            String _content = i.getContent();
-            _builder.append(_content, "\t");
-            _builder.append("\' can\'t be null\");");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-      }
-    }
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence compile(final PreConditions pcs) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("default ErrorMessages checkPreconditions() {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("ErrorMessages errors = new ErrorMessages();");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("checkForRequiredInputs(getInput(), errors);");
-    _builder.newLine();
-    {
-      EList<Condition> _conditions = pcs.getConditions();
-      for(final Condition p : _conditions) {
-        _builder.append("\t");
-        String _convert = this.methodNaming.convert(p.getContent());
-        _builder.append(_convert, "\t");
-        _builder.append("(getInput(), errors);");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t");
-    _builder.append("return errors;");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence compileMethods(final PreConditions pcs) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<Condition> _conditions = pcs.getConditions();
-      for(final Condition p : _conditions) {
-        _builder.append("void ");
-        String _convert = this.methodNaming.convert(p.getContent());
-        _builder.append(_convert);
-        _builder.append("(Input input, ErrorMessages errors);");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  public CharSequence compile(final AllowedUserGroup group) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\"");
-    String _upperCase = group.getName().toUpperCase();
-    _builder.append(_upperCase);
-    _builder.append("\"");
     return _builder;
   }
   
@@ -350,92 +248,50 @@ public class UseCaseGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compileImport(final UsedExceptions exeptions) {
+  public CharSequence allowedUserGroups(final UseCase usecase) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      EList<ExceptionDecleration> _exceptions = exeptions.getExceptions();
-      for(final ExceptionDecleration e : _exceptions) {
-        {
-          String _importInfo = e.getImportInfo();
-          boolean _tripleNotEquals = (_importInfo != null);
-          if (_tripleNotEquals) {
-            _builder.append("import ");
-            String _importInfo_1 = e.getImportInfo();
-            _builder.append(_importInfo_1);
-            _builder.append(";");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-      }
-    }
-    return _builder;
-  }
-  
-  public CharSequence compile(final UsedExceptions exeptions) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<ExceptionDecleration> _exceptions = exeptions.getExceptions();
-      for(final ExceptionDecleration e : _exceptions) {
-        {
-          String _importInfo = e.getImportInfo();
-          boolean _tripleEquals = (_importInfo == null);
-          if (_tripleEquals) {
-            _builder.append("public static class ");
-            String _name = e.getName();
-            _builder.append(_name);
-            _builder.append(" extends Error { public ");
-            String _name_1 = e.getName();
-            _builder.append(_name_1);
-            _builder.append("(){super(\"");
-            String _message = e.getMessage();
-            _builder.append(_message);
-            _builder.append("\");} }");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-      }
-    }
-    return _builder;
-  }
-  
-  public CharSequence compile(final Steps steps) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("default Output steps() {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("ErrorMessages errors = checkPreconditions();");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("if(errors.size() > 0) ");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("return new Output(errors); ");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.newLine();
-    {
-      EList<Step> _steps = steps.getSteps();
-      for(final Step s : _steps) {
+      int _size = usecase.getAllowedUserGroups().size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        _builder.append("default String[] allowedFor {");
+        _builder.newLine();
         _builder.append("\t");
-        CharSequence _compile = this.compile(s);
-        _builder.append(_compile, "\t");
-        _builder.append(";");
+        _builder.append("return new String[] {");
+        final Function1<AllowedUserGroup, CharSequence> _function = (AllowedUserGroup it) -> {
+          return this.compile(it);
+        };
+        String _join = IterableExtensions.<AllowedUserGroup>join(usecase.getAllowedUserGroups().get(0).getGroups(), ", ", _function);
+        _builder.append(_join, "\t");
+        _builder.append("};");
+        _builder.newLineIfNotEmpty();
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final AllowedUserGroup group) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\"");
+    String _upperCase = group.getName().toUpperCase();
+    _builder.append(_upperCase);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence inputs(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Inputs> _inputs = usecase.getInputs();
+      for(final Inputs input : _inputs) {
+        CharSequence _compile = this.compile(input);
+        _builder.append(_compile);
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t");
-    _builder.append("return getOutput();");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence compile(final Step step) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _convert = this.methodNaming.convert(step.getAction());
-    _builder.append(_convert);
-    _builder.append("()");
     return _builder;
   }
   
@@ -487,16 +343,39 @@ public class UseCaseGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final Outputs outputs) {
+  public CharSequence compile(final Input input) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = input.getType().getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    String _convert = this.variableNaming.convert(input.getContent());
+    _builder.append(_convert);
+    return _builder;
+  }
+  
+  public CharSequence outputs(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Outputs> _outputs = usecase.getOutputs();
+      for(final Outputs output : _outputs) {
+        CharSequence _generateInnerClass = this.generateInnerClass(output);
+        _builder.append(_generateInnerClass);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence generateInnerClass(final Outputs outputs) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("public static class Output {");
     _builder.newLine();
     {
       EList<Output> _outputs = outputs.getOutputs();
-      for(final Output o : _outputs) {
+      for(final Output output : _outputs) {
         _builder.append("\t");
         _builder.append("public ");
-        CharSequence _compile = this.compile(o);
+        CharSequence _compile = this.compile(output);
         _builder.append(_compile, "\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
@@ -518,13 +397,13 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     {
       EList<Output> _outputs_1 = outputs.getOutputs();
-      for(final Output o_1 : _outputs_1) {
+      for(final Output output_1 : _outputs_1) {
         _builder.append("\t\t");
         _builder.append("this.");
-        String _content = o_1.getContent();
+        String _content = output_1.getContent();
         _builder.append(_content, "\t\t");
         _builder.append(" = ");
-        String _content_1 = o_1.getContent();
+        String _content_1 = output_1.getContent();
         _builder.append(_content_1, "\t\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
@@ -543,7 +422,6 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    _builder.newLine();
     return _builder;
   }
   
@@ -557,33 +435,244 @@ public class UseCaseGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final Input input) {
+  public CharSequence checkPreconditions(final UseCase usecase) {
     StringConcatenation _builder = new StringConcatenation();
-    String _name = input.getType().getName();
-    _builder.append(_name);
-    _builder.append(" ");
-    String _convert = this.variableNaming.convert(input.getContent());
-    _builder.append(_convert);
+    _builder.append("default ErrorMessages checkPreconditions() {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("ErrorMessages errors = new ErrorMessages();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("checkForRequiredInputs(getInput(), errors);");
+    _builder.newLine();
+    {
+      EList<Condition> _conditions = usecase.getPreconditions().getConditions();
+      for(final Condition condition : _conditions) {
+        _builder.append("\t");
+        String _convert = this.methodNaming.convert(condition.getContent());
+        _builder.append(_convert, "\t");
+        _builder.append("(getInput(), errors);");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("return errors;");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     return _builder;
   }
   
-  public CharSequence compile(final Type type) {
+  public CharSequence steps(final UseCase usecase) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      String _importInfo = type.getImportInfo();
-      boolean _tripleNotEquals = (_importInfo != null);
-      if (_tripleNotEquals) {
-        _builder.append("import ");
-        String _importInfo_1 = type.getImportInfo();
-        _builder.append(_importInfo_1);
+      EList<Steps> _steps = usecase.getSteps();
+      for(final Steps step : _steps) {
+        CharSequence _compile = this.compile(step);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Steps steps) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("default Output steps() {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("ErrorMessages errors = checkPreconditions();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("if(errors.size() > 0) ");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("return new Output(errors); ");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    {
+      EList<Step> _steps = steps.getSteps();
+      for(final Step s : _steps) {
+        _builder.append("\t");
+        CharSequence _compile = this.compile(s);
+        _builder.append(_compile, "\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
-      } else {
-        _builder.append("import ");
-        String _name = type.getName();
-        _builder.append(_name);
-        _builder.append(";");
+      }
+    }
+    _builder.append("\t");
+    _builder.append("return getOutput();");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Step step) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _convert = this.methodNaming.convert(step.getAction());
+    _builder.append(_convert);
+    _builder.append("()");
+    return _builder;
+  }
+  
+  public CharSequence inputValidations(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Inputs> _inputs = usecase.getInputs();
+      for(final Inputs input : _inputs) {
+        CharSequence _compileRequiredInputValidation = this.compileRequiredInputValidation(input);
+        _builder.append(_compileRequiredInputValidation);
         _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compileRequiredInputValidation(final Inputs inputs) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("default void checkForRequiredInputs(Input input, ErrorMessages errors) {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Input input = getInput();");
+    _builder.newLine();
+    {
+      EList<Input> _inputs = inputs.getInputs();
+      for(final Input i : _inputs) {
+        {
+          String _optional = i.getOptional();
+          boolean _tripleEquals = (_optional == null);
+          if (_tripleEquals) {
+            _builder.append("\t");
+            _builder.append("if(input.");
+            String _convert = this.variableNaming.convert(i.getContent());
+            _builder.append(_convert, "\t");
+            _builder.append("==null) errors.add(\"\'");
+            String _content = i.getContent();
+            _builder.append(_content, "\t");
+            _builder.append("\' can\'t be null\");");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence notes(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("/* NOTES:");
+    _builder.newLine();
+    {
+      EList<Notes> _notes = usecase.getNotes();
+      for(final Notes note : _notes) {
+        String _content = note.getContent();
+        _builder.append(_content);
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("*/");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence stepInterfaceDefinitions(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("// steps");
+    _builder.newLine();
+    {
+      EList<Steps> _steps = usecase.getSteps();
+      for(final Steps steps : _steps) {
+        {
+          EList<Step> _steps_1 = steps.getSteps();
+          for(final Step step : _steps_1) {
+            _builder.append("void ");
+            CharSequence _compile = this.compile(step);
+            _builder.append(_compile);
+            {
+              RaiseError _error = step.getError();
+              boolean _tripleNotEquals = (_error != null);
+              if (_tripleNotEquals) {
+                _builder.append(" throws ");
+                String _name = step.getError().getException().getType().getName();
+                _builder.append(_name);
+              }
+            }
+            _builder.append(";");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence ioInterfaceDefinitions(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("// I/O");
+    _builder.newLine();
+    _builder.append("Input getInput();");
+    _builder.newLine();
+    _builder.append("Output getOutput();");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence precoditionInterfaceDefintions(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if (((usecase.getPreconditions() != null) && (usecase.getPreconditions().getConditions().size() > 0))) {
+        _builder.append("// precoditions");
+        _builder.newLine();
+        CharSequence _compileMethods = this.compileMethods(usecase.getPreconditions());
+        _builder.append(_compileMethods);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compileMethods(final PreConditions pcs) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Condition> _conditions = pcs.getConditions();
+      for(final Condition p : _conditions) {
+        _builder.append("void ");
+        String _convert = this.methodNaming.convert(p.getContent());
+        _builder.append(_convert);
+        _builder.append("(Input input, ErrorMessages errors);");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence exceptionInterfaceDefinitions(final UsedExceptions exceptions) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<ExceptionDecleration> _exceptions = exceptions.getExceptions();
+      for(final ExceptionDecleration e : _exceptions) {
+        {
+          String _importInfo = e.getImportInfo();
+          boolean _tripleEquals = (_importInfo == null);
+          if (_tripleEquals) {
+            _builder.append("public static class ");
+            String _name = e.getName();
+            _builder.append(_name);
+            _builder.append(" extends Error { public ");
+            String _name_1 = e.getName();
+            _builder.append(_name_1);
+            _builder.append("(){super(\"");
+            String _message = e.getMessage();
+            _builder.append(_message);
+            _builder.append("\");} }");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     return _builder;
