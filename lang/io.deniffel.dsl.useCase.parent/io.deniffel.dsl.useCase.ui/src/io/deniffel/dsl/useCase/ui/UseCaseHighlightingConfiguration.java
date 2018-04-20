@@ -10,12 +10,14 @@ public class UseCaseHighlightingConfiguration extends DefaultHighlightingConfigu
 	
 	public static final String QUOTE_SIGN = "quote_sign";
 	public static final String BULLET_POINT = "bullet_point";
+	public static final String SQUARE_BRAKETS_WITH_CONTENT = "square_brackets_with_content";
 	
 	@Override
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		super.configure(acceptor);
-		acceptor.acceptDefaultHighlighting(QUOTE_SIGN, "quote_sign", quoteSignTextStyle());
-		acceptor.acceptDefaultHighlighting(BULLET_POINT, "bullet_point", bulletPointStyle());
+		acceptor.acceptDefaultHighlighting(QUOTE_SIGN, "Quote Sign", quoteSignTextStyle());
+		acceptor.acceptDefaultHighlighting(BULLET_POINT, "Bullet Point", bulletPointStyle());
+		acceptor.acceptDefaultHighlighting(SQUARE_BRAKETS_WITH_CONTENT, "Wquare Brackets, including Content", squareBracketsWithContentStyle());
 	}
 	
 	public TextStyle quoteSignTextStyle() {
@@ -28,10 +30,13 @@ public class UseCaseHighlightingConfiguration extends DefaultHighlightingConfigu
 		return keywordTextStyle();
 	}
 	
+	public TextStyle squareBracketsWithContentStyle() {
+		return quoteSignTextStyle();
+	}
 	
 	@Override
 	public TextStyle stringTextStyle() {
-		TextStyle textStyle = new TextStyle(); // No blue but dark grey
+		TextStyle textStyle = new TextStyle(); // Not blue but dark grey
 		return textStyle;
 	}
 	
