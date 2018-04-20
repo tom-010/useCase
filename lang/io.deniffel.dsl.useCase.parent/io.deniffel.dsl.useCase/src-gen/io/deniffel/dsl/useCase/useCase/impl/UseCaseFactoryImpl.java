@@ -87,24 +87,24 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
     {
       case UseCasePackage.MODEL: return createModel();
       case UseCasePackage.USE_CASE: return createUseCase();
+      case UseCasePackage.DESCRIPTION: return createDescription();
+      case UseCasePackage.ALLOWED_USER_GROUPS: return createAllowedUserGroups();
+      case UseCasePackage.ALLOWED_USER_GROUP: return createAllowedUserGroup();
+      case UseCasePackage.INPUTS: return createInputs();
+      case UseCasePackage.INPUT: return createInput();
+      case UseCasePackage.OUTPUTS: return createOutputs();
+      case UseCasePackage.OUTPUT: return createOutput();
       case UseCasePackage.PRE_CONDITIONS: return createPreConditions();
       case UseCasePackage.CONDITION: return createCondition();
       case UseCasePackage.STEPS: return createSteps();
-      case UseCasePackage.USED_TYPES: return createUsedTypes();
-      case UseCasePackage.USED_EXCEPTIONS: return createUsedExceptions();
       case UseCasePackage.STEP: return createStep();
       case UseCasePackage.RAISE_ERROR: return createRaiseError();
-      case UseCasePackage.EXCEPTION: return createException();
-      case UseCasePackage.DESCRIPTION: return createDescription();
       case UseCasePackage.NOTES: return createNotes();
-      case UseCasePackage.INPUTS: return createInputs();
-      case UseCasePackage.OUTPUTS: return createOutputs();
+      case UseCasePackage.USED_TYPES: return createUsedTypes();
       case UseCasePackage.TYPE: return createType();
+      case UseCasePackage.USED_EXCEPTIONS: return createUsedExceptions();
+      case UseCasePackage.EXCEPTION: return createException();
       case UseCasePackage.EXCEPTION_DECLERATION: return createExceptionDecleration();
-      case UseCasePackage.INPUT: return createInput();
-      case UseCasePackage.OUTPUT: return createOutput();
-      case UseCasePackage.ALLOWED_USER_GROUPS: return createAllowedUserGroups();
-      case UseCasePackage.ALLOWED_USER_GROUP: return createAllowedUserGroup();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -130,6 +130,83 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     UseCaseImpl useCase = new UseCaseImpl();
     return useCase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Description createDescription()
+  {
+    DescriptionImpl description = new DescriptionImpl();
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AllowedUserGroups createAllowedUserGroups()
+  {
+    AllowedUserGroupsImpl allowedUserGroups = new AllowedUserGroupsImpl();
+    return allowedUserGroups;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AllowedUserGroup createAllowedUserGroup()
+  {
+    AllowedUserGroupImpl allowedUserGroup = new AllowedUserGroupImpl();
+    return allowedUserGroup;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Inputs createInputs()
+  {
+    InputsImpl inputs = new InputsImpl();
+    return inputs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Input createInput()
+  {
+    InputImpl input = new InputImpl();
+    return input;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Outputs createOutputs()
+  {
+    OutputsImpl outputs = new OutputsImpl();
+    return outputs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Output createOutput()
+  {
+    OutputImpl output = new OutputImpl();
+    return output;
   }
 
   /**
@@ -170,28 +247,6 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public UsedTypes createUsedTypes()
-  {
-    UsedTypesImpl usedTypes = new UsedTypesImpl();
-    return usedTypes;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public UsedExceptions createUsedExceptions()
-  {
-    UsedExceptionsImpl usedExceptions = new UsedExceptionsImpl();
-    return usedExceptions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Step createStep()
   {
     StepImpl step = new StepImpl();
@@ -214,28 +269,6 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public io.deniffel.dsl.useCase.useCase.Exception createException()
-  {
-    ExceptionImpl exception = new ExceptionImpl();
-    return exception;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Description createDescription()
-  {
-    DescriptionImpl description = new DescriptionImpl();
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Notes createNotes()
   {
     NotesImpl notes = new NotesImpl();
@@ -247,21 +280,10 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Inputs createInputs()
+  public UsedTypes createUsedTypes()
   {
-    InputsImpl inputs = new InputsImpl();
-    return inputs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Outputs createOutputs()
-  {
-    OutputsImpl outputs = new OutputsImpl();
-    return outputs;
+    UsedTypesImpl usedTypes = new UsedTypesImpl();
+    return usedTypes;
   }
 
   /**
@@ -280,54 +302,32 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public UsedExceptions createUsedExceptions()
+  {
+    UsedExceptionsImpl usedExceptions = new UsedExceptionsImpl();
+    return usedExceptions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public io.deniffel.dsl.useCase.useCase.Exception createException()
+  {
+    ExceptionImpl exception = new ExceptionImpl();
+    return exception;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ExceptionDecleration createExceptionDecleration()
   {
     ExceptionDeclerationImpl exceptionDecleration = new ExceptionDeclerationImpl();
     return exceptionDecleration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Input createInput()
-  {
-    InputImpl input = new InputImpl();
-    return input;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Output createOutput()
-  {
-    OutputImpl output = new OutputImpl();
-    return output;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AllowedUserGroups createAllowedUserGroups()
-  {
-    AllowedUserGroupsImpl allowedUserGroups = new AllowedUserGroupsImpl();
-    return allowedUserGroups;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AllowedUserGroup createAllowedUserGroup()
-  {
-    AllowedUserGroupImpl allowedUserGroup = new AllowedUserGroupImpl();
-    return allowedUserGroup;
   }
 
   /**

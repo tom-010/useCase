@@ -38,3 +38,5 @@ How to configure registry?
 2018-03-25 15:21:06,943[ted-scheduler-5]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
 2018-03-25 18:23:57,366[ted-scheduler-1]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
 2018-03-25 19:23:58,053[ted-scheduler-7]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-25 20:23:58,170[ted-scheduler-0]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []
+2018-03-25 21:23:58,171[ted-scheduler-9]  [INFO ] [ockerAbandonedResourcesCleaner 124]  - List containers registered in the api: []

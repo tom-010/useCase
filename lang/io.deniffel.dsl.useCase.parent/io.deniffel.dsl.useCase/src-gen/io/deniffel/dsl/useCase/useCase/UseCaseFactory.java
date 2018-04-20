@@ -42,6 +42,69 @@ public interface UseCaseFactory extends EFactory
   UseCase createUseCase();
 
   /**
+   * Returns a new object of class '<em>Description</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Description</em>'.
+   * @generated
+   */
+  Description createDescription();
+
+  /**
+   * Returns a new object of class '<em>Allowed User Groups</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Allowed User Groups</em>'.
+   * @generated
+   */
+  AllowedUserGroups createAllowedUserGroups();
+
+  /**
+   * Returns a new object of class '<em>Allowed User Group</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Allowed User Group</em>'.
+   * @generated
+   */
+  AllowedUserGroup createAllowedUserGroup();
+
+  /**
+   * Returns a new object of class '<em>Inputs</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inputs</em>'.
+   * @generated
+   */
+  Inputs createInputs();
+
+  /**
+   * Returns a new object of class '<em>Input</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input</em>'.
+   * @generated
+   */
+  Input createInput();
+
+  /**
+   * Returns a new object of class '<em>Outputs</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Outputs</em>'.
+   * @generated
+   */
+  Outputs createOutputs();
+
+  /**
+   * Returns a new object of class '<em>Output</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Output</em>'.
+   * @generated
+   */
+  Output createOutput();
+
+  /**
    * Returns a new object of class '<em>Pre Conditions</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,24 +132,6 @@ public interface UseCaseFactory extends EFactory
   Steps createSteps();
 
   /**
-   * Returns a new object of class '<em>Used Types</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Used Types</em>'.
-   * @generated
-   */
-  UsedTypes createUsedTypes();
-
-  /**
-   * Returns a new object of class '<em>Used Exceptions</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Used Exceptions</em>'.
-   * @generated
-   */
-  UsedExceptions createUsedExceptions();
-
-  /**
    * Returns a new object of class '<em>Step</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -105,24 +150,6 @@ public interface UseCaseFactory extends EFactory
   RaiseError createRaiseError();
 
   /**
-   * Returns a new object of class '<em>Exception</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Exception</em>'.
-   * @generated
-   */
-  Exception createException();
-
-  /**
-   * Returns a new object of class '<em>Description</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Description</em>'.
-   * @generated
-   */
-  Description createDescription();
-
-  /**
    * Returns a new object of class '<em>Notes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -132,22 +159,13 @@ public interface UseCaseFactory extends EFactory
   Notes createNotes();
 
   /**
-   * Returns a new object of class '<em>Inputs</em>'.
+   * Returns a new object of class '<em>Used Types</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Inputs</em>'.
+   * @return a new object of class '<em>Used Types</em>'.
    * @generated
    */
-  Inputs createInputs();
-
-  /**
-   * Returns a new object of class '<em>Outputs</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Outputs</em>'.
-   * @generated
-   */
-  Outputs createOutputs();
+  UsedTypes createUsedTypes();
 
   /**
    * Returns a new object of class '<em>Type</em>'.
@@ -159,6 +177,24 @@ public interface UseCaseFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Used Exceptions</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Used Exceptions</em>'.
+   * @generated
+   */
+  UsedExceptions createUsedExceptions();
+
+  /**
+   * Returns a new object of class '<em>Exception</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exception</em>'.
+   * @generated
+   */
+  Exception createException();
+
+  /**
    * Returns a new object of class '<em>Exception Decleration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -166,42 +202,6 @@ public interface UseCaseFactory extends EFactory
    * @generated
    */
   ExceptionDecleration createExceptionDecleration();
-
-  /**
-   * Returns a new object of class '<em>Input</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Input</em>'.
-   * @generated
-   */
-  Input createInput();
-
-  /**
-   * Returns a new object of class '<em>Output</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Output</em>'.
-   * @generated
-   */
-  Output createOutput();
-
-  /**
-   * Returns a new object of class '<em>Allowed User Groups</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Allowed User Groups</em>'.
-   * @generated
-   */
-  AllowedUserGroups createAllowedUserGroups();
-
-  /**
-   * Returns a new object of class '<em>Allowed User Group</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Allowed User Group</em>'.
-   * @generated
-   */
-  AllowedUserGroup createAllowedUserGroup();
 
   /**
    * Returns the package supported by this factory.

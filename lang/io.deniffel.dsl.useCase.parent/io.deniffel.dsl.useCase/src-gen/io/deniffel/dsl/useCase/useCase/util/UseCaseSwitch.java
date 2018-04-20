@@ -106,6 +106,55 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UseCasePackage.DESCRIPTION:
+      {
+        Description description = (Description)theEObject;
+        T result = caseDescription(description);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.ALLOWED_USER_GROUPS:
+      {
+        AllowedUserGroups allowedUserGroups = (AllowedUserGroups)theEObject;
+        T result = caseAllowedUserGroups(allowedUserGroups);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.ALLOWED_USER_GROUP:
+      {
+        AllowedUserGroup allowedUserGroup = (AllowedUserGroup)theEObject;
+        T result = caseAllowedUserGroup(allowedUserGroup);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.INPUTS:
+      {
+        Inputs inputs = (Inputs)theEObject;
+        T result = caseInputs(inputs);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.INPUT:
+      {
+        Input input = (Input)theEObject;
+        T result = caseInput(input);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.OUTPUTS:
+      {
+        Outputs outputs = (Outputs)theEObject;
+        T result = caseOutputs(outputs);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.OUTPUT:
+      {
+        Output output = (Output)theEObject;
+        T result = caseOutput(output);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case UseCasePackage.PRE_CONDITIONS:
       {
         PreConditions preConditions = (PreConditions)theEObject;
@@ -127,20 +176,6 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UseCasePackage.USED_TYPES:
-      {
-        UsedTypes usedTypes = (UsedTypes)theEObject;
-        T result = caseUsedTypes(usedTypes);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UseCasePackage.USED_EXCEPTIONS:
-      {
-        UsedExceptions usedExceptions = (UsedExceptions)theEObject;
-        T result = caseUsedExceptions(usedExceptions);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case UseCasePackage.STEP:
       {
         Step step = (Step)theEObject;
@@ -155,20 +190,6 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UseCasePackage.EXCEPTION:
-      {
-        io.deniffel.dsl.useCase.useCase.Exception exception = (io.deniffel.dsl.useCase.useCase.Exception)theEObject;
-        T result = caseException(exception);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UseCasePackage.DESCRIPTION:
-      {
-        Description description = (Description)theEObject;
-        T result = caseDescription(description);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case UseCasePackage.NOTES:
       {
         Notes notes = (Notes)theEObject;
@@ -176,17 +197,10 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UseCasePackage.INPUTS:
+      case UseCasePackage.USED_TYPES:
       {
-        Inputs inputs = (Inputs)theEObject;
-        T result = caseInputs(inputs);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UseCasePackage.OUTPUTS:
-      {
-        Outputs outputs = (Outputs)theEObject;
-        T result = caseOutputs(outputs);
+        UsedTypes usedTypes = (UsedTypes)theEObject;
+        T result = caseUsedTypes(usedTypes);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -197,38 +211,24 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UseCasePackage.USED_EXCEPTIONS:
+      {
+        UsedExceptions usedExceptions = (UsedExceptions)theEObject;
+        T result = caseUsedExceptions(usedExceptions);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.EXCEPTION:
+      {
+        io.deniffel.dsl.useCase.useCase.Exception exception = (io.deniffel.dsl.useCase.useCase.Exception)theEObject;
+        T result = caseException(exception);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case UseCasePackage.EXCEPTION_DECLERATION:
       {
         ExceptionDecleration exceptionDecleration = (ExceptionDecleration)theEObject;
         T result = caseExceptionDecleration(exceptionDecleration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UseCasePackage.INPUT:
-      {
-        Input input = (Input)theEObject;
-        T result = caseInput(input);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UseCasePackage.OUTPUT:
-      {
-        Output output = (Output)theEObject;
-        T result = caseOutput(output);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UseCasePackage.ALLOWED_USER_GROUPS:
-      {
-        AllowedUserGroups allowedUserGroups = (AllowedUserGroups)theEObject;
-        T result = caseAllowedUserGroups(allowedUserGroups);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UseCasePackage.ALLOWED_USER_GROUP:
-      {
-        AllowedUserGroup allowedUserGroup = (AllowedUserGroup)theEObject;
-        T result = caseAllowedUserGroup(allowedUserGroup);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -264,6 +264,118 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUseCase(UseCase object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Description</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Description</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDescription(Description object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Allowed User Groups</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Allowed User Groups</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAllowedUserGroups(AllowedUserGroups object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Allowed User Group</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Allowed User Group</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAllowedUserGroup(AllowedUserGroup object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Inputs</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inputs</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInputs(Inputs object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInput(Input object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Outputs</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Outputs</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOutputs(Outputs object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Output</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Output</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOutput(Output object)
   {
     return null;
   }
@@ -317,38 +429,6 @@ public class UseCaseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Used Types</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Used Types</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUsedTypes(UsedTypes object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Used Exceptions</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Used Exceptions</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUsedExceptions(UsedExceptions object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Step</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -381,38 +461,6 @@ public class UseCaseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Exception</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Exception</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseException(io.deniffel.dsl.useCase.useCase.Exception object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Description</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Description</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDescription(Description object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Notes</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -429,33 +477,17 @@ public class UseCaseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Inputs</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Used Types</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Inputs</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Used Types</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInputs(Inputs object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Outputs</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Outputs</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOutputs(Outputs object)
+  public T caseUsedTypes(UsedTypes object)
   {
     return null;
   }
@@ -477,6 +509,38 @@ public class UseCaseSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Used Exceptions</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Used Exceptions</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUsedExceptions(UsedExceptions object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Exception</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exception</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseException(io.deniffel.dsl.useCase.useCase.Exception object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Exception Decleration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -488,70 +552,6 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExceptionDecleration(ExceptionDecleration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Input</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseInput(Input object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Output</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Output</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOutput(Output object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Allowed User Groups</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Allowed User Groups</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAllowedUserGroups(AllowedUserGroups object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Allowed User Group</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Allowed User Group</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAllowedUserGroup(AllowedUserGroup object)
   {
     return null;
   }
