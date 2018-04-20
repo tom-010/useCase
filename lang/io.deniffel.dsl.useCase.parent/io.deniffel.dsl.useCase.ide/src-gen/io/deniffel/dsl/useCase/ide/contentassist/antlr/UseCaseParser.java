@@ -31,6 +31,8 @@ public class UseCaseParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getModelAccess().getAlternatives_0(), "rule__Model__Alternatives_0");
+					put(grammarAccess.getPackageAccess().getAlternatives_0(), "rule__Package__Alternatives_0");
 					put(grammarAccess.getUseCaseAccess().getAlternatives_0(), "rule__UseCase__Alternatives_0");
 					put(grammarAccess.getUseCaseAccess().getAlternatives_9(), "rule__UseCase__Alternatives_9");
 					put(grammarAccess.getDescriptionAccess().getAlternatives_0(), "rule__Description__Alternatives_0");
@@ -60,6 +62,8 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getQualifiedNumberAccess().getGroup(), "rule__QualifiedNumber__Group__0");
 					put(grammarAccess.getQualifiedNumberAccess().getGroup_1(), "rule__QualifiedNumber__Group_1__0");
+					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
+					put(grammarAccess.getPackageAccess().getGroup_2(), "rule__Package__Group_2__0");
 					put(grammarAccess.getUseCaseAccess().getGroup(), "rule__UseCase__Group__0");
 					put(grammarAccess.getUseCaseAccess().getGroup_9_0(), "rule__UseCase__Group_9_0__0");
 					put(grammarAccess.getUseCaseAccess().getGroup_9_1(), "rule__UseCase__Group_9_1__0");
@@ -99,9 +103,14 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUsedExceptionsAccess().getGroup_0_1(), "rule__UsedExceptions__Group_0_1__0");
 					put(grammarAccess.getExceptionDeclerationAccess().getGroup(), "rule__ExceptionDecleration__Group__0");
 					put(grammarAccess.getExceptionDeclerationAccess().getGroup_5(), "rule__ExceptionDecleration__Group_5__0");
-					put(grammarAccess.getModelAccess().getUseCasesAssignment_0(), "rule__Model__UseCasesAssignment_0");
-					put(grammarAccess.getModelAccess().getTypesAssignment_1(), "rule__Model__TypesAssignment_1");
-					put(grammarAccess.getModelAccess().getExceptionsAssignment_2(), "rule__Model__ExceptionsAssignment_2");
+					put(grammarAccess.getModelAccess().getCompanyAssignment_1(), "rule__Model__CompanyAssignment_1");
+					put(grammarAccess.getModelAccess().getPackageAssignment_2(), "rule__Model__PackageAssignment_2");
+					put(grammarAccess.getModelAccess().getUseCasesAssignment_3(), "rule__Model__UseCasesAssignment_3");
+					put(grammarAccess.getModelAccess().getTypesAssignment_4(), "rule__Model__TypesAssignment_4");
+					put(grammarAccess.getModelAccess().getExceptionsAssignment_5(), "rule__Model__ExceptionsAssignment_5");
+					put(grammarAccess.getPackageAccess().getPartsAssignment_1(), "rule__Package__PartsAssignment_1");
+					put(grammarAccess.getPackageAccess().getPartsAssignment_2_1(), "rule__Package__PartsAssignment_2_1");
+					put(grammarAccess.getPackagePartAccess().getNameAssignment(), "rule__PackagePart__NameAssignment");
 					put(grammarAccess.getUseCaseAccess().getNameAssignment_1(), "rule__UseCase__NameAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getDescriptionsAssignment_2(), "rule__UseCase__DescriptionsAssignment_2");
 					put(grammarAccess.getUseCaseAccess().getAllowedUserGroupsAssignment_3(), "rule__UseCase__AllowedUserGroupsAssignment_3");

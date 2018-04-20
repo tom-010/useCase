@@ -1,0 +1,46 @@
+use-case "Create a new User"
+ 
+	description: "A user should be identified by its login, therefore this must be unique against all other users."
+	
+	allowed-usergroups:  
+		- "Admin"
+		- "User"
+		- "Manager" 
+	   
+	requires the following input:
+		- "user-name" as Text (e.g "tom") 
+		- "password" as Text (e.g "this_is_not_a_save_password")
+ 		- "first-name" optional as Text (e.g "Thomas")
+		- "last-name" as Text (e.g "Deniffel")
+		   
+	produces:    
+		- "created user" as User (e.g 'User with login "tom"')
+  
+	pre-conditions: 
+		- "given login must be unique within the system"
+		- "just another precondition"
+ 
+	steps:    
+		1. "Lookup for user with the given user-name"
+			1.1. "If a user was found". Raise UserExistsError
+		2. "Create the user in the database". On error raise UnableToCreateUser
+		3. "Trigger a notification, that user was created"
+		4. "Send welcome message"
+		5. "An additional Step"
+		    	 
+	notes: "This is an optional note"  
+		
+end of use-case
+
+used types:
+	- File ("Files are used for a lot of different things") [java.util.File]
+	- User ("Regular user, that can authenticate to the system") [io.deniffel.user.model.User]
+	- Text ("Multiple characters that build a word") [java.lang.String]
+
+used errors:
+	- UserExistsError ("The given user already exists")
+	- UnableToCreateUser ("Was unable to create user")
+	- IllegalArgumentException ("Testing exception from elsewhere") [java.lang.IllegalArgumentException]
+	
+
+

@@ -3,6 +3,8 @@ grammar io.deniffel.dsl.useCase.UseCase with org.eclipse.xtext.common.Terminals
 generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
 
 Model:
+	('Firma'|'Company')company = QualifiedName
+	package = Package
 	(useCases+=UseCase)*
 	types=UsedTypes
 	exceptions=UsedExceptions;
@@ -12,7 +14,16 @@ Model:
     
 	QualifiedNumber:
 		INT ('.' INT)*'.';
-	
+
+Package:
+	(
+		'Kathegorie' | 
+		'package'
+	)parts+=PackagePart ('>' parts+=PackagePart)*;
+
+PackagePart:
+	name = ID;
+
 UseCase:
 	(
 		('use-case') | 

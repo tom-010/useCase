@@ -33,6 +33,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getCompany <em>Company</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getExceptions <em>Exceptions</em>}</li>
@@ -42,6 +44,36 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The default value of the '{@link #getCompany() <em>Company</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCompany()
+   * @generated
+   * @ordered
+   */
+  protected static final String COMPANY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getCompany() <em>Company</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCompany()
+   * @generated
+   * @ordered
+   */
+  protected String company = COMPANY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getPackage() <em>Package</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPackage()
+   * @generated
+   * @ordered
+   */
+  protected io.deniffel.dsl.useCase.useCase.Package package_;
+
   /**
    * The cached value of the '{@link #getUseCases() <em>Use Cases</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -91,6 +123,77 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return UseCasePackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getCompany()
+  {
+    return company;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCompany(String newCompany)
+  {
+    String oldCompany = company;
+    company = newCompany;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.MODEL__COMPANY, oldCompany, company));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public io.deniffel.dsl.useCase.useCase.Package getPackage()
+  {
+    return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPackage(io.deniffel.dsl.useCase.useCase.Package newPackage, NotificationChain msgs)
+  {
+    io.deniffel.dsl.useCase.useCase.Package oldPackage = package_;
+    package_ = newPackage;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.MODEL__PACKAGE, oldPackage, newPackage);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPackage(io.deniffel.dsl.useCase.useCase.Package newPackage)
+  {
+    if (newPackage != package_)
+    {
+      NotificationChain msgs = null;
+      if (package_ != null)
+        msgs = ((InternalEObject)package_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.MODEL__PACKAGE, null, msgs);
+      if (newPackage != null)
+        msgs = ((InternalEObject)newPackage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.MODEL__PACKAGE, null, msgs);
+      msgs = basicSetPackage(newPackage, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.MODEL__PACKAGE, newPackage, newPackage));
   }
 
   /**
@@ -213,6 +316,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case UseCasePackage.MODEL__PACKAGE:
+        return basicSetPackage(null, msgs);
       case UseCasePackage.MODEL__USE_CASES:
         return ((InternalEList<?>)getUseCases()).basicRemove(otherEnd, msgs);
       case UseCasePackage.MODEL__TYPES:
@@ -233,6 +338,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case UseCasePackage.MODEL__COMPANY:
+        return getCompany();
+      case UseCasePackage.MODEL__PACKAGE:
+        return getPackage();
       case UseCasePackage.MODEL__USE_CASES:
         return getUseCases();
       case UseCasePackage.MODEL__TYPES:
@@ -254,6 +363,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case UseCasePackage.MODEL__COMPANY:
+        setCompany((String)newValue);
+        return;
+      case UseCasePackage.MODEL__PACKAGE:
+        setPackage((io.deniffel.dsl.useCase.useCase.Package)newValue);
+        return;
       case UseCasePackage.MODEL__USE_CASES:
         getUseCases().clear();
         getUseCases().addAll((Collection<? extends UseCase>)newValue);
@@ -278,6 +393,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case UseCasePackage.MODEL__COMPANY:
+        setCompany(COMPANY_EDEFAULT);
+        return;
+      case UseCasePackage.MODEL__PACKAGE:
+        setPackage((io.deniffel.dsl.useCase.useCase.Package)null);
+        return;
       case UseCasePackage.MODEL__USE_CASES:
         getUseCases().clear();
         return;
@@ -301,6 +422,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case UseCasePackage.MODEL__COMPANY:
+        return COMPANY_EDEFAULT == null ? company != null : !COMPANY_EDEFAULT.equals(company);
+      case UseCasePackage.MODEL__PACKAGE:
+        return package_ != null;
       case UseCasePackage.MODEL__USE_CASES:
         return useCases != null && !useCases.isEmpty();
       case UseCasePackage.MODEL__TYPES:
@@ -309,6 +434,23 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return exceptions != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (company: ");
+    result.append(company);
+    result.append(')');
+    return result.toString();
   }
 
 } //ModelImpl

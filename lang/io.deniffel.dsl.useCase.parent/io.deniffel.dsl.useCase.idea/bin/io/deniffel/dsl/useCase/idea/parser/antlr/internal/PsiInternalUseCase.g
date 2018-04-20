@@ -60,26 +60,28 @@ ruleModel returns [Boolean current=false]
 :
 	(
 		(
-			(
-				{
-					markComposite(elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_0_0ElementType());
-				}
-				lv_useCases_0_0=ruleUseCase
-				{
-					doneComposite();
-					if(!$current) {
-						associateWithSemanticElement();
-						$current = true;
-					}
-				}
-			)
-		)*
+			{
+				markLeaf(elementTypeProvider.getModel_FirmaKeyword_0_0ElementType());
+			}
+			otherlv_0='Firma'
+			{
+				doneLeaf(otherlv_0);
+			}
+			    |
+			{
+				markLeaf(elementTypeProvider.getModel_CompanyKeyword_0_1ElementType());
+			}
+			otherlv_1='Company'
+			{
+				doneLeaf(otherlv_1);
+			}
+		)
 		(
 			(
 				{
-					markComposite(elementTypeProvider.getModel_TypesUsedTypesParserRuleCall_1_0ElementType());
+					markComposite(elementTypeProvider.getModel_CompanyQualifiedNameParserRuleCall_1_0ElementType());
 				}
-				lv_types_1_0=ruleUsedTypes
+				lv_company_2_0=ruleQualifiedName
 				{
 					doneComposite();
 					if(!$current) {
@@ -92,9 +94,54 @@ ruleModel returns [Boolean current=false]
 		(
 			(
 				{
-					markComposite(elementTypeProvider.getModel_ExceptionsUsedExceptionsParserRuleCall_2_0ElementType());
+					markComposite(elementTypeProvider.getModel_PackagePackageParserRuleCall_2_0ElementType());
 				}
-				lv_exceptions_2_0=ruleUsedExceptions
+				lv_package_3_0=rulePackage
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_3_0ElementType());
+				}
+				lv_useCases_4_0=ruleUseCase
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getModel_TypesUsedTypesParserRuleCall_4_0ElementType());
+				}
+				lv_types_5_0=ruleUsedTypes
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getModel_ExceptionsUsedExceptionsParserRuleCall_5_0ElementType());
+				}
+				lv_exceptions_6_0=ruleUsedExceptions
 				{
 					doneComposite();
 					if(!$current) {
@@ -185,6 +232,105 @@ ruleQualifiedNumber returns [Boolean current=false]
 		{
 			doneLeaf(kw);
 		}
+	)
+;
+
+//Entry rule entryRulePackage
+entryRulePackage returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getPackageElementType()); }
+	iv_rulePackage=rulePackage
+	{ $current=$iv_rulePackage.current; }
+	EOF;
+
+// Rule Package
+rulePackage returns [Boolean current=false]
+:
+	(
+		(
+			{
+				markLeaf(elementTypeProvider.getPackage_KathegorieKeyword_0_0ElementType());
+			}
+			otherlv_0='Kathegorie'
+			{
+				doneLeaf(otherlv_0);
+			}
+			    |
+			{
+				markLeaf(elementTypeProvider.getPackage_PackageKeyword_0_1ElementType());
+			}
+			otherlv_1='package'
+			{
+				doneLeaf(otherlv_1);
+			}
+		)
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getPackage_PartsPackagePartParserRuleCall_1_0ElementType());
+				}
+				lv_parts_2_0=rulePackagePart
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)
+		(
+			{
+				markLeaf(elementTypeProvider.getPackage_GreaterThanSignKeyword_2_0ElementType());
+			}
+			otherlv_3='>'
+			{
+				doneLeaf(otherlv_3);
+			}
+			(
+				(
+					{
+						markComposite(elementTypeProvider.getPackage_PartsPackagePartParserRuleCall_2_1_0ElementType());
+					}
+					lv_parts_4_0=rulePackagePart
+					{
+						doneComposite();
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+				)
+			)
+		)*
+	)
+;
+
+//Entry rule entryRulePackagePart
+entryRulePackagePart returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getPackagePartElementType()); }
+	iv_rulePackagePart=rulePackagePart
+	{ $current=$iv_rulePackagePart.current; }
+	EOF;
+
+// Rule PackagePart
+rulePackagePart returns [Boolean current=false]
+:
+	(
+		(
+			{
+				markLeaf(elementTypeProvider.getPackagePart_NameIDTerminalRuleCall_0ElementType());
+			}
+			lv_name_0_0=RULE_ID
+			{
+				if(!$current) {
+					associateWithSemanticElement();
+					$current = true;
+				}
+			}
+			{
+				doneLeaf(lv_name_0_0);
+			}
+		)
 	)
 ;
 

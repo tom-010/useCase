@@ -7,9 +7,17 @@
   <genPackages prefix="UseCase" basePackage="io.deniffel.dsl.useCase" disposableProviderFactory="true"
       fileExtensions="useCase" ecorePackage="UseCase.ecore#/">
     <genClasses ecoreClass="UseCase.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Model/company"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/package"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/useCases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/types"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Model/exceptions"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Package">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Package/parts"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//PackagePart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//PackagePart/name"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//UseCase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//UseCase/name"/>

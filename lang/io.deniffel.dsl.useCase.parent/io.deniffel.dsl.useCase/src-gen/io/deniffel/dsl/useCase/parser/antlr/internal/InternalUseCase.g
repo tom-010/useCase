@@ -77,11 +77,60 @@ ruleModel returns [EObject current=null]
 }:
 	(
 		(
+			otherlv_0='Firma'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getModelAccess().getFirmaKeyword_0_0());
+			}
+			    |
+			otherlv_1='Company'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getModelAccess().getCompanyKeyword_0_1());
+			}
+		)
+		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getUseCasesUseCaseParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getModelAccess().getCompanyQualifiedNameParserRuleCall_1_0());
 				}
-				lv_useCases_0_0=ruleUseCase
+				lv_company_2_0=ruleQualifiedName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					set(
+						$current,
+						"company",
+						lv_company_2_0,
+						"io.deniffel.dsl.useCase.UseCase.QualifiedName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getPackagePackageParserRuleCall_2_0());
+				}
+				lv_package_3_0=rulePackage
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					set(
+						$current,
+						"package",
+						lv_package_3_0,
+						"io.deniffel.dsl.useCase.UseCase.Package");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getUseCasesUseCaseParserRuleCall_3_0());
+				}
+				lv_useCases_4_0=ruleUseCase
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -89,7 +138,7 @@ ruleModel returns [EObject current=null]
 					add(
 						$current,
 						"useCases",
-						lv_useCases_0_0,
+						lv_useCases_4_0,
 						"io.deniffel.dsl.useCase.UseCase.UseCase");
 					afterParserOrEnumRuleCall();
 				}
@@ -98,9 +147,9 @@ ruleModel returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getTypesUsedTypesParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getModelAccess().getTypesUsedTypesParserRuleCall_4_0());
 				}
-				lv_types_1_0=ruleUsedTypes
+				lv_types_5_0=ruleUsedTypes
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -108,7 +157,7 @@ ruleModel returns [EObject current=null]
 					set(
 						$current,
 						"types",
-						lv_types_1_0,
+						lv_types_5_0,
 						"io.deniffel.dsl.useCase.UseCase.UsedTypes");
 					afterParserOrEnumRuleCall();
 				}
@@ -117,9 +166,9 @@ ruleModel returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getExceptionsUsedExceptionsParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getModelAccess().getExceptionsUsedExceptionsParserRuleCall_5_0());
 				}
-				lv_exceptions_2_0=ruleUsedExceptions
+				lv_exceptions_6_0=ruleUsedExceptions
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -127,7 +176,7 @@ ruleModel returns [EObject current=null]
 					set(
 						$current,
 						"exceptions",
-						lv_exceptions_2_0,
+						lv_exceptions_6_0,
 						"io.deniffel.dsl.useCase.UseCase.UsedExceptions");
 					afterParserOrEnumRuleCall();
 				}
@@ -218,6 +267,115 @@ ruleQualifiedNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRul
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getQualifiedNumberAccess().getFullStopKeyword_2());
 		}
+	)
+;
+
+// Entry rule entryRulePackage
+entryRulePackage returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPackageRule()); }
+	iv_rulePackage=rulePackage
+	{ $current=$iv_rulePackage.current; }
+	EOF;
+
+// Rule Package
+rulePackage returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			otherlv_0='Kathegorie'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getPackageAccess().getKathegorieKeyword_0_0());
+			}
+			    |
+			otherlv_1='package'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getPackageAccess().getPackageKeyword_0_1());
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPackageAccess().getPartsPackagePartParserRuleCall_1_0());
+				}
+				lv_parts_2_0=rulePackagePart
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPackageRule());
+					}
+					add(
+						$current,
+						"parts",
+						lv_parts_2_0,
+						"io.deniffel.dsl.useCase.UseCase.PackagePart");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3='>'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getPackageAccess().getGreaterThanSignKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPackageAccess().getPartsPackagePartParserRuleCall_2_1_0());
+					}
+					lv_parts_4_0=rulePackagePart
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPackageRule());
+						}
+						add(
+							$current,
+							"parts",
+							lv_parts_4_0,
+							"io.deniffel.dsl.useCase.UseCase.PackagePart");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRulePackagePart
+entryRulePackagePart returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPackagePartRule()); }
+	iv_rulePackagePart=rulePackagePart
+	{ $current=$iv_rulePackagePart.current; }
+	EOF;
+
+// Rule PackagePart
+rulePackagePart returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getPackagePartAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getPackagePartRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
+		)
 	)
 ;
 

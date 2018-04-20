@@ -13,6 +13,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
@@ -39,6 +40,8 @@ public class UseCaseGenerator extends AbstractGenerator {
   
   private ClassMemberNamingStrategy methodNaming = new ClassMemberNamingStrategy();
   
+  private ClassMemberNamingStrategy packageNaming = new ClassMemberNamingStrategy();
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
@@ -52,13 +55,31 @@ public class UseCaseGenerator extends AbstractGenerator {
   
   public void create(final UseCase usecase, final Model model, final IFileSystemAccess2 fsa) {
     usecase.setName(this.classNamingStrategy.convert(usecase.getName()));
+    String _replace = model.getCompany().replace(".", "/");
+    String _plus = (_replace + "/");
+    String _path = this.path(model.getPackage());
+    String _plus_1 = (_plus + _path);
+    String _plus_2 = (_plus_1 + "/");
     String _name = usecase.getName();
-    String _plus = (_name + ".java");
-    fsa.generateFile(_plus, this.createJavaInterface(usecase, model.getTypes().getTypes(), model.getExceptions()));
+    String _plus_3 = (_plus_2 + _name);
+    String _plus_4 = (_plus_3 + ".java");
+    fsa.generateFile(_plus_4, 
+      this.createJavaInterface(usecase, model.getCompany(), model.getPackage(), model.getTypes().getTypes(), model.getExceptions()));
   }
   
-  public CharSequence createJavaInterface(final UseCase usecase, final EList<Type> types, final UsedExceptions exceptions) {
+  public String path(final io.deniffel.dsl.useCase.useCase.Package ucPackage) {
+    final Function1<PackagePart, CharSequence> _function = (PackagePart it) -> {
+      return this.compile(it);
+    };
+    return IterableExtensions.<PackagePart>join(ucPackage.getParts(), "/", _function);
+  }
+  
+  public CharSequence createJavaInterface(final UseCase usecase, final String company, final io.deniffel.dsl.useCase.useCase.Package ucPackage, final EList<Type> types, final UsedExceptions exceptions) {
     StringConcatenation _builder = new StringConcatenation();
+    CharSequence _javaPackage = this.toJavaPackage(ucPackage, company);
+    _builder.append(_javaPackage);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     CharSequence _importStatements = this.importStatements(types);
     _builder.append(_importStatements);
     _builder.newLineIfNotEmpty();
@@ -147,6 +168,28 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence toJavaPackage(final io.deniffel.dsl.useCase.useCase.Package ucPackage, final String company) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    _builder.append(company);
+    _builder.append(".");
+    final Function1<PackagePart, CharSequence> _function = (PackagePart it) -> {
+      return this.compile(it);
+    };
+    String _join = IterableExtensions.<PackagePart>join(ucPackage.getParts(), ".", _function);
+    _builder.append(_join);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final PackagePart part) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _convert = this.packageNaming.convert(part.getName());
+    _builder.append(_convert);
     return _builder;
   }
   
@@ -278,7 +321,6 @@ public class UseCaseGenerator extends AbstractGenerator {
     String _upperCase = group.getName().toUpperCase();
     _builder.append(_upperCase);
     _builder.append("\"");
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   

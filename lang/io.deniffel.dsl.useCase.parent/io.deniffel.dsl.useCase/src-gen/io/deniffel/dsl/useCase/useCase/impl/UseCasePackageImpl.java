@@ -14,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
@@ -46,6 +47,20 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * @generated
    */
   private EClass modelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packagePartEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -258,9 +273,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_UseCases()
+  public EAttribute getModel_Company()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -268,7 +283,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Types()
+  public EReference getModel_Package()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
@@ -278,9 +293,69 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Exceptions()
+  public EReference getModel_UseCases()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Types()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Exceptions()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPackage()
+  {
+    return packageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackage_Parts()
+  {
+    return (EReference)packageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPackagePart()
+  {
+    return packagePartEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackagePart_Name()
+  {
+    return (EAttribute)packagePartEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -914,9 +989,17 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEAttribute(modelEClass, MODEL__COMPANY);
+    createEReference(modelEClass, MODEL__PACKAGE);
     createEReference(modelEClass, MODEL__USE_CASES);
     createEReference(modelEClass, MODEL__TYPES);
     createEReference(modelEClass, MODEL__EXCEPTIONS);
+
+    packageEClass = createEClass(PACKAGE);
+    createEReference(packageEClass, PACKAGE__PARTS);
+
+    packagePartEClass = createEClass(PACKAGE_PART);
+    createEAttribute(packagePartEClass, PACKAGE_PART__NAME);
 
     useCaseEClass = createEClass(USE_CASE);
     createEAttribute(useCaseEClass, USE_CASE__NAME);
@@ -1030,9 +1113,17 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModel_Company(), ecorePackage.getEString(), "company", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Package(), this.getPackage(), null, "package", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Types(), this.getUsedTypes(), null, "types", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Exceptions(), this.getUsedExceptions(), null, "exceptions", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packageEClass, io.deniffel.dsl.useCase.useCase.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackage_Parts(), this.getPackagePart(), null, "parts", null, 0, -1, io.deniffel.dsl.useCase.useCase.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packagePartEClass, PackagePart.class, "PackagePart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPackagePart_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackagePart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

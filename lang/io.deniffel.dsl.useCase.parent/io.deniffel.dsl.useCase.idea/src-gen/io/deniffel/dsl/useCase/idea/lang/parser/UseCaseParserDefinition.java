@@ -35,14 +35,29 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getModelElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_0_0ElementType()) {
+			if (elementType == elementTypeProvider.getModel_PackagePackageParserRuleCall_2_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getModel_UseCasesUseCaseParserRuleCall_3_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getModel_TypesUsedTypesParserRuleCall_1_0ElementType()) {
+			if (elementType == elementTypeProvider.getModel_TypesUsedTypesParserRuleCall_4_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getModel_ExceptionsUsedExceptionsParserRuleCall_2_0ElementType()) {
+			if (elementType == elementTypeProvider.getModel_ExceptionsUsedExceptionsParserRuleCall_5_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getPackageElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getPackage_PartsPackagePartParserRuleCall_1_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getPackage_PartsPackagePartParserRuleCall_2_1_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getPackagePartElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getUseCaseElementType()) {
 				return new PsiNamedEObjectImpl(node) {};

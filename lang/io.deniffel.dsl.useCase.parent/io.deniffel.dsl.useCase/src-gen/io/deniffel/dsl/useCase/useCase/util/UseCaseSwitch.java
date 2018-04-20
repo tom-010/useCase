@@ -14,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
@@ -96,6 +97,20 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         Model model = (Model)theEObject;
         T result = caseModel(model);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.PACKAGE:
+      {
+        io.deniffel.dsl.useCase.useCase.Package package_ = (io.deniffel.dsl.useCase.useCase.Package)theEObject;
+        T result = casePackage(package_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.PACKAGE_PART:
+      {
+        PackagePart packagePart = (PackagePart)theEObject;
+        T result = casePackagePart(packagePart);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -248,6 +263,38 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackage(io.deniffel.dsl.useCase.useCase.Package object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package Part</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package Part</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackagePart(PackagePart object)
   {
     return null;
   }

@@ -33,6 +33,24 @@ public interface UseCaseFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package</em>'.
+   * @generated
+   */
+  Package createPackage();
+
+  /**
+   * Returns a new object of class '<em>Package Part</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package Part</em>'.
+   * @generated
+   */
+  PackagePart createPackagePart();
+
+  /**
    * Returns a new object of class '<em>Use Case</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

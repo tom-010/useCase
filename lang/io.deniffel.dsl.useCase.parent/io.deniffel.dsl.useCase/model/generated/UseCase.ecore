@@ -3,12 +3,22 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="useCase" nsURI="http://www.deniffel.io/dsl/useCase/UseCase"
     nsPrefix="useCase">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="company" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="package" eType="#//Package"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="useCases" upperBound="-1"
         eType="#//UseCase" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" eType="#//UsedTypes"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" eType="#//UsedExceptions"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
+        eType="#//PackagePart" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackagePart">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UseCase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

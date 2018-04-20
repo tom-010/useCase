@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getCompany <em>Company</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getPackage <em>Package</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getTypes <em>Types</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getExceptions <em>Exceptions</em>}</li>
@@ -27,6 +29,58 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Company</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Company</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Company</em>' attribute.
+   * @see #setCompany(String)
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel_Company()
+   * @model
+   * @generated
+   */
+  String getCompany();
+
+  /**
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Model#getCompany <em>Company</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Company</em>' attribute.
+   * @see #getCompany()
+   * @generated
+   */
+  void setCompany(String value);
+
+  /**
+   * Returns the value of the '<em><b>Package</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Package</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Package</em>' containment reference.
+   * @see #setPackage(io.deniffel.dsl.useCase.useCase.Package)
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel_Package()
+   * @model containment="true"
+   * @generated
+   */
+  io.deniffel.dsl.useCase.useCase.Package getPackage();
+
+  /**
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Model#getPackage <em>Package</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Package</em>' containment reference.
+   * @see #getPackage()
+   * @generated
+   */
+  void setPackage(io.deniffel.dsl.useCase.useCase.Package value);
+
   /**
    * Returns the value of the '<em><b>Use Cases</b></em>' containment reference list.
    * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.UseCase}.

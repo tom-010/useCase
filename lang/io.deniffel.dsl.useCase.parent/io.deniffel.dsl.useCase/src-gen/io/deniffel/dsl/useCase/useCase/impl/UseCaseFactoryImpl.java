@@ -14,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
@@ -86,6 +87,8 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
     switch (eClass.getClassifierID())
     {
       case UseCasePackage.MODEL: return createModel();
+      case UseCasePackage.PACKAGE: return createPackage();
+      case UseCasePackage.PACKAGE_PART: return createPackagePart();
       case UseCasePackage.USE_CASE: return createUseCase();
       case UseCasePackage.DESCRIPTION: return createDescription();
       case UseCasePackage.ALLOWED_USER_GROUPS: return createAllowedUserGroups();
@@ -119,6 +122,28 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public io.deniffel.dsl.useCase.useCase.Package createPackage()
+  {
+    PackageImpl package_ = new PackageImpl();
+    return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackagePart createPackagePart()
+  {
+    PackagePartImpl packagePart = new PackagePartImpl();
+    return packagePart;
   }
 
   /**

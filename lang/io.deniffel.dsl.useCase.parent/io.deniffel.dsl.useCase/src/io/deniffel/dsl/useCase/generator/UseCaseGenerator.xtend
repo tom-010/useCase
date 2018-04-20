@@ -18,12 +18,15 @@ import io.deniffel.dsl.useCase.useCase.Steps
 import io.deniffel.dsl.useCase.useCase.Step
 import io.deniffel.dsl.useCase.useCase.UsedExceptions
 import io.deniffel.dsl.useCase.useCase.PreConditions
+import io.deniffel.dsl.useCase.useCase.Package
+import io.deniffel.dsl.useCase.useCase.PackagePart
 
 class UseCaseGenerator extends AbstractGenerator {
 	
 	ClassNamingStrategy classNamingStrategy = new ClassNamingStrategy();
 	ClassMemberNamingStrategy variableNaming = new ClassMemberNamingStrategy();
 	ClassMemberNamingStrategy methodNaming = new ClassMemberNamingStrategy();
+	ClassMemberNamingStrategy packageNaming = new ClassMemberNamingStrategy();
 	 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for(model : resource.allContents.toIterable.filter(Model)) 
@@ -33,10 +36,19 @@ class UseCaseGenerator extends AbstractGenerator {
 	
 	def create(UseCase usecase, Model model, IFileSystemAccess2 fsa) {
 		usecase.name = classNamingStrategy.convert(usecase.name); 
-		fsa.generateFile(usecase.name + ".java", usecase.createJavaInterface(model.types.types, model.exceptions));
+		fsa.generateFile(
+			model.company.replace(".", "/") + "/" + model.package.path + "/" + usecase.name + ".java", 
+			usecase.createJavaInterface(model.company, model.package, model.types.types, model.exceptions)
+		);
 	}
 	
-	def createJavaInterface(UseCase usecase, EList<Type> types, UsedExceptions exceptions) '''	
+	def path(Package ucPackage) {
+		return ucPackage.parts.join('/')[compile]
+	}
+	
+	def createJavaInterface(UseCase usecase, String company, Package ucPackage, EList<Type> types, UsedExceptions exceptions) '''	
+		«ucPackage.toJavaPackage(company)»
+		
 		«types.importStatements()»
 		
 		«exceptions.importStatements()»
@@ -69,6 +81,13 @@ class UseCaseGenerator extends AbstractGenerator {
 			«exceptions.exceptionInterfaceDefinitions()»
 		}
 	'''
+	
+	def toJavaPackage(Package ucPackage, String company)'''
+		package «company».«ucPackage.parts.join('.')[compile]»;
+	'''
+	
+	def compile(PackagePart part)'''
+		«packageNaming.convert(part.name)»'''
 	
 	def importStatements(EList<Type> types)'''
 		«FOR type : types»
@@ -121,8 +140,7 @@ class UseCaseGenerator extends AbstractGenerator {
 	'''
 	
 	def compile(AllowedUserGroup group) '''
-		"«group.name.toUpperCase()»"
-	'''	
+		"«group.name.toUpperCase()»"'''	
 	
 	def inputs(UseCase usecase)'''
 		«FOR input : usecase.inputs»

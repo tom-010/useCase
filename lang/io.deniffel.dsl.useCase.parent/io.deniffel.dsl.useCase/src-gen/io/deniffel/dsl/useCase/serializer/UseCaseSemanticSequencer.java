@@ -16,6 +16,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
@@ -85,6 +86,12 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case UseCasePackage.OUTPUTS:
 				sequence_Outputs(context, (Outputs) semanticObject); 
+				return; 
+			case UseCasePackage.PACKAGE:
+				sequence_Package(context, (io.deniffel.dsl.useCase.useCase.Package) semanticObject); 
+				return; 
+			case UseCasePackage.PACKAGE_PART:
+				sequence_PackagePart(context, (PackagePart) semanticObject); 
 				return; 
 			case UseCasePackage.PRE_CONDITIONS:
 				sequence_PreConditions(context, (PreConditions) semanticObject); 
@@ -234,7 +241,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (useCases+=UseCase* types=UsedTypes exceptions=UsedExceptions)
+	 *     (company=QualifiedName package=Package useCases+=UseCase* types=UsedTypes exceptions=UsedExceptions)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -279,6 +286,36 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     outputs+=Output+
 	 */
 	protected void sequence_Outputs(ISerializationContext context, Outputs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PackagePart returns PackagePart
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_PackagePart(ISerializationContext context, PackagePart semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.PACKAGE_PART__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.PACKAGE_PART__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPackagePartAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Package returns Package
+	 *
+	 * Constraint:
+	 *     (parts+=PackagePart parts+=PackagePart*)
+	 */
+	protected void sequence_Package(ISerializationContext context, io.deniffel.dsl.useCase.useCase.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -14,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
+import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.RaiseError;
 import io.deniffel.dsl.useCase.useCase.Step;
@@ -98,6 +99,16 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseModel(Model object)
       {
         return createModelAdapter();
+      }
+      @Override
+      public Adapter casePackage(io.deniffel.dsl.useCase.useCase.Package object)
+      {
+        return createPackageAdapter();
+      }
+      @Override
+      public Adapter casePackagePart(PackagePart object)
+      {
+        return createPackagePartAdapter();
       }
       @Override
       public Adapter caseUseCase(UseCase object)
@@ -227,6 +238,36 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.Package
+   * @generated
+   */
+  public Adapter createPackageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.PackagePart <em>Package Part</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.PackagePart
+   * @generated
+   */
+  public Adapter createPackagePartAdapter()
   {
     return null;
   }

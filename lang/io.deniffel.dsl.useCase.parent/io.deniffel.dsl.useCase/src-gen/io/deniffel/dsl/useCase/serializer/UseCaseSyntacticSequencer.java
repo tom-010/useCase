@@ -27,10 +27,12 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Input_AlsKeyword_4_0_1_or_AsKeyword_4_0_0;
 	protected AbstractElementAlias match_Input_EGKeyword_5_1_0_or_ZBKeyword_5_1_1;
 	protected AbstractElementAlias match_Inputs_RequireKeyword_0_0_1_or_RequiresKeyword_0_0_0_or___BenötigteKeyword_0_1_0_ZutatenKeyword_0_1_1_ColonKeyword_0_1_2___or___RequiresKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_InputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__;
+	protected AbstractElementAlias match_Model_CompanyKeyword_0_1_or_FirmaKeyword_0_0;
 	protected AbstractElementAlias match_Notes_AnmerkungKeyword_0_1_1_or_AnmerkungenKeyword_0_1_0_or_NoteKeyword_0_0_1_or_NotesKeyword_0_0_0;
 	protected AbstractElementAlias match_Output_AlsKeyword_3_0_1_or_AsKeyword_3_0_0;
 	protected AbstractElementAlias match_Output_EGKeyword_4_1_0_or_ZBKeyword_4_1_1;
 	protected AbstractElementAlias match_Outputs_ErgebnisKeyword_0_1_or_ProduceKeyword_0_0_1_or_ProducesKeyword_0_0_0_or___ProducesKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_OutputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__;
+	protected AbstractElementAlias match_Package_KathegorieKeyword_0_0_or_PackageKeyword_0_1;
 	protected AbstractElementAlias match_PreConditions_PreConditionKeyword_0_0_0_or_PreConditionsKeyword_0_0_1_or_VorbedingungenKeyword_0_1;
 	protected AbstractElementAlias match_RaiseError_ColonKeyword_0_1_or_FullStopKeyword_0_0;
 	protected AbstractElementAlias match_RaiseError___BeiKeyword_1_1_1_0_FehlerKeyword_1_1_1_1_MeldeKeyword_1_1_1_2___or___MeldeKeyword_1_1_0_0_FehlerKeyword_1_1_0_1_q___or___OnKeyword_1_0_1_0_ErrorKeyword_1_0_1_1_RaiseKeyword_1_0_1_2___or___RaiseKeyword_1_0_0_0_ErrorKeyword_1_0_0_1_q__;
@@ -48,10 +50,12 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Input_AlsKeyword_4_0_1_or_AsKeyword_4_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputAccess().getAlsKeyword_4_0_1()), new TokenAlias(false, false, grammarAccess.getInputAccess().getAsKeyword_4_0_0()));
 		match_Input_EGKeyword_5_1_0_or_ZBKeyword_5_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputAccess().getEGKeyword_5_1_0()), new TokenAlias(false, false, grammarAccess.getInputAccess().getZBKeyword_5_1_1()));
 		match_Inputs_RequireKeyword_0_0_1_or_RequiresKeyword_0_0_0_or___BenötigteKeyword_0_1_0_ZutatenKeyword_0_1_1_ColonKeyword_0_1_2___or___RequiresKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_InputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputsAccess().getBenötigteKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getZutatenKeyword_0_1_1()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getColonKeyword_0_1_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputsAccess().getRequiresKeyword_0_0_2_0()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getTheKeyword_0_0_2_1()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getFollowingKeyword_0_0_2_2()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getInputKeyword_0_0_2_3()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getColonKeyword_0_0_2_4())), new TokenAlias(false, false, grammarAccess.getInputsAccess().getRequireKeyword_0_0_1()), new TokenAlias(false, false, grammarAccess.getInputsAccess().getRequiresKeyword_0_0_0()));
+		match_Model_CompanyKeyword_0_1_or_FirmaKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getModelAccess().getCompanyKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getFirmaKeyword_0_0()));
 		match_Notes_AnmerkungKeyword_0_1_1_or_AnmerkungenKeyword_0_1_0_or_NoteKeyword_0_0_1_or_NotesKeyword_0_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getNotesAccess().getAnmerkungKeyword_0_1_1()), new TokenAlias(false, false, grammarAccess.getNotesAccess().getAnmerkungenKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getNotesAccess().getNoteKeyword_0_0_1()), new TokenAlias(false, false, grammarAccess.getNotesAccess().getNotesKeyword_0_0_0()));
 		match_Output_AlsKeyword_3_0_1_or_AsKeyword_3_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputAccess().getAlsKeyword_3_0_1()), new TokenAlias(false, false, grammarAccess.getOutputAccess().getAsKeyword_3_0_0()));
 		match_Output_EGKeyword_4_1_0_or_ZBKeyword_4_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputAccess().getEGKeyword_4_1_0()), new TokenAlias(false, false, grammarAccess.getOutputAccess().getZBKeyword_4_1_1()));
 		match_Outputs_ErgebnisKeyword_0_1_or_ProduceKeyword_0_0_1_or_ProducesKeyword_0_0_0_or___ProducesKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_OutputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_0_2_0()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getTheKeyword_0_0_2_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getFollowingKeyword_0_0_2_2()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getOutputKeyword_0_0_2_3()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getColonKeyword_0_0_2_4())), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getErgebnisKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProduceKeyword_0_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_0_0()));
+		match_Package_KathegorieKeyword_0_0_or_PackageKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPackageAccess().getKathegorieKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getPackageAccess().getPackageKeyword_0_1()));
 		match_PreConditions_PreConditionKeyword_0_0_0_or_PreConditionsKeyword_0_0_1_or_VorbedingungenKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPreConditionsAccess().getPreConditionKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getPreConditionsAccess().getPreConditionsKeyword_0_0_1()), new TokenAlias(false, false, grammarAccess.getPreConditionsAccess().getVorbedingungenKeyword_0_1()));
 		match_RaiseError_ColonKeyword_0_1_or_FullStopKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getColonKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getFullStopKeyword_0_0()));
 		match_RaiseError___BeiKeyword_1_1_1_0_FehlerKeyword_1_1_1_1_MeldeKeyword_1_1_1_2___or___MeldeKeyword_1_1_0_0_FehlerKeyword_1_1_0_1_q___or___OnKeyword_1_0_1_0_ErrorKeyword_1_0_1_1_RaiseKeyword_1_0_1_2___or___RaiseKeyword_1_0_0_0_ErrorKeyword_1_0_0_1_q__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getBeiKeyword_1_1_1_0()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getFehlerKeyword_1_1_1_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getMeldeKeyword_1_1_1_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getMeldeKeyword_1_1_0_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorAccess().getFehlerKeyword_1_1_0_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getOnKeyword_1_0_1_0()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getErrorKeyword_1_0_1_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_0_1_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_0_0_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorAccess().getErrorKeyword_1_0_0_1())));
@@ -84,6 +88,8 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Input_EGKeyword_5_1_0_or_ZBKeyword_5_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Inputs_RequireKeyword_0_0_1_or_RequiresKeyword_0_0_0_or___BenötigteKeyword_0_1_0_ZutatenKeyword_0_1_1_ColonKeyword_0_1_2___or___RequiresKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_InputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__.equals(syntax))
 				emit_Inputs_RequireKeyword_0_0_1_or_RequiresKeyword_0_0_0_or___BenötigteKeyword_0_1_0_ZutatenKeyword_0_1_1_ColonKeyword_0_1_2___or___RequiresKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_InputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model_CompanyKeyword_0_1_or_FirmaKeyword_0_0.equals(syntax))
+				emit_Model_CompanyKeyword_0_1_or_FirmaKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Notes_AnmerkungKeyword_0_1_1_or_AnmerkungenKeyword_0_1_0_or_NoteKeyword_0_0_1_or_NotesKeyword_0_0_0.equals(syntax))
 				emit_Notes_AnmerkungKeyword_0_1_1_or_AnmerkungenKeyword_0_1_0_or_NoteKeyword_0_0_1_or_NotesKeyword_0_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Output_AlsKeyword_3_0_1_or_AsKeyword_3_0_0.equals(syntax))
@@ -92,6 +98,8 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Output_EGKeyword_4_1_0_or_ZBKeyword_4_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Outputs_ErgebnisKeyword_0_1_or_ProduceKeyword_0_0_1_or_ProducesKeyword_0_0_0_or___ProducesKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_OutputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__.equals(syntax))
 				emit_Outputs_ErgebnisKeyword_0_1_or_ProduceKeyword_0_0_1_or_ProducesKeyword_0_0_0_or___ProducesKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_OutputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Package_KathegorieKeyword_0_0_or_PackageKeyword_0_1.equals(syntax))
+				emit_Package_KathegorieKeyword_0_0_or_PackageKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PreConditions_PreConditionKeyword_0_0_0_or_PreConditionsKeyword_0_0_1_or_VorbedingungenKeyword_0_1.equals(syntax))
 				emit_PreConditions_PreConditionKeyword_0_0_0_or_PreConditionsKeyword_0_0_1_or_VorbedingungenKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_RaiseError_ColonKeyword_0_1_or_FullStopKeyword_0_0.equals(syntax))
@@ -172,6 +180,17 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
+	 *     'Firma' | 'Company'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) company=QualifiedName
+	 */
+	protected void emit_Model_CompanyKeyword_0_1_or_FirmaKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     'notes:' | 'note:' | 'Anmerkungen:' | 'Anmerkung:'
 	 *
 	 * This ambiguous syntax occurs at:
@@ -213,6 +232,17 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) outputs+=Output
 	 */
 	protected void emit_Outputs_ErgebnisKeyword_0_1_or_ProduceKeyword_0_0_1_or_ProducesKeyword_0_0_0_or___ProducesKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_OutputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'Kathegorie' | 'package'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) parts+=PackagePart
+	 */
+	protected void emit_Package_KathegorieKeyword_0_0_or_PackageKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
