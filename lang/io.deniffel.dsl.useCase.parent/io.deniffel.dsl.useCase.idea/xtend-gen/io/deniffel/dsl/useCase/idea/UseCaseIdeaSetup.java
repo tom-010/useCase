@@ -3,15 +3,13 @@
  */
 package io.deniffel.dsl.useCase.idea;
 
-import com.google.inject.Injector;
-import org.eclipse.xtext.ISetup;
-
 @SuppressWarnings("all")
-public class UseCaseIdeaSetup implements ISetup {
+public class UseCaseIdeaSetup /* implements ISetup  */{
   @Override
-  public Injector createInjectorAndDoEMFRegistration() {
+  public Object createInjectorAndDoEMFRegistration() {
     throw new Error("Unresolved compilation problems:"
       + "\nThe method or field EcoreGlobalRegistries is undefined"
+      + "\nThe method createInjector() from the type UseCaseStandaloneSetupIdea refers to the missing type Object"
       + "\nensureInitialized cannot be resolved");
   }
 }

@@ -3,14 +3,15 @@
  */
 package io.deniffel.dsl.useCase.idea;
 
-import com.google.inject.Injector;
-import io.deniffel.dsl.useCase.UseCaseStandaloneSetupGenerated;
-
 @SuppressWarnings("all")
-public class UseCaseStandaloneSetupIdea extends UseCaseStandaloneSetupGenerated {
+public class UseCaseStandaloneSetupIdea /* implements UseCaseStandaloneSetupGenerated  */{
   @Override
-  public Injector createInjector() {
+  public Object createInjector() {
     throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from UseCaseIdeaModule to Module");
+      + "\nUseCaseRuntimeModule cannot be resolved."
+      + "\nThe method or field Modules2 is undefined"
+      + "\nThe method or field Guice is undefined"
+      + "\nmixin cannot be resolved"
+      + "\ncreateInjector cannot be resolved");
   }
 }

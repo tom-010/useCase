@@ -3,12 +3,32 @@ grammar io.deniffel.dsl.useCase.UseCase with org.eclipse.xtext.common.Terminals
 generate useCase "http://www.deniffel.io/dsl/useCase/UseCase"
 
 Model:
+	('Firma'|'Company')company = QualifiedName
+	package = Package
 	(useCases+=UseCase)*
 	types=UsedTypes
 	exceptions=UsedExceptions;
 	
+	QualifiedName:
+    	ID ('.' ID)*;
+    
+	QualifiedNumber:
+		INT ('.' INT)*'.';
+
+Package:
+	(
+		'Kathegorie' | 
+		'package'
+	)parts+=PackagePart ('>' parts+=PackagePart)*;
+
+PackagePart:
+	name = ID;
+
 UseCase:
-	'use-case' name=STRING
+	(
+		('use-case') | 
+		('Rezept')
+	) name=STRING
 	(descriptions+=Description)?
 	(allowedUserGroups+=AllowedUserGroups)?
 	(inputs+=Inputs)?
@@ -16,74 +36,104 @@ UseCase:
 	(preconditions=PreConditions)?
 	(steps+=Steps)?
 	(notes+=Notes)?
-	'end' 'of' 'use-case';
+	(
+		('end' 'of' 'use-case') |
+		('Ende' 'des' 'Rezpets')
+	);
 
-PreConditions:
-	('pre-condition:'|'pre-conditions:')
-	(conditions+=Condition)*;
+	Description:
+		(
+			('description:') |
+			('Kurzbeschreibung:') |
+			('Beschreibung')
+		) name=STRING;
+		
+		
+	AllowedUserGroups:
+		(
+			('allowed-usergroups:') |
+			('Erlaubt' 'für:')
+		)
+		(groups+=AllowedUserGroup )*;
+	  
+	AllowedUserGroup:
+		(many?='many')? '-' name=STRING ('as' type=[Type])?;
+	
+	Inputs:
+		(
+			('requires:'|'require:'|'requires' 'the' 'following' 'input' ':') |
+			('Benötigte' 'Zutaten' ':')
+		)
+		(inputs+=Input)*;
+		
+	Input:
+		(many?='many')? '-' (optional=Optional)? content=STRING 
+			(('as' | 'als') type=[Type])? 
+			('(' ('e.g' | 'z.B.') example=STRING ')')?;
+	
+	Outputs:
+		(
+			('produces:'|'produce:'|'produces' 'the' 'following' 'output' ':') |
+			('Ergebnis:')
+		)
+		(outputs+=Output)*;
+	
+	Output:
+		(many?='many')? '-' content=STRING (('as'|'als') type=[Type])? ('(' ('e.g'|'z.B.') example=STRING ')')?;
+		
+	Optional:
+		'optional';
+    
+	
+	PreConditions:
+		(
+			('pre-condition:'|'pre-conditions:') |
+			('Vorbedingungen:')
+		)
+		(conditions+=Condition)*;
+	
+	Condition:
+		'-' content=STRING;
+	
+	Steps:
+		(
+			('steps:') | 
+			('Schritte:')
+		) (steps+=Step)*;
+	Step:
+		number=QualifiedNumber action=STRING(error=RaiseError)?;
+	
+	RaiseError:
+		('.'|':') (
+				('Raise' ('error')? | 'On' 'error' 'raise' ) |
+				('Melde' ('Fehler')?| 'Bei' 'Fehler' 'melde' )
+			) exception=Exception;
+	
+	
+	Notes:
+		(
+			('notes:'|'note:') |
+			('Anmerkungen:'|'Anmerkung:')
+		) content=STRING;
 
-Condition:
-	'-' content=STRING;
-
-Steps:
-	'steps:'
-		(steps+=Step)*;
 
 UsedTypes: 
-	'used' 'types:'
-	(types+=Type)*;
+	(
+		('used' 'types:') | 
+		('Genutzte' 'Typen:')
+	) (types+=Type)*;
+
+	Type:
+	    '-' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
 
 UsedExceptions:
-	'used' 'errors:'
-	(exceptions+=ExceptionDecleration)*;
+	(
+		('used' 'errors:') |
+		('Genutzte' 'Fehler:')
+	) (exceptions+=ExceptionDecleration)*;
 
-Step:
-	number=QualifiedNumber action=STRING(error=RaiseError)?;
+	Exception:
+		type=[ExceptionDecleration];
 
-RaiseError:
-	'.' ('Raise'|'On' 'error' 'raise') exception=Exception;
-
-Exception:
-	type=[ExceptionDecleration];
-
-Description:
-	'description:' name=STRING;
-
-Notes:
-	('notes:'|'note:') content=STRING;
-	
-Inputs:
-	('requires:'|'require:'|'requires' 'the' 'following' 'input' ':')
-	(inputs+=Input)*;
-	
-Outputs:
-	('produces:'|'produce:'|'produces' 'the' 'following' 'output' ':')
-	(outputs+=Output)*;
-
-Type:
-    '-' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
-
-ExceptionDecleration: 
-	'-' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;
-
-Optional:
-	'optional';
-    
-Input:
-	(many?='many')? '-' content=STRING (optional=Optional)? ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
-	
-Output:
-	(many?='many')? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
-	
-AllowedUserGroups:
-	'allowed-usergroups:'
-	(groups+=AllowedUserGroup )*;
-  
-AllowedUserGroup:
-	(many?='many')? '-' name=STRING ('as' type=[Type])?;
-  
-QualifiedName:
-    ID ('.' ID)*;
-    
-QualifiedNumber:
-	INT ('.' INT)*'.';
+	ExceptionDecleration: 
+		'-' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;
