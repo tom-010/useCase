@@ -14,7 +14,10 @@ Model:
 		INT ('.' INT)*'.';
 	
 UseCase:
-	'use-case' name=STRING
+	(
+		('use-case') | 
+		('Rezept')
+	) name=STRING
 	(descriptions+=Description)?
 	(allowedUserGroups+=AllowedUserGroups)?
 	(inputs+=Inputs)?
@@ -22,73 +25,104 @@ UseCase:
 	(preconditions=PreConditions)?
 	(steps+=Steps)?
 	(notes+=Notes)?
-	'end' 'of' 'use-case';
+	(
+		('end' 'of' 'use-case') |
+		('Ende' 'des' 'Rezpets')
+	);
 
 	Description:
-		'description:' name=STRING;
+		(
+			('description:') |
+			('Kurzbeschreibung:') |
+			('Beschreibung')
+		) name=STRING;
 		
 		
 	AllowedUserGroups:
-		'allowed-usergroups:'
+		(
+			('allowed-usergroups:') |
+			('Erlaubt' 'für:')
+		)
 		(groups+=AllowedUserGroup )*;
 	  
 	AllowedUserGroup:
 		(many?='many')? '-' name=STRING ('as' type=[Type])?;
 	
 	Inputs:
-		('requires:'|'require:'|'requires' 'the' 'following' 'input' ':')
+		(
+			('requires:'|'require:'|'requires' 'the' 'following' 'input' ':') |
+			('Benötigte' 'Zutaten' ':')
+		)
 		(inputs+=Input)*;
 		
 	Input:
-		(many?='many')? '-' content=STRING (optional=Optional)? ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
+		(many?='many')? '-' (optional=Optional)? content=STRING 
+			(('as' | 'als') type=[Type])? 
+			('(' ('e.g' | 'z.B.') example=STRING ')')?;
 	
 	Outputs:
-		('produces:'|'produce:'|'produces' 'the' 'following' 'output' ':')
+		(
+			('produces:'|'produce:'|'produces' 'the' 'following' 'output' ':') |
+			('Ergebnis:')
+		)
 		(outputs+=Output)*;
 	
 	Output:
-		(many?='many')? '-' content=STRING ('as' type=[Type])? ('(' 'e.g' example=STRING ')')?;
+		(many?='many')? '-' content=STRING (('as'|'als') type=[Type])? ('(' ('e.g'|'z.B.') example=STRING ')')?;
 		
 	Optional:
 		'optional';
     
 	
 	PreConditions:
-		('pre-condition:'|'pre-conditions:')
+		(
+			('pre-condition:'|'pre-conditions:') |
+			('Vorbedingungen:')
+		)
 		(conditions+=Condition)*;
 	
 	Condition:
 		'-' content=STRING;
 	
 	Steps:
-		'steps:'
-			(steps+=Step)*;
+		(
+			('steps:') | 
+			('Schritte:')
+		) (steps+=Step)*;
 	Step:
 		number=QualifiedNumber action=STRING(error=RaiseError)?;
 	
 	RaiseError:
-		'.' ('Raise'|'On' 'error' 'raise') exception=Exception;
+		('.'|':') (
+				('Raise' ('error')? | 'On' 'error' 'raise' ) |
+				('Melde' ('Fehler')?| 'Bei' 'Fehler' 'melde' )
+			) exception=Exception;
 	
 	
 	Notes:
-		('notes:'|'note:') content=STRING;
+		(
+			('notes:'|'note:') |
+			('Anmerkungen:'|'Anmerkung:')
+		) content=STRING;
 
 
 UsedTypes: 
-	'used' 'types:'
-		(types+=Type)*;
+	(
+		('used' 'types:') | 
+		('Genutzte' 'Typen:')
+	) (types+=Type)*;
 
 	Type:
 	    '-' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
 
 UsedExceptions:
-	'used' 'errors:'
-		(exceptions+=ExceptionDecleration)*;
-
+	(
+		('used' 'errors:') |
+		('Genutzte' 'Fehler:')
+	) (exceptions+=ExceptionDecleration)*;
 
 	Exception:
 		type=[ExceptionDecleration];
-
 
 	ExceptionDecleration: 
 		'-' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;

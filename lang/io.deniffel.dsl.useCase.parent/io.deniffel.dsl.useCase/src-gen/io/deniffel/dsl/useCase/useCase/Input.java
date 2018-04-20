@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#isMany <em>Many</em>}</li>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getContent <em>Content</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getOptional <em>Optional</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getContent <em>Content</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getType <em>Type</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Input#getExample <em>Example</em>}</li>
  * </ul>
@@ -54,32 +54,6 @@ public interface Input extends EObject
   void setMany(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Content</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Content</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Content</em>' attribute.
-   * @see #setContent(String)
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getInput_Content()
-   * @model
-   * @generated
-   */
-  String getContent();
-
-  /**
-   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Input#getContent <em>Content</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Content</em>' attribute.
-   * @see #getContent()
-   * @generated
-   */
-  void setContent(String value);
-
-  /**
    * Returns the value of the '<em><b>Optional</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -104,6 +78,32 @@ public interface Input extends EObject
    * @generated
    */
   void setOptional(String value);
+
+  /**
+   * Returns the value of the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Content</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Content</em>' attribute.
+   * @see #setContent(String)
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getInput_Content()
+   * @model
+   * @generated
+   */
+  String getContent();
+
+  /**
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Input#getContent <em>Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Content</em>' attribute.
+   * @see #getContent()
+   * @generated
+   */
+  void setContent(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' reference.

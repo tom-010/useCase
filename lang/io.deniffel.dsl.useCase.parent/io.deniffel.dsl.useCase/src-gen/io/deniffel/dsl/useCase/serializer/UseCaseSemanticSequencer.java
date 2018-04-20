@@ -210,7 +210,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Input returns Input
 	 *
 	 * Constraint:
-	 *     (many?='many'? content=STRING optional=Optional? type=[Type|ID]? example=STRING?)
+	 *     (many?='many'? optional=Optional? content=STRING type=[Type|ID]? example=STRING?)
 	 */
 	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

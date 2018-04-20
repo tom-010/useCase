@@ -344,22 +344,22 @@ public interface UseCasePackage extends EPackage
   int INPUT__MANY = 0;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INPUT__CONTENT = 1;
-
-  /**
    * The feature id for the '<em><b>Optional</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INPUT__OPTIONAL = 2;
+  int INPUT__OPTIONAL = 1;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__CONTENT = 2;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1103,17 +1103,6 @@ public interface UseCasePackage extends EPackage
   EAttribute getInput_Many();
 
   /**
-   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Input#getContent <em>Content</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Content</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.Input#getContent()
-   * @see #getInput()
-   * @generated
-   */
-  EAttribute getInput_Content();
-
-  /**
    * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Input#getOptional <em>Optional</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1123,6 +1112,17 @@ public interface UseCasePackage extends EPackage
    * @generated
    */
   EAttribute getInput_Optional();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Input#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Input#getContent()
+   * @see #getInput()
+   * @generated
+   */
+  EAttribute getInput_Content();
 
   /**
    * Returns the meta object for the reference '{@link io.deniffel.dsl.useCase.useCase.Input#getType <em>Type</em>}'.
@@ -1756,20 +1756,20 @@ public interface UseCasePackage extends EPackage
     EAttribute INPUT__MANY = eINSTANCE.getInput_Many();
 
     /**
-     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INPUT__CONTENT = eINSTANCE.getInput_Content();
-
-    /**
      * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute INPUT__OPTIONAL = eINSTANCE.getInput_Optional();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INPUT__CONTENT = eINSTANCE.getInput_Content();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.

@@ -237,15 +237,22 @@ ruleUseCase returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='use-case'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getUseCaseAccess().getUseCaseKeyword_0());
-		}
+		(
+			otherlv_0='use-case'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getUseCaseAccess().getUseCaseKeyword_0_0());
+			}
+			    |
+			otherlv_1='Rezept'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getUseCaseAccess().getRezeptKeyword_0_1());
+			}
+		)
 		(
 			(
-				lv_name_1_0=RULE_STRING
+				lv_name_2_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getUseCaseAccess().getNameSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getUseCaseAccess().getNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -254,7 +261,7 @@ ruleUseCase returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_2_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
@@ -264,7 +271,7 @@ ruleUseCase returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getUseCaseAccess().getDescriptionsDescriptionParserRuleCall_2_0());
 				}
-				lv_descriptions_2_0=ruleDescription
+				lv_descriptions_3_0=ruleDescription
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -272,7 +279,7 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"descriptions",
-						lv_descriptions_2_0,
+						lv_descriptions_3_0,
 						"io.deniffel.dsl.useCase.UseCase.Description");
 					afterParserOrEnumRuleCall();
 				}
@@ -283,7 +290,7 @@ ruleUseCase returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getUseCaseAccess().getAllowedUserGroupsAllowedUserGroupsParserRuleCall_3_0());
 				}
-				lv_allowedUserGroups_3_0=ruleAllowedUserGroups
+				lv_allowedUserGroups_4_0=ruleAllowedUserGroups
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -291,7 +298,7 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"allowedUserGroups",
-						lv_allowedUserGroups_3_0,
+						lv_allowedUserGroups_4_0,
 						"io.deniffel.dsl.useCase.UseCase.AllowedUserGroups");
 					afterParserOrEnumRuleCall();
 				}
@@ -302,7 +309,7 @@ ruleUseCase returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getUseCaseAccess().getInputsInputsParserRuleCall_4_0());
 				}
-				lv_inputs_4_0=ruleInputs
+				lv_inputs_5_0=ruleInputs
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -310,7 +317,7 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"inputs",
-						lv_inputs_4_0,
+						lv_inputs_5_0,
 						"io.deniffel.dsl.useCase.UseCase.Inputs");
 					afterParserOrEnumRuleCall();
 				}
@@ -321,7 +328,7 @@ ruleUseCase returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getUseCaseAccess().getOutputsOutputsParserRuleCall_5_0());
 				}
-				lv_outputs_5_0=ruleOutputs
+				lv_outputs_6_0=ruleOutputs
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -329,7 +336,7 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"outputs",
-						lv_outputs_5_0,
+						lv_outputs_6_0,
 						"io.deniffel.dsl.useCase.UseCase.Outputs");
 					afterParserOrEnumRuleCall();
 				}
@@ -340,7 +347,7 @@ ruleUseCase returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getUseCaseAccess().getPreconditionsPreConditionsParserRuleCall_6_0());
 				}
-				lv_preconditions_6_0=rulePreConditions
+				lv_preconditions_7_0=rulePreConditions
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -348,7 +355,7 @@ ruleUseCase returns [EObject current=null]
 					set(
 						$current,
 						"preconditions",
-						lv_preconditions_6_0,
+						lv_preconditions_7_0,
 						"io.deniffel.dsl.useCase.UseCase.PreConditions");
 					afterParserOrEnumRuleCall();
 				}
@@ -359,7 +366,7 @@ ruleUseCase returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getUseCaseAccess().getStepsStepsParserRuleCall_7_0());
 				}
-				lv_steps_7_0=ruleSteps
+				lv_steps_8_0=ruleSteps
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -367,7 +374,7 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"steps",
-						lv_steps_7_0,
+						lv_steps_8_0,
 						"io.deniffel.dsl.useCase.UseCase.Steps");
 					afterParserOrEnumRuleCall();
 				}
@@ -378,7 +385,7 @@ ruleUseCase returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getUseCaseAccess().getNotesNotesParserRuleCall_8_0());
 				}
-				lv_notes_8_0=ruleNotes
+				lv_notes_9_0=ruleNotes
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -386,24 +393,43 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"notes",
-						lv_notes_8_0,
+						lv_notes_9_0,
 						"io.deniffel.dsl.useCase.UseCase.Notes");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_9='end'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getUseCaseAccess().getEndKeyword_9());
-		}
-		otherlv_10='of'
-		{
-			newLeafNode(otherlv_10, grammarAccess.getUseCaseAccess().getOfKeyword_10());
-		}
-		otherlv_11='use-case'
-		{
-			newLeafNode(otherlv_11, grammarAccess.getUseCaseAccess().getUseCaseKeyword_11());
-		}
+		(
+			(
+				otherlv_10='end'
+				{
+					newLeafNode(otherlv_10, grammarAccess.getUseCaseAccess().getEndKeyword_9_0_0());
+				}
+				otherlv_11='of'
+				{
+					newLeafNode(otherlv_11, grammarAccess.getUseCaseAccess().getOfKeyword_9_0_1());
+				}
+				otherlv_12='use-case'
+				{
+					newLeafNode(otherlv_12, grammarAccess.getUseCaseAccess().getUseCaseKeyword_9_0_2());
+				}
+			)
+			    |
+			(
+				otherlv_13='Ende'
+				{
+					newLeafNode(otherlv_13, grammarAccess.getUseCaseAccess().getEndeKeyword_9_1_0());
+				}
+				otherlv_14='des'
+				{
+					newLeafNode(otherlv_14, grammarAccess.getUseCaseAccess().getDesKeyword_9_1_1());
+				}
+				otherlv_15='Rezpets'
+				{
+					newLeafNode(otherlv_15, grammarAccess.getUseCaseAccess().getRezpetsKeyword_9_1_2());
+				}
+			)
+		)
 	)
 ;
 
@@ -423,15 +449,27 @@ ruleDescription returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='description:'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getDescriptionAccess().getDescriptionKeyword_0());
-		}
+		(
+			otherlv_0='description:'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getDescriptionAccess().getDescriptionKeyword_0_0());
+			}
+			    |
+			otherlv_1='Kurzbeschreibung:'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getDescriptionAccess().getKurzbeschreibungKeyword_0_1());
+			}
+			    |
+			otherlv_2='Beschreibung'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getDescriptionAccess().getBeschreibungKeyword_0_2());
+			}
+		)
 		(
 			(
-				lv_name_1_0=RULE_STRING
+				lv_name_3_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getDescriptionAccess().getNameSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_name_3_0, grammarAccess.getDescriptionAccess().getNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -440,7 +478,7 @@ ruleDescription returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_3_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
@@ -464,16 +502,29 @@ ruleAllowedUserGroups returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='allowed-usergroups:'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getAllowedUserGroupsAccess().getAllowedUsergroupsKeyword_0());
-		}
+		(
+			otherlv_0='allowed-usergroups:'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getAllowedUserGroupsAccess().getAllowedUsergroupsKeyword_0_0());
+			}
+			    |
+			(
+				otherlv_1='Erlaubt'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getAllowedUserGroupsAccess().getErlaubtKeyword_0_1_0());
+				}
+				otherlv_2='f\u00FCr:'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getAllowedUserGroupsAccess().getFürKeyword_0_1_1());
+				}
+			)
+		)
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getAllowedUserGroupsAccess().getGroupsAllowedUserGroupParserRuleCall_1_0());
 				}
-				lv_groups_1_0=ruleAllowedUserGroup
+				lv_groups_3_0=ruleAllowedUserGroup
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAllowedUserGroupsRule());
@@ -481,7 +532,7 @@ ruleAllowedUserGroups returns [EObject current=null]
 					add(
 						$current,
 						"groups",
-						lv_groups_1_0,
+						lv_groups_3_0,
 						"io.deniffel.dsl.useCase.UseCase.AllowedUserGroup");
 					afterParserOrEnumRuleCall();
 				}
@@ -581,36 +632,53 @@ ruleInputs returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='requires:'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getInputsAccess().getRequiresKeyword_0_0());
-			}
-			    |
-			otherlv_1='require:'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getInputsAccess().getRequireKeyword_0_1());
-			}
+			(
+				otherlv_0='requires:'
+				{
+					newLeafNode(otherlv_0, grammarAccess.getInputsAccess().getRequiresKeyword_0_0_0());
+				}
+				    |
+				otherlv_1='require:'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getInputsAccess().getRequireKeyword_0_0_1());
+				}
+				    |
+				(
+					otherlv_2='requires'
+					{
+						newLeafNode(otherlv_2, grammarAccess.getInputsAccess().getRequiresKeyword_0_0_2_0());
+					}
+					otherlv_3='the'
+					{
+						newLeafNode(otherlv_3, grammarAccess.getInputsAccess().getTheKeyword_0_0_2_1());
+					}
+					otherlv_4='following'
+					{
+						newLeafNode(otherlv_4, grammarAccess.getInputsAccess().getFollowingKeyword_0_0_2_2());
+					}
+					otherlv_5='input'
+					{
+						newLeafNode(otherlv_5, grammarAccess.getInputsAccess().getInputKeyword_0_0_2_3());
+					}
+					otherlv_6=':'
+					{
+						newLeafNode(otherlv_6, grammarAccess.getInputsAccess().getColonKeyword_0_0_2_4());
+					}
+				)
+			)
 			    |
 			(
-				otherlv_2='requires'
+				otherlv_7='Ben\u00F6tigte'
 				{
-					newLeafNode(otherlv_2, grammarAccess.getInputsAccess().getRequiresKeyword_0_2_0());
+					newLeafNode(otherlv_7, grammarAccess.getInputsAccess().getBenötigteKeyword_0_1_0());
 				}
-				otherlv_3='the'
+				otherlv_8='Zutaten'
 				{
-					newLeafNode(otherlv_3, grammarAccess.getInputsAccess().getTheKeyword_0_2_1());
+					newLeafNode(otherlv_8, grammarAccess.getInputsAccess().getZutatenKeyword_0_1_1());
 				}
-				otherlv_4='following'
+				otherlv_9=':'
 				{
-					newLeafNode(otherlv_4, grammarAccess.getInputsAccess().getFollowingKeyword_0_2_2());
-				}
-				otherlv_5='input'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getInputsAccess().getInputKeyword_0_2_3());
-				}
-				otherlv_6=':'
-				{
-					newLeafNode(otherlv_6, grammarAccess.getInputsAccess().getColonKeyword_0_2_4());
+					newLeafNode(otherlv_9, grammarAccess.getInputsAccess().getColonKeyword_0_1_2());
 				}
 			)
 		)
@@ -619,7 +687,7 @@ ruleInputs returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getInputsAccess().getInputsInputParserRuleCall_1_0());
 				}
-				lv_inputs_7_0=ruleInput
+				lv_inputs_10_0=ruleInput
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getInputsRule());
@@ -627,7 +695,7 @@ ruleInputs returns [EObject current=null]
 					add(
 						$current,
 						"inputs",
-						lv_inputs_7_0,
+						lv_inputs_10_0,
 						"io.deniffel.dsl.useCase.UseCase.Input");
 					afterParserOrEnumRuleCall();
 				}
@@ -672,9 +740,28 @@ ruleInput returns [EObject current=null]
 		}
 		(
 			(
-				lv_content_2_0=RULE_STRING
 				{
-					newLeafNode(lv_content_2_0, grammarAccess.getInputAccess().getContentSTRINGTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getInputAccess().getOptionalOptionalParserRuleCall_2_0());
+				}
+				lv_optional_2_0=ruleOptional
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInputRule());
+					}
+					set(
+						$current,
+						"optional",
+						lv_optional_2_0,
+						"io.deniffel.dsl.useCase.UseCase.Optional");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				lv_content_3_0=RULE_STRING
+				{
+					newLeafNode(lv_content_3_0, grammarAccess.getInputAccess().getContentSTRINGTerminalRuleCall_3_0());
 				}
 				{
 					if ($current==null) {
@@ -683,35 +770,23 @@ ruleInput returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"content",
-						lv_content_2_0,
+						lv_content_3_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
 		(
 			(
+				otherlv_4='as'
 				{
-					newCompositeNode(grammarAccess.getInputAccess().getOptionalOptionalParserRuleCall_3_0());
+					newLeafNode(otherlv_4, grammarAccess.getInputAccess().getAsKeyword_4_0_0());
 				}
-				lv_optional_3_0=ruleOptional
+				    |
+				otherlv_5='als'
 				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getInputRule());
-					}
-					set(
-						$current,
-						"optional",
-						lv_optional_3_0,
-						"io.deniffel.dsl.useCase.UseCase.Optional");
-					afterParserOrEnumRuleCall();
+					newLeafNode(otherlv_5, grammarAccess.getInputAccess().getAlsKeyword_4_0_1());
 				}
 			)
-		)?
-		(
-			otherlv_4='as'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getInputAccess().getAsKeyword_4_0());
-			}
 			(
 				(
 					{
@@ -719,27 +794,34 @@ ruleInput returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getInputRule());
 						}
 					}
-					otherlv_5=RULE_ID
+					otherlv_6=RULE_ID
 					{
-						newLeafNode(otherlv_5, grammarAccess.getInputAccess().getTypeTypeCrossReference_4_1_0());
+						newLeafNode(otherlv_6, grammarAccess.getInputAccess().getTypeTypeCrossReference_4_1_0());
 					}
 				)
 			)
 		)?
 		(
-			otherlv_6='('
+			otherlv_7='('
 			{
-				newLeafNode(otherlv_6, grammarAccess.getInputAccess().getLeftParenthesisKeyword_5_0());
-			}
-			otherlv_7='e.g'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getInputAccess().getEGKeyword_5_1());
+				newLeafNode(otherlv_7, grammarAccess.getInputAccess().getLeftParenthesisKeyword_5_0());
 			}
 			(
+				otherlv_8='e.g'
+				{
+					newLeafNode(otherlv_8, grammarAccess.getInputAccess().getEGKeyword_5_1_0());
+				}
+				    |
+				otherlv_9='z.B.'
+				{
+					newLeafNode(otherlv_9, grammarAccess.getInputAccess().getZBKeyword_5_1_1());
+				}
+			)
+			(
 				(
-					lv_example_8_0=RULE_STRING
+					lv_example_10_0=RULE_STRING
 					{
-						newLeafNode(lv_example_8_0, grammarAccess.getInputAccess().getExampleSTRINGTerminalRuleCall_5_2_0());
+						newLeafNode(lv_example_10_0, grammarAccess.getInputAccess().getExampleSTRINGTerminalRuleCall_5_2_0());
 					}
 					{
 						if ($current==null) {
@@ -748,14 +830,14 @@ ruleInput returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"example",
-							lv_example_8_0,
+							lv_example_10_0,
 							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
-			otherlv_9=')'
+			otherlv_11=')'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getInputAccess().getRightParenthesisKeyword_5_3());
+				newLeafNode(otherlv_11, grammarAccess.getInputAccess().getRightParenthesisKeyword_5_3());
 			}
 		)?
 	)
@@ -778,45 +860,52 @@ ruleOutputs returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='produces:'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getOutputsAccess().getProducesKeyword_0_0());
-			}
-			    |
-			otherlv_1='produce:'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getOutputsAccess().getProduceKeyword_0_1());
-			}
-			    |
 			(
-				otherlv_2='produces'
+				otherlv_0='produces:'
 				{
-					newLeafNode(otherlv_2, grammarAccess.getOutputsAccess().getProducesKeyword_0_2_0());
+					newLeafNode(otherlv_0, grammarAccess.getOutputsAccess().getProducesKeyword_0_0_0());
 				}
-				otherlv_3='the'
+				    |
+				otherlv_1='produce:'
 				{
-					newLeafNode(otherlv_3, grammarAccess.getOutputsAccess().getTheKeyword_0_2_1());
+					newLeafNode(otherlv_1, grammarAccess.getOutputsAccess().getProduceKeyword_0_0_1());
 				}
-				otherlv_4='following'
-				{
-					newLeafNode(otherlv_4, grammarAccess.getOutputsAccess().getFollowingKeyword_0_2_2());
-				}
-				otherlv_5='output'
-				{
-					newLeafNode(otherlv_5, grammarAccess.getOutputsAccess().getOutputKeyword_0_2_3());
-				}
-				otherlv_6=':'
-				{
-					newLeafNode(otherlv_6, grammarAccess.getOutputsAccess().getColonKeyword_0_2_4());
-				}
+				    |
+				(
+					otherlv_2='produces'
+					{
+						newLeafNode(otherlv_2, grammarAccess.getOutputsAccess().getProducesKeyword_0_0_2_0());
+					}
+					otherlv_3='the'
+					{
+						newLeafNode(otherlv_3, grammarAccess.getOutputsAccess().getTheKeyword_0_0_2_1());
+					}
+					otherlv_4='following'
+					{
+						newLeafNode(otherlv_4, grammarAccess.getOutputsAccess().getFollowingKeyword_0_0_2_2());
+					}
+					otherlv_5='output'
+					{
+						newLeafNode(otherlv_5, grammarAccess.getOutputsAccess().getOutputKeyword_0_0_2_3());
+					}
+					otherlv_6=':'
+					{
+						newLeafNode(otherlv_6, grammarAccess.getOutputsAccess().getColonKeyword_0_0_2_4());
+					}
+				)
 			)
+			    |
+			otherlv_7='Ergebnis:'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getOutputsAccess().getErgebnisKeyword_0_1());
+			}
 		)
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getOutputsAccess().getOutputsOutputParserRuleCall_1_0());
 				}
-				lv_outputs_7_0=ruleOutput
+				lv_outputs_8_0=ruleOutput
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getOutputsRule());
@@ -824,7 +913,7 @@ ruleOutputs returns [EObject current=null]
 					add(
 						$current,
 						"outputs",
-						lv_outputs_7_0,
+						lv_outputs_8_0,
 						"io.deniffel.dsl.useCase.UseCase.Output");
 					afterParserOrEnumRuleCall();
 				}
@@ -886,10 +975,17 @@ ruleOutput returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_3='as'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getOutputAccess().getAsKeyword_3_0());
-			}
+			(
+				otherlv_3='as'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getOutputAccess().getAsKeyword_3_0_0());
+				}
+				    |
+				otherlv_4='als'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getOutputAccess().getAlsKeyword_3_0_1());
+				}
+			)
 			(
 				(
 					{
@@ -897,27 +993,34 @@ ruleOutput returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getOutputRule());
 						}
 					}
-					otherlv_4=RULE_ID
+					otherlv_5=RULE_ID
 					{
-						newLeafNode(otherlv_4, grammarAccess.getOutputAccess().getTypeTypeCrossReference_3_1_0());
+						newLeafNode(otherlv_5, grammarAccess.getOutputAccess().getTypeTypeCrossReference_3_1_0());
 					}
 				)
 			)
 		)?
 		(
-			otherlv_5='('
+			otherlv_6='('
 			{
-				newLeafNode(otherlv_5, grammarAccess.getOutputAccess().getLeftParenthesisKeyword_4_0());
-			}
-			otherlv_6='e.g'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getOutputAccess().getEGKeyword_4_1());
+				newLeafNode(otherlv_6, grammarAccess.getOutputAccess().getLeftParenthesisKeyword_4_0());
 			}
 			(
+				otherlv_7='e.g'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getOutputAccess().getEGKeyword_4_1_0());
+				}
+				    |
+				otherlv_8='z.B.'
+				{
+					newLeafNode(otherlv_8, grammarAccess.getOutputAccess().getZBKeyword_4_1_1());
+				}
+			)
+			(
 				(
-					lv_example_7_0=RULE_STRING
+					lv_example_9_0=RULE_STRING
 					{
-						newLeafNode(lv_example_7_0, grammarAccess.getOutputAccess().getExampleSTRINGTerminalRuleCall_4_2_0());
+						newLeafNode(lv_example_9_0, grammarAccess.getOutputAccess().getExampleSTRINGTerminalRuleCall_4_2_0());
 					}
 					{
 						if ($current==null) {
@@ -926,14 +1029,14 @@ ruleOutput returns [EObject current=null]
 						setWithLastConsumed(
 							$current,
 							"example",
-							lv_example_7_0,
+							lv_example_9_0,
 							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
-			otherlv_8=')'
+			otherlv_10=')'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getOutputAccess().getRightParenthesisKeyword_4_3());
+				newLeafNode(otherlv_10, grammarAccess.getOutputAccess().getRightParenthesisKeyword_4_3());
 			}
 		)?
 	)
@@ -978,14 +1081,21 @@ rulePreConditions returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='pre-condition:'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getPreConditionsAccess().getPreConditionKeyword_0_0());
-			}
+			(
+				otherlv_0='pre-condition:'
+				{
+					newLeafNode(otherlv_0, grammarAccess.getPreConditionsAccess().getPreConditionKeyword_0_0_0());
+				}
+				    |
+				otherlv_1='pre-conditions:'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getPreConditionsAccess().getPreConditionsKeyword_0_0_1());
+				}
+			)
 			    |
-			otherlv_1='pre-conditions:'
+			otherlv_2='Vorbedingungen:'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getPreConditionsAccess().getPreConditionsKeyword_0_1());
+				newLeafNode(otherlv_2, grammarAccess.getPreConditionsAccess().getVorbedingungenKeyword_0_1());
 			}
 		)
 		(
@@ -993,7 +1103,7 @@ rulePreConditions returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getPreConditionsAccess().getConditionsConditionParserRuleCall_1_0());
 				}
-				lv_conditions_2_0=ruleCondition
+				lv_conditions_3_0=ruleCondition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPreConditionsRule());
@@ -1001,7 +1111,7 @@ rulePreConditions returns [EObject current=null]
 					add(
 						$current,
 						"conditions",
-						lv_conditions_2_0,
+						lv_conditions_3_0,
 						"io.deniffel.dsl.useCase.UseCase.Condition");
 					afterParserOrEnumRuleCall();
 				}
@@ -1067,16 +1177,23 @@ ruleSteps returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='steps:'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getStepsAccess().getStepsKeyword_0());
-		}
+		(
+			otherlv_0='steps:'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getStepsAccess().getStepsKeyword_0_0());
+			}
+			    |
+			otherlv_1='Schritte:'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getStepsAccess().getSchritteKeyword_0_1());
+			}
+		)
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getStepsAccess().getStepsStepParserRuleCall_1_0());
 				}
-				lv_steps_1_0=ruleStep
+				lv_steps_2_0=ruleStep
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getStepsRule());
@@ -1084,7 +1201,7 @@ ruleSteps returns [EObject current=null]
 					add(
 						$current,
 						"steps",
-						lv_steps_1_0,
+						lv_steps_2_0,
 						"io.deniffel.dsl.useCase.UseCase.Step");
 					afterParserOrEnumRuleCall();
 				}
@@ -1184,29 +1301,76 @@ ruleRaiseError returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='.'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getRaiseErrorAccess().getFullStopKeyword_0());
-		}
 		(
-			otherlv_1='Raise'
+			otherlv_0='.'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_0());
+				newLeafNode(otherlv_0, grammarAccess.getRaiseErrorAccess().getFullStopKeyword_0_0());
 			}
 			    |
+			otherlv_1=':'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getRaiseErrorAccess().getColonKeyword_0_1());
+			}
+		)
+		(
 			(
-				otherlv_2='On'
-				{
-					newLeafNode(otherlv_2, grammarAccess.getRaiseErrorAccess().getOnKeyword_1_1_0());
-				}
-				otherlv_3='error'
-				{
-					newLeafNode(otherlv_3, grammarAccess.getRaiseErrorAccess().getErrorKeyword_1_1_1());
-				}
-				otherlv_4='raise'
-				{
-					newLeafNode(otherlv_4, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_1_2());
-				}
+				(
+					otherlv_2='Raise'
+					{
+						newLeafNode(otherlv_2, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_0_0_0());
+					}
+					(
+						otherlv_3='error'
+						{
+							newLeafNode(otherlv_3, grammarAccess.getRaiseErrorAccess().getErrorKeyword_1_0_0_1());
+						}
+					)?
+				)
+				    |
+				(
+					otherlv_4='On'
+					{
+						newLeafNode(otherlv_4, grammarAccess.getRaiseErrorAccess().getOnKeyword_1_0_1_0());
+					}
+					otherlv_5='error'
+					{
+						newLeafNode(otherlv_5, grammarAccess.getRaiseErrorAccess().getErrorKeyword_1_0_1_1());
+					}
+					otherlv_6='raise'
+					{
+						newLeafNode(otherlv_6, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_1_0_1_2());
+					}
+				)
+			)
+			    |
+			(
+				(
+					otherlv_7='Melde'
+					{
+						newLeafNode(otherlv_7, grammarAccess.getRaiseErrorAccess().getMeldeKeyword_1_1_0_0());
+					}
+					(
+						otherlv_8='Fehler'
+						{
+							newLeafNode(otherlv_8, grammarAccess.getRaiseErrorAccess().getFehlerKeyword_1_1_0_1());
+						}
+					)?
+				)
+				    |
+				(
+					otherlv_9='Bei'
+					{
+						newLeafNode(otherlv_9, grammarAccess.getRaiseErrorAccess().getBeiKeyword_1_1_1_0());
+					}
+					otherlv_10='Fehler'
+					{
+						newLeafNode(otherlv_10, grammarAccess.getRaiseErrorAccess().getFehlerKeyword_1_1_1_1());
+					}
+					otherlv_11='melde'
+					{
+						newLeafNode(otherlv_11, grammarAccess.getRaiseErrorAccess().getMeldeKeyword_1_1_1_2());
+					}
+				)
 			)
 		)
 		(
@@ -1214,7 +1378,7 @@ ruleRaiseError returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getRaiseErrorAccess().getExceptionExceptionParserRuleCall_2_0());
 				}
-				lv_exception_5_0=ruleException
+				lv_exception_12_0=ruleException
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRaiseErrorRule());
@@ -1222,7 +1386,7 @@ ruleRaiseError returns [EObject current=null]
 					set(
 						$current,
 						"exception",
-						lv_exception_5_0,
+						lv_exception_12_0,
 						"io.deniffel.dsl.useCase.UseCase.Exception");
 					afterParserOrEnumRuleCall();
 				}
@@ -1248,21 +1412,35 @@ ruleNotes returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='notes:'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getNotesAccess().getNotesKeyword_0_0());
-			}
+			(
+				otherlv_0='notes:'
+				{
+					newLeafNode(otherlv_0, grammarAccess.getNotesAccess().getNotesKeyword_0_0_0());
+				}
+				    |
+				otherlv_1='note:'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getNotesAccess().getNoteKeyword_0_0_1());
+				}
+			)
 			    |
-			otherlv_1='note:'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getNotesAccess().getNoteKeyword_0_1());
-			}
+			(
+				otherlv_2='Anmerkungen:'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getNotesAccess().getAnmerkungenKeyword_0_1_0());
+				}
+				    |
+				otherlv_3='Anmerkung:'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getNotesAccess().getAnmerkungKeyword_0_1_1());
+				}
+			)
 		)
 		(
 			(
-				lv_content_2_0=RULE_STRING
+				lv_content_4_0=RULE_STRING
 				{
-					newLeafNode(lv_content_2_0, grammarAccess.getNotesAccess().getContentSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_content_4_0, grammarAccess.getNotesAccess().getContentSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -1271,7 +1449,7 @@ ruleNotes returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"content",
-						lv_content_2_0,
+						lv_content_4_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
@@ -1295,20 +1473,35 @@ ruleUsedTypes returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='used'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getUsedTypesAccess().getUsedKeyword_0());
-		}
-		otherlv_1='types:'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getUsedTypesAccess().getTypesKeyword_1());
-		}
+		(
+			(
+				otherlv_0='used'
+				{
+					newLeafNode(otherlv_0, grammarAccess.getUsedTypesAccess().getUsedKeyword_0_0_0());
+				}
+				otherlv_1='types:'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getUsedTypesAccess().getTypesKeyword_0_0_1());
+				}
+			)
+			    |
+			(
+				otherlv_2='Genutzte'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getUsedTypesAccess().getGenutzteKeyword_0_1_0());
+				}
+				otherlv_3='Typen:'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getUsedTypesAccess().getTypenKeyword_0_1_1());
+				}
+			)
+		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUsedTypesAccess().getTypesTypeParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getUsedTypesAccess().getTypesTypeParserRuleCall_1_0());
 				}
-				lv_types_2_0=ruleType
+				lv_types_4_0=ruleType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUsedTypesRule());
@@ -1316,7 +1509,7 @@ ruleUsedTypes returns [EObject current=null]
 					add(
 						$current,
 						"types",
-						lv_types_2_0,
+						lv_types_4_0,
 						"io.deniffel.dsl.useCase.UseCase.Type");
 					afterParserOrEnumRuleCall();
 				}
@@ -1437,20 +1630,35 @@ ruleUsedExceptions returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='used'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getUsedExceptionsAccess().getUsedKeyword_0());
-		}
-		otherlv_1='errors:'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getUsedExceptionsAccess().getErrorsKeyword_1());
-		}
+		(
+			(
+				otherlv_0='used'
+				{
+					newLeafNode(otherlv_0, grammarAccess.getUsedExceptionsAccess().getUsedKeyword_0_0_0());
+				}
+				otherlv_1='errors:'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getUsedExceptionsAccess().getErrorsKeyword_0_0_1());
+				}
+			)
+			    |
+			(
+				otherlv_2='Genutzte'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getUsedExceptionsAccess().getGenutzteKeyword_0_1_0());
+				}
+				otherlv_3='Fehler:'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getUsedExceptionsAccess().getFehlerKeyword_0_1_1());
+				}
+			)
+		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUsedExceptionsAccess().getExceptionsExceptionDeclerationParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getUsedExceptionsAccess().getExceptionsExceptionDeclerationParserRuleCall_1_0());
 				}
-				lv_exceptions_2_0=ruleExceptionDecleration
+				lv_exceptions_4_0=ruleExceptionDecleration
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUsedExceptionsRule());
@@ -1458,7 +1666,7 @@ ruleUsedExceptions returns [EObject current=null]
 					add(
 						$current,
 						"exceptions",
-						lv_exceptions_2_0,
+						lv_exceptions_4_0,
 						"io.deniffel.dsl.useCase.UseCase.ExceptionDecleration");
 					afterParserOrEnumRuleCall();
 				}
