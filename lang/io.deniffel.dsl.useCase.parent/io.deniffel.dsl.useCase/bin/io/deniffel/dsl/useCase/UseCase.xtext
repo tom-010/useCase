@@ -109,7 +109,10 @@ UseCase:
 		);
 	
 	RaiseErrorConditional:
-		('.'|':') ('On' 'error' 'raise' | 'Bei' 'Fehler' 'melde' ) exception=Exception;
+		('.'|':') (
+			'On' 'error' 'raise' | 
+			'Bei' 'Fehler' 'melde' 
+		) exception=Exception;
 	
 	RaiseErrorNow:
 		('Raise' ('error')? | 'Melde' ('Fehler')?) exception=Exception;

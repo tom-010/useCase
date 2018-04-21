@@ -206,26 +206,68 @@ class UseCaseGenerator extends AbstractGenerator {
 	'''
 	
 	def steps(UseCase usecase)'''
-		«FOR step : usecase.steps»
-			«step.compile()»
+		«FOR steps : usecase.steps»
+			«steps.compile()»
 		«ENDFOR»
 	'''
 	
-	def compile(Steps steps) '''
+	int lastStepPoints = 1
+	def compile(Steps steps)'''
+		«steps.compilePre»
+		«steps.compileCalls»
+		«steps.compilePost»
+	'''
+
+	
+	def compilePre(Steps steps)'''
 		default Output steps() {
 			ErrorMessages errors = checkPreconditions();
 			if(errors.size() > 0) 
-				return new Output(errors); 
+				return new Output(errors);
 				
-			«FOR s:steps.steps»
-				«s.compile()»;
-			«ENDFOR»
-			return getOutput();
-		}
 	'''
 	
-	def compile(Step step) '''
-		«IF step.exception !== null»«step.exception.throwNow()»«ELSE»«methodNaming.convert(step.action)»()«ENDIF»'''
+	def compileCalls(Steps steps) '''
+		«FOR s : steps.steps»
+			«s.compile()»
+		«ENDFOR»'''
+		
+	def compilePost(Steps steps)'''
+		«»
+			return getOutput();
+		}
+		'''
+	
+	def points(Step s) {
+		return s.number.length() - s.number.replace(".", "").length();
+	}
+	
+	
+
+	def compile(Step step){
+		val close = (step.points < lastStepPoints);
+		lastStepPoints = step.points
+		
+		'''
+		«IF close»
+			}
+			«»
+		«ENDIF»
+			«step.call»
+		'''
+	}
+	
+	def call(Step step)'''
+	«IF step.exception !== null»
+		«step.exception.throwNow()»
+	«ELSEIF step.condition !== null»
+		if(«methodNaming.convert(step.condition.condition.name)»()) {
+	«ELSEIF step.loop !== null»
+		while(«methodNaming.convert(step.loop.condition.name)»()) {
+	«ELSE»
+		«methodNaming.convert(step.action)»()
+	«ENDIF»
+	'''
 	
 	def throwNow(RaiseErrorNow e)'''
 		throw new «this.classNamingStrategy.convert(e.exception.type.name)»("«e.exception.type.message»");'''

@@ -7,8 +7,10 @@ import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
+import io.deniffel.dsl.useCase.useCase.IfStatement;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
@@ -510,8 +512,8 @@ public class UseCaseGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     {
       EList<Steps> _steps = usecase.getSteps();
-      for(final Steps step : _steps) {
-        CharSequence _compile = this.compile(step);
+      for(final Steps steps : _steps) {
+        CharSequence _compile = this.compile(steps);
         _builder.append(_compile);
         _builder.newLineIfNotEmpty();
       }
@@ -519,7 +521,23 @@ public class UseCaseGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  private int lastStepPoints = 1;
+  
   public CharSequence compile(final Steps steps) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compilePre = this.compilePre(steps);
+    _builder.append(_compilePre);
+    _builder.newLineIfNotEmpty();
+    CharSequence _compileCalls = this.compileCalls(steps);
+    _builder.append(_compileCalls);
+    _builder.newLineIfNotEmpty();
+    CharSequence _compilePost = this.compilePost(steps);
+    _builder.append(_compilePost);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compilePre(final Steps steps) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("default Output steps() {");
     _builder.newLine();
@@ -530,20 +548,30 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append("if(errors.size() > 0) ");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("return new Output(errors); ");
+    _builder.append("return new Output(errors);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compileCalls(final Steps steps) {
+    StringConcatenation _builder = new StringConcatenation();
     {
       EList<Step> _steps = steps.getSteps();
       for(final Step s : _steps) {
-        _builder.append("\t");
         CharSequence _compile = this.compile(s);
-        _builder.append(_compile, "\t");
-        _builder.append(";");
+        _builder.append(_compile);
         _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
       }
     }
+    return _builder;
+  }
+  
+  public CharSequence compilePost(final Steps steps) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("return getOutput();");
     _builder.newLine();
@@ -552,7 +580,36 @@ public class UseCaseGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  public int points(final Step s) {
+    int _length = s.getNumber().length();
+    int _length_1 = s.getNumber().replace(".", "").length();
+    return (_length - _length_1);
+  }
+  
   public CharSequence compile(final Step step) {
+    CharSequence _xblockexpression = null;
+    {
+      int _points = this.points(step);
+      final boolean close = (_points < this.lastStepPoints);
+      this.lastStepPoints = this.points(step);
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        if (close) {
+          _builder.append("}");
+          _builder.newLine();
+          _builder.newLine();
+        }
+      }
+      _builder.append("\t");
+      CharSequence _call = this.call(step);
+      _builder.append(_call, "\t");
+      _builder.newLineIfNotEmpty();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  public CharSequence call(final Step step) {
     StringConcatenation _builder = new StringConcatenation();
     {
       RaiseErrorNow _exception = step.getException();
@@ -560,10 +617,32 @@ public class UseCaseGenerator extends AbstractGenerator {
       if (_tripleNotEquals) {
         CharSequence _throwNow = this.throwNow(step.getException());
         _builder.append(_throwNow);
+        _builder.newLineIfNotEmpty();
       } else {
-        String _convert = this.methodNaming.convert(step.getAction());
-        _builder.append(_convert);
-        _builder.append("()");
+        IfStatement _condition = step.getCondition();
+        boolean _tripleNotEquals_1 = (_condition != null);
+        if (_tripleNotEquals_1) {
+          _builder.append("if(");
+          String _convert = this.methodNaming.convert(step.getCondition().getCondition().getName());
+          _builder.append(_convert);
+          _builder.append("()) {");
+          _builder.newLineIfNotEmpty();
+        } else {
+          Loop _loop = step.getLoop();
+          boolean _tripleNotEquals_2 = (_loop != null);
+          if (_tripleNotEquals_2) {
+            _builder.append("while(");
+            String _convert_1 = this.methodNaming.convert(step.getLoop().getCondition().getName());
+            _builder.append(_convert_1);
+            _builder.append("()) {");
+            _builder.newLineIfNotEmpty();
+          } else {
+            String _convert_2 = this.methodNaming.convert(step.getAction());
+            _builder.append(_convert_2);
+            _builder.append("()");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     return _builder;
