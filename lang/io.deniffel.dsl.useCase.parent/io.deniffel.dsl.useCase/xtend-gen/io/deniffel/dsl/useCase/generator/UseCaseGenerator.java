@@ -4,6 +4,7 @@ import com.google.common.collect.Iterables;
 import io.deniffel.dsl.useCase.generator.ClassMemberNamingStrategy;
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
+import io.deniffel.dsl.useCase.useCase.BooleanCondition;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
@@ -62,12 +63,35 @@ public class UseCaseGenerator extends AbstractGenerator {
     String _plus = (_replace + "/");
     String _path = this.path(model.getPackage());
     String _plus_1 = (_plus + _path);
-    String _plus_2 = (_plus_1 + "/");
+    final String dirPath = (_plus_1 + "/");
     String _name = usecase.getName();
-    String _plus_3 = (_plus_2 + _name);
-    String _plus_4 = (_plus_3 + ".java");
-    fsa.generateFile(_plus_4, 
+    String _plus_2 = (("/main/java/" + dirPath) + _name);
+    String _plus_3 = (_plus_2 + ".java");
+    fsa.generateFile(_plus_3, 
       this.createJavaInterface(usecase, model.getCompany(), model.getPackage(), model.getTypes().getTypes(), model.getExceptions()));
+    String _name_1 = usecase.getName();
+    String _plus_4 = (("/main/resources/diagrams/" + dirPath) + _name_1);
+    String _plus_5 = (_plus_4 + ".plantuml");
+    fsa.generateFile(_plus_5, 
+      this.createUseCaseDiagram(usecase, model.getCompany(), model.getPackage(), model.getTypes().getTypes(), model.getExceptions()));
+  }
+  
+  public CharSequence createUseCaseDiagram(final UseCase usecase, final String company, final io.deniffel.dsl.useCase.useCase.Package ucPackage, final EList<Type> types, final UsedExceptions exceptions) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("@startuml");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("User -> (Start)");
+    _builder.newLine();
+    _builder.append("User --> (Use the application) : A small label");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append(":Main Admin: ---> (Use the application) : This is\\nyet another\\nlabel");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("@enduml");
+    _builder.newLine();
+    return _builder;
   }
   
   public String path(final io.deniffel.dsl.useCase.useCase.Package ucPackage) {
@@ -150,6 +174,12 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append("\t");
     CharSequence _stepInterfaceDefinitions = this.stepInterfaceDefinitions(usecase);
     _builder.append(_stepInterfaceDefinitions, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _conditionInterfaceDefinitions = this.conditionInterfaceDefinitions(usecase);
+    _builder.append(_conditionInterfaceDefinitions, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
@@ -525,20 +555,6 @@ public class UseCaseGenerator extends AbstractGenerator {
   
   public CharSequence compile(final Steps steps) {
     StringConcatenation _builder = new StringConcatenation();
-    CharSequence _compilePre = this.compilePre(steps);
-    _builder.append(_compilePre);
-    _builder.newLineIfNotEmpty();
-    CharSequence _compileCalls = this.compileCalls(steps);
-    _builder.append(_compileCalls);
-    _builder.newLineIfNotEmpty();
-    CharSequence _compilePost = this.compilePost(steps);
-    _builder.append(_compilePost);
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  public CharSequence compilePre(final Steps steps) {
-    StringConcatenation _builder = new StringConcatenation();
     _builder.append("default Output steps() {");
     _builder.newLine();
     _builder.append("\t");
@@ -550,27 +566,18 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append("\t\t");
     _builder.append("return new Output(errors);");
     _builder.newLine();
-    _builder.append("\t\t");
+    _builder.append("\t\t\t\t");
     _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence compileCalls(final Steps steps) {
-    StringConcatenation _builder = new StringConcatenation();
     {
       EList<Step> _steps = steps.getSteps();
       for(final Step s : _steps) {
+        _builder.append("\t");
         CharSequence _compile = this.compile(s);
-        _builder.append(_compile);
+        _builder.append(_compile, "\t");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
       }
     }
-    return _builder;
-  }
-  
-  public CharSequence compilePost(final Steps steps) {
-    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("return getOutput();");
@@ -578,12 +585,6 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append("}");
     _builder.newLine();
     return _builder;
-  }
-  
-  public int points(final Step s) {
-    int _length = s.getNumber().length();
-    int _length_1 = s.getNumber().replace(".", "").length();
-    return (_length - _length_1);
   }
   
   public CharSequence compile(final Step step) {
@@ -595,26 +596,35 @@ public class UseCaseGenerator extends AbstractGenerator {
       StringConcatenation _builder = new StringConcatenation();
       {
         if (close) {
+          String _whiteSpacesBefore = this.whiteSpacesBefore(step);
+          _builder.append(_whiteSpacesBefore);
           _builder.append("}");
-          _builder.newLine();
+          _builder.newLineIfNotEmpty();
           _builder.newLine();
         }
       }
-      _builder.append("\t");
-      CharSequence _call = this.call(step);
-      _builder.append(_call, "\t");
+      CharSequence _compileDependingOnStepType = this.compileDependingOnStepType(step);
+      _builder.append(_compileDependingOnStepType);
       _builder.newLineIfNotEmpty();
       _xblockexpression = _builder;
     }
     return _xblockexpression;
   }
   
-  public CharSequence call(final Step step) {
+  public int points(final Step s) {
+    int _length = s.getNumber().length();
+    int _length_1 = s.getNumber().replace(".", "").length();
+    return (_length - _length_1);
+  }
+  
+  public CharSequence compileDependingOnStepType(final Step step) {
     StringConcatenation _builder = new StringConcatenation();
     {
       RaiseErrorNow _exception = step.getException();
       boolean _tripleNotEquals = (_exception != null);
       if (_tripleNotEquals) {
+        String _whiteSpacesBefore = this.whiteSpacesBefore(step);
+        _builder.append(_whiteSpacesBefore);
         CharSequence _throwNow = this.throwNow(step.getException());
         _builder.append(_throwNow);
         _builder.newLineIfNotEmpty();
@@ -622,6 +632,8 @@ public class UseCaseGenerator extends AbstractGenerator {
         IfStatement _condition = step.getCondition();
         boolean _tripleNotEquals_1 = (_condition != null);
         if (_tripleNotEquals_1) {
+          String _whiteSpacesBefore_1 = this.whiteSpacesBefore(step);
+          _builder.append(_whiteSpacesBefore_1);
           _builder.append("if(");
           String _convert = this.methodNaming.convert(step.getCondition().getCondition().getName());
           _builder.append(_convert);
@@ -631,21 +643,40 @@ public class UseCaseGenerator extends AbstractGenerator {
           Loop _loop = step.getLoop();
           boolean _tripleNotEquals_2 = (_loop != null);
           if (_tripleNotEquals_2) {
+            String _whiteSpacesBefore_2 = this.whiteSpacesBefore(step);
+            _builder.append(_whiteSpacesBefore_2);
             _builder.append("while(");
             String _convert_1 = this.methodNaming.convert(step.getLoop().getCondition().getName());
             _builder.append(_convert_1);
             _builder.append("()) {");
             _builder.newLineIfNotEmpty();
           } else {
+            String _whiteSpacesBefore_3 = this.whiteSpacesBefore(step);
+            _builder.append(_whiteSpacesBefore_3);
             String _convert_2 = this.methodNaming.convert(step.getAction());
             _builder.append(_convert_2);
-            _builder.append("()");
+            _builder.append("();");
             _builder.newLineIfNotEmpty();
           }
         }
       }
     }
     return _builder;
+  }
+  
+  private String result = "";
+  
+  private int i;
+  
+  private final int TAB_WITH = 4;
+  
+  public String whiteSpacesBefore(final Step step) {
+    this.result = "";
+    for (this.i = 0; (this.i < ((this.points(step) - 1) * this.TAB_WITH)); this.i++) {
+      String _result = this.result;
+      this.result = (_result + " ");
+    }
+    return this.result;
   }
   
   public CharSequence throwNow(final RaiseErrorNow e) {
@@ -733,24 +764,84 @@ public class UseCaseGenerator extends AbstractGenerator {
         {
           EList<Step> _steps_1 = steps.getSteps();
           for(final Step step : _steps_1) {
-            _builder.append("void ");
-            CharSequence _compile = this.compile(step);
-            _builder.append(_compile);
-            {
-              RaiseErrorConditional _error = step.getError();
-              boolean _tripleNotEquals = (_error != null);
-              if (_tripleNotEquals) {
-                _builder.append(" throws ");
-                String _name = step.getError().getException().getType().getName();
-                _builder.append(_name);
-              }
-            }
-            _builder.append(";");
+            CharSequence _interfaceDefinition = this.interfaceDefinition(step);
+            _builder.append(_interfaceDefinition);
             _builder.newLineIfNotEmpty();
           }
         }
       }
     }
+    return _builder;
+  }
+  
+  public CharSequence interfaceDefinition(final Step step) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _action = step.getAction();
+      boolean _tripleNotEquals = (_action != null);
+      if (_tripleNotEquals) {
+        _builder.append("void ");
+        String _convert = this.methodNaming.convert(step.getAction());
+        _builder.append(_convert);
+        _builder.append("()");
+        {
+          RaiseErrorConditional _error = step.getError();
+          boolean _tripleNotEquals_1 = (_error != null);
+          if (_tripleNotEquals_1) {
+            _builder.append(" throws ");
+            String _name = step.getError().getException().getType().getName();
+            _builder.append(_name);
+          }
+        }
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence conditionInterfaceDefinitions(final UseCase usecase) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("// conditionals");
+    _builder.newLine();
+    {
+      EList<Steps> _steps = usecase.getSteps();
+      for(final Steps steps : _steps) {
+        {
+          EList<Step> _steps_1 = steps.getSteps();
+          for(final Step step : _steps_1) {
+            {
+              IfStatement _condition = step.getCondition();
+              boolean _tripleNotEquals = (_condition != null);
+              if (_tripleNotEquals) {
+                CharSequence _interfaceDefinition = this.interfaceDefinition(step.getCondition().getCondition());
+                _builder.append(_interfaceDefinition);
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              Loop _loop = step.getLoop();
+              boolean _tripleNotEquals_1 = (_loop != null);
+              if (_tripleNotEquals_1) {
+                CharSequence _interfaceDefinition_1 = this.interfaceDefinition(step.getLoop().getCondition());
+                _builder.append(_interfaceDefinition_1);
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence interfaceDefinition(final BooleanCondition condition) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("boolean ");
+    String _convert = this.methodNaming.convert(condition.getName());
+    _builder.append(_convert);
+    _builder.append("();");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   

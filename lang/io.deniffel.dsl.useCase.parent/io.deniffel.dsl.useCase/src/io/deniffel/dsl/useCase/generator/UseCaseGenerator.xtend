@@ -21,6 +21,7 @@ import io.deniffel.dsl.useCase.useCase.PreConditions
 import io.deniffel.dsl.useCase.useCase.Package
 import io.deniffel.dsl.useCase.useCase.PackagePart
 import io.deniffel.dsl.useCase.useCase.RaiseErrorNow
+import io.deniffel.dsl.useCase.useCase.BooleanCondition
 
 class UseCaseGenerator extends AbstractGenerator {
 	
@@ -36,12 +37,29 @@ class UseCaseGenerator extends AbstractGenerator {
 	}
 	
 	def create(UseCase usecase, Model model, IFileSystemAccess2 fsa) {
-		usecase.name = classNamingStrategy.convert(usecase.name); 
+		usecase.name = classNamingStrategy.convert(usecase.name);
+		val dirPath = model.company.replace(".", "/") + "/" + model.package.path + "/"
 		fsa.generateFile(
-			model.company.replace(".", "/") + "/" + model.package.path + "/" + usecase.name + ".java", 
+			"/main/java/"+ dirPath + usecase.name + ".java", 
 			usecase.createJavaInterface(model.company, model.package, model.types.types, model.exceptions)
 		);
+		
+		fsa.generateFile(
+			"/main/resources/diagrams/"+ dirPath + usecase.name + ".plantuml", 
+			usecase.createUseCaseDiagram(model.company, model.package, model.types.types, model.exceptions)
+		);
 	}
+	
+	def createUseCaseDiagram(UseCase usecase, String company, Package ucPackage, EList<Type> types, UsedExceptions exceptions) '''	
+	@startuml
+	
+	User -> (Start)
+	User --> (Use the application) : A small label
+	
+	:Main Admin: ---> (Use the application) : This is\nyet another\nlabel
+	
+	@enduml
+	'''
 	
 	def path(Package ucPackage) {
 		return ucPackage.parts.join('/')[compile]
@@ -74,6 +92,8 @@ class UseCaseGenerator extends AbstractGenerator {
 			«usecase.notes()»
 			
 			«usecase.stepInterfaceDefinitions()»
+			
+			«usecase.conditionInterfaceDefinitions()»
 			
 			«usecase.ioInterfaceDefinitions()»
 			
@@ -213,61 +233,58 @@ class UseCaseGenerator extends AbstractGenerator {
 	
 	int lastStepPoints = 1
 	def compile(Steps steps)'''
-		«steps.compilePre»
-		«steps.compileCalls»
-		«steps.compilePost»
-	'''
-
-	
-	def compilePre(Steps steps)'''
 		default Output steps() {
 			ErrorMessages errors = checkPreconditions();
 			if(errors.size() > 0) 
 				return new Output(errors);
-				
-	'''
-	
-	def compileCalls(Steps steps) '''
-		«FOR s : steps.steps»
-			«s.compile()»
-		«ENDFOR»'''
-		
-	def compilePost(Steps steps)'''
-		«»
+						
+			«FOR s : steps.steps»
+				«s.compile()»
+			«ENDFOR»
+			
 			return getOutput();
 		}
 		'''
 	
-	def points(Step s) {
-		return s.number.length() - s.number.replace(".", "").length();
-	}
-	
-	
-
 	def compile(Step step){
 		val close = (step.points < lastStepPoints);
 		lastStepPoints = step.points
 		
 		'''
 		«IF close»
-			}
+			«step.whiteSpacesBefore»}
 			«»
 		«ENDIF»
-			«step.call»
+		«step.compileDependingOnStepType»
 		'''
 	}
 	
-	def call(Step step)'''
+	def points(Step s) {
+		return s.number.length() - s.number.replace(".", "").length();
+	}
+	
+	def compileDependingOnStepType(Step step)'''
 	«IF step.exception !== null»
-		«step.exception.throwNow()»
+		«step.whiteSpacesBefore»«step.exception.throwNow()»
 	«ELSEIF step.condition !== null»
-		if(«methodNaming.convert(step.condition.condition.name)»()) {
+		«step.whiteSpacesBefore»if(«methodNaming.convert(step.condition.condition.name)»()) {
 	«ELSEIF step.loop !== null»
-		while(«methodNaming.convert(step.loop.condition.name)»()) {
+		«step.whiteSpacesBefore»while(«methodNaming.convert(step.loop.condition.name)»()) {
 	«ELSE»
-		«methodNaming.convert(step.action)»()
+		«step.whiteSpacesBefore»«methodNaming.convert(step.action)»();
 	«ENDIF»
 	'''
+	
+	String result = "";
+	int i;
+	final int TAB_WITH = 4;
+	def whiteSpacesBefore(Step step) {
+		result = "";
+		for(i=0; i<(step.points-1)*TAB_WITH; i++)
+			result += " ";
+		return result;
+	}
+
 	
 	def throwNow(RaiseErrorNow e)'''
 		throw new «this.classNamingStrategy.convert(e.exception.type.name)»("«e.exception.type.message»");'''
@@ -301,9 +318,33 @@ class UseCaseGenerator extends AbstractGenerator {
 		// steps
 		«FOR steps : usecase.steps»
 		«FOR step : steps.steps»
-			void «step.compile()»«IF step.error !== null» throws «step.error.exception.type.name»«ENDIF»;
+			«step.interfaceDefinition()»
 		«ENDFOR»
 		«ENDFOR»
+	'''
+	
+	def interfaceDefinition(Step step) '''
+		«IF step.action !== null»
+			void «methodNaming.convert(step.action)»()«IF step.error !== null» throws «step.error.exception.type.name»«ENDIF»;
+		«ENDIF»
+	'''
+	
+	def conditionInterfaceDefinitions(UseCase usecase)'''
+		// conditionals
+		«FOR steps : usecase.steps»
+		«FOR step : steps.steps»
+			«IF step.condition !== null»
+				«step.condition.condition.interfaceDefinition»
+			«ENDIF»
+			«IF step.loop !== null»
+				«step.loop.condition.interfaceDefinition»
+			«ENDIF»
+		«ENDFOR»
+		«ENDFOR»
+	'''
+	
+	def interfaceDefinition(BooleanCondition condition)'''
+		boolean «methodNaming.convert(condition.name)»();
 	'''
 	
 	def ioInterfaceDefinitions(UseCase usecase)'''
