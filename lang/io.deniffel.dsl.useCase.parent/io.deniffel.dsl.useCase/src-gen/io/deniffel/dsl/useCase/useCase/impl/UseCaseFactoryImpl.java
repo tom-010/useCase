@@ -8,8 +8,10 @@ import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
+import io.deniffel.dsl.useCase.useCase.IfStatement;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
@@ -102,6 +104,8 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.STEPS: return createSteps();
       case UseCasePackage.STEP: return createStep();
       case UseCasePackage.RAISE_ERROR: return createRaiseError();
+      case UseCasePackage.IF_STATEMENT: return createIfStatement();
+      case UseCasePackage.LOOP: return createLoop();
       case UseCasePackage.NOTES: return createNotes();
       case UseCasePackage.USED_TYPES: return createUsedTypes();
       case UseCasePackage.TYPE: return createType();
@@ -287,6 +291,28 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     RaiseErrorImpl raiseError = new RaiseErrorImpl();
     return raiseError;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfStatement createIfStatement()
+  {
+    IfStatementImpl ifStatement = new IfStatementImpl();
+    return ifStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Loop createLoop()
+  {
+    LoopImpl loop = new LoopImpl();
+    return loop;
   }
 
   /**

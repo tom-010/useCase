@@ -22,7 +22,7 @@ public class UseCaseHighlightingConfiguration extends DefaultHighlightingConfigu
 	
 	public TextStyle quoteSignTextStyle() {
 		TextStyle textStyle = defaultTextStyle().copy();
-		textStyle.setColor(new RGB(180, 180, 180));
+		textStyle.setColor(new RGB(210, 210, 210));
 		return textStyle;
 	}
 	

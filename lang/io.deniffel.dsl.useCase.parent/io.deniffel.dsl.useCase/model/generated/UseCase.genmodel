@@ -72,9 +72,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Step/number"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Step/action"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Step/error"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Step/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Step/loop"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//RaiseError">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//RaiseError/exception"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//IfStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//IfStatement/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//Loop">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Loop/condition"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Notes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Notes/content"/>

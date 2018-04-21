@@ -8,8 +8,10 @@ import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
+import io.deniffel.dsl.useCase.useCase.IfStatement;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
@@ -202,6 +204,20 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         RaiseError raiseError = (RaiseError)theEObject;
         T result = caseRaiseError(raiseError);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.IF_STATEMENT:
+      {
+        IfStatement ifStatement = (IfStatement)theEObject;
+        T result = caseIfStatement(ifStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.LOOP:
+      {
+        Loop loop = (Loop)theEObject;
+        T result = caseLoop(loop);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -503,6 +519,38 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRaiseError(RaiseError object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfStatement(IfStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Loop</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Loop</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLoop(Loop object)
   {
     return null;
   }

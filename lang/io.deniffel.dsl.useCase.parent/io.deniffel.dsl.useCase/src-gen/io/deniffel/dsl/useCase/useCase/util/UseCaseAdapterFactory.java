@@ -8,8 +8,10 @@ import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
+import io.deniffel.dsl.useCase.useCase.IfStatement;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
@@ -174,6 +176,16 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRaiseError(RaiseError object)
       {
         return createRaiseErrorAdapter();
+      }
+      @Override
+      public Adapter caseIfStatement(IfStatement object)
+      {
+        return createIfStatementAdapter();
+      }
+      @Override
+      public Adapter caseLoop(Loop object)
+      {
+        return createLoopAdapter();
       }
       @Override
       public Adapter caseNotes(Notes object)
@@ -463,6 +475,36 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRaiseErrorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.IfStatement
+   * @generated
+   */
+  public Adapter createIfStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.Loop <em>Loop</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.Loop
+   * @generated
+   */
+  public Adapter createLoopAdapter()
   {
     return null;
   }

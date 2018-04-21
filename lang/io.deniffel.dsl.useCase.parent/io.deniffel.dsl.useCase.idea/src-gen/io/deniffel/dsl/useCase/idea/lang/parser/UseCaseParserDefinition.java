@@ -131,13 +131,28 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getStepElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getStep_ErrorRaiseErrorParserRuleCall_2_0ElementType()) {
+			if (elementType == elementTypeProvider.getStep_ErrorRaiseErrorParserRuleCall_1_0_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getStep_ErrorRaiseErrorParserRuleCall_1_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getStep_ConditionIfStatementParserRuleCall_1_2_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getStep_LoopLoopParserRuleCall_1_3_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getRaiseErrorElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getRaiseError_ExceptionExceptionParserRuleCall_2_0ElementType()) {
+			if (elementType == elementTypeProvider.getRaiseError_ExceptionExceptionParserRuleCall_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getIfStatementElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getLoopElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getNotesElementType()) {

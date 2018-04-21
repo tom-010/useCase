@@ -101,14 +101,17 @@ UseCase:
 			('Schritte:')
 		) (steps+=Step)*;
 	Step:
-		number=QualifiedNumber action=STRING(error=RaiseError)?;
+		number=QualifiedNumber (action=STRING(error=RaiseError)? | error=RaiseError | condition=IfStatement | loop=Loop);
 	
 	RaiseError:
-		('.'|':') (
-				('Raise' ('error')? | 'On' 'error' 'raise' ) |
-				('Melde' ('Fehler')?| 'Bei' 'Fehler' 'melde' )
-			) exception=Exception;
+		(('.'|':') ('On' 'error' 'raise' | 'Bei' 'Fehler' 'melde' ) | 
+		('Raise' ('error')? | 'Melde' ('Fehler')?)) exception=Exception;
 	
+	IfStatement:
+		('If' | 'Falls') condition=STRING ':';
+		
+	Loop:
+		('Solange' | 'While') condition=STRING ':';
 	
 	Notes:
 		(

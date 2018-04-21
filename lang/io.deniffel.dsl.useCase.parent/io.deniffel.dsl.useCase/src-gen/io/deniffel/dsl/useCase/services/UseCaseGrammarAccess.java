@@ -907,16 +907,24 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNumberAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNumberQualifiedNumberParserRuleCall_0_0 = (RuleCall)cNumberAssignment_0.eContents().get(0);
-		private final Assignment cActionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cActionSTRINGTerminalRuleCall_1_0 = (RuleCall)cActionAssignment_1.eContents().get(0);
-		private final Assignment cErrorAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cErrorRaiseErrorParserRuleCall_2_0 = (RuleCall)cErrorAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cActionAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cActionSTRINGTerminalRuleCall_1_0_0_0 = (RuleCall)cActionAssignment_1_0_0.eContents().get(0);
+		private final Assignment cErrorAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cErrorRaiseErrorParserRuleCall_1_0_1_0 = (RuleCall)cErrorAssignment_1_0_1.eContents().get(0);
+		private final Assignment cErrorAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cErrorRaiseErrorParserRuleCall_1_1_0 = (RuleCall)cErrorAssignment_1_1.eContents().get(0);
+		private final Assignment cConditionAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
+		private final RuleCall cConditionIfStatementParserRuleCall_1_2_0 = (RuleCall)cConditionAssignment_1_2.eContents().get(0);
+		private final Assignment cLoopAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
+		private final RuleCall cLoopLoopParserRuleCall_1_3_0 = (RuleCall)cLoopAssignment_1_3.eContents().get(0);
 		
 		//Step:
-		//	number=QualifiedNumber action=STRING error=RaiseError?;
+		//	number=QualifiedNumber (action=STRING error=RaiseError? | error=RaiseError | condition=IfStatement | loop=Loop);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//number=QualifiedNumber action=STRING error=RaiseError?
+		//number=QualifiedNumber (action=STRING error=RaiseError? | error=RaiseError | condition=IfStatement | loop=Loop)
 		public Group getGroup() { return cGroup; }
 		
 		//number=QualifiedNumber
@@ -925,118 +933,216 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedNumber
 		public RuleCall getNumberQualifiedNumberParserRuleCall_0_0() { return cNumberQualifiedNumberParserRuleCall_0_0; }
 		
+		//action=STRING error=RaiseError? | error=RaiseError | condition=IfStatement | loop=Loop
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//action=STRING error=RaiseError?
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
 		//action=STRING
-		public Assignment getActionAssignment_1() { return cActionAssignment_1; }
+		public Assignment getActionAssignment_1_0_0() { return cActionAssignment_1_0_0; }
 		
 		//STRING
-		public RuleCall getActionSTRINGTerminalRuleCall_1_0() { return cActionSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getActionSTRINGTerminalRuleCall_1_0_0_0() { return cActionSTRINGTerminalRuleCall_1_0_0_0; }
 		
 		//error=RaiseError?
-		public Assignment getErrorAssignment_2() { return cErrorAssignment_2; }
+		public Assignment getErrorAssignment_1_0_1() { return cErrorAssignment_1_0_1; }
 		
 		//RaiseError
-		public RuleCall getErrorRaiseErrorParserRuleCall_2_0() { return cErrorRaiseErrorParserRuleCall_2_0; }
+		public RuleCall getErrorRaiseErrorParserRuleCall_1_0_1_0() { return cErrorRaiseErrorParserRuleCall_1_0_1_0; }
+		
+		//error=RaiseError
+		public Assignment getErrorAssignment_1_1() { return cErrorAssignment_1_1; }
+		
+		//RaiseError
+		public RuleCall getErrorRaiseErrorParserRuleCall_1_1_0() { return cErrorRaiseErrorParserRuleCall_1_1_0; }
+		
+		//condition=IfStatement
+		public Assignment getConditionAssignment_1_2() { return cConditionAssignment_1_2; }
+		
+		//IfStatement
+		public RuleCall getConditionIfStatementParserRuleCall_1_2_0() { return cConditionIfStatementParserRuleCall_1_2_0; }
+		
+		//loop=Loop
+		public Assignment getLoopAssignment_1_3() { return cLoopAssignment_1_3; }
+		
+		//Loop
+		public RuleCall getLoopLoopParserRuleCall_1_3_0() { return cLoopLoopParserRuleCall_1_3_0; }
 	}
 	public class RaiseErrorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.RaiseError");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cFullStopKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cColonKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_1_0 = (Alternatives)cAlternatives_1.eContents().get(0);
-		private final Group cGroup_1_0_0 = (Group)cAlternatives_1_0.eContents().get(0);
-		private final Keyword cRaiseKeyword_1_0_0_0 = (Keyword)cGroup_1_0_0.eContents().get(0);
-		private final Keyword cErrorKeyword_1_0_0_1 = (Keyword)cGroup_1_0_0.eContents().get(1);
-		private final Group cGroup_1_0_1 = (Group)cAlternatives_1_0.eContents().get(1);
-		private final Keyword cOnKeyword_1_0_1_0 = (Keyword)cGroup_1_0_1.eContents().get(0);
-		private final Keyword cErrorKeyword_1_0_1_1 = (Keyword)cGroup_1_0_1.eContents().get(1);
-		private final Keyword cRaiseKeyword_1_0_1_2 = (Keyword)cGroup_1_0_1.eContents().get(2);
-		private final Alternatives cAlternatives_1_1 = (Alternatives)cAlternatives_1.eContents().get(1);
-		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
-		private final Keyword cMeldeKeyword_1_1_0_0 = (Keyword)cGroup_1_1_0.eContents().get(0);
-		private final Keyword cFehlerKeyword_1_1_0_1 = (Keyword)cGroup_1_1_0.eContents().get(1);
-		private final Group cGroup_1_1_1 = (Group)cAlternatives_1_1.eContents().get(1);
-		private final Keyword cBeiKeyword_1_1_1_0 = (Keyword)cGroup_1_1_1.eContents().get(0);
-		private final Keyword cFehlerKeyword_1_1_1_1 = (Keyword)cGroup_1_1_1.eContents().get(1);
-		private final Keyword cMeldeKeyword_1_1_1_2 = (Keyword)cGroup_1_1_1.eContents().get(2);
-		private final Assignment cExceptionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExceptionExceptionParserRuleCall_2_0 = (RuleCall)cExceptionAssignment_2.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
+		private final Alternatives cAlternatives_0_0_0 = (Alternatives)cGroup_0_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_0_0_0 = (Keyword)cAlternatives_0_0_0.eContents().get(0);
+		private final Keyword cColonKeyword_0_0_0_1 = (Keyword)cAlternatives_0_0_0.eContents().get(1);
+		private final Alternatives cAlternatives_0_0_1 = (Alternatives)cGroup_0_0.eContents().get(1);
+		private final Group cGroup_0_0_1_0 = (Group)cAlternatives_0_0_1.eContents().get(0);
+		private final Keyword cOnKeyword_0_0_1_0_0 = (Keyword)cGroup_0_0_1_0.eContents().get(0);
+		private final Keyword cErrorKeyword_0_0_1_0_1 = (Keyword)cGroup_0_0_1_0.eContents().get(1);
+		private final Keyword cRaiseKeyword_0_0_1_0_2 = (Keyword)cGroup_0_0_1_0.eContents().get(2);
+		private final Group cGroup_0_0_1_1 = (Group)cAlternatives_0_0_1.eContents().get(1);
+		private final Keyword cBeiKeyword_0_0_1_1_0 = (Keyword)cGroup_0_0_1_1.eContents().get(0);
+		private final Keyword cFehlerKeyword_0_0_1_1_1 = (Keyword)cGroup_0_0_1_1.eContents().get(1);
+		private final Keyword cMeldeKeyword_0_0_1_1_2 = (Keyword)cGroup_0_0_1_1.eContents().get(2);
+		private final Alternatives cAlternatives_0_1 = (Alternatives)cAlternatives_0.eContents().get(1);
+		private final Group cGroup_0_1_0 = (Group)cAlternatives_0_1.eContents().get(0);
+		private final Keyword cRaiseKeyword_0_1_0_0 = (Keyword)cGroup_0_1_0.eContents().get(0);
+		private final Keyword cErrorKeyword_0_1_0_1 = (Keyword)cGroup_0_1_0.eContents().get(1);
+		private final Group cGroup_0_1_1 = (Group)cAlternatives_0_1.eContents().get(1);
+		private final Keyword cMeldeKeyword_0_1_1_0 = (Keyword)cGroup_0_1_1.eContents().get(0);
+		private final Keyword cFehlerKeyword_0_1_1_1 = (Keyword)cGroup_0_1_1.eContents().get(1);
+		private final Assignment cExceptionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExceptionExceptionParserRuleCall_1_0 = (RuleCall)cExceptionAssignment_1.eContents().get(0);
 		
 		//RaiseError:
-		//	('.' | ':') (('Raise' 'error'? | 'On' 'error' 'raise') | ('Melde' 'Fehler'? | 'Bei' 'Fehler' 'melde'))
+		//	(('.' | ':') ('On' 'error' 'raise' | 'Bei' 'Fehler' 'melde') | ('Raise' 'error'? | 'Melde' 'Fehler'?))
 		//	exception=Exception;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('.' | ':') (('Raise' 'error'? | 'On' 'error' 'raise') | ('Melde' 'Fehler'? | 'Bei' 'Fehler' 'melde'))
+		//(('.' | ':') ('On' 'error' 'raise' | 'Bei' 'Fehler' 'melde') | ('Raise' 'error'? | 'Melde' 'Fehler'?))
 		//exception=Exception
 		public Group getGroup() { return cGroup; }
 		
-		//'.' | ':'
+		//('.' | ':') ('On' 'error' 'raise' | 'Bei' 'Fehler' 'melde') | ('Raise' 'error'? | 'Melde' 'Fehler'?)
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
+		//('.' | ':') ('On' 'error' 'raise' | 'Bei' 'Fehler' 'melde')
+		public Group getGroup_0_0() { return cGroup_0_0; }
+		
+		//'.' | ':'
+		public Alternatives getAlternatives_0_0_0() { return cAlternatives_0_0_0; }
+		
 		//'.'
-		public Keyword getFullStopKeyword_0_0() { return cFullStopKeyword_0_0; }
+		public Keyword getFullStopKeyword_0_0_0_0() { return cFullStopKeyword_0_0_0_0; }
 		
 		//':'
-		public Keyword getColonKeyword_0_1() { return cColonKeyword_0_1; }
+		public Keyword getColonKeyword_0_0_0_1() { return cColonKeyword_0_0_0_1; }
 		
-		//('Raise' 'error'? | 'On' 'error' 'raise') | ('Melde' 'Fehler'? | 'Bei' 'Fehler' 'melde')
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//('Raise' 'error'? | 'On' 'error' 'raise')
-		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
-		
-		//'Raise' 'error'?
-		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
-		
-		//'Raise'
-		public Keyword getRaiseKeyword_1_0_0_0() { return cRaiseKeyword_1_0_0_0; }
-		
-		//'error'?
-		public Keyword getErrorKeyword_1_0_0_1() { return cErrorKeyword_1_0_0_1; }
+		//'On' 'error' 'raise' | 'Bei' 'Fehler' 'melde'
+		public Alternatives getAlternatives_0_0_1() { return cAlternatives_0_0_1; }
 		
 		//'On' 'error' 'raise'
-		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
+		public Group getGroup_0_0_1_0() { return cGroup_0_0_1_0; }
 		
 		//'On'
-		public Keyword getOnKeyword_1_0_1_0() { return cOnKeyword_1_0_1_0; }
+		public Keyword getOnKeyword_0_0_1_0_0() { return cOnKeyword_0_0_1_0_0; }
 		
 		//'error'
-		public Keyword getErrorKeyword_1_0_1_1() { return cErrorKeyword_1_0_1_1; }
+		public Keyword getErrorKeyword_0_0_1_0_1() { return cErrorKeyword_0_0_1_0_1; }
 		
 		//'raise'
-		public Keyword getRaiseKeyword_1_0_1_2() { return cRaiseKeyword_1_0_1_2; }
-		
-		//('Melde' 'Fehler'? | 'Bei' 'Fehler' 'melde')
-		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
-		
-		//'Melde' 'Fehler'?
-		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
-		
-		//'Melde'
-		public Keyword getMeldeKeyword_1_1_0_0() { return cMeldeKeyword_1_1_0_0; }
-		
-		//'Fehler'?
-		public Keyword getFehlerKeyword_1_1_0_1() { return cFehlerKeyword_1_1_0_1; }
+		public Keyword getRaiseKeyword_0_0_1_0_2() { return cRaiseKeyword_0_0_1_0_2; }
 		
 		//'Bei' 'Fehler' 'melde'
-		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+		public Group getGroup_0_0_1_1() { return cGroup_0_0_1_1; }
 		
 		//'Bei'
-		public Keyword getBeiKeyword_1_1_1_0() { return cBeiKeyword_1_1_1_0; }
+		public Keyword getBeiKeyword_0_0_1_1_0() { return cBeiKeyword_0_0_1_1_0; }
 		
 		//'Fehler'
-		public Keyword getFehlerKeyword_1_1_1_1() { return cFehlerKeyword_1_1_1_1; }
+		public Keyword getFehlerKeyword_0_0_1_1_1() { return cFehlerKeyword_0_0_1_1_1; }
 		
 		//'melde'
-		public Keyword getMeldeKeyword_1_1_1_2() { return cMeldeKeyword_1_1_1_2; }
+		public Keyword getMeldeKeyword_0_0_1_1_2() { return cMeldeKeyword_0_0_1_1_2; }
+		
+		//('Raise' 'error'? | 'Melde' 'Fehler'?)
+		public Alternatives getAlternatives_0_1() { return cAlternatives_0_1; }
+		
+		//'Raise' 'error'?
+		public Group getGroup_0_1_0() { return cGroup_0_1_0; }
+		
+		//'Raise'
+		public Keyword getRaiseKeyword_0_1_0_0() { return cRaiseKeyword_0_1_0_0; }
+		
+		//'error'?
+		public Keyword getErrorKeyword_0_1_0_1() { return cErrorKeyword_0_1_0_1; }
+		
+		//'Melde' 'Fehler'?
+		public Group getGroup_0_1_1() { return cGroup_0_1_1; }
+		
+		//'Melde'
+		public Keyword getMeldeKeyword_0_1_1_0() { return cMeldeKeyword_0_1_1_0; }
+		
+		//'Fehler'?
+		public Keyword getFehlerKeyword_0_1_1_1() { return cFehlerKeyword_0_1_1_1; }
 		
 		//exception=Exception
-		public Assignment getExceptionAssignment_2() { return cExceptionAssignment_2; }
+		public Assignment getExceptionAssignment_1() { return cExceptionAssignment_1; }
 		
 		//Exception
-		public RuleCall getExceptionExceptionParserRuleCall_2_0() { return cExceptionExceptionParserRuleCall_2_0; }
+		public RuleCall getExceptionExceptionParserRuleCall_1_0() { return cExceptionExceptionParserRuleCall_1_0; }
+	}
+	public class IfStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.IfStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cIfKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cFallsKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cConditionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConditionSTRINGTerminalRuleCall_1_0 = (RuleCall)cConditionAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//IfStatement:
+		//	('If' | 'Falls') condition=STRING ':';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('If' | 'Falls') condition=STRING ':'
+		public Group getGroup() { return cGroup; }
+		
+		//'If' | 'Falls'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'If'
+		public Keyword getIfKeyword_0_0() { return cIfKeyword_0_0; }
+		
+		//'Falls'
+		public Keyword getFallsKeyword_0_1() { return cFallsKeyword_0_1; }
+		
+		//condition=STRING
+		public Assignment getConditionAssignment_1() { return cConditionAssignment_1; }
+		
+		//STRING
+		public RuleCall getConditionSTRINGTerminalRuleCall_1_0() { return cConditionSTRINGTerminalRuleCall_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+	}
+	public class LoopElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Loop");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cSolangeKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cWhileKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cConditionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConditionSTRINGTerminalRuleCall_1_0 = (RuleCall)cConditionAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//Loop:
+		//	('Solange' | 'While') condition=STRING ':';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('Solange' | 'While') condition=STRING ':'
+		public Group getGroup() { return cGroup; }
+		
+		//'Solange' | 'While'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'Solange'
+		public Keyword getSolangeKeyword_0_0() { return cSolangeKeyword_0_0; }
+		
+		//'While'
+		public Keyword getWhileKeyword_0_1() { return cWhileKeyword_0_1; }
+		
+		//condition=STRING
+		public Assignment getConditionAssignment_1() { return cConditionAssignment_1; }
+		
+		//STRING
+		public RuleCall getConditionSTRINGTerminalRuleCall_1_0() { return cConditionSTRINGTerminalRuleCall_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 	}
 	public class NotesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Notes");
@@ -1337,6 +1443,8 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	private final StepsElements pSteps;
 	private final StepElements pStep;
 	private final RaiseErrorElements pRaiseError;
+	private final IfStatementElements pIfStatement;
+	private final LoopElements pLoop;
 	private final NotesElements pNotes;
 	private final UsedTypesElements pUsedTypes;
 	private final TypeElements pType;
@@ -1372,6 +1480,8 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSteps = new StepsElements();
 		this.pStep = new StepElements();
 		this.pRaiseError = new RaiseErrorElements();
+		this.pIfStatement = new IfStatementElements();
+		this.pLoop = new LoopElements();
 		this.pNotes = new NotesElements();
 		this.pUsedTypes = new UsedTypesElements();
 		this.pType = new TypeElements();
@@ -1591,7 +1701,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Step:
-	//	number=QualifiedNumber action=STRING error=RaiseError?;
+	//	number=QualifiedNumber (action=STRING error=RaiseError? | error=RaiseError | condition=IfStatement | loop=Loop);
 	public StepElements getStepAccess() {
 		return pStep;
 	}
@@ -1601,7 +1711,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RaiseError:
-	//	('.' | ':') (('Raise' 'error'? | 'On' 'error' 'raise') | ('Melde' 'Fehler'? | 'Bei' 'Fehler' 'melde'))
+	//	(('.' | ':') ('On' 'error' 'raise' | 'Bei' 'Fehler' 'melde') | ('Raise' 'error'? | 'Melde' 'Fehler'?))
 	//	exception=Exception;
 	public RaiseErrorElements getRaiseErrorAccess() {
 		return pRaiseError;
@@ -1609,6 +1719,26 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getRaiseErrorRule() {
 		return getRaiseErrorAccess().getRule();
+	}
+	
+	//IfStatement:
+	//	('If' | 'Falls') condition=STRING ':';
+	public IfStatementElements getIfStatementAccess() {
+		return pIfStatement;
+	}
+	
+	public ParserRule getIfStatementRule() {
+		return getIfStatementAccess().getRule();
+	}
+	
+	//Loop:
+	//	('Solange' | 'While') condition=STRING ':';
+	public LoopElements getLoopAccess() {
+		return pLoop;
+	}
+	
+	public ParserRule getLoopRule() {
+		return getLoopAccess().getRule();
 	}
 	
 	//Notes:

@@ -86,10 +86,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="error" eType="#//RaiseError"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//IfStatement"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loop" eType="#//Loop" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RaiseError">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exception" eType="#//Exception"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IfStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Loop">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Notes">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

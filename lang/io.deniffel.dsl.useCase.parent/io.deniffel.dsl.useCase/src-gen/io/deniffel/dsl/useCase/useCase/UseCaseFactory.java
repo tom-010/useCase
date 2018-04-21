@@ -168,6 +168,24 @@ public interface UseCaseFactory extends EFactory
   RaiseError createRaiseError();
 
   /**
+   * Returns a new object of class '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Statement</em>'.
+   * @generated
+   */
+  IfStatement createIfStatement();
+
+  /**
+   * Returns a new object of class '<em>Loop</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Loop</em>'.
+   * @generated
+   */
+  Loop createLoop();
+
+  /**
    * Returns a new object of class '<em>Notes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

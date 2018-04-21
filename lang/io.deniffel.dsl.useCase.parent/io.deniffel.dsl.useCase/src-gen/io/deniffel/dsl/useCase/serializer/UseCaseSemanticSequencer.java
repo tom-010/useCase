@@ -10,8 +10,10 @@ import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
+import io.deniffel.dsl.useCase.useCase.IfStatement;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.Output;
@@ -69,11 +71,17 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case UseCasePackage.EXCEPTION_DECLERATION:
 				sequence_ExceptionDecleration(context, (ExceptionDecleration) semanticObject); 
 				return; 
+			case UseCasePackage.IF_STATEMENT:
+				sequence_IfStatement(context, (IfStatement) semanticObject); 
+				return; 
 			case UseCasePackage.INPUT:
 				sequence_Input(context, (Input) semanticObject); 
 				return; 
 			case UseCasePackage.INPUTS:
 				sequence_Inputs(context, (Inputs) semanticObject); 
+				return; 
+			case UseCasePackage.LOOP:
+				sequence_Loop(context, (Loop) semanticObject); 
 				return; 
 			case UseCasePackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -214,6 +222,24 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     IfStatement returns IfStatement
+	 *
+	 * Constraint:
+	 *     condition=STRING
+	 */
+	protected void sequence_IfStatement(ISerializationContext context, IfStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.IF_STATEMENT__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.IF_STATEMENT__CONDITION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIfStatementAccess().getConditionSTRINGTerminalRuleCall_1_0(), semanticObject.getCondition());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Input returns Input
 	 *
 	 * Constraint:
@@ -233,6 +259,24 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_Inputs(ISerializationContext context, Inputs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Loop returns Loop
+	 *
+	 * Constraint:
+	 *     condition=STRING
+	 */
+	protected void sequence_Loop(ISerializationContext context, Loop semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.LOOP__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.LOOP__CONDITION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLoopAccess().getConditionSTRINGTerminalRuleCall_1_0(), semanticObject.getCondition());
+		feeder.finish();
 	}
 	
 	
@@ -345,7 +389,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.RAISE_ERROR__EXCEPTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRaiseErrorAccess().getExceptionExceptionParserRuleCall_2_0(), semanticObject.getException());
+		feeder.accept(grammarAccess.getRaiseErrorAccess().getExceptionExceptionParserRuleCall_1_0(), semanticObject.getException());
 		feeder.finish();
 	}
 	
@@ -355,7 +399,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Step returns Step
 	 *
 	 * Constraint:
-	 *     (number=QualifiedNumber action=STRING error=RaiseError?)
+	 *     (number=QualifiedNumber ((action=STRING error=RaiseError?) | error=RaiseError | condition=IfStatement | loop=Loop))
 	 */
 	protected void sequence_Step(ISerializationContext context, Step semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

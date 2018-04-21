@@ -4,6 +4,8 @@ public class ClassMemberNamingStrategy extends  ClassNamingStrategy{
 	
 	@Override
 	public String convert(String input) {
+		if(input == null)
+			return null;
 		input = replaceForbiddenCharacters(input);
 		input = super.convert(input);
 		input = input.substring(0, 1).toLowerCase() + input.substring(1);

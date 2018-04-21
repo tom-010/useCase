@@ -19,6 +19,7 @@ public class SemanticHighlightingCalculator implements ISemanticHighlightingCalc
 		EObject root = resource.getContents().get(0);
 		setStyleForNeedle("\"", QUOTE_SIGN, root, acceptor);
 		setStyleForNeedle("- ", BULLET_POINT, root, acceptor);
+		setStyleForNeedle("-\"", BULLET_POINT, root, acceptor);
 		setStyleOfSquareBrackets(root, acceptor);
 	}
 	

@@ -1416,36 +1416,88 @@ ruleStep returns [Boolean current=false]
 		)
 		(
 			(
-				{
-					markLeaf(elementTypeProvider.getStep_ActionSTRINGTerminalRuleCall_1_0ElementType());
-				}
-				lv_action_1_0=RULE_STRING
-				{
-					if(!$current) {
-						associateWithSemanticElement();
-						$current = true;
+				(
+					(
+						{
+							markLeaf(elementTypeProvider.getStep_ActionSTRINGTerminalRuleCall_1_0_0_0ElementType());
+						}
+						lv_action_1_0=RULE_STRING
+						{
+							if(!$current) {
+								associateWithSemanticElement();
+								$current = true;
+							}
+						}
+						{
+							doneLeaf(lv_action_1_0);
+						}
+					)
+				)
+				(
+					(
+						{
+							markComposite(elementTypeProvider.getStep_ErrorRaiseErrorParserRuleCall_1_0_1_0ElementType());
+						}
+						lv_error_2_0=ruleRaiseError
+						{
+							doneComposite();
+							if(!$current) {
+								associateWithSemanticElement();
+								$current = true;
+							}
+						}
+					)
+				)?
+			)
+			    |
+			(
+				(
+					{
+						markComposite(elementTypeProvider.getStep_ErrorRaiseErrorParserRuleCall_1_1_0ElementType());
 					}
-				}
-				{
-					doneLeaf(lv_action_1_0);
-				}
+					lv_error_3_0=ruleRaiseError
+					{
+						doneComposite();
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						markComposite(elementTypeProvider.getStep_ConditionIfStatementParserRuleCall_1_2_0ElementType());
+					}
+					lv_condition_4_0=ruleIfStatement
+					{
+						doneComposite();
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						markComposite(elementTypeProvider.getStep_LoopLoopParserRuleCall_1_3_0ElementType());
+					}
+					lv_loop_5_0=ruleLoop
+					{
+						doneComposite();
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+				)
 			)
 		)
-		(
-			(
-				{
-					markComposite(elementTypeProvider.getStep_ErrorRaiseErrorParserRuleCall_2_0ElementType());
-				}
-				lv_error_2_0=ruleRaiseError
-				{
-					doneComposite();
-					if(!$current) {
-						associateWithSemanticElement();
-						$current = true;
-					}
-				}
-			)
-		)?
 	)
 ;
 
@@ -1461,117 +1513,119 @@ ruleRaiseError returns [Boolean current=false]
 :
 	(
 		(
-			{
-				markLeaf(elementTypeProvider.getRaiseError_FullStopKeyword_0_0ElementType());
-			}
-			otherlv_0='.'
-			{
-				doneLeaf(otherlv_0);
-			}
-			    |
-			{
-				markLeaf(elementTypeProvider.getRaiseError_ColonKeyword_0_1ElementType());
-			}
-			otherlv_1=':'
-			{
-				doneLeaf(otherlv_1);
-			}
-		)
-		(
 			(
 				(
 					{
-						markLeaf(elementTypeProvider.getRaiseError_RaiseKeyword_1_0_0_0ElementType());
+						markLeaf(elementTypeProvider.getRaiseError_FullStopKeyword_0_0_0_0ElementType());
 					}
-					otherlv_2='Raise'
+					otherlv_0='.'
 					{
-						doneLeaf(otherlv_2);
+						doneLeaf(otherlv_0);
 					}
+					    |
+					{
+						markLeaf(elementTypeProvider.getRaiseError_ColonKeyword_0_0_0_1ElementType());
+					}
+					otherlv_1=':'
+					{
+						doneLeaf(otherlv_1);
+					}
+				)
+				(
 					(
 						{
-							markLeaf(elementTypeProvider.getRaiseError_ErrorKeyword_1_0_0_1ElementType());
+							markLeaf(elementTypeProvider.getRaiseError_OnKeyword_0_0_1_0_0ElementType());
+						}
+						otherlv_2='On'
+						{
+							doneLeaf(otherlv_2);
+						}
+						{
+							markLeaf(elementTypeProvider.getRaiseError_ErrorKeyword_0_0_1_0_1ElementType());
 						}
 						otherlv_3='error'
 						{
 							doneLeaf(otherlv_3);
 						}
-					)?
-				)
-				    |
-				(
-					{
-						markLeaf(elementTypeProvider.getRaiseError_OnKeyword_1_0_1_0ElementType());
-					}
-					otherlv_4='On'
-					{
-						doneLeaf(otherlv_4);
-					}
-					{
-						markLeaf(elementTypeProvider.getRaiseError_ErrorKeyword_1_0_1_1ElementType());
-					}
-					otherlv_5='error'
-					{
-						doneLeaf(otherlv_5);
-					}
-					{
-						markLeaf(elementTypeProvider.getRaiseError_RaiseKeyword_1_0_1_2ElementType());
-					}
-					otherlv_6='raise'
-					{
-						doneLeaf(otherlv_6);
-					}
+						{
+							markLeaf(elementTypeProvider.getRaiseError_RaiseKeyword_0_0_1_0_2ElementType());
+						}
+						otherlv_4='raise'
+						{
+							doneLeaf(otherlv_4);
+						}
+					)
+					    |
+					(
+						{
+							markLeaf(elementTypeProvider.getRaiseError_BeiKeyword_0_0_1_1_0ElementType());
+						}
+						otherlv_5='Bei'
+						{
+							doneLeaf(otherlv_5);
+						}
+						{
+							markLeaf(elementTypeProvider.getRaiseError_FehlerKeyword_0_0_1_1_1ElementType());
+						}
+						otherlv_6='Fehler'
+						{
+							doneLeaf(otherlv_6);
+						}
+						{
+							markLeaf(elementTypeProvider.getRaiseError_MeldeKeyword_0_0_1_1_2ElementType());
+						}
+						otherlv_7='melde'
+						{
+							doneLeaf(otherlv_7);
+						}
+					)
 				)
 			)
 			    |
 			(
 				(
 					{
-						markLeaf(elementTypeProvider.getRaiseError_MeldeKeyword_1_1_0_0ElementType());
+						markLeaf(elementTypeProvider.getRaiseError_RaiseKeyword_0_1_0_0ElementType());
 					}
-					otherlv_7='Melde'
+					otherlv_8='Raise'
 					{
-						doneLeaf(otherlv_7);
+						doneLeaf(otherlv_8);
 					}
 					(
 						{
-							markLeaf(elementTypeProvider.getRaiseError_FehlerKeyword_1_1_0_1ElementType());
+							markLeaf(elementTypeProvider.getRaiseError_ErrorKeyword_0_1_0_1ElementType());
 						}
-						otherlv_8='Fehler'
+						otherlv_9='error'
 						{
-							doneLeaf(otherlv_8);
+							doneLeaf(otherlv_9);
 						}
 					)?
 				)
 				    |
 				(
 					{
-						markLeaf(elementTypeProvider.getRaiseError_BeiKeyword_1_1_1_0ElementType());
+						markLeaf(elementTypeProvider.getRaiseError_MeldeKeyword_0_1_1_0ElementType());
 					}
-					otherlv_9='Bei'
-					{
-						doneLeaf(otherlv_9);
-					}
-					{
-						markLeaf(elementTypeProvider.getRaiseError_FehlerKeyword_1_1_1_1ElementType());
-					}
-					otherlv_10='Fehler'
+					otherlv_10='Melde'
 					{
 						doneLeaf(otherlv_10);
 					}
-					{
-						markLeaf(elementTypeProvider.getRaiseError_MeldeKeyword_1_1_1_2ElementType());
-					}
-					otherlv_11='melde'
-					{
-						doneLeaf(otherlv_11);
-					}
+					(
+						{
+							markLeaf(elementTypeProvider.getRaiseError_FehlerKeyword_0_1_1_1ElementType());
+						}
+						otherlv_11='Fehler'
+						{
+							doneLeaf(otherlv_11);
+						}
+					)?
 				)
 			)
 		)
 		(
 			(
 				{
-					markComposite(elementTypeProvider.getRaiseError_ExceptionExceptionParserRuleCall_2_0ElementType());
+					markComposite(elementTypeProvider.getRaiseError_ExceptionExceptionParserRuleCall_1_0ElementType());
 				}
 				lv_exception_12_0=ruleException
 				{
@@ -1583,6 +1637,116 @@ ruleRaiseError returns [Boolean current=false]
 				}
 			)
 		)
+	)
+;
+
+//Entry rule entryRuleIfStatement
+entryRuleIfStatement returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getIfStatementElementType()); }
+	iv_ruleIfStatement=ruleIfStatement
+	{ $current=$iv_ruleIfStatement.current; }
+	EOF;
+
+// Rule IfStatement
+ruleIfStatement returns [Boolean current=false]
+:
+	(
+		(
+			{
+				markLeaf(elementTypeProvider.getIfStatement_IfKeyword_0_0ElementType());
+			}
+			otherlv_0='If'
+			{
+				doneLeaf(otherlv_0);
+			}
+			    |
+			{
+				markLeaf(elementTypeProvider.getIfStatement_FallsKeyword_0_1ElementType());
+			}
+			otherlv_1='Falls'
+			{
+				doneLeaf(otherlv_1);
+			}
+		)
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getIfStatement_ConditionSTRINGTerminalRuleCall_1_0ElementType());
+				}
+				lv_condition_2_0=RULE_STRING
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_condition_2_0);
+				}
+			)
+		)
+		{
+			markLeaf(elementTypeProvider.getIfStatement_ColonKeyword_2ElementType());
+		}
+		otherlv_3=':'
+		{
+			doneLeaf(otherlv_3);
+		}
+	)
+;
+
+//Entry rule entryRuleLoop
+entryRuleLoop returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getLoopElementType()); }
+	iv_ruleLoop=ruleLoop
+	{ $current=$iv_ruleLoop.current; }
+	EOF;
+
+// Rule Loop
+ruleLoop returns [Boolean current=false]
+:
+	(
+		(
+			{
+				markLeaf(elementTypeProvider.getLoop_SolangeKeyword_0_0ElementType());
+			}
+			otherlv_0='Solange'
+			{
+				doneLeaf(otherlv_0);
+			}
+			    |
+			{
+				markLeaf(elementTypeProvider.getLoop_WhileKeyword_0_1ElementType());
+			}
+			otherlv_1='While'
+			{
+				doneLeaf(otherlv_1);
+			}
+		)
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getLoop_ConditionSTRINGTerminalRuleCall_1_0ElementType());
+				}
+				lv_condition_2_0=RULE_STRING
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_condition_2_0);
+				}
+			)
+		)
+		{
+			markLeaf(elementTypeProvider.getLoop_ColonKeyword_2ElementType());
+		}
+		otherlv_3=':'
+		{
+			doneLeaf(otherlv_3);
+		}
 	)
 ;
 
