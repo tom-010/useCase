@@ -131,10 +131,10 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getStepElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getStep_ErrorRaiseErrorParserRuleCall_1_0_1_0ElementType()) {
+			if (elementType == elementTypeProvider.getStep_ErrorRaiseErrorConditionalParserRuleCall_1_0_1_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getStep_ErrorRaiseErrorParserRuleCall_1_1_0ElementType()) {
+			if (elementType == elementTypeProvider.getStep_ErrorRaiseErrorConditionalParserRuleCall_1_1_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getStep_ConditionIfStatementParserRuleCall_1_2_0ElementType()) {
@@ -143,17 +143,35 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getStep_LoopLoopParserRuleCall_1_3_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getRaiseErrorElementType()) {
+			if (elementType == elementTypeProvider.getStep_ExceptionRaiseErrorNowParserRuleCall_1_4_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getRaiseError_ExceptionExceptionParserRuleCall_1_0ElementType()) {
+			if (elementType == elementTypeProvider.getRaiseErrorConditionalElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getRaiseErrorConditional_ExceptionExceptionParserRuleCall_2_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getRaiseErrorNowElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getRaiseErrorNow_ExceptionExceptionParserRuleCall_1_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getIfStatementElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
+			if (elementType == elementTypeProvider.getIfStatement_ConditionBooleanConditionParserRuleCall_1_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
 			if (elementType == elementTypeProvider.getLoopElementType()) {
 				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getLoop_ConditionBooleanConditionParserRuleCall_1_0ElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getBooleanConditionElementType()) {
+				return new PsiNamedEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getNotesElementType()) {
 				return new PsiEObjectImpl(node) {};

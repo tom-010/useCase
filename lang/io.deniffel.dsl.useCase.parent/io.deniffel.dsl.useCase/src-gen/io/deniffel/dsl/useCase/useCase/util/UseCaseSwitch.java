@@ -5,6 +5,7 @@ package io.deniffel.dsl.useCase.useCase.util;
 
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.BooleanCondition;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
@@ -18,7 +19,8 @@ import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
-import io.deniffel.dsl.useCase.useCase.RaiseError;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorConditional;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
@@ -200,10 +202,17 @@ public class UseCaseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case UseCasePackage.RAISE_ERROR:
+      case UseCasePackage.RAISE_ERROR_CONDITIONAL:
       {
-        RaiseError raiseError = (RaiseError)theEObject;
-        T result = caseRaiseError(raiseError);
+        RaiseErrorConditional raiseErrorConditional = (RaiseErrorConditional)theEObject;
+        T result = caseRaiseErrorConditional(raiseErrorConditional);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.RAISE_ERROR_NOW:
+      {
+        RaiseErrorNow raiseErrorNow = (RaiseErrorNow)theEObject;
+        T result = caseRaiseErrorNow(raiseErrorNow);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -218,6 +227,13 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         Loop loop = (Loop)theEObject;
         T result = caseLoop(loop);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.BOOLEAN_CONDITION:
+      {
+        BooleanCondition booleanCondition = (BooleanCondition)theEObject;
+        T result = caseBooleanCondition(booleanCondition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -508,17 +524,33 @@ public class UseCaseSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Raise Error</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Raise Error Conditional</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Raise Error</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Raise Error Conditional</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRaiseError(RaiseError object)
+  public T caseRaiseErrorConditional(RaiseErrorConditional object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Raise Error Now</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Raise Error Now</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRaiseErrorNow(RaiseErrorNow object)
   {
     return null;
   }
@@ -551,6 +583,22 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLoop(Loop object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Condition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Condition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBooleanCondition(BooleanCondition object)
   {
     return null;
   }

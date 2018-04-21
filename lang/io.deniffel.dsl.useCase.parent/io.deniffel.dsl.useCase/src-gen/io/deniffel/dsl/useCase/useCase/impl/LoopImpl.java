@@ -3,12 +3,15 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
+import io.deniffel.dsl.useCase.useCase.BooleanCondition;
 import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -29,24 +32,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class LoopImpl extends MinimalEObjectImpl.Container implements Loop
 {
   /**
-   * The default value of the '{@link #getCondition() <em>Condition</em>}' attribute.
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getCondition()
    * @generated
    * @ordered
    */
-  protected static final String CONDITION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCondition()
-   * @generated
-   * @ordered
-   */
-  protected String condition = CONDITION_EDEFAULT;
+  protected BooleanCondition condition;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,7 +67,7 @@ public class LoopImpl extends MinimalEObjectImpl.Container implements Loop
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCondition()
+  public BooleanCondition getCondition()
   {
     return condition;
   }
@@ -84,12 +77,53 @@ public class LoopImpl extends MinimalEObjectImpl.Container implements Loop
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCondition(String newCondition)
+  public NotificationChain basicSetCondition(BooleanCondition newCondition, NotificationChain msgs)
   {
-    String oldCondition = condition;
+    BooleanCondition oldCondition = condition;
     condition = newCondition;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.LOOP__CONDITION, oldCondition, condition));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.LOOP__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCondition(BooleanCondition newCondition)
+  {
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.LOOP__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.LOOP__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.LOOP__CONDITION, newCondition, newCondition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case UseCasePackage.LOOP__CONDITION:
+        return basicSetCondition(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -119,7 +153,7 @@ public class LoopImpl extends MinimalEObjectImpl.Container implements Loop
     switch (featureID)
     {
       case UseCasePackage.LOOP__CONDITION:
-        setCondition((String)newValue);
+        setCondition((BooleanCondition)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,7 +170,7 @@ public class LoopImpl extends MinimalEObjectImpl.Container implements Loop
     switch (featureID)
     {
       case UseCasePackage.LOOP__CONDITION:
-        setCondition(CONDITION_EDEFAULT);
+        setCondition((BooleanCondition)null);
         return;
     }
     super.eUnset(featureID);
@@ -153,26 +187,9 @@ public class LoopImpl extends MinimalEObjectImpl.Container implements Loop
     switch (featureID)
     {
       case UseCasePackage.LOOP__CONDITION:
-        return CONDITION_EDEFAULT == null ? condition != null : !CONDITION_EDEFAULT.equals(condition);
+        return condition != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (condition: ");
-    result.append(condition);
-    result.append(')');
-    return result.toString();
   }
 
 } //LoopImpl

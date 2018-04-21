@@ -5,6 +5,7 @@ package io.deniffel.dsl.useCase.useCase.impl;
 
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.BooleanCondition;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
@@ -18,7 +19,8 @@ import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
-import io.deniffel.dsl.useCase.useCase.RaiseError;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorConditional;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
@@ -103,9 +105,11 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.CONDITION: return createCondition();
       case UseCasePackage.STEPS: return createSteps();
       case UseCasePackage.STEP: return createStep();
-      case UseCasePackage.RAISE_ERROR: return createRaiseError();
+      case UseCasePackage.RAISE_ERROR_CONDITIONAL: return createRaiseErrorConditional();
+      case UseCasePackage.RAISE_ERROR_NOW: return createRaiseErrorNow();
       case UseCasePackage.IF_STATEMENT: return createIfStatement();
       case UseCasePackage.LOOP: return createLoop();
+      case UseCasePackage.BOOLEAN_CONDITION: return createBooleanCondition();
       case UseCasePackage.NOTES: return createNotes();
       case UseCasePackage.USED_TYPES: return createUsedTypes();
       case UseCasePackage.TYPE: return createType();
@@ -287,10 +291,21 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RaiseError createRaiseError()
+  public RaiseErrorConditional createRaiseErrorConditional()
   {
-    RaiseErrorImpl raiseError = new RaiseErrorImpl();
-    return raiseError;
+    RaiseErrorConditionalImpl raiseErrorConditional = new RaiseErrorConditionalImpl();
+    return raiseErrorConditional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RaiseErrorNow createRaiseErrorNow()
+  {
+    RaiseErrorNowImpl raiseErrorNow = new RaiseErrorNowImpl();
+    return raiseErrorNow;
   }
 
   /**
@@ -313,6 +328,17 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     LoopImpl loop = new LoopImpl();
     return loop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BooleanCondition createBooleanCondition()
+  {
+    BooleanConditionImpl booleanCondition = new BooleanConditionImpl();
+    return booleanCondition;
   }
 
   /**

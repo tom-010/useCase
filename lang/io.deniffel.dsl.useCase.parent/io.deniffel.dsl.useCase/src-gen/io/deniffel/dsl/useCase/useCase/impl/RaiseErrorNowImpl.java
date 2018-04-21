@@ -3,8 +3,7 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
-import io.deniffel.dsl.useCase.useCase.BooleanCondition;
-import io.deniffel.dsl.useCase.useCase.IfStatement;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,35 +17,35 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>If Statement</b></em>'.
+ * An implementation of the model object '<em><b>Raise Error Now</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.IfStatementImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorNowImpl#getException <em>Exception</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfStatement
+public class RaiseErrorNowImpl extends MinimalEObjectImpl.Container implements RaiseErrorNow
 {
   /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+   * The cached value of the '{@link #getException() <em>Exception</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCondition()
+   * @see #getException()
    * @generated
    * @ordered
    */
-  protected BooleanCondition condition;
+  protected io.deniffel.dsl.useCase.useCase.Exception exception;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IfStatementImpl()
+  protected RaiseErrorNowImpl()
   {
     super();
   }
@@ -59,7 +58,7 @@ public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfS
   @Override
   protected EClass eStaticClass()
   {
-    return UseCasePackage.Literals.IF_STATEMENT;
+    return UseCasePackage.Literals.RAISE_ERROR_NOW;
   }
 
   /**
@@ -67,9 +66,9 @@ public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfS
    * <!-- end-user-doc -->
    * @generated
    */
-  public BooleanCondition getCondition()
+  public io.deniffel.dsl.useCase.useCase.Exception getException()
   {
-    return condition;
+    return exception;
   }
 
   /**
@@ -77,13 +76,13 @@ public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfS
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCondition(BooleanCondition newCondition, NotificationChain msgs)
+  public NotificationChain basicSetException(io.deniffel.dsl.useCase.useCase.Exception newException, NotificationChain msgs)
   {
-    BooleanCondition oldCondition = condition;
-    condition = newCondition;
+    io.deniffel.dsl.useCase.useCase.Exception oldException = exception;
+    exception = newException;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.IF_STATEMENT__CONDITION, oldCondition, newCondition);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.RAISE_ERROR_NOW__EXCEPTION, oldException, newException);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +93,20 @@ public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfS
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCondition(BooleanCondition newCondition)
+  public void setException(io.deniffel.dsl.useCase.useCase.Exception newException)
   {
-    if (newCondition != condition)
+    if (newException != exception)
     {
       NotificationChain msgs = null;
-      if (condition != null)
-        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.IF_STATEMENT__CONDITION, null, msgs);
-      if (newCondition != null)
-        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.IF_STATEMENT__CONDITION, null, msgs);
-      msgs = basicSetCondition(newCondition, msgs);
+      if (exception != null)
+        msgs = ((InternalEObject)exception).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.RAISE_ERROR_NOW__EXCEPTION, null, msgs);
+      if (newException != null)
+        msgs = ((InternalEObject)newException).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.RAISE_ERROR_NOW__EXCEPTION, null, msgs);
+      msgs = basicSetException(newException, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.IF_STATEMENT__CONDITION, newCondition, newCondition));
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.RAISE_ERROR_NOW__EXCEPTION, newException, newException));
   }
 
   /**
@@ -120,8 +119,8 @@ public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfS
   {
     switch (featureID)
     {
-      case UseCasePackage.IF_STATEMENT__CONDITION:
-        return basicSetCondition(null, msgs);
+      case UseCasePackage.RAISE_ERROR_NOW__EXCEPTION:
+        return basicSetException(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +135,8 @@ public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfS
   {
     switch (featureID)
     {
-      case UseCasePackage.IF_STATEMENT__CONDITION:
-        return getCondition();
+      case UseCasePackage.RAISE_ERROR_NOW__EXCEPTION:
+        return getException();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +151,8 @@ public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfS
   {
     switch (featureID)
     {
-      case UseCasePackage.IF_STATEMENT__CONDITION:
-        setCondition((BooleanCondition)newValue);
+      case UseCasePackage.RAISE_ERROR_NOW__EXCEPTION:
+        setException((io.deniffel.dsl.useCase.useCase.Exception)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +168,8 @@ public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfS
   {
     switch (featureID)
     {
-      case UseCasePackage.IF_STATEMENT__CONDITION:
-        setCondition((BooleanCondition)null);
+      case UseCasePackage.RAISE_ERROR_NOW__EXCEPTION:
+        setException((io.deniffel.dsl.useCase.useCase.Exception)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +185,10 @@ public class IfStatementImpl extends MinimalEObjectImpl.Container implements IfS
   {
     switch (featureID)
     {
-      case UseCasePackage.IF_STATEMENT__CONDITION:
-        return condition != null;
+      case UseCasePackage.RAISE_ERROR_NOW__EXCEPTION:
+        return exception != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //IfStatementImpl
+} //RaiseErrorNowImpl

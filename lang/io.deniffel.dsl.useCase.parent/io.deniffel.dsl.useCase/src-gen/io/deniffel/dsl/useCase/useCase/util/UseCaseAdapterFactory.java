@@ -5,6 +5,7 @@ package io.deniffel.dsl.useCase.useCase.util;
 
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.BooleanCondition;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
@@ -18,7 +19,8 @@ import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
-import io.deniffel.dsl.useCase.useCase.RaiseError;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorConditional;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
@@ -173,9 +175,14 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
         return createStepAdapter();
       }
       @Override
-      public Adapter caseRaiseError(RaiseError object)
+      public Adapter caseRaiseErrorConditional(RaiseErrorConditional object)
       {
-        return createRaiseErrorAdapter();
+        return createRaiseErrorConditionalAdapter();
+      }
+      @Override
+      public Adapter caseRaiseErrorNow(RaiseErrorNow object)
+      {
+        return createRaiseErrorNowAdapter();
       }
       @Override
       public Adapter caseIfStatement(IfStatement object)
@@ -186,6 +193,11 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLoop(Loop object)
       {
         return createLoopAdapter();
+      }
+      @Override
+      public Adapter caseBooleanCondition(BooleanCondition object)
+      {
+        return createBooleanConditionAdapter();
       }
       @Override
       public Adapter caseNotes(Notes object)
@@ -465,16 +477,31 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.RaiseError <em>Raise Error</em>}'.
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.RaiseErrorConditional <em>Raise Error Conditional</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see io.deniffel.dsl.useCase.useCase.RaiseError
+   * @see io.deniffel.dsl.useCase.useCase.RaiseErrorConditional
    * @generated
    */
-  public Adapter createRaiseErrorAdapter()
+  public Adapter createRaiseErrorConditionalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.RaiseErrorNow <em>Raise Error Now</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.RaiseErrorNow
+   * @generated
+   */
+  public Adapter createRaiseErrorNowAdapter()
   {
     return null;
   }
@@ -505,6 +532,21 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLoopAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.BooleanCondition <em>Boolean Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.BooleanCondition
+   * @generated
+   */
+  public Adapter createBooleanConditionAdapter()
   {
     return null;
   }

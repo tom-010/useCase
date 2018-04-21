@@ -5,6 +5,7 @@ package io.deniffel.dsl.useCase.useCase.impl;
 
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.BooleanCondition;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
@@ -18,7 +19,8 @@ import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
-import io.deniffel.dsl.useCase.useCase.RaiseError;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorConditional;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
@@ -153,7 +155,14 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass raiseErrorEClass = null;
+  private EClass raiseErrorConditionalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass raiseErrorNowEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -168,6 +177,13 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * @generated
    */
   private EClass loopEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanConditionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -819,9 +835,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRaiseError()
+  public EReference getStep_Exception()
   {
-    return raiseErrorEClass;
+    return (EReference)stepEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -829,9 +845,39 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRaiseError_Exception()
+  public EClass getRaiseErrorConditional()
   {
-    return (EReference)raiseErrorEClass.getEStructuralFeatures().get(0);
+    return raiseErrorConditionalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRaiseErrorConditional_Exception()
+  {
+    return (EReference)raiseErrorConditionalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRaiseErrorNow()
+  {
+    return raiseErrorNowEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRaiseErrorNow_Exception()
+  {
+    return (EReference)raiseErrorNowEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -849,9 +895,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIfStatement_Condition()
+  public EReference getIfStatement_Condition()
   {
-    return (EAttribute)ifStatementEClass.getEStructuralFeatures().get(0);
+    return (EReference)ifStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -869,9 +915,29 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLoop_Condition()
+  public EReference getLoop_Condition()
   {
-    return (EAttribute)loopEClass.getEStructuralFeatures().get(0);
+    return (EReference)loopEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBooleanCondition()
+  {
+    return booleanConditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBooleanCondition_Name()
+  {
+    return (EAttribute)booleanConditionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1132,15 +1198,22 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     createEReference(stepEClass, STEP__ERROR);
     createEReference(stepEClass, STEP__CONDITION);
     createEReference(stepEClass, STEP__LOOP);
+    createEReference(stepEClass, STEP__EXCEPTION);
 
-    raiseErrorEClass = createEClass(RAISE_ERROR);
-    createEReference(raiseErrorEClass, RAISE_ERROR__EXCEPTION);
+    raiseErrorConditionalEClass = createEClass(RAISE_ERROR_CONDITIONAL);
+    createEReference(raiseErrorConditionalEClass, RAISE_ERROR_CONDITIONAL__EXCEPTION);
+
+    raiseErrorNowEClass = createEClass(RAISE_ERROR_NOW);
+    createEReference(raiseErrorNowEClass, RAISE_ERROR_NOW__EXCEPTION);
 
     ifStatementEClass = createEClass(IF_STATEMENT);
-    createEAttribute(ifStatementEClass, IF_STATEMENT__CONDITION);
+    createEReference(ifStatementEClass, IF_STATEMENT__CONDITION);
 
     loopEClass = createEClass(LOOP);
-    createEAttribute(loopEClass, LOOP__CONDITION);
+    createEReference(loopEClass, LOOP__CONDITION);
+
+    booleanConditionEClass = createEClass(BOOLEAN_CONDITION);
+    createEAttribute(booleanConditionEClass, BOOLEAN_CONDITION__NAME);
 
     notesEClass = createEClass(NOTES);
     createEAttribute(notesEClass, NOTES__CONTENT);
@@ -1261,18 +1334,25 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStep_Number(), ecorePackage.getEString(), "number", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStep_Action(), ecorePackage.getEString(), "action", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStep_Error(), this.getRaiseError(), null, "error", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStep_Error(), this.getRaiseErrorConditional(), null, "error", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStep_Condition(), this.getIfStatement(), null, "condition", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStep_Loop(), this.getLoop(), null, "loop", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStep_Exception(), this.getRaiseErrorNow(), null, "exception", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(raiseErrorEClass, RaiseError.class, "RaiseError", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRaiseError_Exception(), this.getException(), null, "exception", null, 0, 1, RaiseError.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(raiseErrorConditionalEClass, RaiseErrorConditional.class, "RaiseErrorConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRaiseErrorConditional_Exception(), this.getException(), null, "exception", null, 0, 1, RaiseErrorConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(raiseErrorNowEClass, RaiseErrorNow.class, "RaiseErrorNow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRaiseErrorNow_Exception(), this.getException(), null, "exception", null, 0, 1, RaiseErrorNow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifStatementEClass, IfStatement.class, "IfStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIfStatement_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStatement_Condition(), this.getBooleanCondition(), null, "condition", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(loopEClass, Loop.class, "Loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLoop_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLoop_Condition(), this.getBooleanCondition(), null, "condition", null, 0, 1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanConditionEClass, BooleanCondition.class, "BooleanCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBooleanCondition_Name(), ecorePackage.getEString(), "name", null, 0, 1, BooleanCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(notesEClass, Notes.class, "Notes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNotes_Content(), ecorePackage.getEString(), "content", null, 0, 1, Notes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -1426,9 +1426,9 @@ ruleStep returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getStepAccess().getErrorRaiseErrorParserRuleCall_1_0_1_0());
+							newCompositeNode(grammarAccess.getStepAccess().getErrorRaiseErrorConditionalParserRuleCall_1_0_1_0());
 						}
-						lv_error_2_0=ruleRaiseError
+						lv_error_2_0=ruleRaiseErrorConditional
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getStepRule());
@@ -1437,7 +1437,7 @@ ruleStep returns [EObject current=null]
 								$current,
 								"error",
 								lv_error_2_0,
-								"io.deniffel.dsl.useCase.UseCase.RaiseError");
+								"io.deniffel.dsl.useCase.UseCase.RaiseErrorConditional");
 							afterParserOrEnumRuleCall();
 						}
 					)
@@ -1447,9 +1447,9 @@ ruleStep returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getStepAccess().getErrorRaiseErrorParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getStepAccess().getErrorRaiseErrorConditionalParserRuleCall_1_1_0());
 					}
-					lv_error_3_0=ruleRaiseError
+					lv_error_3_0=ruleRaiseErrorConditional
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getStepRule());
@@ -1458,7 +1458,7 @@ ruleStep returns [EObject current=null]
 							$current,
 							"error",
 							lv_error_3_0,
-							"io.deniffel.dsl.useCase.UseCase.RaiseError");
+							"io.deniffel.dsl.useCase.UseCase.RaiseErrorConditional");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1503,19 +1503,119 @@ ruleStep returns [EObject current=null]
 					}
 				)
 			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getStepAccess().getExceptionRaiseErrorNowParserRuleCall_1_4_0());
+					}
+					lv_exception_6_0=ruleRaiseErrorNow
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStepRule());
+						}
+						set(
+							$current,
+							"exception",
+							lv_exception_6_0,
+							"io.deniffel.dsl.useCase.UseCase.RaiseErrorNow");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)
 	)
 ;
 
-// Entry rule entryRuleRaiseError
-entryRuleRaiseError returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getRaiseErrorRule()); }
-	iv_ruleRaiseError=ruleRaiseError
-	{ $current=$iv_ruleRaiseError.current; }
+// Entry rule entryRuleRaiseErrorConditional
+entryRuleRaiseErrorConditional returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRaiseErrorConditionalRule()); }
+	iv_ruleRaiseErrorConditional=ruleRaiseErrorConditional
+	{ $current=$iv_ruleRaiseErrorConditional.current; }
 	EOF;
 
-// Rule RaiseError
-ruleRaiseError returns [EObject current=null]
+// Rule RaiseErrorConditional
+ruleRaiseErrorConditional returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			otherlv_0='.'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getRaiseErrorConditionalAccess().getFullStopKeyword_0_0());
+			}
+			    |
+			otherlv_1=':'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getRaiseErrorConditionalAccess().getColonKeyword_0_1());
+			}
+		)
+		(
+			(
+				otherlv_2='On'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getRaiseErrorConditionalAccess().getOnKeyword_1_0_0());
+				}
+				otherlv_3='error'
+				{
+					newLeafNode(otherlv_3, grammarAccess.getRaiseErrorConditionalAccess().getErrorKeyword_1_0_1());
+				}
+				otherlv_4='raise'
+				{
+					newLeafNode(otherlv_4, grammarAccess.getRaiseErrorConditionalAccess().getRaiseKeyword_1_0_2());
+				}
+			)
+			    |
+			(
+				otherlv_5='Bei'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getRaiseErrorConditionalAccess().getBeiKeyword_1_1_0());
+				}
+				otherlv_6='Fehler'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getRaiseErrorConditionalAccess().getFehlerKeyword_1_1_1());
+				}
+				otherlv_7='melde'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getRaiseErrorConditionalAccess().getMeldeKeyword_1_1_2());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRaiseErrorConditionalAccess().getExceptionExceptionParserRuleCall_2_0());
+				}
+				lv_exception_8_0=ruleException
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRaiseErrorConditionalRule());
+					}
+					set(
+						$current,
+						"exception",
+						lv_exception_8_0,
+						"io.deniffel.dsl.useCase.UseCase.Exception");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleRaiseErrorNow
+entryRuleRaiseErrorNow returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRaiseErrorNowRule()); }
+	iv_ruleRaiseErrorNow=ruleRaiseErrorNow
+	{ $current=$iv_ruleRaiseErrorNow.current; }
+	EOF;
+
+// Rule RaiseErrorNow
+ruleRaiseErrorNow returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1525,92 +1625,45 @@ ruleRaiseError returns [EObject current=null]
 	(
 		(
 			(
+				otherlv_0='Raise'
+				{
+					newLeafNode(otherlv_0, grammarAccess.getRaiseErrorNowAccess().getRaiseKeyword_0_0_0());
+				}
 				(
-					otherlv_0='.'
+					otherlv_1='error'
 					{
-						newLeafNode(otherlv_0, grammarAccess.getRaiseErrorAccess().getFullStopKeyword_0_0_0_0());
+						newLeafNode(otherlv_1, grammarAccess.getRaiseErrorNowAccess().getErrorKeyword_0_0_1());
 					}
-					    |
-					otherlv_1=':'
-					{
-						newLeafNode(otherlv_1, grammarAccess.getRaiseErrorAccess().getColonKeyword_0_0_0_1());
-					}
-				)
-				(
-					(
-						otherlv_2='On'
-						{
-							newLeafNode(otherlv_2, grammarAccess.getRaiseErrorAccess().getOnKeyword_0_0_1_0_0());
-						}
-						otherlv_3='error'
-						{
-							newLeafNode(otherlv_3, grammarAccess.getRaiseErrorAccess().getErrorKeyword_0_0_1_0_1());
-						}
-						otherlv_4='raise'
-						{
-							newLeafNode(otherlv_4, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_0_0_1_0_2());
-						}
-					)
-					    |
-					(
-						otherlv_5='Bei'
-						{
-							newLeafNode(otherlv_5, grammarAccess.getRaiseErrorAccess().getBeiKeyword_0_0_1_1_0());
-						}
-						otherlv_6='Fehler'
-						{
-							newLeafNode(otherlv_6, grammarAccess.getRaiseErrorAccess().getFehlerKeyword_0_0_1_1_1());
-						}
-						otherlv_7='melde'
-						{
-							newLeafNode(otherlv_7, grammarAccess.getRaiseErrorAccess().getMeldeKeyword_0_0_1_1_2());
-						}
-					)
-				)
+				)?
 			)
 			    |
 			(
+				otherlv_2='Melde'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getRaiseErrorNowAccess().getMeldeKeyword_0_1_0());
+				}
 				(
-					otherlv_8='Raise'
+					otherlv_3='Fehler'
 					{
-						newLeafNode(otherlv_8, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_0_1_0_0());
+						newLeafNode(otherlv_3, grammarAccess.getRaiseErrorNowAccess().getFehlerKeyword_0_1_1());
 					}
-					(
-						otherlv_9='error'
-						{
-							newLeafNode(otherlv_9, grammarAccess.getRaiseErrorAccess().getErrorKeyword_0_1_0_1());
-						}
-					)?
-				)
-				    |
-				(
-					otherlv_10='Melde'
-					{
-						newLeafNode(otherlv_10, grammarAccess.getRaiseErrorAccess().getMeldeKeyword_0_1_1_0());
-					}
-					(
-						otherlv_11='Fehler'
-						{
-							newLeafNode(otherlv_11, grammarAccess.getRaiseErrorAccess().getFehlerKeyword_0_1_1_1());
-						}
-					)?
-				)
+				)?
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRaiseErrorAccess().getExceptionExceptionParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getRaiseErrorNowAccess().getExceptionExceptionParserRuleCall_1_0());
 				}
-				lv_exception_12_0=ruleException
+				lv_exception_4_0=ruleException
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRaiseErrorRule());
+						$current = createModelElementForParent(grammarAccess.getRaiseErrorNowRule());
 					}
 					set(
 						$current,
 						"exception",
-						lv_exception_12_0,
+						lv_exception_4_0,
 						"io.deniffel.dsl.useCase.UseCase.Exception");
 					afterParserOrEnumRuleCall();
 				}
@@ -1648,19 +1701,20 @@ ruleIfStatement returns [EObject current=null]
 		)
 		(
 			(
-				lv_condition_2_0=RULE_STRING
 				{
-					newLeafNode(lv_condition_2_0, grammarAccess.getIfStatementAccess().getConditionSTRINGTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getIfStatementAccess().getConditionBooleanConditionParserRuleCall_1_0());
 				}
+				lv_condition_2_0=ruleBooleanCondition
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getIfStatementRule());
+						$current = createModelElementForParent(grammarAccess.getIfStatementRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"condition",
 						lv_condition_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"io.deniffel.dsl.useCase.UseCase.BooleanCondition");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1700,19 +1754,20 @@ ruleLoop returns [EObject current=null]
 		)
 		(
 			(
-				lv_condition_2_0=RULE_STRING
 				{
-					newLeafNode(lv_condition_2_0, grammarAccess.getLoopAccess().getConditionSTRINGTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getLoopAccess().getConditionBooleanConditionParserRuleCall_1_0());
 				}
+				lv_condition_2_0=ruleBooleanCondition
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getLoopRule());
+						$current = createModelElementForParent(grammarAccess.getLoopRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"condition",
 						lv_condition_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"io.deniffel.dsl.useCase.UseCase.BooleanCondition");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1720,6 +1775,41 @@ ruleLoop returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getLoopAccess().getColonKeyword_2());
 		}
+	)
+;
+
+// Entry rule entryRuleBooleanCondition
+entryRuleBooleanCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBooleanConditionRule()); }
+	iv_ruleBooleanCondition=ruleBooleanCondition
+	{ $current=$iv_ruleBooleanCondition.current; }
+	EOF;
+
+// Rule BooleanCondition
+ruleBooleanCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_STRING
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getBooleanConditionAccess().getNameSTRINGTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getBooleanConditionRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.STRING");
+			}
+		)
 	)
 ;
 

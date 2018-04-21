@@ -3,7 +3,7 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
-import io.deniffel.dsl.useCase.useCase.RaiseError;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorConditional;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -17,18 +17,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Raise Error</b></em>'.
+ * An implementation of the model object '<em><b>Raise Error Conditional</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorImpl#getException <em>Exception</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorConditionalImpl#getException <em>Exception</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements RaiseError
+public class RaiseErrorConditionalImpl extends MinimalEObjectImpl.Container implements RaiseErrorConditional
 {
   /**
    * The cached value of the '{@link #getException() <em>Exception</em>}' containment reference.
@@ -45,7 +45,7 @@ public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements Rais
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RaiseErrorImpl()
+  protected RaiseErrorConditionalImpl()
   {
     super();
   }
@@ -58,7 +58,7 @@ public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements Rais
   @Override
   protected EClass eStaticClass()
   {
-    return UseCasePackage.Literals.RAISE_ERROR;
+    return UseCasePackage.Literals.RAISE_ERROR_CONDITIONAL;
   }
 
   /**
@@ -82,7 +82,7 @@ public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements Rais
     exception = newException;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.RAISE_ERROR__EXCEPTION, oldException, newException);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.RAISE_ERROR_CONDITIONAL__EXCEPTION, oldException, newException);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -99,14 +99,14 @@ public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements Rais
     {
       NotificationChain msgs = null;
       if (exception != null)
-        msgs = ((InternalEObject)exception).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.RAISE_ERROR__EXCEPTION, null, msgs);
+        msgs = ((InternalEObject)exception).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.RAISE_ERROR_CONDITIONAL__EXCEPTION, null, msgs);
       if (newException != null)
-        msgs = ((InternalEObject)newException).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.RAISE_ERROR__EXCEPTION, null, msgs);
+        msgs = ((InternalEObject)newException).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.RAISE_ERROR_CONDITIONAL__EXCEPTION, null, msgs);
       msgs = basicSetException(newException, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.RAISE_ERROR__EXCEPTION, newException, newException));
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.RAISE_ERROR_CONDITIONAL__EXCEPTION, newException, newException));
   }
 
   /**
@@ -119,7 +119,7 @@ public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements Rais
   {
     switch (featureID)
     {
-      case UseCasePackage.RAISE_ERROR__EXCEPTION:
+      case UseCasePackage.RAISE_ERROR_CONDITIONAL__EXCEPTION:
         return basicSetException(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -135,7 +135,7 @@ public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements Rais
   {
     switch (featureID)
     {
-      case UseCasePackage.RAISE_ERROR__EXCEPTION:
+      case UseCasePackage.RAISE_ERROR_CONDITIONAL__EXCEPTION:
         return getException();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -151,7 +151,7 @@ public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements Rais
   {
     switch (featureID)
     {
-      case UseCasePackage.RAISE_ERROR__EXCEPTION:
+      case UseCasePackage.RAISE_ERROR_CONDITIONAL__EXCEPTION:
         setException((io.deniffel.dsl.useCase.useCase.Exception)newValue);
         return;
     }
@@ -168,7 +168,7 @@ public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements Rais
   {
     switch (featureID)
     {
-      case UseCasePackage.RAISE_ERROR__EXCEPTION:
+      case UseCasePackage.RAISE_ERROR_CONDITIONAL__EXCEPTION:
         setException((io.deniffel.dsl.useCase.useCase.Exception)null);
         return;
     }
@@ -185,10 +185,10 @@ public class RaiseErrorImpl extends MinimalEObjectImpl.Container implements Rais
   {
     switch (featureID)
     {
-      case UseCasePackage.RAISE_ERROR__EXCEPTION:
+      case UseCasePackage.RAISE_ERROR_CONDITIONAL__EXCEPTION:
         return exception != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //RaiseErrorImpl
+} //RaiseErrorConditionalImpl

@@ -685,23 +685,32 @@ public interface UseCasePackage extends EPackage
   int STEP__LOOP = 4;
 
   /**
+   * The feature id for the '<em><b>Exception</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEP__EXCEPTION = 5;
+
+  /**
    * The number of structural features of the '<em>Step</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STEP_FEATURE_COUNT = 5;
+  int STEP_FEATURE_COUNT = 6;
 
   /**
-   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorImpl <em>Raise Error</em>}' class.
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorConditionalImpl <em>Raise Error Conditional</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see io.deniffel.dsl.useCase.useCase.impl.RaiseErrorImpl
-   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseError()
+   * @see io.deniffel.dsl.useCase.useCase.impl.RaiseErrorConditionalImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseErrorConditional()
    * @generated
    */
-  int RAISE_ERROR = 15;
+  int RAISE_ERROR_CONDITIONAL = 15;
 
   /**
    * The feature id for the '<em><b>Exception</b></em>' containment reference.
@@ -710,16 +719,44 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int RAISE_ERROR__EXCEPTION = 0;
+  int RAISE_ERROR_CONDITIONAL__EXCEPTION = 0;
 
   /**
-   * The number of structural features of the '<em>Raise Error</em>' class.
+   * The number of structural features of the '<em>Raise Error Conditional</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RAISE_ERROR_FEATURE_COUNT = 1;
+  int RAISE_ERROR_CONDITIONAL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorNowImpl <em>Raise Error Now</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.RaiseErrorNowImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseErrorNow()
+   * @generated
+   */
+  int RAISE_ERROR_NOW = 16;
+
+  /**
+   * The feature id for the '<em><b>Exception</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAISE_ERROR_NOW__EXCEPTION = 0;
+
+  /**
+   * The number of structural features of the '<em>Raise Error Now</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RAISE_ERROR_NOW_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.IfStatementImpl <em>If Statement</em>}' class.
@@ -729,10 +766,10 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getIfStatement()
    * @generated
    */
-  int IF_STATEMENT = 16;
+  int IF_STATEMENT = 17;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' attribute.
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -757,10 +794,10 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getLoop()
    * @generated
    */
-  int LOOP = 17;
+  int LOOP = 18;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' attribute.
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -778,6 +815,34 @@ public interface UseCasePackage extends EPackage
   int LOOP_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.BooleanConditionImpl <em>Boolean Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.BooleanConditionImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getBooleanCondition()
+   * @generated
+   */
+  int BOOLEAN_CONDITION = 19;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_CONDITION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_CONDITION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.NotesImpl <em>Notes</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -785,7 +850,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getNotes()
    * @generated
    */
-  int NOTES = 18;
+  int NOTES = 20;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -813,7 +878,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getUsedTypes()
    * @generated
    */
-  int USED_TYPES = 19;
+  int USED_TYPES = 21;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -841,7 +906,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getType()
    * @generated
    */
-  int TYPE = 20;
+  int TYPE = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -887,7 +952,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getUsedExceptions()
    * @generated
    */
-  int USED_EXCEPTIONS = 21;
+  int USED_EXCEPTIONS = 23;
 
   /**
    * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
@@ -915,7 +980,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getException()
    * @generated
    */
-  int EXCEPTION = 22;
+  int EXCEPTION = 24;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -943,7 +1008,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getExceptionDecleration()
    * @generated
    */
-  int EXCEPTION_DECLERATION = 23;
+  int EXCEPTION_DECLERATION = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1562,25 +1627,57 @@ public interface UseCasePackage extends EPackage
   EReference getStep_Loop();
 
   /**
-   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.RaiseError <em>Raise Error</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Raise Error</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.RaiseError
-   * @generated
-   */
-  EClass getRaiseError();
-
-  /**
-   * Returns the meta object for the containment reference '{@link io.deniffel.dsl.useCase.useCase.RaiseError#getException <em>Exception</em>}'.
+   * Returns the meta object for the containment reference '{@link io.deniffel.dsl.useCase.useCase.Step#getException <em>Exception</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Exception</em>'.
-   * @see io.deniffel.dsl.useCase.useCase.RaiseError#getException()
-   * @see #getRaiseError()
+   * @see io.deniffel.dsl.useCase.useCase.Step#getException()
+   * @see #getStep()
    * @generated
    */
-  EReference getRaiseError_Exception();
+  EReference getStep_Exception();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.RaiseErrorConditional <em>Raise Error Conditional</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Raise Error Conditional</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.RaiseErrorConditional
+   * @generated
+   */
+  EClass getRaiseErrorConditional();
+
+  /**
+   * Returns the meta object for the containment reference '{@link io.deniffel.dsl.useCase.useCase.RaiseErrorConditional#getException <em>Exception</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exception</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.RaiseErrorConditional#getException()
+   * @see #getRaiseErrorConditional()
+   * @generated
+   */
+  EReference getRaiseErrorConditional_Exception();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.RaiseErrorNow <em>Raise Error Now</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Raise Error Now</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.RaiseErrorNow
+   * @generated
+   */
+  EClass getRaiseErrorNow();
+
+  /**
+   * Returns the meta object for the containment reference '{@link io.deniffel.dsl.useCase.useCase.RaiseErrorNow#getException <em>Exception</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exception</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.RaiseErrorNow#getException()
+   * @see #getRaiseErrorNow()
+   * @generated
+   */
+  EReference getRaiseErrorNow_Exception();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.IfStatement <em>If Statement</em>}'.
@@ -1593,15 +1690,15 @@ public interface UseCasePackage extends EPackage
   EClass getIfStatement();
 
   /**
-   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.IfStatement#getCondition <em>Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link io.deniffel.dsl.useCase.useCase.IfStatement#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Condition</em>'.
+   * @return the meta object for the containment reference '<em>Condition</em>'.
    * @see io.deniffel.dsl.useCase.useCase.IfStatement#getCondition()
    * @see #getIfStatement()
    * @generated
    */
-  EAttribute getIfStatement_Condition();
+  EReference getIfStatement_Condition();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Loop <em>Loop</em>}'.
@@ -1614,15 +1711,36 @@ public interface UseCasePackage extends EPackage
   EClass getLoop();
 
   /**
-   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Loop#getCondition <em>Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link io.deniffel.dsl.useCase.useCase.Loop#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Condition</em>'.
+   * @return the meta object for the containment reference '<em>Condition</em>'.
    * @see io.deniffel.dsl.useCase.useCase.Loop#getCondition()
    * @see #getLoop()
    * @generated
    */
-  EAttribute getLoop_Condition();
+  EReference getLoop_Condition();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.BooleanCondition <em>Boolean Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean Condition</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.BooleanCondition
+   * @generated
+   */
+  EClass getBooleanCondition();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.BooleanCondition#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.BooleanCondition#getName()
+   * @see #getBooleanCondition()
+   * @generated
+   */
+  EAttribute getBooleanCondition_Name();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Notes <em>Notes</em>}'.
@@ -2280,14 +2398,22 @@ public interface UseCasePackage extends EPackage
     EReference STEP__LOOP = eINSTANCE.getStep_Loop();
 
     /**
-     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorImpl <em>Raise Error</em>}' class.
+     * The meta object literal for the '<em><b>Exception</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see io.deniffel.dsl.useCase.useCase.impl.RaiseErrorImpl
-     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseError()
      * @generated
      */
-    EClass RAISE_ERROR = eINSTANCE.getRaiseError();
+    EReference STEP__EXCEPTION = eINSTANCE.getStep_Exception();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorConditionalImpl <em>Raise Error Conditional</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.RaiseErrorConditionalImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseErrorConditional()
+     * @generated
+     */
+    EClass RAISE_ERROR_CONDITIONAL = eINSTANCE.getRaiseErrorConditional();
 
     /**
      * The meta object literal for the '<em><b>Exception</b></em>' containment reference feature.
@@ -2295,7 +2421,25 @@ public interface UseCasePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RAISE_ERROR__EXCEPTION = eINSTANCE.getRaiseError_Exception();
+    EReference RAISE_ERROR_CONDITIONAL__EXCEPTION = eINSTANCE.getRaiseErrorConditional_Exception();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.RaiseErrorNowImpl <em>Raise Error Now</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.RaiseErrorNowImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseErrorNow()
+     * @generated
+     */
+    EClass RAISE_ERROR_NOW = eINSTANCE.getRaiseErrorNow();
+
+    /**
+     * The meta object literal for the '<em><b>Exception</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RAISE_ERROR_NOW__EXCEPTION = eINSTANCE.getRaiseErrorNow_Exception();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.IfStatementImpl <em>If Statement</em>}' class.
@@ -2308,12 +2452,12 @@ public interface UseCasePackage extends EPackage
     EClass IF_STATEMENT = eINSTANCE.getIfStatement();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute IF_STATEMENT__CONDITION = eINSTANCE.getIfStatement_Condition();
+    EReference IF_STATEMENT__CONDITION = eINSTANCE.getIfStatement_Condition();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.LoopImpl <em>Loop</em>}' class.
@@ -2326,12 +2470,30 @@ public interface UseCasePackage extends EPackage
     EClass LOOP = eINSTANCE.getLoop();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LOOP__CONDITION = eINSTANCE.getLoop_Condition();
+    EReference LOOP__CONDITION = eINSTANCE.getLoop_Condition();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.BooleanConditionImpl <em>Boolean Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.BooleanConditionImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getBooleanCondition()
+     * @generated
+     */
+    EClass BOOLEAN_CONDITION = eINSTANCE.getBooleanCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOLEAN_CONDITION__NAME = eINSTANCE.getBooleanCondition_Name();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.NotesImpl <em>Notes</em>}' class.

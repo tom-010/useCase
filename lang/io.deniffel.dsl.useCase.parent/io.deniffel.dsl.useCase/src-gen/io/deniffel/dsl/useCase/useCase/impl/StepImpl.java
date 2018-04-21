@@ -5,7 +5,8 @@ package io.deniffel.dsl.useCase.useCase.impl;
 
 import io.deniffel.dsl.useCase.useCase.IfStatement;
 import io.deniffel.dsl.useCase.useCase.Loop;
-import io.deniffel.dsl.useCase.useCase.RaiseError;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorConditional;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl#getError <em>Error</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl#getLoop <em>Loop</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.StepImpl#getException <em>Exception</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,7 +87,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    * @ordered
    */
-  protected RaiseError error;
+  protected RaiseErrorConditional error;
 
   /**
    * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -106,6 +108,16 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @ordered
    */
   protected Loop loop;
+
+  /**
+   * The cached value of the '{@link #getException() <em>Exception</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getException()
+   * @generated
+   * @ordered
+   */
+  protected RaiseErrorNow exception;
 
   /**
    * <!-- begin-user-doc -->
@@ -179,7 +191,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  public RaiseError getError()
+  public RaiseErrorConditional getError()
   {
     return error;
   }
@@ -189,9 +201,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetError(RaiseError newError, NotificationChain msgs)
+  public NotificationChain basicSetError(RaiseErrorConditional newError, NotificationChain msgs)
   {
-    RaiseError oldError = error;
+    RaiseErrorConditional oldError = error;
     error = newError;
     if (eNotificationRequired())
     {
@@ -206,7 +218,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setError(RaiseError newError)
+  public void setError(RaiseErrorConditional newError)
   {
     if (newError != error)
     {
@@ -323,6 +335,54 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
+  public RaiseErrorNow getException()
+  {
+    return exception;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetException(RaiseErrorNow newException, NotificationChain msgs)
+  {
+    RaiseErrorNow oldException = exception;
+    exception = newException;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCasePackage.STEP__EXCEPTION, oldException, newException);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setException(RaiseErrorNow newException)
+  {
+    if (newException != exception)
+    {
+      NotificationChain msgs = null;
+      if (exception != null)
+        msgs = ((InternalEObject)exception).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.STEP__EXCEPTION, null, msgs);
+      if (newException != null)
+        msgs = ((InternalEObject)newException).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCasePackage.STEP__EXCEPTION, null, msgs);
+      msgs = basicSetException(newException, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCasePackage.STEP__EXCEPTION, newException, newException));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -334,6 +394,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         return basicSetCondition(null, msgs);
       case UseCasePackage.STEP__LOOP:
         return basicSetLoop(null, msgs);
+      case UseCasePackage.STEP__EXCEPTION:
+        return basicSetException(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -358,6 +420,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         return getCondition();
       case UseCasePackage.STEP__LOOP:
         return getLoop();
+      case UseCasePackage.STEP__EXCEPTION:
+        return getException();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -379,13 +443,16 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         setAction((String)newValue);
         return;
       case UseCasePackage.STEP__ERROR:
-        setError((RaiseError)newValue);
+        setError((RaiseErrorConditional)newValue);
         return;
       case UseCasePackage.STEP__CONDITION:
         setCondition((IfStatement)newValue);
         return;
       case UseCasePackage.STEP__LOOP:
         setLoop((Loop)newValue);
+        return;
+      case UseCasePackage.STEP__EXCEPTION:
+        setException((RaiseErrorNow)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -408,13 +475,16 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         setAction(ACTION_EDEFAULT);
         return;
       case UseCasePackage.STEP__ERROR:
-        setError((RaiseError)null);
+        setError((RaiseErrorConditional)null);
         return;
       case UseCasePackage.STEP__CONDITION:
         setCondition((IfStatement)null);
         return;
       case UseCasePackage.STEP__LOOP:
         setLoop((Loop)null);
+        return;
+      case UseCasePackage.STEP__EXCEPTION:
+        setException((RaiseErrorNow)null);
         return;
     }
     super.eUnset(featureID);
@@ -440,6 +510,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         return condition != null;
       case UseCasePackage.STEP__LOOP:
         return loop != null;
+      case UseCasePackage.STEP__EXCEPTION:
+        return exception != null;
     }
     return super.eIsSet(featureID);
   }

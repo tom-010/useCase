@@ -20,6 +20,7 @@ import io.deniffel.dsl.useCase.useCase.UsedExceptions
 import io.deniffel.dsl.useCase.useCase.PreConditions
 import io.deniffel.dsl.useCase.useCase.Package
 import io.deniffel.dsl.useCase.useCase.PackagePart
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow
 
 class UseCaseGenerator extends AbstractGenerator {
 	
@@ -206,7 +207,7 @@ class UseCaseGenerator extends AbstractGenerator {
 	
 	def steps(UseCase usecase)'''
 		«FOR step : usecase.steps»
-			«step.compile»
+			«step.compile()»
 		«ENDFOR»
 	'''
 	
@@ -217,14 +218,17 @@ class UseCaseGenerator extends AbstractGenerator {
 				return new Output(errors); 
 				
 			«FOR s:steps.steps»
-				«s.compile»;
+				«s.compile()»;
 			«ENDFOR»
 			return getOutput();
 		}
 	'''
 	
 	def compile(Step step) '''
-		«methodNaming.convert(step.action)»()'''
+		«IF step.exception !== null»«step.exception.throwNow()»«ELSE»«methodNaming.convert(step.action)»()«ENDIF»'''
+	
+	def throwNow(RaiseErrorNow e)'''
+		throw new «this.classNamingStrategy.convert(e.exception.type.name)»("«e.exception.type.message»");'''
 	
 	def inputValidations(UseCase usecase)'''
 		«FOR input : usecase.inputs»
@@ -255,7 +259,7 @@ class UseCaseGenerator extends AbstractGenerator {
 		// steps
 		«FOR steps : usecase.steps»
 		«FOR step : steps.steps»
-			void «step.compile»«IF step.error !== null» throws «step.error.exception.type.name»«ENDIF»;
+			void «step.compile()»«IF step.error !== null» throws «step.error.exception.type.name»«ENDIF»;
 		«ENDFOR»
 		«ENDFOR»
 	'''

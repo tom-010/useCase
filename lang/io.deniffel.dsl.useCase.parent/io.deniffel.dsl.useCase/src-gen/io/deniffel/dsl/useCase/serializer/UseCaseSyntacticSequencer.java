@@ -36,7 +36,9 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Outputs_ErgebnisKeyword_0_1_or_ProduceKeyword_0_0_1_or_ProducesKeyword_0_0_0_or___ProducesKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_OutputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__;
 	protected AbstractElementAlias match_Package_KathegorieKeyword_0_0_or_PackageKeyword_0_1;
 	protected AbstractElementAlias match_PreConditions_PreConditionKeyword_0_0_0_or_PreConditionsKeyword_0_0_1_or_VorbedingungenKeyword_0_1;
-	protected AbstractElementAlias match_RaiseError___MeldeKeyword_0_1_1_0_FehlerKeyword_0_1_1_1_q___or___RaiseKeyword_0_1_0_0_ErrorKeyword_0_1_0_1_q___or_____ColonKeyword_0_0_0_1_or_FullStopKeyword_0_0_0_0_______BeiKeyword_0_0_1_1_0_FehlerKeyword_0_0_1_1_1_MeldeKeyword_0_0_1_1_2___or___OnKeyword_0_0_1_0_0_ErrorKeyword_0_0_1_0_1_RaiseKeyword_0_0_1_0_2______;
+	protected AbstractElementAlias match_RaiseErrorConditional_ColonKeyword_0_1_or_FullStopKeyword_0_0;
+	protected AbstractElementAlias match_RaiseErrorConditional___BeiKeyword_1_1_0_FehlerKeyword_1_1_1_MeldeKeyword_1_1_2___or___OnKeyword_1_0_0_ErrorKeyword_1_0_1_RaiseKeyword_1_0_2__;
+	protected AbstractElementAlias match_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__;
 	protected AbstractElementAlias match_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0;
 	protected AbstractElementAlias match_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0;
 	protected AbstractElementAlias match_UseCase___EndKeyword_9_0_0_OfKeyword_9_0_1_UseCaseKeyword_9_0_2___or___EndeKeyword_9_1_0_DesKeyword_9_1_1_RezpetsKeyword_9_1_2__;
@@ -60,7 +62,9 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Outputs_ErgebnisKeyword_0_1_or_ProduceKeyword_0_0_1_or_ProducesKeyword_0_0_0_or___ProducesKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_OutputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_0_2_0()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getTheKeyword_0_0_2_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getFollowingKeyword_0_0_2_2()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getOutputKeyword_0_0_2_3()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getColonKeyword_0_0_2_4())), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getErgebnisKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProduceKeyword_0_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_0_0()));
 		match_Package_KathegorieKeyword_0_0_or_PackageKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPackageAccess().getKathegorieKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getPackageAccess().getPackageKeyword_0_1()));
 		match_PreConditions_PreConditionKeyword_0_0_0_or_PreConditionsKeyword_0_0_1_or_VorbedingungenKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPreConditionsAccess().getPreConditionKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getPreConditionsAccess().getPreConditionsKeyword_0_0_1()), new TokenAlias(false, false, grammarAccess.getPreConditionsAccess().getVorbedingungenKeyword_0_1()));
-		match_RaiseError___MeldeKeyword_0_1_1_0_FehlerKeyword_0_1_1_1_q___or___RaiseKeyword_0_1_0_0_ErrorKeyword_0_1_0_1_q___or_____ColonKeyword_0_0_0_1_or_FullStopKeyword_0_0_0_0_______BeiKeyword_0_0_1_1_0_FehlerKeyword_0_0_1_1_1_MeldeKeyword_0_0_1_1_2___or___OnKeyword_0_0_1_0_0_ErrorKeyword_0_0_1_0_1_RaiseKeyword_0_0_1_0_2______ = new AlternativeAlias(false, false, new GroupAlias(false, false, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getColonKeyword_0_0_0_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getFullStopKeyword_0_0_0_0())), new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getBeiKeyword_0_0_1_1_0()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getFehlerKeyword_0_0_1_1_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getMeldeKeyword_0_0_1_1_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getOnKeyword_0_0_1_0_0()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getErrorKeyword_0_0_1_0_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_0_0_1_0_2())))), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getMeldeKeyword_0_1_1_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorAccess().getFehlerKeyword_0_1_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorAccess().getRaiseKeyword_0_1_0_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorAccess().getErrorKeyword_0_1_0_1())));
+		match_RaiseErrorConditional_ColonKeyword_0_1_or_FullStopKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getColonKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getFullStopKeyword_0_0()));
+		match_RaiseErrorConditional___BeiKeyword_1_1_0_FehlerKeyword_1_1_1_MeldeKeyword_1_1_2___or___OnKeyword_1_0_0_ErrorKeyword_1_0_1_RaiseKeyword_1_0_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getBeiKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getFehlerKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getMeldeKeyword_1_1_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getOnKeyword_1_0_0()), new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getErrorKeyword_1_0_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getRaiseKeyword_1_0_2())));
+		match_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorNowAccess().getMeldeKeyword_0_1_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorNowAccess().getFehlerKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorNowAccess().getRaiseKeyword_0_0_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorNowAccess().getErrorKeyword_0_0_1())));
 		match_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStepsAccess().getSchritteKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getStepsAccess().getStepsKeyword_0_0()));
 		match_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getRezeptKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getUseCaseKeyword_0_0()));
 		match_UseCase___EndKeyword_9_0_0_OfKeyword_9_0_1_UseCaseKeyword_9_0_2___or___EndeKeyword_9_1_0_DesKeyword_9_1_1_RezpetsKeyword_9_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndKeyword_9_0_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getOfKeyword_9_0_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getUseCaseKeyword_9_0_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndeKeyword_9_1_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getDesKeyword_9_1_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getRezpetsKeyword_9_1_2())));
@@ -108,8 +112,12 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Package_KathegorieKeyword_0_0_or_PackageKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PreConditions_PreConditionKeyword_0_0_0_or_PreConditionsKeyword_0_0_1_or_VorbedingungenKeyword_0_1.equals(syntax))
 				emit_PreConditions_PreConditionKeyword_0_0_0_or_PreConditionsKeyword_0_0_1_or_VorbedingungenKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_RaiseError___MeldeKeyword_0_1_1_0_FehlerKeyword_0_1_1_1_q___or___RaiseKeyword_0_1_0_0_ErrorKeyword_0_1_0_1_q___or_____ColonKeyword_0_0_0_1_or_FullStopKeyword_0_0_0_0_______BeiKeyword_0_0_1_1_0_FehlerKeyword_0_0_1_1_1_MeldeKeyword_0_0_1_1_2___or___OnKeyword_0_0_1_0_0_ErrorKeyword_0_0_1_0_1_RaiseKeyword_0_0_1_0_2______.equals(syntax))
-				emit_RaiseError___MeldeKeyword_0_1_1_0_FehlerKeyword_0_1_1_1_q___or___RaiseKeyword_0_1_0_0_ErrorKeyword_0_1_0_1_q___or_____ColonKeyword_0_0_0_1_or_FullStopKeyword_0_0_0_0_______BeiKeyword_0_0_1_1_0_FehlerKeyword_0_0_1_1_1_MeldeKeyword_0_0_1_1_2___or___OnKeyword_0_0_1_0_0_ErrorKeyword_0_0_1_0_1_RaiseKeyword_0_0_1_0_2______(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RaiseErrorConditional_ColonKeyword_0_1_or_FullStopKeyword_0_0.equals(syntax))
+				emit_RaiseErrorConditional_ColonKeyword_0_1_or_FullStopKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RaiseErrorConditional___BeiKeyword_1_1_0_FehlerKeyword_1_1_1_MeldeKeyword_1_1_2___or___OnKeyword_1_0_0_ErrorKeyword_1_0_1_RaiseKeyword_1_0_2__.equals(syntax))
+				emit_RaiseErrorConditional___BeiKeyword_1_1_0_FehlerKeyword_1_1_1_MeldeKeyword_1_1_2___or___OnKeyword_1_0_0_ErrorKeyword_1_0_1_RaiseKeyword_1_0_2__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__.equals(syntax))
+				emit_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0.equals(syntax))
 				emit_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0.equals(syntax))
@@ -152,7 +160,7 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'If' | 'Falls'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) condition=STRING
+	 *     (rule start) (ambiguity) condition=BooleanCondition
 	 */
 	protected void emit_IfStatement_FallsKeyword_0_1_or_IfKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -198,7 +206,7 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'Solange' | 'While'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) condition=STRING
+	 *     (rule start) (ambiguity) condition=BooleanCondition
 	 */
 	protected void emit_Loop_SolangeKeyword_0_0_or_WhileKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -286,12 +294,34 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (('.' | ':') (('On' 'error' 'raise') | ('Bei' 'Fehler' 'melde'))) | ('Raise' 'error'?) | ('Melde' 'Fehler'?)
+	 *     '.' | ':'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (('On' 'error' 'raise') | ('Bei' 'Fehler' 'melde')) exception=Exception
+	 */
+	protected void emit_RaiseErrorConditional_ColonKeyword_0_1_or_FullStopKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('On' 'error' 'raise') | ('Bei' 'Fehler' 'melde')
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) ('.' | ':') (ambiguity) exception=Exception
+	 */
+	protected void emit_RaiseErrorConditional___BeiKeyword_1_1_0_FehlerKeyword_1_1_1_MeldeKeyword_1_1_2___or___OnKeyword_1_0_0_ErrorKeyword_1_0_1_RaiseKeyword_1_0_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('Raise' 'error'?) | ('Melde' 'Fehler'?)
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) exception=Exception
 	 */
-	protected void emit_RaiseError___MeldeKeyword_0_1_1_0_FehlerKeyword_0_1_1_1_q___or___RaiseKeyword_0_1_0_0_ErrorKeyword_0_1_0_1_q___or_____ColonKeyword_0_0_0_1_or_FullStopKeyword_0_0_0_0_______BeiKeyword_0_0_1_1_0_FehlerKeyword_0_0_1_1_1_MeldeKeyword_0_0_1_1_2___or___OnKeyword_0_0_1_0_0_ErrorKeyword_0_0_1_0_1_RaiseKeyword_0_0_1_0_2______(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

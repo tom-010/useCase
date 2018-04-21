@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Step#getError <em>Error</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Step#getCondition <em>Condition</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Step#getLoop <em>Loop</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Step#getException <em>Exception</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getStep()
@@ -88,12 +89,12 @@ public interface Step extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Error</em>' containment reference.
-   * @see #setError(RaiseError)
+   * @see #setError(RaiseErrorConditional)
    * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getStep_Error()
    * @model containment="true"
    * @generated
    */
-  RaiseError getError();
+  RaiseErrorConditional getError();
 
   /**
    * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Step#getError <em>Error</em>}' containment reference.
@@ -103,7 +104,7 @@ public interface Step extends EObject
    * @see #getError()
    * @generated
    */
-  void setError(RaiseError value);
+  void setError(RaiseErrorConditional value);
 
   /**
    * Returns the value of the '<em><b>Condition</b></em>' containment reference.
@@ -156,5 +157,31 @@ public interface Step extends EObject
    * @generated
    */
   void setLoop(Loop value);
+
+  /**
+   * Returns the value of the '<em><b>Exception</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exception</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exception</em>' containment reference.
+   * @see #setException(RaiseErrorNow)
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getStep_Exception()
+   * @model containment="true"
+   * @generated
+   */
+  RaiseErrorNow getException();
+
+  /**
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.Step#getException <em>Exception</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exception</em>' containment reference.
+   * @see #getException()
+   * @generated
+   */
+  void setException(RaiseErrorNow value);
 
 } // Step

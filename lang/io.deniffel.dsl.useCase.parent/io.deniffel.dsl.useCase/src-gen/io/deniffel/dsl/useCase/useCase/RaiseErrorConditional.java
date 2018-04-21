@@ -7,21 +7,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Raise Error</b></em>'.
+ * A representation of the model object '<em><b>Raise Error Conditional</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link io.deniffel.dsl.useCase.useCase.RaiseError#getException <em>Exception</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.RaiseErrorConditional#getException <em>Exception</em>}</li>
  * </ul>
  *
- * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getRaiseError()
+ * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getRaiseErrorConditional()
  * @model
  * @generated
  */
-public interface RaiseError extends EObject
+public interface RaiseErrorConditional extends EObject
 {
   /**
    * Returns the value of the '<em><b>Exception</b></em>' containment reference.
@@ -33,14 +33,14 @@ public interface RaiseError extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Exception</em>' containment reference.
    * @see #setException(io.deniffel.dsl.useCase.useCase.Exception)
-   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getRaiseError_Exception()
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getRaiseErrorConditional_Exception()
    * @model containment="true"
    * @generated
    */
   io.deniffel.dsl.useCase.useCase.Exception getException();
 
   /**
-   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.RaiseError#getException <em>Exception</em>}' containment reference.
+   * Sets the value of the '{@link io.deniffel.dsl.useCase.useCase.RaiseErrorConditional#getException <em>Exception</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Exception</em>' containment reference.
@@ -49,4 +49,4 @@ public interface RaiseError extends EObject
    */
   void setException(io.deniffel.dsl.useCase.useCase.Exception value);
 
-} // RaiseError
+} // RaiseErrorConditional

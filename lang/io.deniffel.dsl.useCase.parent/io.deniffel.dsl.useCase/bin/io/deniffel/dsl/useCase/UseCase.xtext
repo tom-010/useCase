@@ -101,17 +101,27 @@ UseCase:
 			('Schritte:')
 		) (steps+=Step)*;
 	Step:
-		number=QualifiedNumber (action=STRING(error=RaiseError)? | error=RaiseError | condition=IfStatement | loop=Loop);
+		number=QualifiedNumber (action=STRING(error=RaiseErrorConditional)? | 
+			   error=RaiseErrorConditional | 
+			   condition=IfStatement | 
+			   loop=Loop | 
+			   exception=RaiseErrorNow
+		);
 	
-	RaiseError:
-		(('.'|':') ('On' 'error' 'raise' | 'Bei' 'Fehler' 'melde' ) | 
-		('Raise' ('error')? | 'Melde' ('Fehler')?)) exception=Exception;
+	RaiseErrorConditional:
+		('.'|':') ('On' 'error' 'raise' | 'Bei' 'Fehler' 'melde' ) exception=Exception;
+	
+	RaiseErrorNow:
+		('Raise' ('error')? | 'Melde' ('Fehler')?) exception=Exception;
 	
 	IfStatement:
-		('If' | 'Falls') condition=STRING ':';
+		('If' | 'Falls') condition=BooleanCondition ':';
 		
 	Loop:
-		('Solange' | 'While') condition=STRING ':';
+		('Solange' | 'While') condition=BooleanCondition ':';
+	
+	BooleanCondition:
+		name=STRING;
 	
 	Notes:
 		(

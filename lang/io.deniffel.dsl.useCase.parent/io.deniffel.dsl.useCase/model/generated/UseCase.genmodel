@@ -74,15 +74,22 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Step/error"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Step/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Step/loop"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Step/exception"/>
     </genClasses>
-    <genClasses ecoreClass="UseCase.ecore#//RaiseError">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//RaiseError/exception"/>
+    <genClasses ecoreClass="UseCase.ecore#//RaiseErrorConditional">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//RaiseErrorConditional/exception"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//RaiseErrorNow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//RaiseErrorNow/exception"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//IfStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//IfStatement/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//IfStatement/condition"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Loop">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Loop/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Loop/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//BooleanCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//BooleanCondition/name"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Notes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Notes/content"/>

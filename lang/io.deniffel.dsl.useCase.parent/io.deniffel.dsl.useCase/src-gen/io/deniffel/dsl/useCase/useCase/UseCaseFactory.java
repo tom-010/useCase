@@ -159,13 +159,22 @@ public interface UseCaseFactory extends EFactory
   Step createStep();
 
   /**
-   * Returns a new object of class '<em>Raise Error</em>'.
+   * Returns a new object of class '<em>Raise Error Conditional</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Raise Error</em>'.
+   * @return a new object of class '<em>Raise Error Conditional</em>'.
    * @generated
    */
-  RaiseError createRaiseError();
+  RaiseErrorConditional createRaiseErrorConditional();
+
+  /**
+   * Returns a new object of class '<em>Raise Error Now</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Raise Error Now</em>'.
+   * @generated
+   */
+  RaiseErrorNow createRaiseErrorNow();
 
   /**
    * Returns a new object of class '<em>If Statement</em>'.
@@ -184,6 +193,15 @@ public interface UseCaseFactory extends EFactory
    * @generated
    */
   Loop createLoop();
+
+  /**
+   * Returns a new object of class '<em>Boolean Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Condition</em>'.
+   * @generated
+   */
+  BooleanCondition createBooleanCondition();
 
   /**
    * Returns a new object of class '<em>Notes</em>'.

@@ -15,7 +15,8 @@ import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
-import io.deniffel.dsl.useCase.useCase.RaiseError;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorConditional;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
 import io.deniffel.dsl.useCase.useCase.Type;
@@ -553,9 +554,30 @@ public class UseCaseGenerator extends AbstractGenerator {
   
   public CharSequence compile(final Step step) {
     StringConcatenation _builder = new StringConcatenation();
-    String _convert = this.methodNaming.convert(step.getAction());
+    {
+      RaiseErrorNow _exception = step.getException();
+      boolean _tripleNotEquals = (_exception != null);
+      if (_tripleNotEquals) {
+        CharSequence _throwNow = this.throwNow(step.getException());
+        _builder.append(_throwNow);
+      } else {
+        String _convert = this.methodNaming.convert(step.getAction());
+        _builder.append(_convert);
+        _builder.append("()");
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence throwNow(final RaiseErrorNow e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("throw new ");
+    String _convert = this.classNamingStrategy.convert(e.getException().getType().getName());
     _builder.append(_convert);
-    _builder.append("()");
+    _builder.append("(\"");
+    String _message = e.getException().getType().getMessage();
+    _builder.append(_message);
+    _builder.append("\");");
     return _builder;
   }
   
@@ -636,7 +658,7 @@ public class UseCaseGenerator extends AbstractGenerator {
             CharSequence _compile = this.compile(step);
             _builder.append(_compile);
             {
-              RaiseError _error = step.getError();
+              RaiseErrorConditional _error = step.getError();
               boolean _tripleNotEquals = (_error != null);
               if (_tripleNotEquals) {
                 _builder.append(" throws ");

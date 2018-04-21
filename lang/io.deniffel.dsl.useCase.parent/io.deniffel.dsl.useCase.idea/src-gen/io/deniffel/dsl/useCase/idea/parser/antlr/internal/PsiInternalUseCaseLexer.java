@@ -1593,10 +1593,10 @@ public class PsiInternalUseCaseLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // PsiInternalUseCase.g:2178:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // PsiInternalUseCase.g:2178:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // PsiInternalUseCase.g:2243:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // PsiInternalUseCase.g:2243:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // PsiInternalUseCase.g:2178:11: ( '^' )?
+            // PsiInternalUseCase.g:2243:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1605,7 +1605,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // PsiInternalUseCase.g:2178:11: '^'
+                    // PsiInternalUseCase.g:2243:11: '^'
                     {
                     match('^'); 
 
@@ -1623,7 +1623,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // PsiInternalUseCase.g:2178:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // PsiInternalUseCase.g:2243:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1672,10 +1672,10 @@ public class PsiInternalUseCaseLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // PsiInternalUseCase.g:2180:10: ( ( '0' .. '9' )+ )
-            // PsiInternalUseCase.g:2180:12: ( '0' .. '9' )+
+            // PsiInternalUseCase.g:2245:10: ( ( '0' .. '9' )+ )
+            // PsiInternalUseCase.g:2245:12: ( '0' .. '9' )+
             {
-            // PsiInternalUseCase.g:2180:12: ( '0' .. '9' )+
+            // PsiInternalUseCase.g:2245:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1689,7 +1689,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // PsiInternalUseCase.g:2180:13: '0' .. '9'
+            	    // PsiInternalUseCase.g:2245:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1721,10 +1721,10 @@ public class PsiInternalUseCaseLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // PsiInternalUseCase.g:2182:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // PsiInternalUseCase.g:2182:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // PsiInternalUseCase.g:2247:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // PsiInternalUseCase.g:2247:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // PsiInternalUseCase.g:2182:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // PsiInternalUseCase.g:2247:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1742,10 +1742,10 @@ public class PsiInternalUseCaseLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // PsiInternalUseCase.g:2182:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // PsiInternalUseCase.g:2247:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // PsiInternalUseCase.g:2182:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // PsiInternalUseCase.g:2247:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1761,7 +1761,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // PsiInternalUseCase.g:2182:21: '\\\\' .
+                    	    // PsiInternalUseCase.g:2247:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1769,7 +1769,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // PsiInternalUseCase.g:2182:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // PsiInternalUseCase.g:2247:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1794,10 +1794,10 @@ public class PsiInternalUseCaseLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // PsiInternalUseCase.g:2182:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // PsiInternalUseCase.g:2247:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // PsiInternalUseCase.g:2182:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // PsiInternalUseCase.g:2247:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1813,7 +1813,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // PsiInternalUseCase.g:2182:54: '\\\\' .
+                    	    // PsiInternalUseCase.g:2247:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1821,7 +1821,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // PsiInternalUseCase.g:2182:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // PsiInternalUseCase.g:2247:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1864,12 +1864,12 @@ public class PsiInternalUseCaseLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // PsiInternalUseCase.g:2184:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // PsiInternalUseCase.g:2184:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // PsiInternalUseCase.g:2249:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // PsiInternalUseCase.g:2249:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // PsiInternalUseCase.g:2184:24: ( options {greedy=false; } : . )*
+            // PsiInternalUseCase.g:2249:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1894,7 +1894,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // PsiInternalUseCase.g:2184:52: .
+            	    // PsiInternalUseCase.g:2249:52: .
             	    {
             	    matchAny(); 
 
@@ -1924,12 +1924,12 @@ public class PsiInternalUseCaseLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // PsiInternalUseCase.g:2186:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // PsiInternalUseCase.g:2186:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // PsiInternalUseCase.g:2251:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // PsiInternalUseCase.g:2251:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // PsiInternalUseCase.g:2186:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // PsiInternalUseCase.g:2251:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1942,7 +1942,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // PsiInternalUseCase.g:2186:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // PsiInternalUseCase.g:2251:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1962,7 +1962,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
                 }
             } while (true);
 
-            // PsiInternalUseCase.g:2186:40: ( ( '\\r' )? '\\n' )?
+            // PsiInternalUseCase.g:2251:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1971,9 +1971,9 @@ public class PsiInternalUseCaseLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // PsiInternalUseCase.g:2186:41: ( '\\r' )? '\\n'
+                    // PsiInternalUseCase.g:2251:41: ( '\\r' )? '\\n'
                     {
-                    // PsiInternalUseCase.g:2186:41: ( '\\r' )?
+                    // PsiInternalUseCase.g:2251:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1982,7 +1982,7 @@ public class PsiInternalUseCaseLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // PsiInternalUseCase.g:2186:41: '\\r'
+                            // PsiInternalUseCase.g:2251:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2014,10 +2014,10 @@ public class PsiInternalUseCaseLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // PsiInternalUseCase.g:2188:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // PsiInternalUseCase.g:2188:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // PsiInternalUseCase.g:2253:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // PsiInternalUseCase.g:2253:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // PsiInternalUseCase.g:2188:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // PsiInternalUseCase.g:2253:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -2071,8 +2071,8 @@ public class PsiInternalUseCaseLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // PsiInternalUseCase.g:2190:16: ( . )
-            // PsiInternalUseCase.g:2190:18: .
+            // PsiInternalUseCase.g:2255:16: ( . )
+            // PsiInternalUseCase.g:2255:18: .
             {
             matchAny(); 
 
