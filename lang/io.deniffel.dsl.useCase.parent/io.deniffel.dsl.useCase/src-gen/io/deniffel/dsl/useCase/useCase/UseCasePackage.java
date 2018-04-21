@@ -224,13 +224,22 @@ public interface UseCasePackage extends EPackage
   int USE_CASE__INPUTS = 3;
 
   /**
+   * The feature id for the '<em><b>Optional Inputs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__OPTIONAL_INPUTS = 4;
+
+  /**
    * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__OUTPUTS = 4;
+  int USE_CASE__OUTPUTS = 5;
 
   /**
    * The feature id for the '<em><b>Preconditions</b></em>' containment reference.
@@ -239,7 +248,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__PRECONDITIONS = 5;
+  int USE_CASE__PRECONDITIONS = 6;
 
   /**
    * The feature id for the '<em><b>Steps</b></em>' containment reference list.
@@ -248,7 +257,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__STEPS = 6;
+  int USE_CASE__STEPS = 7;
 
   /**
    * The feature id for the '<em><b>Notes</b></em>' containment reference list.
@@ -257,7 +266,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__NOTES = 7;
+  int USE_CASE__NOTES = 8;
 
   /**
    * The number of structural features of the '<em>Use Case</em>' class.
@@ -266,7 +275,7 @@ public interface UseCasePackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE_FEATURE_COUNT = 8;
+  int USE_CASE_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.DescriptionImpl <em>Description</em>}' class.
@@ -399,6 +408,34 @@ public interface UseCasePackage extends EPackage
   int INPUTS_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.OptionalInputsImpl <em>Optional Inputs</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.OptionalInputsImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOptionalInputs()
+   * @generated
+   */
+  int OPTIONAL_INPUTS = 8;
+
+  /**
+   * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTIONAL_INPUTS__INPUTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Optional Inputs</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPTIONAL_INPUTS_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.InputImpl <em>Input</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -406,7 +443,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getInput()
    * @generated
    */
-  int INPUT = 8;
+  int INPUT = 9;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -470,7 +507,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutputs()
    * @generated
    */
-  int OUTPUTS = 9;
+  int OUTPUTS = 10;
 
   /**
    * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -498,7 +535,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOutput()
    * @generated
    */
-  int OUTPUT = 10;
+  int OUTPUT = 11;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -553,7 +590,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getPreConditions()
    * @generated
    */
-  int PRE_CONDITIONS = 11;
+  int PRE_CONDITIONS = 12;
 
   /**
    * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
@@ -581,7 +618,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 12;
+  int CONDITION = 13;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -609,7 +646,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getSteps()
    * @generated
    */
-  int STEPS = 13;
+  int STEPS = 14;
 
   /**
    * The feature id for the '<em><b>Steps</b></em>' containment reference list.
@@ -637,7 +674,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getStep()
    * @generated
    */
-  int STEP = 14;
+  int STEP = 15;
 
   /**
    * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -710,7 +747,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseErrorConditional()
    * @generated
    */
-  int RAISE_ERROR_CONDITIONAL = 15;
+  int RAISE_ERROR_CONDITIONAL = 16;
 
   /**
    * The feature id for the '<em><b>Exception</b></em>' containment reference.
@@ -738,7 +775,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getRaiseErrorNow()
    * @generated
    */
-  int RAISE_ERROR_NOW = 16;
+  int RAISE_ERROR_NOW = 17;
 
   /**
    * The feature id for the '<em><b>Exception</b></em>' containment reference.
@@ -766,7 +803,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getIfStatement()
    * @generated
    */
-  int IF_STATEMENT = 17;
+  int IF_STATEMENT = 18;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -794,7 +831,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getLoop()
    * @generated
    */
-  int LOOP = 18;
+  int LOOP = 19;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -822,7 +859,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getBooleanCondition()
    * @generated
    */
-  int BOOLEAN_CONDITION = 19;
+  int BOOLEAN_CONDITION = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -850,7 +887,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getNotes()
    * @generated
    */
-  int NOTES = 20;
+  int NOTES = 21;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -878,7 +915,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getUsedTypes()
    * @generated
    */
-  int USED_TYPES = 21;
+  int USED_TYPES = 22;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -906,7 +943,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getType()
    * @generated
    */
-  int TYPE = 22;
+  int TYPE = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -952,7 +989,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getUsedExceptions()
    * @generated
    */
-  int USED_EXCEPTIONS = 23;
+  int USED_EXCEPTIONS = 24;
 
   /**
    * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
@@ -980,7 +1017,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getException()
    * @generated
    */
-  int EXCEPTION = 24;
+  int EXCEPTION = 25;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1008,7 +1045,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getExceptionDecleration()
    * @generated
    */
-  int EXCEPTION_DECLERATION = 25;
+  int EXCEPTION_DECLERATION = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1209,6 +1246,17 @@ public interface UseCasePackage extends EPackage
   EReference getUseCase_Inputs();
 
   /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getOptionalInputs <em>Optional Inputs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Optional Inputs</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.UseCase#getOptionalInputs()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_OptionalInputs();
+
+  /**
    * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.UseCase#getOutputs <em>Outputs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1357,6 +1405,27 @@ public interface UseCasePackage extends EPackage
    * @generated
    */
   EReference getInputs_Inputs();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.OptionalInputs <em>Optional Inputs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Optional Inputs</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.OptionalInputs
+   * @generated
+   */
+  EClass getOptionalInputs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.OptionalInputs#getInputs <em>Inputs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Inputs</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.OptionalInputs#getInputs()
+   * @see #getOptionalInputs()
+   * @generated
+   */
+  EReference getOptionalInputs_Inputs();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Input <em>Input</em>}'.
@@ -2064,6 +2133,14 @@ public interface UseCasePackage extends EPackage
     EReference USE_CASE__INPUTS = eINSTANCE.getUseCase_Inputs();
 
     /**
+     * The meta object literal for the '<em><b>Optional Inputs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__OPTIONAL_INPUTS = eINSTANCE.getUseCase_OptionalInputs();
+
+    /**
      * The meta object literal for the '<em><b>Outputs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2182,6 +2259,24 @@ public interface UseCasePackage extends EPackage
      * @generated
      */
     EReference INPUTS__INPUTS = eINSTANCE.getInputs_Inputs();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.OptionalInputsImpl <em>Optional Inputs</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.OptionalInputsImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getOptionalInputs()
+     * @generated
+     */
+    EClass OPTIONAL_INPUTS = eINSTANCE.getOptionalInputs();
+
+    /**
+     * The meta object literal for the '<em><b>Inputs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPTIONAL_INPUTS__INPUTS = eINSTANCE.getOptionalInputs_Inputs();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.InputImpl <em>Input</em>}' class.

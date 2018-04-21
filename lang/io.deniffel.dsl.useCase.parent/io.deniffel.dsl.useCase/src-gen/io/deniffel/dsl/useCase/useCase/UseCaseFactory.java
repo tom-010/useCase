@@ -96,6 +96,15 @@ public interface UseCaseFactory extends EFactory
   Inputs createInputs();
 
   /**
+   * Returns a new object of class '<em>Optional Inputs</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Optional Inputs</em>'.
+   * @generated
+   */
+  OptionalInputs createOptionalInputs();
+
+  /**
    * Returns a new object of class '<em>Input</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

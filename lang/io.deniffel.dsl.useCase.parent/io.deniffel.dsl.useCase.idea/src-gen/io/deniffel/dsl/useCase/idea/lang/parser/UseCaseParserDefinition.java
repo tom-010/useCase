@@ -71,16 +71,19 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getUseCase_InputsInputsParserRuleCall_4_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_OutputsOutputsParserRuleCall_5_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_OptionalInputsOptionalInputsParserRuleCall_5_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_PreconditionsPreConditionsParserRuleCall_6_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_OutputsOutputsParserRuleCall_6_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_StepsStepsParserRuleCall_7_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_PreconditionsPreConditionsParserRuleCall_7_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getUseCase_NotesNotesParserRuleCall_8_0ElementType()) {
+			if (elementType == elementTypeProvider.getUseCase_StepsStepsParserRuleCall_8_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getUseCase_NotesNotesParserRuleCall_9_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getDescriptionElementType()) {
@@ -99,6 +102,12 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getInputs_InputsInputParserRuleCall_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getOptionalInputsElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getOptionalInputs_InputsInputParserRuleCall_1_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getInputElementType()) {

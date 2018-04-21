@@ -22,6 +22,7 @@ import io.deniffel.dsl.useCase.useCase.Package
 import io.deniffel.dsl.useCase.useCase.PackagePart
 import io.deniffel.dsl.useCase.useCase.RaiseErrorNow
 import io.deniffel.dsl.useCase.useCase.BooleanCondition
+import io.deniffel.dsl.useCase.useCase.OptionalInputs
 
 class UseCaseGenerator extends AbstractGenerator {
 	
@@ -86,9 +87,7 @@ class UseCaseGenerator extends AbstractGenerator {
 			«usecase.checkPreconditions()»
 			
 			«usecase.steps()»
-			
-			«usecase.inputValidations()»
-			
+
 			«usecase.notes()»
 			
 			«usecase.stepInterfaceDefinitions()»
@@ -165,14 +164,19 @@ class UseCaseGenerator extends AbstractGenerator {
 	
 	def inputs(UseCase usecase)'''
 		«FOR input : usecase.inputs»
-			«input.compile»
+			«FOR optional : usecase.optionalInputs»
+				«input.compile(optional)»
+			«ENDFOR»
 		«ENDFOR»
 	'''
 	
-	def compile(Inputs inputs) '''
+	def compile(Inputs inputs, OptionalInputs optionalInputs) '''
 		public static class Input {
-			«FOR i:inputs.inputs»
-				public «i.compile»;
+			«FOR i :inputs.inputs»
+				public «i.compile»; «IF i.optional !== null» // optional«ENDIF» 
+			«ENDFOR»
+			«FOR optional : optionalInputs.inputs»
+				public «optional.compile»; // optional
 			«ENDFOR»
 			
 			public Input(«inputs.inputs.join(', ') [compile]») {
@@ -180,6 +184,19 @@ class UseCaseGenerator extends AbstractGenerator {
 				    this.«variableNaming.convert(i.content)» = «variableNaming.convert(i.content)»;
 				«ENDFOR»
 			}
+			
+			«inputs.compileRequiredInputValidation»
+		}
+	'''
+	
+	def compileRequiredInputValidation(Inputs inputs) '''
+		void validate(ErrorMessages errors) {
+			Input input = getInput();
+			«FOR input :inputs.inputs»
+				«IF input.optional === null»
+					if(input.«variableNaming.convert(input.content)»==null) errors.add("'«input.content»' can't be null");
+				«ENDIF»
+			«ENDFOR»
 		}
 	'''
 	
@@ -217,7 +234,7 @@ class UseCaseGenerator extends AbstractGenerator {
 	def checkPreconditions(UseCase usecase)'''		
 		default ErrorMessages checkPreconditions() {
 			ErrorMessages errors = new ErrorMessages();
-			checkForRequiredInputs(getInput(), errors);
+			getInput().validate(errors);
 			«FOR condition : usecase.preconditions.conditions»
 				«methodNaming.convert(condition.content)»(getInput(), errors);
 			«ENDFOR»
@@ -289,22 +306,7 @@ class UseCaseGenerator extends AbstractGenerator {
 	def throwNow(RaiseErrorNow e)'''
 		throw new «this.classNamingStrategy.convert(e.exception.type.name)»("«e.exception.type.message»");'''
 	
-	def inputValidations(UseCase usecase)'''
-		«FOR input : usecase.inputs»
-			«input.compileRequiredInputValidation()»
-		«ENDFOR»
-	'''
 	
-	def compileRequiredInputValidation(Inputs inputs) '''
-		default void checkForRequiredInputs(Input input, ErrorMessages errors) {
-			Input input = getInput();
-			«FOR i:inputs.inputs»
-				«IF i.optional === null»
-					if(input.«variableNaming.convert(i.content)»==null) errors.add("'«i.content»' can't be null");
-				«ENDIF»
-			«ENDFOR»
-		}
-	'''
 	
 	def notes(UseCase usecase)'''
 		/* NOTES:

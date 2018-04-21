@@ -15,6 +15,7 @@ import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
+import io.deniffel.dsl.useCase.useCase.OptionalInputs;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
@@ -138,6 +139,11 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseInputs(Inputs object)
       {
         return createInputsAdapter();
+      }
+      @Override
+      public Adapter caseOptionalInputs(OptionalInputs object)
+      {
+        return createOptionalInputsAdapter();
       }
       @Override
       public Adapter caseInput(Input object)
@@ -367,6 +373,21 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInputsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.OptionalInputs <em>Optional Inputs</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.OptionalInputs
+   * @generated
+   */
+  public Adapter createOptionalInputsAdapter()
   {
     return null;
   }

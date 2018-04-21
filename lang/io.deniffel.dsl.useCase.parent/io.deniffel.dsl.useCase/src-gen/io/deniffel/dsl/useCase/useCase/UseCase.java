@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getOptionalInputs <em>Optional Inputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getOutputs <em>Outputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getPreconditions <em>Preconditions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.UseCase#getSteps <em>Steps</em>}</li>
@@ -105,6 +106,22 @@ public interface UseCase extends EObject
    * @generated
    */
   EList<Inputs> getInputs();
+
+  /**
+   * Returns the value of the '<em><b>Optional Inputs</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.OptionalInputs}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Optional Inputs</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Optional Inputs</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getUseCase_OptionalInputs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<OptionalInputs> getOptionalInputs();
 
   /**
    * Returns the value of the '<em><b>Outputs</b></em>' containment reference list.

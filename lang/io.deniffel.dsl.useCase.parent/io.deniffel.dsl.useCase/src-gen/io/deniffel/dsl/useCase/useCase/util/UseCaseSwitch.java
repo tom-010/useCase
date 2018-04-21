@@ -15,6 +15,7 @@ import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
+import io.deniffel.dsl.useCase.useCase.OptionalInputs;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
@@ -150,6 +151,13 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         Inputs inputs = (Inputs)theEObject;
         T result = caseInputs(inputs);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.OPTIONAL_INPUTS:
+      {
+        OptionalInputs optionalInputs = (OptionalInputs)theEObject;
+        T result = caseOptionalInputs(optionalInputs);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -407,6 +415,22 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInputs(Inputs object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Optional Inputs</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Optional Inputs</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOptionalInputs(OptionalInputs object)
   {
     return null;
   }

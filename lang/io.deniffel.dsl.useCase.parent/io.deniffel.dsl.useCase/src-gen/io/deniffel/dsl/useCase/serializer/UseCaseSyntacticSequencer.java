@@ -31,6 +31,7 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Loop_SolangeKeyword_0_0_or_WhileKeyword_0_1;
 	protected AbstractElementAlias match_Model_CompanyKeyword_0_1_or_FirmaKeyword_0_0;
 	protected AbstractElementAlias match_Notes_AnmerkungKeyword_0_1_1_or_AnmerkungenKeyword_0_1_0_or_NoteKeyword_0_0_1_or_NotesKeyword_0_0_0;
+	protected AbstractElementAlias match_OptionalInputs_OptionalKeyword_0_0_0_or___OptionalKeyword_0_0_1_0_InputsKeyword_0_0_1_1_ColonKeyword_0_0_1_2___or_____OptionalKeyword_0_1_0_1_or___OptionaleKeyword_0_1_0_0_0_ZutatenKeyword_0_1_0_0_1_____ColonKeyword_0_1_1__;
 	protected AbstractElementAlias match_Output_AlsKeyword_3_0_1_or_AsKeyword_3_0_0;
 	protected AbstractElementAlias match_Output_EGKeyword_4_1_0_or_ZBKeyword_4_1_1;
 	protected AbstractElementAlias match_Outputs_ErgebnisKeyword_0_1_or_ProduceKeyword_0_0_1_or_ProducesKeyword_0_0_0_or___ProducesKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_OutputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__;
@@ -41,9 +42,9 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__;
 	protected AbstractElementAlias match_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0;
 	protected AbstractElementAlias match_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0;
-	protected AbstractElementAlias match_UseCase___EndKeyword_9_0_0_OfKeyword_9_0_1_UseCaseKeyword_9_0_2___or___EndeKeyword_9_1_0_DesKeyword_9_1_1_RezpetsKeyword_9_1_2__;
+	protected AbstractElementAlias match_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__;
 	protected AbstractElementAlias match_UsedExceptions___GenutzteKeyword_0_1_0_FehlerKeyword_0_1_1___or___UsedKeyword_0_0_0_ErrorsKeyword_0_0_1__;
-	protected AbstractElementAlias match_UsedTypes___GenutzteKeyword_0_1_0_TypenKeyword_0_1_1___or___UsedKeyword_0_0_0_TypesKeyword_0_0_1__;
+	protected AbstractElementAlias match_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -57,6 +58,7 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Loop_SolangeKeyword_0_0_or_WhileKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLoopAccess().getSolangeKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getLoopAccess().getWhileKeyword_0_1()));
 		match_Model_CompanyKeyword_0_1_or_FirmaKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getModelAccess().getCompanyKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getFirmaKeyword_0_0()));
 		match_Notes_AnmerkungKeyword_0_1_1_or_AnmerkungenKeyword_0_1_0_or_NoteKeyword_0_0_1_or_NotesKeyword_0_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getNotesAccess().getAnmerkungKeyword_0_1_1()), new TokenAlias(false, false, grammarAccess.getNotesAccess().getAnmerkungenKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getNotesAccess().getNoteKeyword_0_0_1()), new TokenAlias(false, false, grammarAccess.getNotesAccess().getNotesKeyword_0_0_0()));
+		match_OptionalInputs_OptionalKeyword_0_0_0_or___OptionalKeyword_0_0_1_0_InputsKeyword_0_0_1_1_ColonKeyword_0_0_1_2___or_____OptionalKeyword_0_1_0_1_or___OptionaleKeyword_0_1_0_0_0_ZutatenKeyword_0_1_0_0_1_____ColonKeyword_0_1_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getOptionalInputsAccess().getOptionaleKeyword_0_1_0_0_0()), new TokenAlias(false, false, grammarAccess.getOptionalInputsAccess().getZutatenKeyword_0_1_0_0_1())), new TokenAlias(false, false, grammarAccess.getOptionalInputsAccess().getOptionalKeyword_0_1_0_1())), new TokenAlias(false, false, grammarAccess.getOptionalInputsAccess().getColonKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getOptionalInputsAccess().getOptionalKeyword_0_0_1_0()), new TokenAlias(false, false, grammarAccess.getOptionalInputsAccess().getInputsKeyword_0_0_1_1()), new TokenAlias(false, false, grammarAccess.getOptionalInputsAccess().getColonKeyword_0_0_1_2())), new TokenAlias(false, false, grammarAccess.getOptionalInputsAccess().getOptionalKeyword_0_0_0()));
 		match_Output_AlsKeyword_3_0_1_or_AsKeyword_3_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputAccess().getAlsKeyword_3_0_1()), new TokenAlias(false, false, grammarAccess.getOutputAccess().getAsKeyword_3_0_0()));
 		match_Output_EGKeyword_4_1_0_or_ZBKeyword_4_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputAccess().getEGKeyword_4_1_0()), new TokenAlias(false, false, grammarAccess.getOutputAccess().getZBKeyword_4_1_1()));
 		match_Outputs_ErgebnisKeyword_0_1_or_ProduceKeyword_0_0_1_or_ProducesKeyword_0_0_0_or___ProducesKeyword_0_0_2_0_TheKeyword_0_0_2_1_FollowingKeyword_0_0_2_2_OutputKeyword_0_0_2_3_ColonKeyword_0_0_2_4__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_0_2_0()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getTheKeyword_0_0_2_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getFollowingKeyword_0_0_2_2()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getOutputKeyword_0_0_2_3()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getColonKeyword_0_0_2_4())), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getErgebnisKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProduceKeyword_0_0_1()), new TokenAlias(false, false, grammarAccess.getOutputsAccess().getProducesKeyword_0_0_0()));
@@ -67,9 +69,9 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorNowAccess().getMeldeKeyword_0_1_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorNowAccess().getFehlerKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorNowAccess().getRaiseKeyword_0_0_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorNowAccess().getErrorKeyword_0_0_1())));
 		match_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStepsAccess().getSchritteKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getStepsAccess().getStepsKeyword_0_0()));
 		match_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getRezeptKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getUseCaseKeyword_0_0()));
-		match_UseCase___EndKeyword_9_0_0_OfKeyword_9_0_1_UseCaseKeyword_9_0_2___or___EndeKeyword_9_1_0_DesKeyword_9_1_1_RezpetsKeyword_9_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndKeyword_9_0_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getOfKeyword_9_0_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getUseCaseKeyword_9_0_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndeKeyword_9_1_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getDesKeyword_9_1_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getRezpetsKeyword_9_1_2())));
+		match_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndKeyword_10_0_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getOfKeyword_10_0_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getUseCaseKeyword_10_0_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndeKeyword_10_1_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getDesKeyword_10_1_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getRezpetsKeyword_10_1_2())));
 		match_UsedExceptions___GenutzteKeyword_0_1_0_FehlerKeyword_0_1_1___or___UsedKeyword_0_0_0_ErrorsKeyword_0_0_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getGenutzteKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getFehlerKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getUsedKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getErrorsKeyword_0_0_1())));
-		match_UsedTypes___GenutzteKeyword_0_1_0_TypenKeyword_0_1_1___or___UsedKeyword_0_0_0_TypesKeyword_0_0_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getGenutzteKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getTypenKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getUsedKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getTypesKeyword_0_0_1())));
+		match_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getGenutzteKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getBausteineKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getUsedKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getBuildingBlocksKeyword_0_0_1())));
 	}
 	
 	@Override
@@ -102,6 +104,8 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Model_CompanyKeyword_0_1_or_FirmaKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Notes_AnmerkungKeyword_0_1_1_or_AnmerkungenKeyword_0_1_0_or_NoteKeyword_0_0_1_or_NotesKeyword_0_0_0.equals(syntax))
 				emit_Notes_AnmerkungKeyword_0_1_1_or_AnmerkungenKeyword_0_1_0_or_NoteKeyword_0_0_1_or_NotesKeyword_0_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_OptionalInputs_OptionalKeyword_0_0_0_or___OptionalKeyword_0_0_1_0_InputsKeyword_0_0_1_1_ColonKeyword_0_0_1_2___or_____OptionalKeyword_0_1_0_1_or___OptionaleKeyword_0_1_0_0_0_ZutatenKeyword_0_1_0_0_1_____ColonKeyword_0_1_1__.equals(syntax))
+				emit_OptionalInputs_OptionalKeyword_0_0_0_or___OptionalKeyword_0_0_1_0_InputsKeyword_0_0_1_1_ColonKeyword_0_0_1_2___or_____OptionalKeyword_0_1_0_1_or___OptionaleKeyword_0_1_0_0_0_ZutatenKeyword_0_1_0_0_1_____ColonKeyword_0_1_1__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Output_AlsKeyword_3_0_1_or_AsKeyword_3_0_0.equals(syntax))
 				emit_Output_AlsKeyword_3_0_1_or_AsKeyword_3_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Output_EGKeyword_4_1_0_or_ZBKeyword_4_1_1.equals(syntax))
@@ -122,12 +126,12 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0.equals(syntax))
 				emit_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UseCase___EndKeyword_9_0_0_OfKeyword_9_0_1_UseCaseKeyword_9_0_2___or___EndeKeyword_9_1_0_DesKeyword_9_1_1_RezpetsKeyword_9_1_2__.equals(syntax))
-				emit_UseCase___EndKeyword_9_0_0_OfKeyword_9_0_1_UseCaseKeyword_9_0_2___or___EndeKeyword_9_1_0_DesKeyword_9_1_1_RezpetsKeyword_9_1_2__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__.equals(syntax))
+				emit_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_UsedExceptions___GenutzteKeyword_0_1_0_FehlerKeyword_0_1_1___or___UsedKeyword_0_0_0_ErrorsKeyword_0_0_1__.equals(syntax))
 				emit_UsedExceptions___GenutzteKeyword_0_1_0_FehlerKeyword_0_1_1___or___UsedKeyword_0_0_0_ErrorsKeyword_0_0_1__(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_UsedTypes___GenutzteKeyword_0_1_0_TypenKeyword_0_1_1___or___UsedKeyword_0_0_0_TypesKeyword_0_0_1__.equals(syntax))
-				emit_UsedTypes___GenutzteKeyword_0_1_0_TypenKeyword_0_1_1___or___UsedKeyword_0_0_0_TypesKeyword_0_0_1__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__.equals(syntax))
+				emit_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -231,6 +235,18 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) content=STRING
 	 */
 	protected void emit_Notes_AnmerkungKeyword_0_1_1_or_AnmerkungenKeyword_0_1_0_or_NoteKeyword_0_0_1_or_NotesKeyword_0_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'optional:' | ('optional' 'inputs' ':') | (('Optional' | ('Optionale' 'Zutaten')) ':')
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) inputs+=Input
+	 */
+	protected void emit_OptionalInputs_OptionalKeyword_0_0_0_or___OptionalKeyword_0_0_1_0_InputsKeyword_0_0_1_1_ColonKeyword_0_0_1_2___or_____OptionalKeyword_0_1_0_1_or___OptionaleKeyword_0_1_0_0_0_ZutatenKeyword_0_1_0_0_1_____ColonKeyword_0_1_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -358,11 +374,12 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     inputs+=Inputs (ambiguity) (rule end)
 	 *     name=STRING (ambiguity) (rule end)
 	 *     notes+=Notes (ambiguity) (rule end)
+	 *     optionalInputs+=OptionalInputs (ambiguity) (rule end)
 	 *     outputs+=Outputs (ambiguity) (rule end)
 	 *     preconditions=PreConditions (ambiguity) (rule end)
 	 *     steps+=Steps (ambiguity) (rule end)
 	 */
-	protected void emit_UseCase___EndKeyword_9_0_0_OfKeyword_9_0_1_UseCaseKeyword_9_0_2___or___EndeKeyword_9_1_0_DesKeyword_9_1_1_RezpetsKeyword_9_1_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -380,13 +397,13 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     ('used' 'types:') | ('Genutzte' 'Typen:')
+	 *     ('used' 'building-blocks:') | ('Genutzte' 'Bausteine:')
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
 	 *     (rule start) (ambiguity) types+=Type
 	 */
-	protected void emit_UsedTypes___GenutzteKeyword_0_1_0_TypenKeyword_0_1_1___or___UsedKeyword_0_0_0_TypesKeyword_0_0_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

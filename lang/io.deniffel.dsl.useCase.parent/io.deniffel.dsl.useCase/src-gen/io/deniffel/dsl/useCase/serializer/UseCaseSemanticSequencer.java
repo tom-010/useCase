@@ -17,6 +17,7 @@ import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
+import io.deniffel.dsl.useCase.useCase.OptionalInputs;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
@@ -93,6 +94,9 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case UseCasePackage.NOTES:
 				sequence_Notes(context, (Notes) semanticObject); 
+				return; 
+			case UseCasePackage.OPTIONAL_INPUTS:
+				sequence_OptionalInputs(context, (OptionalInputs) semanticObject); 
 				return; 
 			case UseCasePackage.OUTPUT:
 				sequence_Output(context, (Output) semanticObject); 
@@ -221,7 +225,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     ExceptionDecleration returns ExceptionDecleration
 	 *
 	 * Constraint:
-	 *     (name=ID message=STRING importInfo=QualifiedName?)
+	 *     (name=ID message=STRING? importInfo=QualifiedName?)
 	 */
 	protected void sequence_ExceptionDecleration(ISerializationContext context, ExceptionDecleration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -333,6 +337,18 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNotesAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OptionalInputs returns OptionalInputs
+	 *
+	 * Constraint:
+	 *     inputs+=Input+
+	 */
+	protected void sequence_OptionalInputs(ISerializationContext context, OptionalInputs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -470,7 +486,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Type returns Type
 	 *
 	 * Constraint:
-	 *     (name=ID description=STRING importInfo=QualifiedName?)
+	 *     (name=ID description=STRING? importInfo=QualifiedName?)
 	 */
 	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -487,6 +503,7 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         descriptions+=Description? 
 	 *         allowedUserGroups+=AllowedUserGroups? 
 	 *         inputs+=Inputs? 
+	 *         optionalInputs+=OptionalInputs? 
 	 *         outputs+=Outputs? 
 	 *         preconditions=PreConditions? 
 	 *         steps+=Steps? 

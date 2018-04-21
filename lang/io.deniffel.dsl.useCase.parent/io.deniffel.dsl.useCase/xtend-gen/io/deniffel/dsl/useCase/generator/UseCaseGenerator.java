@@ -14,6 +14,7 @@ import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
+import io.deniffel.dsl.useCase.useCase.OptionalInputs;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
@@ -157,13 +158,6 @@ public class UseCaseGenerator extends AbstractGenerator {
     CharSequence _steps = this.steps(usecase);
     _builder.append(_steps, "\t");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    CharSequence _inputValidations = this.inputValidations(usecase);
-    _builder.append(_inputValidations, "\t");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     CharSequence _notes = this.notes(usecase);
@@ -362,15 +356,20 @@ public class UseCaseGenerator extends AbstractGenerator {
     {
       EList<Inputs> _inputs = usecase.getInputs();
       for(final Inputs input : _inputs) {
-        CharSequence _compile = this.compile(input);
-        _builder.append(_compile);
-        _builder.newLineIfNotEmpty();
+        {
+          EList<OptionalInputs> _optionalInputs = usecase.getOptionalInputs();
+          for(final OptionalInputs optional : _optionalInputs) {
+            CharSequence _compile = this.compile(input, optional);
+            _builder.append(_compile);
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     return _builder;
   }
   
-  public CharSequence compile(final Inputs inputs) {
+  public CharSequence compile(final Inputs inputs, final OptionalInputs optionalInputs) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("public static class Input {");
     _builder.newLine();
@@ -381,7 +380,26 @@ public class UseCaseGenerator extends AbstractGenerator {
         _builder.append("public ");
         CharSequence _compile = this.compile(i);
         _builder.append(_compile, "\t");
-        _builder.append(";");
+        _builder.append("; ");
+        {
+          String _optional = i.getOptional();
+          boolean _tripleNotEquals = (_optional != null);
+          if (_tripleNotEquals) {
+            _builder.append(" // optional");
+          }
+        }
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Input> _inputs_1 = optionalInputs.getInputs();
+      for(final Input optional : _inputs_1) {
+        _builder.append("\t");
+        _builder.append("public ");
+        CharSequence _compile_1 = this.compile(optional);
+        _builder.append(_compile_1, "\t");
+        _builder.append("; // optional");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -397,8 +415,8 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append(") {");
     _builder.newLineIfNotEmpty();
     {
-      EList<Input> _inputs_1 = inputs.getInputs();
-      for(final Input i_1 : _inputs_1) {
+      EList<Input> _inputs_2 = inputs.getInputs();
+      for(final Input i_1 : _inputs_2) {
         _builder.append("\t\t");
         _builder.append("this.");
         String _convert = this.variableNaming.convert(i_1.getContent());
@@ -413,6 +431,44 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    CharSequence _compileRequiredInputValidation = this.compileRequiredInputValidation(inputs);
+    _builder.append(_compileRequiredInputValidation, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compileRequiredInputValidation(final Inputs inputs) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("void validate(ErrorMessages errors) {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("Input input = getInput();");
+    _builder.newLine();
+    {
+      EList<Input> _inputs = inputs.getInputs();
+      for(final Input input : _inputs) {
+        {
+          String _optional = input.getOptional();
+          boolean _tripleEquals = (_optional == null);
+          if (_tripleEquals) {
+            _builder.append("\t");
+            _builder.append("if(input.");
+            String _convert = this.variableNaming.convert(input.getContent());
+            _builder.append(_convert, "\t");
+            _builder.append("==null) errors.add(\"\'");
+            String _content = input.getContent();
+            _builder.append(_content, "\t");
+            _builder.append("\' can\'t be null\");");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -518,7 +574,7 @@ public class UseCaseGenerator extends AbstractGenerator {
     _builder.append("ErrorMessages errors = new ErrorMessages();");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("checkForRequiredInputs(getInput(), errors);");
+    _builder.append("getInput().validate(errors);");
     _builder.newLine();
     {
       EList<Condition> _conditions = usecase.getPreconditions().getConditions();
@@ -688,51 +744,6 @@ public class UseCaseGenerator extends AbstractGenerator {
     String _message = e.getException().getType().getMessage();
     _builder.append(_message);
     _builder.append("\");");
-    return _builder;
-  }
-  
-  public CharSequence inputValidations(final UseCase usecase) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<Inputs> _inputs = usecase.getInputs();
-      for(final Inputs input : _inputs) {
-        CharSequence _compileRequiredInputValidation = this.compileRequiredInputValidation(input);
-        _builder.append(_compileRequiredInputValidation);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  public CharSequence compileRequiredInputValidation(final Inputs inputs) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("default void checkForRequiredInputs(Input input, ErrorMessages errors) {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("Input input = getInput();");
-    _builder.newLine();
-    {
-      EList<Input> _inputs = inputs.getInputs();
-      for(final Input i : _inputs) {
-        {
-          String _optional = i.getOptional();
-          boolean _tripleEquals = (_optional == null);
-          if (_tripleEquals) {
-            _builder.append("\t");
-            _builder.append("if(input.");
-            String _convert = this.variableNaming.convert(i.getContent());
-            _builder.append(_convert, "\t");
-            _builder.append("==null) errors.add(\"\'");
-            String _content = i.getContent();
-            _builder.append(_content, "\t");
-            _builder.append("\' can\'t be null\");");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-      }
-    }
-    _builder.append("}");
-    _builder.newLine();
     return _builder;
   }
   

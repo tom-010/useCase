@@ -15,6 +15,7 @@ import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
+import io.deniffel.dsl.useCase.useCase.OptionalInputs;
 import io.deniffel.dsl.useCase.useCase.Output;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
@@ -98,6 +99,7 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.ALLOWED_USER_GROUPS: return createAllowedUserGroups();
       case UseCasePackage.ALLOWED_USER_GROUP: return createAllowedUserGroup();
       case UseCasePackage.INPUTS: return createInputs();
+      case UseCasePackage.OPTIONAL_INPUTS: return createOptionalInputs();
       case UseCasePackage.INPUT: return createInput();
       case UseCasePackage.OUTPUTS: return createOutputs();
       case UseCasePackage.OUTPUT: return createOutput();
@@ -207,6 +209,17 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     InputsImpl inputs = new InputsImpl();
     return inputs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OptionalInputs createOptionalInputs()
+  {
+    OptionalInputsImpl optionalInputs = new OptionalInputsImpl();
+    return optionalInputs;
   }
 
   /**

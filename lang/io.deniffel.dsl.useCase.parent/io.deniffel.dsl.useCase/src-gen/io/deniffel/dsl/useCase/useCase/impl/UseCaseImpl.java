@@ -7,6 +7,7 @@ import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.Description;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Notes;
+import io.deniffel.dsl.useCase.useCase.OptionalInputs;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
 import io.deniffel.dsl.useCase.useCase.Steps;
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getAllowedUserGroups <em>Allowed User Groups</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getOptionalInputs <em>Optional Inputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getOutputs <em>Outputs</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getPreconditions <em>Preconditions</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.UseCaseImpl#getSteps <em>Steps</em>}</li>
@@ -100,6 +102,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected EList<Inputs> inputs;
+
+  /**
+   * The cached value of the '{@link #getOptionalInputs() <em>Optional Inputs</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOptionalInputs()
+   * @generated
+   * @ordered
+   */
+  protected EList<OptionalInputs> optionalInputs;
 
   /**
    * The cached value of the '{@link #getOutputs() <em>Outputs</em>}' containment reference list.
@@ -232,6 +244,20 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<OptionalInputs> getOptionalInputs()
+  {
+    if (optionalInputs == null)
+    {
+      optionalInputs = new EObjectContainmentEList<OptionalInputs>(OptionalInputs.class, this, UseCasePackage.USE_CASE__OPTIONAL_INPUTS);
+    }
+    return optionalInputs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Outputs> getOutputs()
   {
     if (outputs == null)
@@ -333,6 +359,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return ((InternalEList<?>)getAllowedUserGroups()).basicRemove(otherEnd, msgs);
       case UseCasePackage.USE_CASE__INPUTS:
         return ((InternalEList<?>)getInputs()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.USE_CASE__OPTIONAL_INPUTS:
+        return ((InternalEList<?>)getOptionalInputs()).basicRemove(otherEnd, msgs);
       case UseCasePackage.USE_CASE__OUTPUTS:
         return ((InternalEList<?>)getOutputs()).basicRemove(otherEnd, msgs);
       case UseCasePackage.USE_CASE__PRECONDITIONS:
@@ -363,6 +391,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getAllowedUserGroups();
       case UseCasePackage.USE_CASE__INPUTS:
         return getInputs();
+      case UseCasePackage.USE_CASE__OPTIONAL_INPUTS:
+        return getOptionalInputs();
       case UseCasePackage.USE_CASE__OUTPUTS:
         return getOutputs();
       case UseCasePackage.USE_CASE__PRECONDITIONS:
@@ -400,6 +430,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCasePackage.USE_CASE__INPUTS:
         getInputs().clear();
         getInputs().addAll((Collection<? extends Inputs>)newValue);
+        return;
+      case UseCasePackage.USE_CASE__OPTIONAL_INPUTS:
+        getOptionalInputs().clear();
+        getOptionalInputs().addAll((Collection<? extends OptionalInputs>)newValue);
         return;
       case UseCasePackage.USE_CASE__OUTPUTS:
         getOutputs().clear();
@@ -442,6 +476,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCasePackage.USE_CASE__INPUTS:
         getInputs().clear();
         return;
+      case UseCasePackage.USE_CASE__OPTIONAL_INPUTS:
+        getOptionalInputs().clear();
+        return;
       case UseCasePackage.USE_CASE__OUTPUTS:
         getOutputs().clear();
         return;
@@ -476,6 +513,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return allowedUserGroups != null && !allowedUserGroups.isEmpty();
       case UseCasePackage.USE_CASE__INPUTS:
         return inputs != null && !inputs.isEmpty();
+      case UseCasePackage.USE_CASE__OPTIONAL_INPUTS:
+        return optionalInputs != null && !optionalInputs.isEmpty();
       case UseCasePackage.USE_CASE__OUTPUTS:
         return outputs != null && !outputs.isEmpty();
       case UseCasePackage.USE_CASE__PRECONDITIONS:

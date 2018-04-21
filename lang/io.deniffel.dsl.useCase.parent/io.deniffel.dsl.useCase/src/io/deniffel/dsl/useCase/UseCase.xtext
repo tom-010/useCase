@@ -32,6 +32,7 @@ UseCase:
 	(descriptions+=Description)?
 	(allowedUserGroups+=AllowedUserGroups)?
 	(inputs+=Inputs)?
+	(optionalInputs+=OptionalInputs)?
 	(outputs+=Outputs)?
 	(preconditions=PreConditions)?
 	(steps+=Steps)?
@@ -63,6 +64,13 @@ UseCase:
 		(
 			('requires:'|'require:'|'requires' 'the' 'following' 'input' ':') |
 			('Benötigte' 'Zutaten' ':')
+		)
+		(inputs+=Input)*;
+		
+	OptionalInputs:
+		(
+			('optional:' | 'optional' 'inputs' ':') |
+			(('Optionale' 'Zutaten' | 'Optional') ':')
 		)
 		(inputs+=Input)*;
 		
@@ -135,12 +143,12 @@ UseCase:
 
 UsedTypes: 
 	(
-		('used' 'types:') | 
-		('Genutzte' 'Typen:')
+		('used' 'building-blocks:') | 
+		('Genutzte' 'Bausteine:')
 	) (types+=Type)*;
 
 	Type:
-	    '-' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
+	    '-' name=ID ('('description=STRING')')? ('['importInfo=QualifiedName']' )?;
 
 UsedExceptions:
 	(
@@ -152,4 +160,4 @@ UsedExceptions:
 		type=[ExceptionDecleration];
 
 	ExceptionDecleration: 
-		'-' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;
+		'-' name=ID ('('message=STRING')')? ('['importInfo=QualifiedName']' )?;
