@@ -5,6 +5,7 @@ import io.deniffel.dsl.useCase.generator.ClassMemberNamingStrategy;
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
@@ -208,36 +209,93 @@ public class LatexGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\subsubsection{Benötigte Zutaten}");
     _builder.newLine();
-    _builder.append("\\begin{itemize}");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Login als Text (z.B. tom)  ");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Passwort als Text (z.B. beispiel\\_passwort)");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item optional Vorname als Text (z.B. Thomas)");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Nachname als Text (z.B. Deniffel)");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Alter als Zahl (z.B. 18) ");
-    _builder.newLine();
-    _builder.append("\\end{itemize}");
-    _builder.newLine();
+    CharSequence _required = this.required(inputs, optionals);
+    _builder.append(_required);
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\\subsubsection{Optionale Zutaten}");
     _builder.newLine();
+    CharSequence _optional = this.optional(inputs, optionals);
+    _builder.append(_optional);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence required(final Inputs inputs, final OptionalInputs optinals) {
+    StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\begin{itemize}");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Adresse als Text (z.B. Haldenweg 7a)");
+    {
+      EList<Input> _inputs = inputs.getInputs();
+      for(final Input input : _inputs) {
+        {
+          String _optional = input.getOptional();
+          boolean _tripleEquals = (_optional == null);
+          if (_tripleEquals) {
+            _builder.append("\t");
+            _builder.append("\\item ");
+            CharSequence _compile = this.compile(input);
+            _builder.append(_compile, "\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\\end{itemize}");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Geschlecht als Text (z.B. m)");
+    return _builder;
+  }
+  
+  public CharSequence compile(final Input input) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _escape = this.escape(input.getContent());
+    _builder.append(_escape);
+    _builder.append(" als ");
+    String _name = input.getType().getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    {
+      String _example = input.getExample();
+      boolean _tripleNotEquals = (_example != null);
+      if (_tripleNotEquals) {
+        _builder.append("(z.B. ");
+        String _escape_1 = this.escape(input.getExample());
+        _builder.append(_escape_1);
+        _builder.append(")");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence optional(final Inputs inputs, final OptionalInputs optionals) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\\begin{itemize}");
     _builder.newLine();
+    {
+      EList<Input> _inputs = inputs.getInputs();
+      for(final Input input : _inputs) {
+        {
+          String _optional = input.getOptional();
+          boolean _tripleNotEquals = (_optional != null);
+          if (_tripleNotEquals) {
+            _builder.append("\\item ");
+            CharSequence _compile = this.compile(input);
+            _builder.append(_compile);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    {
+      EList<Input> _inputs_1 = optionals.getInputs();
+      for(final Input input_1 : _inputs_1) {
+        _builder.append("\\item ");
+        CharSequence _compile_1 = this.compile(input_1);
+        _builder.append(_compile_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\\end{itemize}");
     _builder.newLine();
     return _builder;
@@ -253,6 +311,23 @@ public class LatexGenerator extends AbstractGenerator {
     _builder.append("\\end{itemize}");
     _builder.newLine();
     return _builder;
+  }
+  
+  private String result = "";
+  
+  public String escape(final String unsafe) {
+    this.result = unsafe;
+    this.result = this.result.replace("\\", "\\\\");
+    this.result = this.result.replace("{", "\\{");
+    this.result = this.result.replace("}", "\\}");
+    this.result = this.result.replace("_", "\\_");
+    this.result = this.result.replace("^", "\\^");
+    this.result = this.result.replace("#", "\\#");
+    this.result = this.result.replace("&", "\\&");
+    this.result = this.result.replace("%", "\\%");
+    this.result = this.result.replace("$", "\\$");
+    this.result = this.result.replace("~", "\\~");
+    return this.result;
   }
   
   public CharSequence subSection(final PreConditions precoditions) {

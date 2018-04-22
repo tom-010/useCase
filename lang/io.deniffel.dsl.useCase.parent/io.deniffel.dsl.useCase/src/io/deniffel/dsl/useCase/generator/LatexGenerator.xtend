@@ -20,6 +20,7 @@ import io.deniffel.dsl.useCase.useCase.PreConditions
 import io.deniffel.dsl.useCase.useCase.Steps
 import io.deniffel.dsl.useCase.useCase.Notes
 import io.deniffel.dsl.useCase.useCase.UsedTypes
+import io.deniffel.dsl.useCase.useCase.Input
 
 class LatexGenerator extends AbstractGenerator {
 	
@@ -111,18 +112,36 @@ class LatexGenerator extends AbstractGenerator {
 	
 	def subSection(Inputs inputs, OptionalInputs optionals)'''
 		\subsubsection{Benötigte Zutaten}
-		\begin{itemize}
-		  \item Login als Text (z.B. tom)  
-		  \item Passwort als Text (z.B. beispiel\_passwort)
-		  \item optional Vorname als Text (z.B. Thomas)
-		  \item Nachname als Text (z.B. Deniffel)
-		  \item Alter als Zahl (z.B. 18) 
-		\end{itemize}
+		«inputs.required(optionals)»
 		
 		\subsubsection{Optionale Zutaten}
+		«inputs.optional(optionals)»
+	'''
+	
+	def required(Inputs inputs, OptionalInputs optinals)'''
 		\begin{itemize}
-		  \item Adresse als Text (z.B. Haldenweg 7a)
-		  \item Geschlecht als Text (z.B. m)
+			«FOR input : inputs.inputs»
+				«IF input.optional === null»
+					\item «input.compile»
+				«ENDIF»
+			«ENDFOR»
+		\end{itemize}
+	'''
+	
+	def compile(Input input)'''
+		«input.content.escape» als «input.type.name» «IF input.example !== null»(z.B. «input.example.escape»)«ENDIF»
+	'''
+	
+	def optional(Inputs inputs, OptionalInputs optionals)'''
+		\begin{itemize}
+	 	«FOR input : inputs.inputs»
+			«IF input.optional !== null»
+			 	\item «input.compile»
+			«ENDIF»
+		«ENDFOR»
+		«FOR input : optionals.inputs»
+		 	\item «input.compile»
+		«ENDFOR»
 		\end{itemize}
 	'''
 	
@@ -131,6 +150,22 @@ class LatexGenerator extends AbstractGenerator {
 		  \item Erstellter Benutzer als Benutzer (z.B. Benutzer mit Login 'tom')
 		\end{itemize}
 	'''
+	
+	String result = "";
+	def escape(String unsafe) {
+		result = unsafe;
+		result = result.replace("\\", "\\\\");
+		result = result.replace("{", "\\{");
+		result = result.replace("}", "\\}");
+		result = result.replace("_", "\\_");
+		result = result.replace("^", "\\^");
+		result = result.replace("#", "\\#");
+		result = result.replace("&", "\\&");
+		result = result.replace("%", "\\%");
+		result = result.replace("$", "\\$");
+		result = result.replace("~", "\\~");
+		return result;
+	}
 	
 	def subSection(PreConditions precoditions)'''
 		\begin{itemize}
