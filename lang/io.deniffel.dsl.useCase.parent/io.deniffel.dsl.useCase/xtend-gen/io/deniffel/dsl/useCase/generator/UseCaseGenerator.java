@@ -1,5 +1,6 @@
 package io.deniffel.dsl.useCase.generator;
 
+import io.deniffel.dsl.useCase.generator.CucumberGenerator;
 import io.deniffel.dsl.useCase.generator.JavaGenerator;
 import io.deniffel.dsl.useCase.generator.LatexGenerator;
 import io.deniffel.dsl.useCase.generator.PlantUmlGenerator;
@@ -14,6 +15,7 @@ public class UseCaseGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     new PlantUmlGenerator().doGenerate(resource, fsa, context);
     new LatexGenerator().doGenerate(resource, fsa, context);
+    new CucumberGenerator().doGenerate(resource, fsa, context);
     new JavaGenerator().doGenerate(resource, fsa, context);
   }
 }

@@ -36,6 +36,7 @@ import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 import io.deniffel.dsl.useCase.useCase.UsedExceptions;
 import io.deniffel.dsl.useCase.useCase.UsedTypes;
 import io.deniffel.dsl.useCase.useCase.When;
+import io.deniffel.dsl.useCase.useCase.WhenAnd;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -268,6 +269,13 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * @generated
    */
   private EClass whenEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass whenAndEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1261,9 +1269,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExample_WhenAnd()
+  public EReference getExample_WhenAnd()
   {
-    return (EAttribute)exampleEClass.getEStructuralFeatures().get(5);
+    return (EReference)exampleEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1354,6 +1362,26 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
   public EAttribute getWhen_Content()
   {
     return (EAttribute)whenEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getWhenAnd()
+  {
+    return whenAndEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWhenAnd_Content()
+  {
+    return (EAttribute)whenAndEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1544,7 +1572,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     createEReference(exampleEClass, EXAMPLE__GIVEN);
     createEReference(exampleEClass, EXAMPLE__GIVEN_AND);
     createEReference(exampleEClass, EXAMPLE__WHEN);
-    createEAttribute(exampleEClass, EXAMPLE__WHEN_AND);
+    createEReference(exampleEClass, EXAMPLE__WHEN_AND);
     createEReference(exampleEClass, EXAMPLE__THEN);
     createEReference(exampleEClass, EXAMPLE__THEN_AND);
     createEAttribute(exampleEClass, EXAMPLE__EXPLAINATION);
@@ -1557,6 +1585,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
 
     whenEClass = createEClass(WHEN);
     createEAttribute(whenEClass, WHEN__CONTENT);
+
+    whenAndEClass = createEClass(WHEN_AND);
+    createEAttribute(whenAndEClass, WHEN_AND__CONTENT);
 
     thenEClass = createEClass(THEN);
     createEAttribute(thenEClass, THEN__CONTENT);
@@ -1714,7 +1745,7 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
     initEReference(getExample_Given(), this.getGiven(), null, "given", null, 0, -1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExample_GivenAnd(), this.getGivenAnd(), null, "givenAnd", null, 0, -1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExample_When(), this.getWhen(), null, "when", null, 0, -1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getExample_WhenAnd(), ecorePackage.getEString(), "whenAnd", null, 0, -1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExample_WhenAnd(), this.getWhenAnd(), null, "whenAnd", null, 0, -1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExample_Then(), this.getThen(), null, "then", null, 0, -1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExample_ThenAnd(), this.getThenAnd(), null, "thenAnd", null, 0, -1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExample_Explaination(), ecorePackage.getEString(), "explaination", null, 0, 1, Example.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1727,6 +1758,9 @@ public class UseCasePackageImpl extends EPackageImpl implements UseCasePackage
 
     initEClass(whenEClass, When.class, "When", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getWhen_Content(), ecorePackage.getEString(), "content", null, 0, 1, When.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(whenAndEClass, WhenAnd.class, "WhenAnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getWhenAnd_Content(), ecorePackage.getEString(), "content", null, 0, 1, WhenAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(thenEClass, Then.class, "Then", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getThen_Content(), ecorePackage.getEString(), "content", null, 0, 1, Then.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

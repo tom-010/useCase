@@ -184,12 +184,11 @@ When:
 	'Wenn' content=STRING;
 
 WhenAnd:
-	('und'|'aber');
+	('und'|'aber') content=STRING;
 	
 Then:
 	('Dann'|'dann') content=STRING;
 
 ThenAnd:
 	('und'|'aber') content=STRING;
-
 		

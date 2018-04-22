@@ -915,9 +915,9 @@ ruleWhenAnd
 	}
 	:
 	(
-		{ before(grammarAccess.getWhenAndAccess().getAlternatives()); }
-		(rule__WhenAnd__Alternatives)
-		{ after(grammarAccess.getWhenAndAccess().getAlternatives()); }
+		{ before(grammarAccess.getWhenAndAccess().getGroup()); }
+		(rule__WhenAnd__Group__0)
+		{ after(grammarAccess.getWhenAndAccess().getGroup()); }
 	)
 ;
 finally {
@@ -1703,21 +1703,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__WhenAnd__Alternatives
+rule__WhenAnd__Alternatives_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getWhenAndAccess().getUndKeyword_0()); }
+		{ before(grammarAccess.getWhenAndAccess().getUndKeyword_0_0()); }
 		'und'
-		{ after(grammarAccess.getWhenAndAccess().getUndKeyword_0()); }
+		{ after(grammarAccess.getWhenAndAccess().getUndKeyword_0_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getWhenAndAccess().getAberKeyword_1()); }
+		{ before(grammarAccess.getWhenAndAccess().getAberKeyword_0_1()); }
 		'aber'
-		{ after(grammarAccess.getWhenAndAccess().getAberKeyword_1()); }
+		{ after(grammarAccess.getWhenAndAccess().getAberKeyword_0_1()); }
 	)
 ;
 finally {
@@ -6815,6 +6815,60 @@ finally {
 }
 
 
+rule__WhenAnd__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__WhenAnd__Group__0__Impl
+	rule__WhenAnd__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__WhenAnd__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getWhenAndAccess().getAlternatives_0()); }
+	(rule__WhenAnd__Alternatives_0)
+	{ after(grammarAccess.getWhenAndAccess().getAlternatives_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__WhenAnd__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__WhenAnd__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__WhenAnd__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getWhenAndAccess().getContentAssignment_1()); }
+	(rule__WhenAnd__ContentAssignment_1)
+	{ after(grammarAccess.getWhenAndAccess().getContentAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__Then__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -8025,6 +8079,21 @@ rule__When__ContentAssignment_1
 		{ before(grammarAccess.getWhenAccess().getContentSTRINGTerminalRuleCall_1_0()); }
 		RULE_STRING
 		{ after(grammarAccess.getWhenAccess().getContentSTRINGTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__WhenAnd__ContentAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getWhenAndAccess().getContentSTRINGTerminalRuleCall_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getWhenAndAccess().getContentSTRINGTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

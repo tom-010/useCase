@@ -64,7 +64,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUsedExceptionsAccess().getAlternatives_0(), "rule__UsedExceptions__Alternatives_0");
 					put(grammarAccess.getGivenAccess().getAlternatives_0(), "rule__Given__Alternatives_0");
 					put(grammarAccess.getGivenAndAccess().getAlternatives_0(), "rule__GivenAnd__Alternatives_0");
-					put(grammarAccess.getWhenAndAccess().getAlternatives(), "rule__WhenAnd__Alternatives");
+					put(grammarAccess.getWhenAndAccess().getAlternatives_0(), "rule__WhenAnd__Alternatives_0");
 					put(grammarAccess.getThenAccess().getAlternatives_0(), "rule__Then__Alternatives_0");
 					put(grammarAccess.getThenAndAccess().getAlternatives_0(), "rule__ThenAnd__Alternatives_0");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
@@ -129,6 +129,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGivenAccess().getGroup(), "rule__Given__Group__0");
 					put(grammarAccess.getGivenAndAccess().getGroup(), "rule__GivenAnd__Group__0");
 					put(grammarAccess.getWhenAccess().getGroup(), "rule__When__Group__0");
+					put(grammarAccess.getWhenAndAccess().getGroup(), "rule__WhenAnd__Group__0");
 					put(grammarAccess.getThenAccess().getGroup(), "rule__Then__Group__0");
 					put(grammarAccess.getThenAndAccess().getGroup(), "rule__ThenAnd__Group__0");
 					put(grammarAccess.getModelAccess().getCompanyAssignment_1(), "rule__Model__CompanyAssignment_1");
@@ -203,6 +204,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGivenAccess().getContentAssignment_1(), "rule__Given__ContentAssignment_1");
 					put(grammarAccess.getGivenAndAccess().getContentAssignment_1(), "rule__GivenAnd__ContentAssignment_1");
 					put(grammarAccess.getWhenAccess().getContentAssignment_1(), "rule__When__ContentAssignment_1");
+					put(grammarAccess.getWhenAndAccess().getContentAssignment_1(), "rule__WhenAnd__ContentAssignment_1");
 					put(grammarAccess.getThenAccess().getContentAssignment_1(), "rule__Then__ContentAssignment_1");
 					put(grammarAccess.getThenAndAccess().getContentAssignment_1(), "rule__ThenAnd__ContentAssignment_1");
 				}

@@ -1148,7 +1148,7 @@ public interface UseCasePackage extends EPackage
   int EXAMPLE__WHEN = 4;
 
   /**
-   * The feature id for the '<em><b>When And</b></em>' attribute list.
+   * The feature id for the '<em><b>When And</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1277,6 +1277,34 @@ public interface UseCasePackage extends EPackage
   int WHEN_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.WhenAndImpl <em>When And</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.WhenAndImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getWhenAnd()
+   * @generated
+   */
+  int WHEN_AND = 31;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHEN_AND__CONTENT = 0;
+
+  /**
+   * The number of structural features of the '<em>When And</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHEN_AND_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.ThenImpl <em>Then</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1284,7 +1312,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getThen()
    * @generated
    */
-  int THEN = 31;
+  int THEN = 32;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -1312,7 +1340,7 @@ public interface UseCasePackage extends EPackage
    * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getThenAnd()
    * @generated
    */
-  int THEN_AND = 32;
+  int THEN_AND = 33;
 
   /**
    * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -2307,15 +2335,15 @@ public interface UseCasePackage extends EPackage
   EReference getExample_When();
 
   /**
-   * Returns the meta object for the attribute list '{@link io.deniffel.dsl.useCase.useCase.Example#getWhenAnd <em>When And</em>}'.
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Example#getWhenAnd <em>When And</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>When And</em>'.
+   * @return the meta object for the containment reference list '<em>When And</em>'.
    * @see io.deniffel.dsl.useCase.useCase.Example#getWhenAnd()
    * @see #getExample()
    * @generated
    */
-  EAttribute getExample_WhenAnd();
+  EReference getExample_WhenAnd();
 
   /**
    * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Example#getThen <em>Then</em>}'.
@@ -2412,6 +2440,27 @@ public interface UseCasePackage extends EPackage
    * @generated
    */
   EAttribute getWhen_Content();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.WhenAnd <em>When And</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>When And</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.WhenAnd
+   * @generated
+   */
+  EClass getWhenAnd();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.WhenAnd#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.WhenAnd#getContent()
+   * @see #getWhenAnd()
+   * @generated
+   */
+  EAttribute getWhenAnd_Content();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Then <em>Then</em>}'.
@@ -3263,12 +3312,12 @@ public interface UseCasePackage extends EPackage
     EReference EXAMPLE__WHEN = eINSTANCE.getExample_When();
 
     /**
-     * The meta object literal for the '<em><b>When And</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>When And</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXAMPLE__WHEN_AND = eINSTANCE.getExample_WhenAnd();
+    EReference EXAMPLE__WHEN_AND = eINSTANCE.getExample_WhenAnd();
 
     /**
      * The meta object literal for the '<em><b>Then</b></em>' containment reference list feature.
@@ -3347,6 +3396,24 @@ public interface UseCasePackage extends EPackage
      * @generated
      */
     EAttribute WHEN__CONTENT = eINSTANCE.getWhen_Content();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.WhenAndImpl <em>When And</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.WhenAndImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getWhenAnd()
+     * @generated
+     */
+    EClass WHEN_AND = eINSTANCE.getWhenAnd();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WHEN_AND__CONTENT = eINSTANCE.getWhenAnd_Content();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.ThenImpl <em>Then</em>}' class.

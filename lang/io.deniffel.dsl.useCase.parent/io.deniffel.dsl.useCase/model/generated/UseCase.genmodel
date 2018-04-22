@@ -124,7 +124,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Example/given"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Example/givenAnd"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Example/when"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Example/whenAnd"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Example/whenAnd"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Example/then"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCase.ecore#//Example/thenAnd"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Example/explaination"/>
@@ -137,6 +137,9 @@
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//When">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//When/content"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCase.ecore#//WhenAnd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//WhenAnd/content"/>
     </genClasses>
     <genClasses ecoreClass="UseCase.ecore#//Then">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCase.ecore#//Then/content"/>

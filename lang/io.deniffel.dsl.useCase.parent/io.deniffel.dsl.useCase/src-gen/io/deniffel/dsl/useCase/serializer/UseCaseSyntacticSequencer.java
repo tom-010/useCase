@@ -49,6 +49,7 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__;
 	protected AbstractElementAlias match_UsedExceptions___GenutzteKeyword_0_1_0_FehlerKeyword_0_1_1___or___UsedKeyword_0_0_0_ErrorsKeyword_0_0_1__;
 	protected AbstractElementAlias match_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__;
+	protected AbstractElementAlias match_WhenAnd_AberKeyword_0_1_or_UndKeyword_0_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -80,6 +81,7 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndKeyword_10_0_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getOfKeyword_10_0_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getUseCaseKeyword_10_0_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndeKeyword_10_1_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getDesKeyword_10_1_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getRezpetsKeyword_10_1_2())));
 		match_UsedExceptions___GenutzteKeyword_0_1_0_FehlerKeyword_0_1_1___or___UsedKeyword_0_0_0_ErrorsKeyword_0_0_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getGenutzteKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getFehlerKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getUsedKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getErrorsKeyword_0_0_1())));
 		match_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getGenutzteKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getBausteineKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getUsedKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getUsedTypesAccess().getBuildingBlocksKeyword_0_0_1())));
+		match_WhenAnd_AberKeyword_0_1_or_UndKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getWhenAndAccess().getAberKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getWhenAndAccess().getUndKeyword_0_0()));
 	}
 	
 	@Override
@@ -148,6 +150,8 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_UsedExceptions___GenutzteKeyword_0_1_0_FehlerKeyword_0_1_1___or___UsedKeyword_0_0_0_ErrorsKeyword_0_0_1__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__.equals(syntax))
 				emit_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_WhenAnd_AberKeyword_0_1_or_UndKeyword_0_0.equals(syntax))
+				emit_WhenAnd_AberKeyword_0_1_or_UndKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -464,6 +468,17 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) types+=Type
 	 */
 	protected void emit_UsedTypes___GenutzteKeyword_0_1_0_BausteineKeyword_0_1_1___or___UsedKeyword_0_0_0_BuildingBlocksKeyword_0_0_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'und' | 'aber'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) content=STRING
+	 */
+	protected void emit_WhenAnd_AberKeyword_0_1_or_UndKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

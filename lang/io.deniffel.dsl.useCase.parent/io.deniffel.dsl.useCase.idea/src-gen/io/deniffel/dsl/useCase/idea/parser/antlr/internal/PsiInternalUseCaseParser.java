@@ -7374,17 +7374,22 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
 
     // $ANTLR start "ruleWhenAnd"
-    // PsiInternalUseCase.g:2720:1: ruleWhenAnd returns [Boolean current=false] : (kw= 'und' | kw= 'aber' ) ;
+    // PsiInternalUseCase.g:2720:1: ruleWhenAnd returns [Boolean current=false] : ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) ) ;
     public final Boolean ruleWhenAnd() throws RecognitionException {
         Boolean current = false;
 
-        Token kw=null;
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token lv_content_2_0=null;
 
         try {
-            // PsiInternalUseCase.g:2721:1: ( (kw= 'und' | kw= 'aber' ) )
-            // PsiInternalUseCase.g:2722:2: (kw= 'und' | kw= 'aber' )
+            // PsiInternalUseCase.g:2721:1: ( ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) ) )
+            // PsiInternalUseCase.g:2722:2: ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) )
             {
-            // PsiInternalUseCase.g:2722:2: (kw= 'und' | kw= 'aber' )
+            // PsiInternalUseCase.g:2722:2: ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) )
+            // PsiInternalUseCase.g:2723:3: (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) )
+            {
+            // PsiInternalUseCase.g:2723:3: (otherlv_0= 'und' | otherlv_1= 'aber' )
             int alt78=2;
             int LA78_0 = input.LA(1);
 
@@ -7402,31 +7407,59 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
             }
             switch (alt78) {
                 case 1 :
-                    // PsiInternalUseCase.g:2723:3: kw= 'und'
+                    // PsiInternalUseCase.g:2724:4: otherlv_0= 'und'
                     {
 
-                    			markLeaf(elementTypeProvider.getWhenAnd_UndKeyword_0ElementType());
-                    		
-                    kw=(Token)match(input,91,FOLLOW_2); 
+                    				markLeaf(elementTypeProvider.getWhenAnd_UndKeyword_0_0ElementType());
+                    			
+                    otherlv_0=(Token)match(input,91,FOLLOW_12); 
 
-                    			doneLeaf(kw);
-                    		
+                    				doneLeaf(otherlv_0);
+                    			
 
                     }
                     break;
                 case 2 :
-                    // PsiInternalUseCase.g:2731:3: kw= 'aber'
+                    // PsiInternalUseCase.g:2732:4: otherlv_1= 'aber'
                     {
 
-                    			markLeaf(elementTypeProvider.getWhenAnd_AberKeyword_1ElementType());
-                    		
-                    kw=(Token)match(input,92,FOLLOW_2); 
+                    				markLeaf(elementTypeProvider.getWhenAnd_AberKeyword_0_1ElementType());
+                    			
+                    otherlv_1=(Token)match(input,92,FOLLOW_12); 
 
-                    			doneLeaf(kw);
-                    		
+                    				doneLeaf(otherlv_1);
+                    			
 
                     }
                     break;
+
+            }
+
+            // PsiInternalUseCase.g:2740:3: ( (lv_content_2_0= RULE_STRING ) )
+            // PsiInternalUseCase.g:2741:4: (lv_content_2_0= RULE_STRING )
+            {
+            // PsiInternalUseCase.g:2741:4: (lv_content_2_0= RULE_STRING )
+            // PsiInternalUseCase.g:2742:5: lv_content_2_0= RULE_STRING
+            {
+
+            					markLeaf(elementTypeProvider.getWhenAnd_ContentSTRINGTerminalRuleCall_1_0ElementType());
+            				
+            lv_content_2_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+
+            					if(!current) {
+            						associateWithSemanticElement();
+            						current = true;
+            					}
+            				
+
+            					doneLeaf(lv_content_2_0);
+            				
+
+            }
+
+
+            }
+
 
             }
 
@@ -7446,7 +7479,7 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
 
     // $ANTLR start "entryRuleThen"
-    // PsiInternalUseCase.g:2742:1: entryRuleThen returns [Boolean current=false] : iv_ruleThen= ruleThen EOF ;
+    // PsiInternalUseCase.g:2761:1: entryRuleThen returns [Boolean current=false] : iv_ruleThen= ruleThen EOF ;
     public final Boolean entryRuleThen() throws RecognitionException {
         Boolean current = false;
 
@@ -7454,8 +7487,8 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
 
         try {
-            // PsiInternalUseCase.g:2742:46: (iv_ruleThen= ruleThen EOF )
-            // PsiInternalUseCase.g:2743:2: iv_ruleThen= ruleThen EOF
+            // PsiInternalUseCase.g:2761:46: (iv_ruleThen= ruleThen EOF )
+            // PsiInternalUseCase.g:2762:2: iv_ruleThen= ruleThen EOF
             {
              markComposite(elementTypeProvider.getThenElementType()); 
             pushFollow(FOLLOW_1);
@@ -7481,7 +7514,7 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
 
     // $ANTLR start "ruleThen"
-    // PsiInternalUseCase.g:2749:1: ruleThen returns [Boolean current=false] : ( (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) ) ) ;
+    // PsiInternalUseCase.g:2768:1: ruleThen returns [Boolean current=false] : ( (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) ) ) ;
     public final Boolean ruleThen() throws RecognitionException {
         Boolean current = false;
 
@@ -7490,13 +7523,13 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
         Token lv_content_2_0=null;
 
         try {
-            // PsiInternalUseCase.g:2750:1: ( ( (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) ) ) )
-            // PsiInternalUseCase.g:2751:2: ( (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) ) )
+            // PsiInternalUseCase.g:2769:1: ( ( (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) ) ) )
+            // PsiInternalUseCase.g:2770:2: ( (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) ) )
             {
-            // PsiInternalUseCase.g:2751:2: ( (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) ) )
-            // PsiInternalUseCase.g:2752:3: (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) )
+            // PsiInternalUseCase.g:2770:2: ( (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) ) )
+            // PsiInternalUseCase.g:2771:3: (otherlv_0= 'Dann' | otherlv_1= 'dann' ) ( (lv_content_2_0= RULE_STRING ) )
             {
-            // PsiInternalUseCase.g:2752:3: (otherlv_0= 'Dann' | otherlv_1= 'dann' )
+            // PsiInternalUseCase.g:2771:3: (otherlv_0= 'Dann' | otherlv_1= 'dann' )
             int alt79=2;
             int LA79_0 = input.LA(1);
 
@@ -7514,7 +7547,7 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
             }
             switch (alt79) {
                 case 1 :
-                    // PsiInternalUseCase.g:2753:4: otherlv_0= 'Dann'
+                    // PsiInternalUseCase.g:2772:4: otherlv_0= 'Dann'
                     {
 
                     				markLeaf(elementTypeProvider.getThen_DannKeyword_0_0ElementType());
@@ -7527,7 +7560,7 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
                     }
                     break;
                 case 2 :
-                    // PsiInternalUseCase.g:2761:4: otherlv_1= 'dann'
+                    // PsiInternalUseCase.g:2780:4: otherlv_1= 'dann'
                     {
 
                     				markLeaf(elementTypeProvider.getThen_DannKeyword_0_1ElementType());
@@ -7542,11 +7575,11 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
             }
 
-            // PsiInternalUseCase.g:2769:3: ( (lv_content_2_0= RULE_STRING ) )
-            // PsiInternalUseCase.g:2770:4: (lv_content_2_0= RULE_STRING )
+            // PsiInternalUseCase.g:2788:3: ( (lv_content_2_0= RULE_STRING ) )
+            // PsiInternalUseCase.g:2789:4: (lv_content_2_0= RULE_STRING )
             {
-            // PsiInternalUseCase.g:2770:4: (lv_content_2_0= RULE_STRING )
-            // PsiInternalUseCase.g:2771:5: lv_content_2_0= RULE_STRING
+            // PsiInternalUseCase.g:2789:4: (lv_content_2_0= RULE_STRING )
+            // PsiInternalUseCase.g:2790:5: lv_content_2_0= RULE_STRING
             {
 
             					markLeaf(elementTypeProvider.getThen_ContentSTRINGTerminalRuleCall_1_0ElementType());
@@ -7586,7 +7619,7 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
 
     // $ANTLR start "entryRuleThenAnd"
-    // PsiInternalUseCase.g:2790:1: entryRuleThenAnd returns [Boolean current=false] : iv_ruleThenAnd= ruleThenAnd EOF ;
+    // PsiInternalUseCase.g:2809:1: entryRuleThenAnd returns [Boolean current=false] : iv_ruleThenAnd= ruleThenAnd EOF ;
     public final Boolean entryRuleThenAnd() throws RecognitionException {
         Boolean current = false;
 
@@ -7594,8 +7627,8 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
 
         try {
-            // PsiInternalUseCase.g:2790:49: (iv_ruleThenAnd= ruleThenAnd EOF )
-            // PsiInternalUseCase.g:2791:2: iv_ruleThenAnd= ruleThenAnd EOF
+            // PsiInternalUseCase.g:2809:49: (iv_ruleThenAnd= ruleThenAnd EOF )
+            // PsiInternalUseCase.g:2810:2: iv_ruleThenAnd= ruleThenAnd EOF
             {
              markComposite(elementTypeProvider.getThenAndElementType()); 
             pushFollow(FOLLOW_1);
@@ -7621,7 +7654,7 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
 
     // $ANTLR start "ruleThenAnd"
-    // PsiInternalUseCase.g:2797:1: ruleThenAnd returns [Boolean current=false] : ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) ) ;
+    // PsiInternalUseCase.g:2816:1: ruleThenAnd returns [Boolean current=false] : ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) ) ;
     public final Boolean ruleThenAnd() throws RecognitionException {
         Boolean current = false;
 
@@ -7630,13 +7663,13 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
         Token lv_content_2_0=null;
 
         try {
-            // PsiInternalUseCase.g:2798:1: ( ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) ) )
-            // PsiInternalUseCase.g:2799:2: ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) )
+            // PsiInternalUseCase.g:2817:1: ( ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) ) )
+            // PsiInternalUseCase.g:2818:2: ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) )
             {
-            // PsiInternalUseCase.g:2799:2: ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) )
-            // PsiInternalUseCase.g:2800:3: (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) )
+            // PsiInternalUseCase.g:2818:2: ( (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) ) )
+            // PsiInternalUseCase.g:2819:3: (otherlv_0= 'und' | otherlv_1= 'aber' ) ( (lv_content_2_0= RULE_STRING ) )
             {
-            // PsiInternalUseCase.g:2800:3: (otherlv_0= 'und' | otherlv_1= 'aber' )
+            // PsiInternalUseCase.g:2819:3: (otherlv_0= 'und' | otherlv_1= 'aber' )
             int alt80=2;
             int LA80_0 = input.LA(1);
 
@@ -7654,7 +7687,7 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
             }
             switch (alt80) {
                 case 1 :
-                    // PsiInternalUseCase.g:2801:4: otherlv_0= 'und'
+                    // PsiInternalUseCase.g:2820:4: otherlv_0= 'und'
                     {
 
                     				markLeaf(elementTypeProvider.getThenAnd_UndKeyword_0_0ElementType());
@@ -7667,7 +7700,7 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
                     }
                     break;
                 case 2 :
-                    // PsiInternalUseCase.g:2809:4: otherlv_1= 'aber'
+                    // PsiInternalUseCase.g:2828:4: otherlv_1= 'aber'
                     {
 
                     				markLeaf(elementTypeProvider.getThenAnd_AberKeyword_0_1ElementType());
@@ -7682,11 +7715,11 @@ public class PsiInternalUseCaseParser extends AbstractPsiAntlrParser {
 
             }
 
-            // PsiInternalUseCase.g:2817:3: ( (lv_content_2_0= RULE_STRING ) )
-            // PsiInternalUseCase.g:2818:4: (lv_content_2_0= RULE_STRING )
+            // PsiInternalUseCase.g:2836:3: ( (lv_content_2_0= RULE_STRING ) )
+            // PsiInternalUseCase.g:2837:4: (lv_content_2_0= RULE_STRING )
             {
-            // PsiInternalUseCase.g:2818:4: (lv_content_2_0= RULE_STRING )
-            // PsiInternalUseCase.g:2819:5: lv_content_2_0= RULE_STRING
+            // PsiInternalUseCase.g:2837:4: (lv_content_2_0= RULE_STRING )
+            // PsiInternalUseCase.g:2838:5: lv_content_2_0= RULE_STRING
             {
 
             					markLeaf(elementTypeProvider.getThenAnd_ContentSTRINGTerminalRuleCall_1_0ElementType());

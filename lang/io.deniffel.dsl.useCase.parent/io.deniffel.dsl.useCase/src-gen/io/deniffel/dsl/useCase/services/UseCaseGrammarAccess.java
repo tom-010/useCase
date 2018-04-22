@@ -1767,22 +1767,34 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class WhenAndElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.WhenAnd");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cUndKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cAberKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cUndKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cAberKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
 		
 		//WhenAnd:
-		//	'und' | 'aber';
+		//	('und' | 'aber') content=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//('und' | 'aber') content=STRING
+		public Group getGroup() { return cGroup; }
+		
 		//'und' | 'aber'
-		public Alternatives getAlternatives() { return cAlternatives; }
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//'und'
-		public Keyword getUndKeyword_0() { return cUndKeyword_0; }
+		public Keyword getUndKeyword_0_0() { return cUndKeyword_0_0; }
 		
 		//'aber'
-		public Keyword getAberKeyword_1() { return cAberKeyword_1; }
+		public Keyword getAberKeyword_0_1() { return cAberKeyword_0_1; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_1_0() { return cContentSTRINGTerminalRuleCall_1_0; }
 	}
 	public class ThenElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Then");
@@ -2323,7 +2335,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//WhenAnd:
-	//	'und' | 'aber';
+	//	('und' | 'aber') content=STRING;
 	public WhenAndElements getWhenAndAccess() {
 		return pWhenAnd;
 	}

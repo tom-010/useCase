@@ -303,6 +303,15 @@ public interface UseCaseFactory extends EFactory
   When createWhen();
 
   /**
+   * Returns a new object of class '<em>When And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>When And</em>'.
+   * @generated
+   */
+  WhenAnd createWhenAnd();
+
+  /**
    * Returns a new object of class '<em>Then</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

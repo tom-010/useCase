@@ -2148,24 +2148,39 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		public static IGrammarAwareElementType createWhenAndElementType() {
 			return new IGrammarAwareElementType("WhenAnd_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndRule());
 		}
-		public static IGrammarAwareElementType createWhenAnd_AlternativesElementType() {
-			return new IGrammarAwareElementType("WhenAnd_Alternatives_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndAccess().getAlternatives());
+		public static IGrammarAwareElementType createWhenAnd_GroupElementType() {
+			return new IGrammarAwareElementType("WhenAnd_Group_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndAccess().getGroup());
 		}
-		public static IGrammarAwareElementType createWhenAnd_UndKeyword_0ElementType() {
-			return new IGrammarAwareElementType("WhenAnd_UndKeyword_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndAccess().getUndKeyword_0());
+		public static IGrammarAwareElementType createWhenAnd_Alternatives_0ElementType() {
+			return new IGrammarAwareElementType("WhenAnd_Alternatives_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndAccess().getAlternatives_0());
 		}
-		public static IGrammarAwareElementType createWhenAnd_AberKeyword_1ElementType() {
-			return new IGrammarAwareElementType("WhenAnd_AberKeyword_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndAccess().getAberKeyword_1());
+		public static IGrammarAwareElementType createWhenAnd_UndKeyword_0_0ElementType() {
+			return new IGrammarAwareElementType("WhenAnd_UndKeyword_0_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndAccess().getUndKeyword_0_0());
+		}
+		public static IGrammarAwareElementType createWhenAnd_AberKeyword_0_1ElementType() {
+			return new IGrammarAwareElementType("WhenAnd_AberKeyword_0_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndAccess().getAberKeyword_0_1());
+		}
+		public static IGrammarAwareElementType createWhenAnd_ContentAssignment_1ElementType() {
+			return new IGrammarAwareElementType("WhenAnd_ContentAssignment_1_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndAccess().getContentAssignment_1());
+		}
+		public static IGrammarAwareElementType createWhenAnd_ContentSTRINGTerminalRuleCall_1_0ElementType() {
+			return new IGrammarAwareElementType("WhenAnd_ContentSTRINGTerminalRuleCall_1_0_ELEMENT_TYPE", UseCaseLanguage.INSTANCE, GRAMMAR_ACCESS.getWhenAndAccess().getContentSTRINGTerminalRuleCall_1_0());
 		}
 	}
 
 	public static final IGrammarAwareElementType WhenAnd_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAndElementType());
 
-	public static final IGrammarAwareElementType WhenAnd_Alternatives_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAnd_AlternativesElementType());
+	public static final IGrammarAwareElementType WhenAnd_Group_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAnd_GroupElementType());
 
-	public static final IGrammarAwareElementType WhenAnd_UndKeyword_0_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAnd_UndKeyword_0ElementType());
+	public static final IGrammarAwareElementType WhenAnd_Alternatives_0_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAnd_Alternatives_0ElementType());
 
-	public static final IGrammarAwareElementType WhenAnd_AberKeyword_1_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAnd_AberKeyword_1ElementType());
+	public static final IGrammarAwareElementType WhenAnd_UndKeyword_0_0_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAnd_UndKeyword_0_0ElementType());
+
+	public static final IGrammarAwareElementType WhenAnd_AberKeyword_0_1_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAnd_AberKeyword_0_1ElementType());
+
+	public static final IGrammarAwareElementType WhenAnd_ContentAssignment_1_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAnd_ContentAssignment_1ElementType());
+
+	public static final IGrammarAwareElementType WhenAnd_ContentSTRINGTerminalRuleCall_1_0_ELEMENT_TYPE = associate(WhenAndFactory.createWhenAnd_ContentSTRINGTerminalRuleCall_1_0ElementType());
 
 	private static class ThenFactory {
 		public static IGrammarAwareElementType createThenElementType() {
@@ -3869,16 +3884,28 @@ public class UseCaseElementTypeProvider implements IElementTypeProvider {
 		return WhenAnd_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getWhenAnd_AlternativesElementType() {
-		return WhenAnd_Alternatives_ELEMENT_TYPE;
+	public IGrammarAwareElementType getWhenAnd_GroupElementType() {
+		return WhenAnd_Group_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getWhenAnd_UndKeyword_0ElementType() {
-		return WhenAnd_UndKeyword_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getWhenAnd_Alternatives_0ElementType() {
+		return WhenAnd_Alternatives_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getWhenAnd_AberKeyword_1ElementType() {
-		return WhenAnd_AberKeyword_1_ELEMENT_TYPE;
+	public IGrammarAwareElementType getWhenAnd_UndKeyword_0_0ElementType() {
+		return WhenAnd_UndKeyword_0_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getWhenAnd_AberKeyword_0_1ElementType() {
+		return WhenAnd_AberKeyword_0_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getWhenAnd_ContentAssignment_1ElementType() {
+		return WhenAnd_ContentAssignment_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getWhenAnd_ContentSTRINGTerminalRuleCall_1_0ElementType() {
+		return WhenAnd_ContentSTRINGTerminalRuleCall_1_0_ELEMENT_TYPE;
 	}
 	
 	public IGrammarAwareElementType getThenElementType() {

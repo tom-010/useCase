@@ -152,8 +152,8 @@
         eType="#//GivenAnd" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="when" upperBound="-1" eType="#//When"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="whenAnd" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whenAnd" upperBound="-1"
+        eType="#//WhenAnd" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="then" upperBound="-1" eType="#//Then"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="thenAnd" upperBound="-1"
@@ -167,6 +167,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="When">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WhenAnd">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Then">

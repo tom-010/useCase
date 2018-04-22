@@ -36,6 +36,7 @@ import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 import io.deniffel.dsl.useCase.useCase.UsedExceptions;
 import io.deniffel.dsl.useCase.useCase.UsedTypes;
 import io.deniffel.dsl.useCase.useCase.When;
+import io.deniffel.dsl.useCase.useCase.WhenAnd;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -128,6 +129,7 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.GIVEN: return createGiven();
       case UseCasePackage.GIVEN_AND: return createGivenAnd();
       case UseCasePackage.WHEN: return createWhen();
+      case UseCasePackage.WHEN_AND: return createWhenAnd();
       case UseCasePackage.THEN: return createThen();
       case UseCasePackage.THEN_AND: return createThenAnd();
       default:
@@ -474,6 +476,17 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     WhenImpl when = new WhenImpl();
     return when;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WhenAnd createWhenAnd()
+  {
+    WhenAndImpl whenAnd = new WhenAndImpl();
+    return whenAnd;
   }
 
   /**

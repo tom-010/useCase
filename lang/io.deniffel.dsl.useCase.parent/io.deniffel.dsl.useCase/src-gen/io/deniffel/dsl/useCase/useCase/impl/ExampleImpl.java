@@ -10,6 +10,7 @@ import io.deniffel.dsl.useCase.useCase.Then;
 import io.deniffel.dsl.useCase.useCase.ThenAnd;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 import io.deniffel.dsl.useCase.useCase.When;
+import io.deniffel.dsl.useCase.useCase.WhenAnd;
 
 import java.util.Collection;
 
@@ -24,7 +25,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -122,14 +122,14 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
   protected EList<When> when;
 
   /**
-   * The cached value of the '{@link #getWhenAnd() <em>When And</em>}' attribute list.
+   * The cached value of the '{@link #getWhenAnd() <em>When And</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getWhenAnd()
    * @generated
    * @ordered
    */
-  protected EList<String> whenAnd;
+  protected EList<WhenAnd> whenAnd;
 
   /**
    * The cached value of the '{@link #getThen() <em>Then</em>}' containment reference list.
@@ -285,11 +285,11 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getWhenAnd()
+  public EList<WhenAnd> getWhenAnd()
   {
     if (whenAnd == null)
     {
-      whenAnd = new EDataTypeEList<String>(String.class, this, UseCasePackage.EXAMPLE__WHEN_AND);
+      whenAnd = new EObjectContainmentEList<WhenAnd>(WhenAnd.class, this, UseCasePackage.EXAMPLE__WHEN_AND);
     }
     return whenAnd;
   }
@@ -361,6 +361,8 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
         return ((InternalEList<?>)getGivenAnd()).basicRemove(otherEnd, msgs);
       case UseCasePackage.EXAMPLE__WHEN:
         return ((InternalEList<?>)getWhen()).basicRemove(otherEnd, msgs);
+      case UseCasePackage.EXAMPLE__WHEN_AND:
+        return ((InternalEList<?>)getWhenAnd()).basicRemove(otherEnd, msgs);
       case UseCasePackage.EXAMPLE__THEN:
         return ((InternalEList<?>)getThen()).basicRemove(otherEnd, msgs);
       case UseCasePackage.EXAMPLE__THEN_AND:
@@ -432,7 +434,7 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
         return;
       case UseCasePackage.EXAMPLE__WHEN_AND:
         getWhenAnd().clear();
-        getWhenAnd().addAll((Collection<? extends String>)newValue);
+        getWhenAnd().addAll((Collection<? extends WhenAnd>)newValue);
         return;
       case UseCasePackage.EXAMPLE__THEN:
         getThen().clear();
@@ -537,8 +539,6 @@ public class ExampleImpl extends MinimalEObjectImpl.Container implements Example
     result.append(name);
     result.append(", description: ");
     result.append(description);
-    result.append(", whenAnd: ");
-    result.append(whenAnd);
     result.append(", explaination: ");
     result.append(explaination);
     result.append(')');

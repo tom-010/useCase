@@ -2720,21 +2720,40 @@ entryRuleWhenAnd returns [Boolean current=false]:
 ruleWhenAnd returns [Boolean current=false]
 :
 	(
-		{
-			markLeaf(elementTypeProvider.getWhenAnd_UndKeyword_0ElementType());
-		}
-		kw='und'
-		{
-			doneLeaf(kw);
-		}
-		    |
-		{
-			markLeaf(elementTypeProvider.getWhenAnd_AberKeyword_1ElementType());
-		}
-		kw='aber'
-		{
-			doneLeaf(kw);
-		}
+		(
+			{
+				markLeaf(elementTypeProvider.getWhenAnd_UndKeyword_0_0ElementType());
+			}
+			otherlv_0='und'
+			{
+				doneLeaf(otherlv_0);
+			}
+			    |
+			{
+				markLeaf(elementTypeProvider.getWhenAnd_AberKeyword_0_1ElementType());
+			}
+			otherlv_1='aber'
+			{
+				doneLeaf(otherlv_1);
+			}
+		)
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getWhenAnd_ContentSTRINGTerminalRuleCall_1_0ElementType());
+				}
+				lv_content_2_0=RULE_STRING
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_content_2_0);
+				}
+			)
+		)
 	)
 ;
 

@@ -37,6 +37,7 @@ import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 import io.deniffel.dsl.useCase.useCase.UsedExceptions;
 import io.deniffel.dsl.useCase.useCase.UsedTypes;
 import io.deniffel.dsl.useCase.useCase.When;
+import io.deniffel.dsl.useCase.useCase.WhenAnd;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -160,6 +161,9 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case UseCasePackage.WHEN:
 				sequence_When(context, (When) semanticObject); 
+				return; 
+			case UseCasePackage.WHEN_AND:
+				sequence_WhenAnd(context, (WhenAnd) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -661,6 +665,24 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_UsedTypes(ISerializationContext context, UsedTypes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     WhenAnd returns WhenAnd
+	 *
+	 * Constraint:
+	 *     content=STRING
+	 */
+	protected void sequence_WhenAnd(ISerializationContext context, WhenAnd semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.WHEN_AND__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.WHEN_AND__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getWhenAndAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
+		feeder.finish();
 	}
 	
 	

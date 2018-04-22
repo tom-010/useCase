@@ -35,6 +35,7 @@ import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 import io.deniffel.dsl.useCase.useCase.UsedExceptions;
 import io.deniffel.dsl.useCase.useCase.UsedTypes;
 import io.deniffel.dsl.useCase.useCase.When;
+import io.deniffel.dsl.useCase.useCase.WhenAnd;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -318,6 +319,13 @@ public class UseCaseSwitch<T> extends Switch<T>
       {
         When when = (When)theEObject;
         T result = caseWhen(when);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCasePackage.WHEN_AND:
+      {
+        WhenAnd whenAnd = (WhenAnd)theEObject;
+        T result = caseWhenAnd(whenAnd);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -831,6 +839,22 @@ public class UseCaseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseWhen(When object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>When And</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>When And</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhenAnd(WhenAnd object)
   {
     return null;
   }

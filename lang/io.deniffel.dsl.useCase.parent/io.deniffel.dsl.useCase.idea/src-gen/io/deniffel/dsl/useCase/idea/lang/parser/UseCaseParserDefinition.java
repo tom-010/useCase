@@ -221,6 +221,9 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getExample_WhenWhenParserRuleCall_6_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
+			if (elementType == elementTypeProvider.getExample_WhenAndWhenAndParserRuleCall_7_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
 			if (elementType == elementTypeProvider.getExample_ThenThenParserRuleCall_8_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
@@ -234,6 +237,9 @@ public class UseCaseParserDefinition extends AbstractXtextParserDefinition {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getWhenElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getWhenAndElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getThenElementType()) {

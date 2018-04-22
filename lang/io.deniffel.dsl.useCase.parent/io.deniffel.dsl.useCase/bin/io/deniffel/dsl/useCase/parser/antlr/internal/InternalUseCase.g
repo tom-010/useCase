@@ -2699,14 +2699,14 @@ ruleWhen returns [EObject current=null]
 ;
 
 // Entry rule entryRuleWhenAnd
-entryRuleWhenAnd returns [String current=null]:
+entryRuleWhenAnd returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getWhenAndRule()); }
 	iv_ruleWhenAnd=ruleWhenAnd
-	{ $current=$iv_ruleWhenAnd.current.getText(); }
+	{ $current=$iv_ruleWhenAnd.current; }
 	EOF;
 
 // Rule WhenAnd
-ruleWhenAnd returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleWhenAnd returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -2714,17 +2714,35 @@ ruleWhenAnd returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 	leaveRule();
 }:
 	(
-		kw='und'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getWhenAndAccess().getUndKeyword_0());
-		}
-		    |
-		kw='aber'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getWhenAndAccess().getAberKeyword_1());
-		}
+		(
+			otherlv_0='und'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getWhenAndAccess().getUndKeyword_0_0());
+			}
+			    |
+			otherlv_1='aber'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getWhenAndAccess().getAberKeyword_0_1());
+			}
+		)
+		(
+			(
+				lv_content_2_0=RULE_STRING
+				{
+					newLeafNode(lv_content_2_0, grammarAccess.getWhenAndAccess().getContentSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getWhenAndRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"content",
+						lv_content_2_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
 	)
 ;
 

@@ -35,6 +35,7 @@ import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 import io.deniffel.dsl.useCase.useCase.UsedExceptions;
 import io.deniffel.dsl.useCase.useCase.UsedTypes;
 import io.deniffel.dsl.useCase.useCase.When;
+import io.deniffel.dsl.useCase.useCase.WhenAnd;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -260,6 +261,11 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseWhen(When object)
       {
         return createWhenAdapter();
+      }
+      @Override
+      public Adapter caseWhenAnd(WhenAnd object)
+      {
+        return createWhenAndAdapter();
       }
       @Override
       public Adapter caseThen(Then object)
@@ -754,6 +760,21 @@ public class UseCaseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createWhenAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link io.deniffel.dsl.useCase.useCase.WhenAnd <em>When And</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see io.deniffel.dsl.useCase.useCase.WhenAnd
+   * @generated
+   */
+  public Adapter createWhenAndAdapter()
   {
     return null;
   }

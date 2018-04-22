@@ -134,20 +134,20 @@ public interface Example extends EObject
   EList<When> getWhen();
 
   /**
-   * Returns the value of the '<em><b>When And</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>When And</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.WhenAnd}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>When And</em>' attribute list isn't clear,
+   * If the meaning of the '<em>When And</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>When And</em>' attribute list.
+   * @return the value of the '<em>When And</em>' containment reference list.
    * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getExample_WhenAnd()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getWhenAnd();
+  EList<WhenAnd> getWhenAnd();
 
   /**
    * Returns the value of the '<em><b>Then</b></em>' containment reference list.
