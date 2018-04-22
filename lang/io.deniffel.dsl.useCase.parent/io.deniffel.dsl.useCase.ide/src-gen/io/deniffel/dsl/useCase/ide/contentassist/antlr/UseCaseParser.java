@@ -62,6 +62,11 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNotesAccess().getAlternatives_0_1(), "rule__Notes__Alternatives_0_1");
 					put(grammarAccess.getUsedTypesAccess().getAlternatives_0(), "rule__UsedTypes__Alternatives_0");
 					put(grammarAccess.getUsedExceptionsAccess().getAlternatives_0(), "rule__UsedExceptions__Alternatives_0");
+					put(grammarAccess.getGivenAccess().getAlternatives_0(), "rule__Given__Alternatives_0");
+					put(grammarAccess.getGivenAndAccess().getAlternatives_0(), "rule__GivenAnd__Alternatives_0");
+					put(grammarAccess.getWhenAndAccess().getAlternatives(), "rule__WhenAnd__Alternatives");
+					put(grammarAccess.getThenAccess().getAlternatives_0(), "rule__Then__Alternatives_0");
+					put(grammarAccess.getThenAndAccess().getAlternatives_0(), "rule__ThenAnd__Alternatives_0");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
@@ -118,11 +123,20 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExceptionDeclerationAccess().getGroup(), "rule__ExceptionDecleration__Group__0");
 					put(grammarAccess.getExceptionDeclerationAccess().getGroup_2(), "rule__ExceptionDecleration__Group_2__0");
 					put(grammarAccess.getExceptionDeclerationAccess().getGroup_3(), "rule__ExceptionDecleration__Group_3__0");
+					put(grammarAccess.getExampleAccess().getGroup(), "rule__Example__Group__0");
+					put(grammarAccess.getExampleAccess().getGroup_3(), "rule__Example__Group_3__0");
+					put(grammarAccess.getExampleAccess().getGroup_10(), "rule__Example__Group_10__0");
+					put(grammarAccess.getGivenAccess().getGroup(), "rule__Given__Group__0");
+					put(grammarAccess.getGivenAndAccess().getGroup(), "rule__GivenAnd__Group__0");
+					put(grammarAccess.getWhenAccess().getGroup(), "rule__When__Group__0");
+					put(grammarAccess.getThenAccess().getGroup(), "rule__Then__Group__0");
+					put(grammarAccess.getThenAndAccess().getGroup(), "rule__ThenAnd__Group__0");
 					put(grammarAccess.getModelAccess().getCompanyAssignment_1(), "rule__Model__CompanyAssignment_1");
 					put(grammarAccess.getModelAccess().getPackageAssignment_2(), "rule__Model__PackageAssignment_2");
 					put(grammarAccess.getModelAccess().getUseCasesAssignment_3(), "rule__Model__UseCasesAssignment_3");
 					put(grammarAccess.getModelAccess().getTypesAssignment_4(), "rule__Model__TypesAssignment_4");
 					put(grammarAccess.getModelAccess().getExceptionsAssignment_5(), "rule__Model__ExceptionsAssignment_5");
+					put(grammarAccess.getModelAccess().getExamplesAssignment_6(), "rule__Model__ExamplesAssignment_6");
 					put(grammarAccess.getPackageAccess().getPartsAssignment_1(), "rule__Package__PartsAssignment_1");
 					put(grammarAccess.getPackageAccess().getPartsAssignment_2_1(), "rule__Package__PartsAssignment_2_1");
 					put(grammarAccess.getPackagePartAccess().getNameAssignment(), "rule__PackagePart__NameAssignment");
@@ -177,6 +191,20 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExceptionDeclerationAccess().getNameAssignment_1(), "rule__ExceptionDecleration__NameAssignment_1");
 					put(grammarAccess.getExceptionDeclerationAccess().getMessageAssignment_2_1(), "rule__ExceptionDecleration__MessageAssignment_2_1");
 					put(grammarAccess.getExceptionDeclerationAccess().getImportInfoAssignment_3_1(), "rule__ExceptionDecleration__ImportInfoAssignment_3_1");
+					put(grammarAccess.getExampleAccess().getNameAssignment_1(), "rule__Example__NameAssignment_1");
+					put(grammarAccess.getExampleAccess().getDescriptionAssignment_3_1(), "rule__Example__DescriptionAssignment_3_1");
+					put(grammarAccess.getExampleAccess().getGivenAssignment_4(), "rule__Example__GivenAssignment_4");
+					put(grammarAccess.getExampleAccess().getGivenAndAssignment_5(), "rule__Example__GivenAndAssignment_5");
+					put(grammarAccess.getExampleAccess().getWhenAssignment_6(), "rule__Example__WhenAssignment_6");
+					put(grammarAccess.getExampleAccess().getWhenAndAssignment_7(), "rule__Example__WhenAndAssignment_7");
+					put(grammarAccess.getExampleAccess().getThenAssignment_8(), "rule__Example__ThenAssignment_8");
+					put(grammarAccess.getExampleAccess().getThenAndAssignment_9(), "rule__Example__ThenAndAssignment_9");
+					put(grammarAccess.getExampleAccess().getExplainationAssignment_10_1(), "rule__Example__ExplainationAssignment_10_1");
+					put(grammarAccess.getGivenAccess().getContentAssignment_1(), "rule__Given__ContentAssignment_1");
+					put(grammarAccess.getGivenAndAccess().getContentAssignment_1(), "rule__GivenAnd__ContentAssignment_1");
+					put(grammarAccess.getWhenAccess().getContentAssignment_1(), "rule__When__ContentAssignment_1");
+					put(grammarAccess.getThenAccess().getContentAssignment_1(), "rule__Then__ContentAssignment_1");
+					put(grammarAccess.getThenAndAccess().getContentAssignment_1(), "rule__ThenAnd__ContentAssignment_1");
 				}
 			};
 		}

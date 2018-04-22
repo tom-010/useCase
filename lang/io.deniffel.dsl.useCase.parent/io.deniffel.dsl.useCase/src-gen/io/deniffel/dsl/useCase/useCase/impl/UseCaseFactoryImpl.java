@@ -8,7 +8,10 @@ import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.BooleanCondition;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Example;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
+import io.deniffel.dsl.useCase.useCase.Given;
+import io.deniffel.dsl.useCase.useCase.GivenAnd;
 import io.deniffel.dsl.useCase.useCase.IfStatement;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
@@ -24,12 +27,15 @@ import io.deniffel.dsl.useCase.useCase.RaiseErrorConditional;
 import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
+import io.deniffel.dsl.useCase.useCase.Then;
+import io.deniffel.dsl.useCase.useCase.ThenAnd;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCaseFactory;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 import io.deniffel.dsl.useCase.useCase.UsedExceptions;
 import io.deniffel.dsl.useCase.useCase.UsedTypes;
+import io.deniffel.dsl.useCase.useCase.When;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -118,6 +124,12 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
       case UseCasePackage.USED_EXCEPTIONS: return createUsedExceptions();
       case UseCasePackage.EXCEPTION: return createException();
       case UseCasePackage.EXCEPTION_DECLERATION: return createExceptionDecleration();
+      case UseCasePackage.EXAMPLE: return createExample();
+      case UseCasePackage.GIVEN: return createGiven();
+      case UseCasePackage.GIVEN_AND: return createGivenAnd();
+      case UseCasePackage.WHEN: return createWhen();
+      case UseCasePackage.THEN: return createThen();
+      case UseCasePackage.THEN_AND: return createThenAnd();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -418,6 +430,72 @@ public class UseCaseFactoryImpl extends EFactoryImpl implements UseCaseFactory
   {
     ExceptionDeclerationImpl exceptionDecleration = new ExceptionDeclerationImpl();
     return exceptionDecleration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Example createExample()
+  {
+    ExampleImpl example = new ExampleImpl();
+    return example;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Given createGiven()
+  {
+    GivenImpl given = new GivenImpl();
+    return given;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GivenAnd createGivenAnd()
+  {
+    GivenAndImpl givenAnd = new GivenAndImpl();
+    return givenAnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public When createWhen()
+  {
+    WhenImpl when = new WhenImpl();
+    return when;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Then createThen()
+  {
+    ThenImpl then = new ThenImpl();
+    return then;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ThenAnd createThenAnd()
+  {
+    ThenAndImpl thenAnd = new ThenAndImpl();
+    return thenAnd;
   }
 
   /**

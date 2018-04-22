@@ -24,6 +24,8 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected UseCaseGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_AllowedUserGroups_AllowedUsergroupsKeyword_0_0_or___ErlaubtKeyword_0_1_0_FürKeyword_0_1_1__;
 	protected AbstractElementAlias match_Description_BeschreibungKeyword_0_2_or_DescriptionKeyword_0_0_or_KurzbeschreibungKeyword_0_1;
+	protected AbstractElementAlias match_GivenAnd_AberKeyword_0_1_or_UndKeyword_0_0;
+	protected AbstractElementAlias match_Given_GegebenKeyword_0_0_or_GegebenKeyword_0_1;
 	protected AbstractElementAlias match_IfStatement_FallsKeyword_0_1_or_IfKeyword_0_0;
 	protected AbstractElementAlias match_Input_AlsKeyword_4_0_1_or_AsKeyword_4_0_0;
 	protected AbstractElementAlias match_Input_EGKeyword_5_1_0_or_ZBKeyword_5_1_1;
@@ -41,6 +43,8 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_RaiseErrorConditional___BeiKeyword_1_1_0_FehlerKeyword_1_1_1_MeldeKeyword_1_1_2___or___OnKeyword_1_0_0_ErrorKeyword_1_0_1_RaiseKeyword_1_0_2__;
 	protected AbstractElementAlias match_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__;
 	protected AbstractElementAlias match_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0;
+	protected AbstractElementAlias match_ThenAnd_AberKeyword_0_1_or_UndKeyword_0_0;
+	protected AbstractElementAlias match_Then_DannKeyword_0_0_or_DannKeyword_0_1;
 	protected AbstractElementAlias match_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0;
 	protected AbstractElementAlias match_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__;
 	protected AbstractElementAlias match_UsedExceptions___GenutzteKeyword_0_1_0_FehlerKeyword_0_1_1___or___UsedKeyword_0_0_0_ErrorsKeyword_0_0_1__;
@@ -51,6 +55,8 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (UseCaseGrammarAccess) access;
 		match_AllowedUserGroups_AllowedUsergroupsKeyword_0_0_or___ErlaubtKeyword_0_1_0_FürKeyword_0_1_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAllowedUserGroupsAccess().getErlaubtKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getAllowedUserGroupsAccess().getFürKeyword_0_1_1())), new TokenAlias(false, false, grammarAccess.getAllowedUserGroupsAccess().getAllowedUsergroupsKeyword_0_0()));
 		match_Description_BeschreibungKeyword_0_2_or_DescriptionKeyword_0_0_or_KurzbeschreibungKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDescriptionAccess().getBeschreibungKeyword_0_2()), new TokenAlias(false, false, grammarAccess.getDescriptionAccess().getDescriptionKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getDescriptionAccess().getKurzbeschreibungKeyword_0_1()));
+		match_GivenAnd_AberKeyword_0_1_or_UndKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getGivenAndAccess().getAberKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getGivenAndAccess().getUndKeyword_0_0()));
+		match_Given_GegebenKeyword_0_0_or_GegebenKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getGivenAccess().getGegebenKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getGivenAccess().getGegebenKeyword_0_1()));
 		match_IfStatement_FallsKeyword_0_1_or_IfKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIfStatementAccess().getFallsKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getIfStatementAccess().getIfKeyword_0_0()));
 		match_Input_AlsKeyword_4_0_1_or_AsKeyword_4_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputAccess().getAlsKeyword_4_0_1()), new TokenAlias(false, false, grammarAccess.getInputAccess().getAsKeyword_4_0_0()));
 		match_Input_EGKeyword_5_1_0_or_ZBKeyword_5_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputAccess().getEGKeyword_5_1_0()), new TokenAlias(false, false, grammarAccess.getInputAccess().getZBKeyword_5_1_1()));
@@ -68,6 +74,8 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_RaiseErrorConditional___BeiKeyword_1_1_0_FehlerKeyword_1_1_1_MeldeKeyword_1_1_2___or___OnKeyword_1_0_0_ErrorKeyword_1_0_1_RaiseKeyword_1_0_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getBeiKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getFehlerKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getMeldeKeyword_1_1_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getOnKeyword_1_0_0()), new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getErrorKeyword_1_0_1()), new TokenAlias(false, false, grammarAccess.getRaiseErrorConditionalAccess().getRaiseKeyword_1_0_2())));
 		match_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorNowAccess().getMeldeKeyword_0_1_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorNowAccess().getFehlerKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getRaiseErrorNowAccess().getRaiseKeyword_0_0_0()), new TokenAlias(false, true, grammarAccess.getRaiseErrorNowAccess().getErrorKeyword_0_0_1())));
 		match_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getStepsAccess().getSchritteKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getStepsAccess().getStepsKeyword_0_0()));
+		match_ThenAnd_AberKeyword_0_1_or_UndKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getThenAndAccess().getAberKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getThenAndAccess().getUndKeyword_0_0()));
+		match_Then_DannKeyword_0_0_or_DannKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getThenAccess().getDannKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getThenAccess().getDannKeyword_0_1()));
 		match_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getRezeptKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getUseCaseKeyword_0_0()));
 		match_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndKeyword_10_0_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getOfKeyword_10_0_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getUseCaseKeyword_10_0_2())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getEndeKeyword_10_1_0()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getDesKeyword_10_1_1()), new TokenAlias(false, false, grammarAccess.getUseCaseAccess().getRezpetsKeyword_10_1_2())));
 		match_UsedExceptions___GenutzteKeyword_0_1_0_FehlerKeyword_0_1_1___or___UsedKeyword_0_0_0_ErrorsKeyword_0_0_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getGenutzteKeyword_0_1_0()), new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getFehlerKeyword_0_1_1())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getUsedKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getUsedExceptionsAccess().getErrorsKeyword_0_0_1())));
@@ -90,6 +98,10 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_AllowedUserGroups_AllowedUsergroupsKeyword_0_0_or___ErlaubtKeyword_0_1_0_FürKeyword_0_1_1__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Description_BeschreibungKeyword_0_2_or_DescriptionKeyword_0_0_or_KurzbeschreibungKeyword_0_1.equals(syntax))
 				emit_Description_BeschreibungKeyword_0_2_or_DescriptionKeyword_0_0_or_KurzbeschreibungKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_GivenAnd_AberKeyword_0_1_or_UndKeyword_0_0.equals(syntax))
+				emit_GivenAnd_AberKeyword_0_1_or_UndKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Given_GegebenKeyword_0_0_or_GegebenKeyword_0_1.equals(syntax))
+				emit_Given_GegebenKeyword_0_0_or_GegebenKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_IfStatement_FallsKeyword_0_1_or_IfKeyword_0_0.equals(syntax))
 				emit_IfStatement_FallsKeyword_0_1_or_IfKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Input_AlsKeyword_4_0_1_or_AsKeyword_4_0_0.equals(syntax))
@@ -124,6 +136,10 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_RaiseErrorNow___MeldeKeyword_0_1_0_FehlerKeyword_0_1_1_q___or___RaiseKeyword_0_0_0_ErrorKeyword_0_0_1_q__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0.equals(syntax))
 				emit_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ThenAnd_AberKeyword_0_1_or_UndKeyword_0_0.equals(syntax))
+				emit_ThenAnd_AberKeyword_0_1_or_UndKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Then_DannKeyword_0_0_or_DannKeyword_0_1.equals(syntax))
+				emit_Then_DannKeyword_0_0_or_DannKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0.equals(syntax))
 				emit_UseCase_RezeptKeyword_0_1_or_UseCaseKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_UseCase___EndKeyword_10_0_0_OfKeyword_10_0_1_UseCaseKeyword_10_0_2___or___EndeKeyword_10_1_0_DesKeyword_10_1_1_RezpetsKeyword_10_1_2__.equals(syntax))
@@ -156,6 +172,28 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) name=STRING
 	 */
 	protected void emit_Description_BeschreibungKeyword_0_2_or_DescriptionKeyword_0_0_or_KurzbeschreibungKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'und' | 'aber'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) content=STRING
+	 */
+	protected void emit_GivenAnd_AberKeyword_0_1_or_UndKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'Gegeben' | 'gegeben'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) content=STRING
+	 */
+	protected void emit_Given_GegebenKeyword_0_0_or_GegebenKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -350,6 +388,28 @@ public class UseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) steps+=Step
 	 */
 	protected void emit_Steps_SchritteKeyword_0_1_or_StepsKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'und' | 'aber'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) content=STRING
+	 */
+	protected void emit_ThenAnd_AberKeyword_0_1_or_UndKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'Dann' | 'dann'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) content=STRING
+	 */
+	protected void emit_Then_DannKeyword_0_0_or_DannKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

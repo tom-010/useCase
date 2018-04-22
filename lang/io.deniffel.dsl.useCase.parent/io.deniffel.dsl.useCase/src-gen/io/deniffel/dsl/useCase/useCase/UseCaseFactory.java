@@ -267,6 +267,60 @@ public interface UseCaseFactory extends EFactory
   ExceptionDecleration createExceptionDecleration();
 
   /**
+   * Returns a new object of class '<em>Example</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Example</em>'.
+   * @generated
+   */
+  Example createExample();
+
+  /**
+   * Returns a new object of class '<em>Given</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Given</em>'.
+   * @generated
+   */
+  Given createGiven();
+
+  /**
+   * Returns a new object of class '<em>Given And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Given And</em>'.
+   * @generated
+   */
+  GivenAnd createGivenAnd();
+
+  /**
+   * Returns a new object of class '<em>When</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>When</em>'.
+   * @generated
+   */
+  When createWhen();
+
+  /**
+   * Returns a new object of class '<em>Then</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Then</em>'.
+   * @generated
+   */
+  Then createThen();
+
+  /**
+   * Returns a new object of class '<em>Then And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Then And</em>'.
+   * @generated
+   */
+  ThenAnd createThenAnd();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

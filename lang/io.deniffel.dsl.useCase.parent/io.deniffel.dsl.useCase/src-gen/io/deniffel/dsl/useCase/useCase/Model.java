@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getTypes <em>Types</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getExceptions <em>Exceptions</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.Model#getExamples <em>Examples</em>}</li>
  * </ul>
  *
  * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel()
@@ -148,5 +149,21 @@ public interface Model extends EObject
    * @generated
    */
   void setExceptions(UsedExceptions value);
+
+  /**
+   * Returns the value of the '<em><b>Examples</b></em>' containment reference list.
+   * The list contents are of type {@link io.deniffel.dsl.useCase.useCase.Example}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Examples</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Examples</em>' containment reference list.
+   * @see io.deniffel.dsl.useCase.useCase.UseCasePackage#getModel_Examples()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Example> getExamples();
 
 } // Model

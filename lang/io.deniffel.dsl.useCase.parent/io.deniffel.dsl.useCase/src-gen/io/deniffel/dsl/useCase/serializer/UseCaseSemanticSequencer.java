@@ -10,7 +10,10 @@ import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
 import io.deniffel.dsl.useCase.useCase.BooleanCondition;
 import io.deniffel.dsl.useCase.useCase.Condition;
 import io.deniffel.dsl.useCase.useCase.Description;
+import io.deniffel.dsl.useCase.useCase.Example;
 import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
+import io.deniffel.dsl.useCase.useCase.Given;
+import io.deniffel.dsl.useCase.useCase.GivenAnd;
 import io.deniffel.dsl.useCase.useCase.IfStatement;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
@@ -26,11 +29,14 @@ import io.deniffel.dsl.useCase.useCase.RaiseErrorConditional;
 import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
 import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
+import io.deniffel.dsl.useCase.useCase.Then;
+import io.deniffel.dsl.useCase.useCase.ThenAnd;
 import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
 import io.deniffel.dsl.useCase.useCase.UsedExceptions;
 import io.deniffel.dsl.useCase.useCase.UsedTypes;
+import io.deniffel.dsl.useCase.useCase.When;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -71,11 +77,20 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case UseCasePackage.DESCRIPTION:
 				sequence_Description(context, (Description) semanticObject); 
 				return; 
+			case UseCasePackage.EXAMPLE:
+				sequence_Example(context, (Example) semanticObject); 
+				return; 
 			case UseCasePackage.EXCEPTION:
 				sequence_Exception(context, (io.deniffel.dsl.useCase.useCase.Exception) semanticObject); 
 				return; 
 			case UseCasePackage.EXCEPTION_DECLERATION:
 				sequence_ExceptionDecleration(context, (ExceptionDecleration) semanticObject); 
+				return; 
+			case UseCasePackage.GIVEN:
+				sequence_Given(context, (Given) semanticObject); 
+				return; 
+			case UseCasePackage.GIVEN_AND:
+				sequence_GivenAnd(context, (GivenAnd) semanticObject); 
 				return; 
 			case UseCasePackage.IF_STATEMENT:
 				sequence_IfStatement(context, (IfStatement) semanticObject); 
@@ -125,6 +140,12 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case UseCasePackage.STEPS:
 				sequence_Steps(context, (Steps) semanticObject); 
 				return; 
+			case UseCasePackage.THEN:
+				sequence_Then(context, (Then) semanticObject); 
+				return; 
+			case UseCasePackage.THEN_AND:
+				sequence_ThenAnd(context, (ThenAnd) semanticObject); 
+				return; 
 			case UseCasePackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
 				return; 
@@ -136,6 +157,9 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case UseCasePackage.USED_TYPES:
 				sequence_UsedTypes(context, (UsedTypes) semanticObject); 
+				return; 
+			case UseCasePackage.WHEN:
+				sequence_When(context, (When) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -222,6 +246,28 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     Example returns Example
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=STRING 
+	 *         description=STRING? 
+	 *         given+=Given 
+	 *         givenAnd+=GivenAnd* 
+	 *         when+=When 
+	 *         whenAnd+=WhenAnd* 
+	 *         then+=Then 
+	 *         thenAnd+=ThenAnd* 
+	 *         explaination=STRING?
+	 *     )
+	 */
+	protected void sequence_Example(ISerializationContext context, Example semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ExceptionDecleration returns ExceptionDecleration
 	 *
 	 * Constraint:
@@ -246,6 +292,42 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExceptionAccess().getTypeExceptionDeclerationIDTerminalRuleCall_0_1(), semanticObject.eGet(UseCasePackage.Literals.EXCEPTION__TYPE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     GivenAnd returns GivenAnd
+	 *
+	 * Constraint:
+	 *     content=STRING
+	 */
+	protected void sequence_GivenAnd(ISerializationContext context, GivenAnd semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.GIVEN_AND__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.GIVEN_AND__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGivenAndAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Given returns Given
+	 *
+	 * Constraint:
+	 *     content=STRING
+	 */
+	protected void sequence_Given(ISerializationContext context, Given semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.GIVEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.GIVEN__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGivenAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	
@@ -315,7 +397,14 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (company=QualifiedName package=Package useCases+=UseCase* types=UsedTypes exceptions=UsedExceptions)
+	 *     (
+	 *         company=QualifiedName 
+	 *         package=Package 
+	 *         useCases+=UseCase* 
+	 *         types=UsedTypes? 
+	 *         exceptions=UsedExceptions? 
+	 *         examples+=Example*
+	 *     )
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -483,6 +572,42 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
+	 *     ThenAnd returns ThenAnd
+	 *
+	 * Constraint:
+	 *     content=STRING
+	 */
+	protected void sequence_ThenAnd(ISerializationContext context, ThenAnd semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.THEN_AND__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.THEN_AND__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getThenAndAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Then returns Then
+	 *
+	 * Constraint:
+	 *     content=STRING
+	 */
+	protected void sequence_Then(ISerializationContext context, Then semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.THEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.THEN__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getThenAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Type returns Type
 	 *
 	 * Constraint:
@@ -536,6 +661,24 @@ public class UseCaseSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_UsedTypes(ISerializationContext context, UsedTypes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     When returns When
+	 *
+	 * Constraint:
+	 *     content=STRING
+	 */
+	protected void sequence_When(ISerializationContext context, When semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCasePackage.Literals.WHEN__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCasePackage.Literals.WHEN__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getWhenAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
+		feeder.finish();
 	}
 	
 	

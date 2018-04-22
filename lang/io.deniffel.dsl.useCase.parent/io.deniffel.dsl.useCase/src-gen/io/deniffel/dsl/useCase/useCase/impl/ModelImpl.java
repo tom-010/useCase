@@ -3,6 +3,7 @@
  */
 package io.deniffel.dsl.useCase.useCase.impl;
 
+import io.deniffel.dsl.useCase.useCase.Example;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UseCasePackage;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getExceptions <em>Exceptions</em>}</li>
+ *   <li>{@link io.deniffel.dsl.useCase.useCase.impl.ModelImpl#getExamples <em>Examples</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +105,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected UsedExceptions exceptions;
+
+  /**
+   * The cached value of the '{@link #getExamples() <em>Examples</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExamples()
+   * @generated
+   * @ordered
+   */
+  protected EList<Example> examples;
 
   /**
    * <!-- begin-user-doc -->
@@ -311,6 +323,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Example> getExamples()
+  {
+    if (examples == null)
+    {
+      examples = new EObjectContainmentEList<Example>(Example.class, this, UseCasePackage.MODEL__EXAMPLES);
+    }
+    return examples;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -324,6 +350,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return basicSetTypes(null, msgs);
       case UseCasePackage.MODEL__EXCEPTIONS:
         return basicSetExceptions(null, msgs);
+      case UseCasePackage.MODEL__EXAMPLES:
+        return ((InternalEList<?>)getExamples()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -348,6 +376,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getTypes();
       case UseCasePackage.MODEL__EXCEPTIONS:
         return getExceptions();
+      case UseCasePackage.MODEL__EXAMPLES:
+        return getExamples();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -379,6 +409,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case UseCasePackage.MODEL__EXCEPTIONS:
         setExceptions((UsedExceptions)newValue);
         return;
+      case UseCasePackage.MODEL__EXAMPLES:
+        getExamples().clear();
+        getExamples().addAll((Collection<? extends Example>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -408,6 +442,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case UseCasePackage.MODEL__EXCEPTIONS:
         setExceptions((UsedExceptions)null);
         return;
+      case UseCasePackage.MODEL__EXAMPLES:
+        getExamples().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -432,6 +469,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return types != null;
       case UseCasePackage.MODEL__EXCEPTIONS:
         return exceptions != null;
+      case UseCasePackage.MODEL__EXAMPLES:
+        return examples != null && !examples.isEmpty();
     }
     return super.eIsSet(featureID);
   }

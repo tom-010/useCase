@@ -113,13 +113,22 @@ public interface UseCasePackage extends EPackage
   int MODEL__EXCEPTIONS = 4;
 
   /**
+   * The feature id for the '<em><b>Examples</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__EXAMPLES = 5;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 5;
+  int MODEL_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.PackageImpl <em>Package</em>}' class.
@@ -1083,6 +1092,246 @@ public interface UseCasePackage extends EPackage
    */
   int EXCEPTION_DECLERATION_FEATURE_COUNT = 3;
 
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.ExampleImpl <em>Example</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.ExampleImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getExample()
+   * @generated
+   */
+  int EXAMPLE = 27;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE__DESCRIPTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Given</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE__GIVEN = 2;
+
+  /**
+   * The feature id for the '<em><b>Given And</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE__GIVEN_AND = 3;
+
+  /**
+   * The feature id for the '<em><b>When</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE__WHEN = 4;
+
+  /**
+   * The feature id for the '<em><b>When And</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE__WHEN_AND = 5;
+
+  /**
+   * The feature id for the '<em><b>Then</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE__THEN = 6;
+
+  /**
+   * The feature id for the '<em><b>Then And</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE__THEN_AND = 7;
+
+  /**
+   * The feature id for the '<em><b>Explaination</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE__EXPLAINATION = 8;
+
+  /**
+   * The number of structural features of the '<em>Example</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXAMPLE_FEATURE_COUNT = 9;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.GivenImpl <em>Given</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.GivenImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getGiven()
+   * @generated
+   */
+  int GIVEN = 28;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GIVEN__CONTENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Given</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GIVEN_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.GivenAndImpl <em>Given And</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.GivenAndImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getGivenAnd()
+   * @generated
+   */
+  int GIVEN_AND = 29;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GIVEN_AND__CONTENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Given And</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GIVEN_AND_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.WhenImpl <em>When</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.WhenImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getWhen()
+   * @generated
+   */
+  int WHEN = 30;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHEN__CONTENT = 0;
+
+  /**
+   * The number of structural features of the '<em>When</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHEN_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.ThenImpl <em>Then</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.ThenImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getThen()
+   * @generated
+   */
+  int THEN = 31;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEN__CONTENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Then</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEN_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link io.deniffel.dsl.useCase.useCase.impl.ThenAndImpl <em>Then And</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see io.deniffel.dsl.useCase.useCase.impl.ThenAndImpl
+   * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getThenAnd()
+   * @generated
+   */
+  int THEN_AND = 32;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEN_AND__CONTENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Then And</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int THEN_AND_FEATURE_COUNT = 1;
+
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Model <em>Model</em>}'.
@@ -1148,6 +1397,17 @@ public interface UseCasePackage extends EPackage
    * @generated
    */
   EReference getModel_Exceptions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Model#getExamples <em>Examples</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Examples</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Model#getExamples()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Examples();
 
   /**
    * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Package <em>Package</em>}'.
@@ -1982,6 +2242,220 @@ public interface UseCasePackage extends EPackage
   EAttribute getExceptionDecleration_ImportInfo();
 
   /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Example <em>Example</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Example</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example
+   * @generated
+   */
+  EClass getExample();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Example#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example#getName()
+   * @see #getExample()
+   * @generated
+   */
+  EAttribute getExample_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Example#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example#getDescription()
+   * @see #getExample()
+   * @generated
+   */
+  EAttribute getExample_Description();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Example#getGiven <em>Given</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Given</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example#getGiven()
+   * @see #getExample()
+   * @generated
+   */
+  EReference getExample_Given();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Example#getGivenAnd <em>Given And</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Given And</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example#getGivenAnd()
+   * @see #getExample()
+   * @generated
+   */
+  EReference getExample_GivenAnd();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Example#getWhen <em>When</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>When</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example#getWhen()
+   * @see #getExample()
+   * @generated
+   */
+  EReference getExample_When();
+
+  /**
+   * Returns the meta object for the attribute list '{@link io.deniffel.dsl.useCase.useCase.Example#getWhenAnd <em>When And</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>When And</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example#getWhenAnd()
+   * @see #getExample()
+   * @generated
+   */
+  EAttribute getExample_WhenAnd();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Example#getThen <em>Then</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Then</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example#getThen()
+   * @see #getExample()
+   * @generated
+   */
+  EReference getExample_Then();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link io.deniffel.dsl.useCase.useCase.Example#getThenAnd <em>Then And</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Then And</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example#getThenAnd()
+   * @see #getExample()
+   * @generated
+   */
+  EReference getExample_ThenAnd();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Example#getExplaination <em>Explaination</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Explaination</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Example#getExplaination()
+   * @see #getExample()
+   * @generated
+   */
+  EAttribute getExample_Explaination();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Given <em>Given</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Given</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Given
+   * @generated
+   */
+  EClass getGiven();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Given#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Given#getContent()
+   * @see #getGiven()
+   * @generated
+   */
+  EAttribute getGiven_Content();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.GivenAnd <em>Given And</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Given And</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.GivenAnd
+   * @generated
+   */
+  EClass getGivenAnd();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.GivenAnd#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.GivenAnd#getContent()
+   * @see #getGivenAnd()
+   * @generated
+   */
+  EAttribute getGivenAnd_Content();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.When <em>When</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>When</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.When
+   * @generated
+   */
+  EClass getWhen();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.When#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.When#getContent()
+   * @see #getWhen()
+   * @generated
+   */
+  EAttribute getWhen_Content();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.Then <em>Then</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Then</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Then
+   * @generated
+   */
+  EClass getThen();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.Then#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.Then#getContent()
+   * @see #getThen()
+   * @generated
+   */
+  EAttribute getThen_Content();
+
+  /**
+   * Returns the meta object for class '{@link io.deniffel.dsl.useCase.useCase.ThenAnd <em>Then And</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Then And</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.ThenAnd
+   * @generated
+   */
+  EClass getThenAnd();
+
+  /**
+   * Returns the meta object for the attribute '{@link io.deniffel.dsl.useCase.useCase.ThenAnd#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see io.deniffel.dsl.useCase.useCase.ThenAnd#getContent()
+   * @see #getThenAnd()
+   * @generated
+   */
+  EAttribute getThenAnd_Content();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2053,6 +2527,14 @@ public interface UseCasePackage extends EPackage
      * @generated
      */
     EReference MODEL__EXCEPTIONS = eINSTANCE.getModel_Exceptions();
+
+    /**
+     * The meta object literal for the '<em><b>Examples</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__EXAMPLES = eINSTANCE.getModel_Examples();
 
     /**
      * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.PackageImpl <em>Package</em>}' class.
@@ -2729,6 +3211,178 @@ public interface UseCasePackage extends EPackage
      * @generated
      */
     EAttribute EXCEPTION_DECLERATION__IMPORT_INFO = eINSTANCE.getExceptionDecleration_ImportInfo();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.ExampleImpl <em>Example</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.ExampleImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getExample()
+     * @generated
+     */
+    EClass EXAMPLE = eINSTANCE.getExample();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXAMPLE__NAME = eINSTANCE.getExample_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXAMPLE__DESCRIPTION = eINSTANCE.getExample_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Given</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXAMPLE__GIVEN = eINSTANCE.getExample_Given();
+
+    /**
+     * The meta object literal for the '<em><b>Given And</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXAMPLE__GIVEN_AND = eINSTANCE.getExample_GivenAnd();
+
+    /**
+     * The meta object literal for the '<em><b>When</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXAMPLE__WHEN = eINSTANCE.getExample_When();
+
+    /**
+     * The meta object literal for the '<em><b>When And</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXAMPLE__WHEN_AND = eINSTANCE.getExample_WhenAnd();
+
+    /**
+     * The meta object literal for the '<em><b>Then</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXAMPLE__THEN = eINSTANCE.getExample_Then();
+
+    /**
+     * The meta object literal for the '<em><b>Then And</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXAMPLE__THEN_AND = eINSTANCE.getExample_ThenAnd();
+
+    /**
+     * The meta object literal for the '<em><b>Explaination</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXAMPLE__EXPLAINATION = eINSTANCE.getExample_Explaination();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.GivenImpl <em>Given</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.GivenImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getGiven()
+     * @generated
+     */
+    EClass GIVEN = eINSTANCE.getGiven();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GIVEN__CONTENT = eINSTANCE.getGiven_Content();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.GivenAndImpl <em>Given And</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.GivenAndImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getGivenAnd()
+     * @generated
+     */
+    EClass GIVEN_AND = eINSTANCE.getGivenAnd();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GIVEN_AND__CONTENT = eINSTANCE.getGivenAnd_Content();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.WhenImpl <em>When</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.WhenImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getWhen()
+     * @generated
+     */
+    EClass WHEN = eINSTANCE.getWhen();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WHEN__CONTENT = eINSTANCE.getWhen_Content();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.ThenImpl <em>Then</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.ThenImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getThen()
+     * @generated
+     */
+    EClass THEN = eINSTANCE.getThen();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute THEN__CONTENT = eINSTANCE.getThen_Content();
+
+    /**
+     * The meta object literal for the '{@link io.deniffel.dsl.useCase.useCase.impl.ThenAndImpl <em>Then And</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see io.deniffel.dsl.useCase.useCase.impl.ThenAndImpl
+     * @see io.deniffel.dsl.useCase.useCase.impl.UseCasePackageImpl#getThenAnd()
+     * @generated
+     */
+    EClass THEN_AND = eINSTANCE.getThenAnd();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute THEN_AND__CONTENT = eINSTANCE.getThenAnd_Content();
 
   }
 

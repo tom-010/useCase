@@ -39,16 +39,20 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypesUsedTypesParserRuleCall_4_0 = (RuleCall)cTypesAssignment_4.eContents().get(0);
 		private final Assignment cExceptionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cExceptionsUsedExceptionsParserRuleCall_5_0 = (RuleCall)cExceptionsAssignment_5.eContents().get(0);
+		private final Assignment cExamplesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cExamplesExampleParserRuleCall_6_0 = (RuleCall)cExamplesAssignment_6.eContents().get(0);
 		
 		//Model:
 		//	('Firma' | 'Company') company=QualifiedName
 		//	package=Package
 		//	useCases+=UseCase*
-		//	types=UsedTypes
-		//	exceptions=UsedExceptions;
+		//	types=UsedTypes?
+		//	exceptions=UsedExceptions?
+		//	examples+=Example*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('Firma' | 'Company') company=QualifiedName package=Package useCases+=UseCase* types=UsedTypes exceptions=UsedExceptions
+		//('Firma' | 'Company') company=QualifiedName package=Package useCases+=UseCase* types=UsedTypes?
+		//exceptions=UsedExceptions? examples+=Example*
 		public Group getGroup() { return cGroup; }
 		
 		//'Firma' | 'Company'
@@ -78,17 +82,23 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//UseCase
 		public RuleCall getUseCasesUseCaseParserRuleCall_3_0() { return cUseCasesUseCaseParserRuleCall_3_0; }
 		
-		//types=UsedTypes
+		//types=UsedTypes?
 		public Assignment getTypesAssignment_4() { return cTypesAssignment_4; }
 		
 		//UsedTypes
 		public RuleCall getTypesUsedTypesParserRuleCall_4_0() { return cTypesUsedTypesParserRuleCall_4_0; }
 		
-		//exceptions=UsedExceptions
+		//exceptions=UsedExceptions?
 		public Assignment getExceptionsAssignment_5() { return cExceptionsAssignment_5; }
 		
 		//UsedExceptions
 		public RuleCall getExceptionsUsedExceptionsParserRuleCall_5_0() { return cExceptionsUsedExceptionsParserRuleCall_5_0; }
+		
+		//examples+=Example*
+		public Assignment getExamplesAssignment_6() { return cExamplesAssignment_6; }
+		
+		//Example
+		public RuleCall getExamplesExampleParserRuleCall_6_0() { return cExamplesExampleParserRuleCall_6_0; }
 	}
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.QualifiedName");
@@ -1550,6 +1560,292 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//']'
 		public Keyword getRightSquareBracketKeyword_3_2() { return cRightSquareBracketKeyword_3_2; }
 	}
+	public class ExampleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Example");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBeispielKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cBeschreibungKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cDescriptionAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cDescriptionAssignment_3_1.eContents().get(0);
+		private final Assignment cGivenAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cGivenGivenParserRuleCall_4_0 = (RuleCall)cGivenAssignment_4.eContents().get(0);
+		private final Assignment cGivenAndAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cGivenAndGivenAndParserRuleCall_5_0 = (RuleCall)cGivenAndAssignment_5.eContents().get(0);
+		private final Assignment cWhenAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cWhenWhenParserRuleCall_6_0 = (RuleCall)cWhenAssignment_6.eContents().get(0);
+		private final Assignment cWhenAndAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cWhenAndWhenAndParserRuleCall_7_0 = (RuleCall)cWhenAndAssignment_7.eContents().get(0);
+		private final Assignment cThenAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cThenThenParserRuleCall_8_0 = (RuleCall)cThenAssignment_8.eContents().get(0);
+		private final Assignment cThenAndAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cThenAndThenAndParserRuleCall_9_0 = (RuleCall)cThenAndAssignment_9.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cWarumKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cExplainationAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cExplainationSTRINGTerminalRuleCall_10_1_0 = (RuleCall)cExplainationAssignment_10_1.eContents().get(0);
+		private final Keyword cBeispielKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cEndeKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		
+		//Example:
+		//	'Beispiel' name=STRING ':' ('Beschreibung:' description=STRING)?
+		//	given+=Given givenAnd+=GivenAnd*
+		//	when+=When whenAnd+=WhenAnd*
+		//	then+=Then thenAnd+=ThenAnd* ('Warum?' explaination=STRING)?
+		//	'Beispiel' 'Ende';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Beispiel' name=STRING ':' ('Beschreibung:' description=STRING)? given+=Given givenAnd+=GivenAnd* when+=When
+		//whenAnd+=WhenAnd* then+=Then thenAnd+=ThenAnd* ('Warum?' explaination=STRING)? 'Beispiel' 'Ende'
+		public Group getGroup() { return cGroup; }
+		
+		//'Beispiel'
+		public Keyword getBeispielKeyword_0() { return cBeispielKeyword_0; }
+		
+		//name=STRING
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		
+		//('Beschreibung:' description=STRING)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'Beschreibung:'
+		public Keyword getBeschreibungKeyword_3_0() { return cBeschreibungKeyword_3_0; }
+		
+		//description=STRING
+		public Assignment getDescriptionAssignment_3_1() { return cDescriptionAssignment_3_1; }
+		
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_3_1_0() { return cDescriptionSTRINGTerminalRuleCall_3_1_0; }
+		
+		//given+=Given
+		public Assignment getGivenAssignment_4() { return cGivenAssignment_4; }
+		
+		//Given
+		public RuleCall getGivenGivenParserRuleCall_4_0() { return cGivenGivenParserRuleCall_4_0; }
+		
+		//givenAnd+=GivenAnd*
+		public Assignment getGivenAndAssignment_5() { return cGivenAndAssignment_5; }
+		
+		//GivenAnd
+		public RuleCall getGivenAndGivenAndParserRuleCall_5_0() { return cGivenAndGivenAndParserRuleCall_5_0; }
+		
+		//when+=When
+		public Assignment getWhenAssignment_6() { return cWhenAssignment_6; }
+		
+		//When
+		public RuleCall getWhenWhenParserRuleCall_6_0() { return cWhenWhenParserRuleCall_6_0; }
+		
+		//whenAnd+=WhenAnd*
+		public Assignment getWhenAndAssignment_7() { return cWhenAndAssignment_7; }
+		
+		//WhenAnd
+		public RuleCall getWhenAndWhenAndParserRuleCall_7_0() { return cWhenAndWhenAndParserRuleCall_7_0; }
+		
+		//then+=Then
+		public Assignment getThenAssignment_8() { return cThenAssignment_8; }
+		
+		//Then
+		public RuleCall getThenThenParserRuleCall_8_0() { return cThenThenParserRuleCall_8_0; }
+		
+		//thenAnd+=ThenAnd*
+		public Assignment getThenAndAssignment_9() { return cThenAndAssignment_9; }
+		
+		//ThenAnd
+		public RuleCall getThenAndThenAndParserRuleCall_9_0() { return cThenAndThenAndParserRuleCall_9_0; }
+		
+		//('Warum?' explaination=STRING)?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'Warum?'
+		public Keyword getWarumKeyword_10_0() { return cWarumKeyword_10_0; }
+		
+		//explaination=STRING
+		public Assignment getExplainationAssignment_10_1() { return cExplainationAssignment_10_1; }
+		
+		//STRING
+		public RuleCall getExplainationSTRINGTerminalRuleCall_10_1_0() { return cExplainationSTRINGTerminalRuleCall_10_1_0; }
+		
+		//'Beispiel'
+		public Keyword getBeispielKeyword_11() { return cBeispielKeyword_11; }
+		
+		//'Ende'
+		public Keyword getEndeKeyword_12() { return cEndeKeyword_12; }
+	}
+	public class GivenElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Given");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cGegebenKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cGegebenKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		
+		//Given:
+		//	('Gegeben' | 'gegeben') content=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('Gegeben' | 'gegeben') content=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'Gegeben' | 'gegeben'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'Gegeben'
+		public Keyword getGegebenKeyword_0_0() { return cGegebenKeyword_0_0; }
+		
+		//'gegeben'
+		public Keyword getGegebenKeyword_0_1() { return cGegebenKeyword_0_1; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_1_0() { return cContentSTRINGTerminalRuleCall_1_0; }
+	}
+	public class GivenAndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.GivenAnd");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cUndKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cAberKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		
+		//GivenAnd:
+		//	('und' | 'aber') content=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('und' | 'aber') content=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'und' | 'aber'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'und'
+		public Keyword getUndKeyword_0_0() { return cUndKeyword_0_0; }
+		
+		//'aber'
+		public Keyword getAberKeyword_0_1() { return cAberKeyword_0_1; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_1_0() { return cContentSTRINGTerminalRuleCall_1_0; }
+	}
+	public class WhenElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.When");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cWennKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		
+		//When:
+		//	'Wenn' content=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Wenn' content=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'Wenn'
+		public Keyword getWennKeyword_0() { return cWennKeyword_0; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_1_0() { return cContentSTRINGTerminalRuleCall_1_0; }
+	}
+	public class WhenAndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.WhenAnd");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cUndKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cAberKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//WhenAnd:
+		//	'und' | 'aber';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'und' | 'aber'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'und'
+		public Keyword getUndKeyword_0() { return cUndKeyword_0; }
+		
+		//'aber'
+		public Keyword getAberKeyword_1() { return cAberKeyword_1; }
+	}
+	public class ThenElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.Then");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cDannKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cDannKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		
+		//Then:
+		//	('Dann' | 'dann') content=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('Dann' | 'dann') content=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'Dann' | 'dann'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'Dann'
+		public Keyword getDannKeyword_0_0() { return cDannKeyword_0_0; }
+		
+		//'dann'
+		public Keyword getDannKeyword_0_1() { return cDannKeyword_0_1; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_1_0() { return cContentSTRINGTerminalRuleCall_1_0; }
+	}
+	public class ThenAndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "io.deniffel.dsl.useCase.UseCase.ThenAnd");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cUndKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cAberKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		
+		//ThenAnd:
+		//	('und' | 'aber') content=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('und' | 'aber') content=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'und' | 'aber'
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
+		//'und'
+		public Keyword getUndKeyword_0_0() { return cUndKeyword_0_0; }
+		
+		//'aber'
+		public Keyword getAberKeyword_0_1() { return cAberKeyword_0_1; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_1_0() { return cContentSTRINGTerminalRuleCall_1_0; }
+	}
 	
 	
 	private final ModelElements pModel;
@@ -1582,6 +1878,13 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	private final UsedExceptionsElements pUsedExceptions;
 	private final ExceptionElements pException;
 	private final ExceptionDeclerationElements pExceptionDecleration;
+	private final ExampleElements pExample;
+	private final GivenElements pGiven;
+	private final GivenAndElements pGivenAnd;
+	private final WhenElements pWhen;
+	private final WhenAndElements pWhenAnd;
+	private final ThenElements pThen;
+	private final ThenAndElements pThenAnd;
 	
 	private final Grammar grammar;
 	
@@ -1622,6 +1925,13 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUsedExceptions = new UsedExceptionsElements();
 		this.pException = new ExceptionElements();
 		this.pExceptionDecleration = new ExceptionDeclerationElements();
+		this.pExample = new ExampleElements();
+		this.pGiven = new GivenElements();
+		this.pGivenAnd = new GivenAndElements();
+		this.pWhen = new WhenElements();
+		this.pWhenAnd = new WhenAndElements();
+		this.pThen = new ThenElements();
+		this.pThenAnd = new ThenAndElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1655,8 +1965,9 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	//	('Firma' | 'Company') company=QualifiedName
 	//	package=Package
 	//	useCases+=UseCase*
-	//	types=UsedTypes
-	//	exceptions=UsedExceptions;
+	//	types=UsedTypes?
+	//	exceptions=UsedExceptions?
+	//	examples+=Example*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -1965,6 +2276,80 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getExceptionDeclerationRule() {
 		return getExceptionDeclerationAccess().getRule();
+	}
+	
+	//Example:
+	//	'Beispiel' name=STRING ':' ('Beschreibung:' description=STRING)?
+	//	given+=Given givenAnd+=GivenAnd*
+	//	when+=When whenAnd+=WhenAnd*
+	//	then+=Then thenAnd+=ThenAnd* ('Warum?' explaination=STRING)?
+	//	'Beispiel' 'Ende';
+	public ExampleElements getExampleAccess() {
+		return pExample;
+	}
+	
+	public ParserRule getExampleRule() {
+		return getExampleAccess().getRule();
+	}
+	
+	//Given:
+	//	('Gegeben' | 'gegeben') content=STRING;
+	public GivenElements getGivenAccess() {
+		return pGiven;
+	}
+	
+	public ParserRule getGivenRule() {
+		return getGivenAccess().getRule();
+	}
+	
+	//GivenAnd:
+	//	('und' | 'aber') content=STRING;
+	public GivenAndElements getGivenAndAccess() {
+		return pGivenAnd;
+	}
+	
+	public ParserRule getGivenAndRule() {
+		return getGivenAndAccess().getRule();
+	}
+	
+	//When:
+	//	'Wenn' content=STRING;
+	public WhenElements getWhenAccess() {
+		return pWhen;
+	}
+	
+	public ParserRule getWhenRule() {
+		return getWhenAccess().getRule();
+	}
+	
+	//WhenAnd:
+	//	'und' | 'aber';
+	public WhenAndElements getWhenAndAccess() {
+		return pWhenAnd;
+	}
+	
+	public ParserRule getWhenAndRule() {
+		return getWhenAndAccess().getRule();
+	}
+	
+	//Then:
+	//	('Dann' | 'dann') content=STRING;
+	public ThenElements getThenAccess() {
+		return pThen;
+	}
+	
+	public ParserRule getThenRule() {
+		return getThenAccess().getRule();
+	}
+	
+	//ThenAnd:
+	//	('und' | 'aber') content=STRING;
+	public ThenAndElements getThenAndAccess() {
+		return pThenAnd;
+	}
+	
+	public ParserRule getThenAndRule() {
+		return getThenAndAccess().getRule();
 	}
 	
 	//terminal ID:
