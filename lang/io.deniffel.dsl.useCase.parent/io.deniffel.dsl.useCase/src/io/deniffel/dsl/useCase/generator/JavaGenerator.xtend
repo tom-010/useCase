@@ -233,7 +233,7 @@ class JavaGenerator extends AbstractGenerator {
 		«ENDFOR»
 	'''
 	
-	int lastStepPoints = 1
+	
 	def compile(Steps steps)'''
 		default Output steps() {
 			ErrorMessages errors = checkPreconditions();
@@ -248,6 +248,7 @@ class JavaGenerator extends AbstractGenerator {
 		}
 		'''
 	
+	int lastStepPoints = 1
 	def compile(Step step){
 		val close = (step.points < lastStepPoints);
 		lastStepPoints = step.points
@@ -266,15 +267,15 @@ class JavaGenerator extends AbstractGenerator {
 	}
 	
 	def compileDependingOnStepType(Step step)'''
-	«IF step.exception !== null»
-		«step.whiteSpacesBefore»«step.exception.throwNow()»
-	«ELSEIF step.condition !== null»
-		«step.whiteSpacesBefore»if(«methodNaming.convert(step.condition.condition.name)»()) {
-	«ELSEIF step.loop !== null»
-		«step.whiteSpacesBefore»while(«methodNaming.convert(step.loop.condition.name)»()) {
-	«ELSE»
-		«step.whiteSpacesBefore»«methodNaming.convert(step.action)»();
-	«ENDIF»
+		«IF step.exception !== null»
+			«step.whiteSpacesBefore»«step.exception.throwNow()»
+		«ELSEIF step.condition !== null»
+			«step.whiteSpacesBefore»if(«methodNaming.convert(step.condition.condition.name)»()) {
+		«ELSEIF step.loop !== null»
+			«step.whiteSpacesBefore»while(«methodNaming.convert(step.loop.condition.name)»()) {
+		«ELSE»
+			«step.whiteSpacesBefore»«methodNaming.convert(step.action)»();
+		«ENDIF»
 	'''	
 	String result = "";
 	int i;

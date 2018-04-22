@@ -5,15 +5,22 @@ import io.deniffel.dsl.useCase.generator.ClassMemberNamingStrategy;
 import io.deniffel.dsl.useCase.generator.ClassNamingStrategy;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroup;
 import io.deniffel.dsl.useCase.useCase.AllowedUserGroups;
+import io.deniffel.dsl.useCase.useCase.Condition;
+import io.deniffel.dsl.useCase.useCase.ExceptionDecleration;
+import io.deniffel.dsl.useCase.useCase.IfStatement;
 import io.deniffel.dsl.useCase.useCase.Input;
 import io.deniffel.dsl.useCase.useCase.Inputs;
+import io.deniffel.dsl.useCase.useCase.Loop;
 import io.deniffel.dsl.useCase.useCase.Model;
 import io.deniffel.dsl.useCase.useCase.Notes;
 import io.deniffel.dsl.useCase.useCase.OptionalInputs;
 import io.deniffel.dsl.useCase.useCase.Outputs;
 import io.deniffel.dsl.useCase.useCase.PackagePart;
 import io.deniffel.dsl.useCase.useCase.PreConditions;
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow;
+import io.deniffel.dsl.useCase.useCase.Step;
 import io.deniffel.dsl.useCase.useCase.Steps;
+import io.deniffel.dsl.useCase.useCase.Type;
 import io.deniffel.dsl.useCase.useCase.UseCase;
 import io.deniffel.dsl.useCase.useCase.UsedExceptions;
 import io.deniffel.dsl.useCase.useCase.UsedTypes;
@@ -334,15 +341,16 @@ public class LatexGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\begin{itemize}");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Angegebner Login muss im System einzigartig sein");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Nur eine weitere Vorbedingung");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Alter muss über 18 sein");
-    _builder.newLine();
+    {
+      EList<Condition> _conditions = precoditions.getConditions();
+      for(final Condition cond : _conditions) {
+        _builder.append("  ");
+        _builder.append("\\item ");
+        String _escape = this.escape(cond.getContent());
+        _builder.append(_escape, "  ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\\end{itemize}");
     _builder.newLine();
     return _builder;
@@ -352,69 +360,130 @@ public class LatexGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\begin{enumerate}");
     _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Falls Benutzer unter 18:");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\begin{enumerate}");
-    _builder.newLine();
-    _builder.append("   ");
-    _builder.append("\\item Melde Fehler UserToJungForTheSystem");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\end{enumerate}");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Suche Benutzer mit dem angegebenen Login");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Falls der Benutzer gefunden wurde:");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\begin{enumerate}");
-    _builder.newLine();
-    _builder.append("   ");
-    _builder.append("\\item Melde Fehler UserExistiertBereits ");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\end{enumerate}");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Solange nicht drei gute Geschenke gefunden wurden:");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\begin{enumerate}");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Suche nach Geschenk in der Datenbank");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Bewerte ob das Geschenk geeignet ist");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Ordne das Geschenk dem Benutzer zu");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\end{enumerate}");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Speichere den Benutzer in die Datenbank. Bei Fehler melde BenutzerKonnteNichtErstelltWerden");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Benachrichte alle, dass der Benutzer erstellt wurde");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("\\item Sende Willkommensnachricht an den Benutzer");
-    _builder.newLine();
+    {
+      EList<Step> _steps = steps.getSteps();
+      for(final Step step : _steps) {
+        _builder.append("  ");
+        CharSequence _item = this.item(step);
+        _builder.append(_item, "  ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\\end{enumerate}");
     _builder.newLine();
     return _builder;
   }
   
-  public CharSequence notesSubSection(final Notes steps) {
+  private int lastStepPoints = 1;
+  
+  public CharSequence item(final Step step) {
+    CharSequence _xblockexpression = null;
+    {
+      int _points = this.points(step);
+      final boolean close = (_points < this.lastStepPoints);
+      this.lastStepPoints = this.points(step);
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        if (close) {
+          String _whiteSpacesBefore = this.whiteSpacesBefore(step);
+          _builder.append(_whiteSpacesBefore);
+          _builder.append("\\end{enumerate}");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("\\item ");
+      CharSequence _dependingOnStepType = this.dependingOnStepType(step);
+      _builder.append(_dependingOnStepType);
+      _builder.newLineIfNotEmpty();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  public CharSequence dependingOnStepType(final Step step) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Jeder User hat einen eigenen Login. Daher darf ein Login niemals doppelt vorkommen");
-    _builder.newLine();
+    {
+      RaiseErrorNow _exception = step.getException();
+      boolean _tripleNotEquals = (_exception != null);
+      if (_tripleNotEquals) {
+        String _whiteSpacesBefore = this.whiteSpacesBefore(step);
+        _builder.append(_whiteSpacesBefore);
+        CharSequence _throwNow = this.throwNow(step.getException());
+        _builder.append(_throwNow);
+        _builder.newLineIfNotEmpty();
+      } else {
+        IfStatement _condition = step.getCondition();
+        boolean _tripleNotEquals_1 = (_condition != null);
+        if (_tripleNotEquals_1) {
+          String _whiteSpacesBefore_1 = this.whiteSpacesBefore(step);
+          _builder.append(_whiteSpacesBefore_1);
+          _builder.append("Falls ");
+          String _escape = this.escape(step.getCondition().getCondition().getName());
+          _builder.append(_escape);
+          _builder.append(":");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\\begin{enumerate}");
+          _builder.newLine();
+        } else {
+          Loop _loop = step.getLoop();
+          boolean _tripleNotEquals_2 = (_loop != null);
+          if (_tripleNotEquals_2) {
+            String _whiteSpacesBefore_2 = this.whiteSpacesBefore(step);
+            _builder.append(_whiteSpacesBefore_2);
+            _builder.append("Solange ");
+            String _escape_1 = this.escape(step.getLoop().getCondition().getName());
+            _builder.append(_escape_1);
+            _builder.append(":");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\\begin{enumerate}");
+            _builder.newLine();
+          } else {
+            String _whiteSpacesBefore_3 = this.whiteSpacesBefore(step);
+            _builder.append(_whiteSpacesBefore_3);
+            String _escape_2 = this.escape(step.getAction());
+            _builder.append(_escape_2);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private String whiteSpacesResult = "";
+  
+  private int i;
+  
+  private final int TAB_WITH = 4;
+  
+  public String whiteSpacesBefore(final Step step) {
+    this.whiteSpacesResult = "";
+    for (this.i = 0; (this.i < ((this.points(step) - 1) * this.TAB_WITH)); this.i++) {
+      String _result = this.result;
+      this.result = (_result + " ");
+    }
+    return this.whiteSpacesResult;
+  }
+  
+  public CharSequence throwNow(final RaiseErrorNow e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Melde Fehler ");
+    String _escape = this.escape(e.getException().getType().getName());
+    _builder.append(_escape);
+    return _builder;
+  }
+  
+  public int points(final Step s) {
+    int _length = s.getNumber().length();
+    int _length_1 = s.getNumber().replace(".", "").length();
+    return (_length - _length_1);
+  }
+  
+  public CharSequence notesSubSection(final Notes notes) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _escape = this.escape(notes.getContent());
+    _builder.append(_escape);
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -422,21 +491,25 @@ public class LatexGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\begin{itemize}");
     _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("\\item File: Files sind Dateien und werden für unterschiedlichste Dinge eingesetzt");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("\\item Benutzer: Ein normaler Bentzer, der sich im System einloggen kann");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("\\item Text: Mehrere Zeichen ergeben ein Wort, mehrere Worte einen Text");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("\\item Zahl");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("\\item Zeichen: Die einzelnen Zeichen aus dem deutschen oder irgend einem anderen Alphabet");
-    _builder.newLine();
+    {
+      EList<Type> _types = types.getTypes();
+      for(final Type type : _types) {
+        _builder.append("\t");
+        _builder.append("\\item ");
+        String _name = type.getName();
+        _builder.append(_name, "\t");
+        {
+          String _description = type.getDescription();
+          boolean _tripleNotEquals = (_description != null);
+          if (_tripleNotEquals) {
+            _builder.append(": ");
+            String _description_1 = type.getDescription();
+            _builder.append(_description_1, "\t");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\\end{itemize}");
     _builder.newLine();
     return _builder;
@@ -446,18 +519,25 @@ public class LatexGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\\begin{itemize}");
     _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("\\item UserToJungForTheSystem");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("\\item UserExistiertBereits: Der angegebene Benutzer existiert bereits im System (der Login wurde bereits vergeben");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("\\item BenutzerKonnteNichtErstelltWerden: Das System konnte den Benutzer nicht erstellen");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("\\item IllegalArgumentException: Die Angegenen Paramter sind ungültig");
-    _builder.newLine();
+    {
+      EList<ExceptionDecleration> _exceptions = exceptions.getExceptions();
+      for(final ExceptionDecleration ex : _exceptions) {
+        _builder.append("\t");
+        _builder.append("\\item ");
+        String _name = ex.getName();
+        _builder.append(_name, "\t");
+        {
+          String _message = ex.getMessage();
+          boolean _tripleNotEquals = (_message != null);
+          if (_tripleNotEquals) {
+            _builder.append(": ");
+            String _message_1 = ex.getMessage();
+            _builder.append(_message_1, "\t");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\\end{itemize}");
     _builder.newLine();
     return _builder;

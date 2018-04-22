@@ -21,6 +21,8 @@ import io.deniffel.dsl.useCase.useCase.Steps
 import io.deniffel.dsl.useCase.useCase.Notes
 import io.deniffel.dsl.useCase.useCase.UsedTypes
 import io.deniffel.dsl.useCase.useCase.Input
+import io.deniffel.dsl.useCase.useCase.Step
+import io.deniffel.dsl.useCase.useCase.RaiseErrorNow
 
 class LatexGenerator extends AbstractGenerator {
 	
@@ -169,55 +171,82 @@ class LatexGenerator extends AbstractGenerator {
 	
 	def subSection(PreConditions precoditions)'''
 		\begin{itemize}
-		  \item Angegebner Login muss im System einzigartig sein
-		  \item Nur eine weitere Vorbedingung
-		  \item Alter muss über 18 sein
+		  «FOR cond : precoditions.conditions»
+		  	\item «cond.content.escape»
+		  «ENDFOR»
 		\end{itemize}
 	'''
 	
 	def subSection(Steps steps)'''
 		\begin{enumerate}
-		  \item Falls Benutzer unter 18:
-		  \begin{enumerate}
-		   \item Melde Fehler UserToJungForTheSystem
-		  \end{enumerate}
-		  \item Suche Benutzer mit dem angegebenen Login
-		  \item Falls der Benutzer gefunden wurde:
-		  \begin{enumerate}
-		   \item Melde Fehler UserExistiertBereits 
-		  \end{enumerate}
-		  \item Solange nicht drei gute Geschenke gefunden wurden:
-		  \begin{enumerate}
-		  \item Suche nach Geschenk in der Datenbank
-		  \item Bewerte ob das Geschenk geeignet ist
-		  \item Ordne das Geschenk dem Benutzer zu
-		  \end{enumerate}
-		  \item Speichere den Benutzer in die Datenbank. Bei Fehler melde BenutzerKonnteNichtErstelltWerden
-		  \item Benachrichte alle, dass der Benutzer erstellt wurde
-		  \item Sende Willkommensnachricht an den Benutzer
+		  «FOR step : steps.steps»
+		  	«step.item»
+		  «ENDFOR»
 		\end{enumerate}
 	'''
+	int lastStepPoints = 1
+	def item(Step step){
+		val close = (step.points < lastStepPoints);
+		lastStepPoints = step.points
+		
+		'''
+		«IF close»
+			«step.whiteSpacesBefore»\end{enumerate}
+		«ENDIF»
+		\item «step.dependingOnStepType»
+		'''
+	}
+		
 	
-	def notesSubSection(Notes steps)'''
-		Jeder User hat einen eigenen Login. Daher darf ein Login niemals doppelt vorkommen
+	def dependingOnStepType(Step step)'''
+		«IF step.exception !== null»
+			«step.whiteSpacesBefore»«step.exception.throwNow()»
+		«ELSEIF step.condition !== null»
+			«step.whiteSpacesBefore»Falls «step.condition.condition.name.escape»:
+			\begin{enumerate}
+		«ELSEIF step.loop !== null»
+			«step.whiteSpacesBefore»Solange «step.loop.condition.name.escape»:
+			\begin{enumerate}
+		«ELSE»
+			«step.whiteSpacesBefore»«step.action.escape»
+		«ENDIF»
+	'''	
+	
+	String whiteSpacesResult = "";
+	int i;
+	final int TAB_WITH = 4;
+	def whiteSpacesBefore(Step step) {
+		whiteSpacesResult = "";
+		for(i=0; i<(step.points-1)*TAB_WITH; i++)
+			result += " ";
+		return whiteSpacesResult;
+	}
+	
+	def throwNow(RaiseErrorNow e)'''
+		Melde Fehler «e.exception.type.name.escape»'''
+	
+	
+	def points(Step s) {
+		return s.number.length() - s.number.replace(".", "").length();
+	}
+	
+	def notesSubSection(Notes notes)'''
+		«notes.content.escape»
 	'''
 	
 	def subSection(UsedTypes types)'''
 		\begin{itemize}
-			 \item File: Files sind Dateien und werden für unterschiedlichste Dinge eingesetzt
-			 \item Benutzer: Ein normaler Bentzer, der sich im System einloggen kann
-			 \item Text: Mehrere Zeichen ergeben ein Wort, mehrere Worte einen Text
-			 \item Zahl
-			 \item Zeichen: Die einzelnen Zeichen aus dem deutschen oder irgend einem anderen Alphabet
+			«FOR type : types.types»
+				\item «type.name»«IF type.description !== null»: «type.description»«ENDIF»
+			«ENDFOR»
 		\end{itemize}
 	'''
 	
 	def subSection(UsedExceptions exceptions)'''
 		\begin{itemize}
-			 \item UserToJungForTheSystem
-			 \item UserExistiertBereits: Der angegebene Benutzer existiert bereits im System (der Login wurde bereits vergeben
-			 \item BenutzerKonnteNichtErstelltWerden: Das System konnte den Benutzer nicht erstellen
-			 \item IllegalArgumentException: Die Angegenen Paramter sind ungültig
+			«FOR ex : exceptions.exceptions»
+				\item «ex.name»«IF ex.message !== null»: «ex.message»«ENDIF»
+			«ENDFOR»
 		\end{itemize}
 	'''
 	

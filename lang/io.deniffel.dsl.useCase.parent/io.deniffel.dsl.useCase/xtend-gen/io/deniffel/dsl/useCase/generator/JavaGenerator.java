@@ -584,8 +584,6 @@ public class JavaGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  private int lastStepPoints = 1;
-  
   public CharSequence compile(final Steps steps) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("default Output steps() {");
@@ -619,6 +617,8 @@ public class JavaGenerator extends AbstractGenerator {
     _builder.newLine();
     return _builder;
   }
+  
+  private int lastStepPoints = 1;
   
   public CharSequence compile(final Step step) {
     CharSequence _xblockexpression = null;
