@@ -19,7 +19,7 @@ Package:
 	(
 		'Kathegorie' | 
 		'package'
-	)parts+=PackagePart ('>' parts+=PackagePart)*;
+	) parts+=PackagePart ('>' parts+=PackagePart)*;
 
 PackagePart:
 	name = ID;
