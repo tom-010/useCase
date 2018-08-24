@@ -54,47 +54,68 @@ class LatexGenerator extends AbstractGenerator {
 		\usepackage[utf8]{inputenc}
 		\usepackage[T1]{fontenc}
 		\usepackage[german]{babel}
+		\usepackage{enumitem}
+		\parindent0pt
+		\usepackage{multicol}   
+		\usepackage[a4paper, left=2cm, right=1cm, top=2cm, bottom=1cm]{geometry}
 		
 		\begin{document}
 		
-		\section{«usecase.name»}
+		\section{«model.getPackage().compile»}
 		
-		«usecase.diagram(dirPath)»
+		%<usecase>
+		\subsection{«usecase.name»}
+		 
+		
 		«model.overviewTable»
+		«usecase.diagram(dirPath)»
 		
-		\subsection{Erlaubt für}
+		\bigbreak
+		
+		\begin{multicols}{2}
+		
+		\subsubsection{Erlaubt für}
 		«usecase.allowedUserGroups.get(0).subSection»
 		
-		\subsection{Zutaten}
+		\subsubsection{Vorbedingungen}
+		«usecase.preconditions.subSection»
+		 
+		\subsubsection{Ergebins}
+		«usecase.outputs.get(0).subSection»
+				
+		\columnbreak
+		
+		\subsubsection{Zutaten}
 		«usecase.inputs.get(0).subSection(usecase.optionalInputs.get(0))»
 		
-		\subsection{Ergebins}
-		«usecase.outputs.get(0).subSection»
+		\end{multicols}
 		
-		\subsection{Vorbedingungen}
-		«usecase.preconditions.subSection»
-		
-		\subsection{Schritte}
+		\subsubsection{Schritte}
 		«usecase.steps.get(0).subSection»
 		
-		\subsection{Anmerkungen}
+		\subsubsection{Anmerkungen}
 		«usecase.notes.get(0).notesSubSection»
 		
-		\subsection{Glossar}
-		\subsubsection{Genutze Bausteine}
+		\subsubsection{Glossar}
+		\textbf{Genutze Bausteine}
 		«model.types.subSection»
 		
 		
-		\subsubsection{Genutzte Fehler}
+		\textbf{Genutzte Fehler}
 		«model.exceptions.subSection»
+		
+		%</usecase>
+		\clearpage
 		
 		\end{document}
 	'''
 	
 	def diagram(UseCase uc, String dirPath) '''
-		\begin{wrapfigure}{r}{5cm}
-		\includegraphics[width=5cm]{../../../../../../..«pathToDiagramPath(dirPath)»«uc.camelCaseName».png}
-		\end{wrapfigure} 
+		\begin{wrapfigure}{r}{5cm}\centering
+			\vspace{-5cm}
+			\includegraphics[width=5cm]{../../../../../../..«pathToDiagramPath(dirPath)»«uc.camelCaseName».png}
+		\end{wrapfigure}
+
 	'''
 	
 	def overviewTable(Model model)'''
@@ -105,7 +126,7 @@ class LatexGenerator extends AbstractGenerator {
 	'''
 	
 	def subSection(AllowedUserGroups groups)'''
-		\begin{itemize}
+		\begin{itemize}[noitemsep]
 		  «FOR group : groups.groups»
 		  	\item «group.name»
 		  «ENDFOR»
@@ -113,15 +134,15 @@ class LatexGenerator extends AbstractGenerator {
 	'''
 	
 	def subSection(Inputs inputs, OptionalInputs optionals)'''
-		\subsubsection{Benötigte Zutaten}
+		\textbf{Benötigte Zutaten}
 		«inputs.required(optionals)»
-		
-		\subsubsection{Optionale Zutaten}
+		\bigbreak
+		\textbf{Optionale Zutaten}
 		«inputs.optional(optionals)»
 	'''
 	
 	def required(Inputs inputs, OptionalInputs optinals)'''
-		\begin{itemize}
+		\begin{itemize}[noitemsep,topsep=0pt]
 			«FOR input : inputs.inputs»
 				«IF input.optional === null»
 					\item «input.compile»
@@ -135,7 +156,7 @@ class LatexGenerator extends AbstractGenerator {
 	'''
 	
 	def optional(Inputs inputs, OptionalInputs optionals)'''
-		\begin{itemize}
+		\begin{itemize}[noitemsep,topsep=0pt]
 	 	«FOR input : inputs.inputs»
 			«IF input.optional !== null»
 			 	\item «input.compile»
@@ -148,7 +169,7 @@ class LatexGenerator extends AbstractGenerator {
 	'''
 	
 	def subSection(Outputs outputs)'''
-		\begin{itemize}
+		\begin{itemize}[noitemsep]
 		  \item Erstellter Benutzer als Benutzer (z.B. Benutzer mit Login 'tom')
 		\end{itemize}
 	'''
@@ -170,7 +191,7 @@ class LatexGenerator extends AbstractGenerator {
 	}
 	
 	def subSection(PreConditions precoditions)'''
-		\begin{itemize}
+		\begin{itemize}[noitemsep]
 		  «FOR cond : precoditions.conditions»
 		  	\item «cond.content.escape»
 		  «ENDFOR»
@@ -178,7 +199,7 @@ class LatexGenerator extends AbstractGenerator {
 	'''
 	
 	def subSection(Steps steps)'''
-		\begin{enumerate}
+		\begin{enumerate}[noitemsep]
 		  «FOR step : steps.steps»
 		  	«step.item»
 		  «ENDFOR»
@@ -203,7 +224,7 @@ class LatexGenerator extends AbstractGenerator {
 			«step.whiteSpacesBefore»«step.exception.throwNow()»
 		«ELSEIF step.condition !== null»
 			«step.whiteSpacesBefore»Falls «step.condition.condition.name.escape»:
-			\begin{enumerate}
+			\begin{enumerate}[noitemsep]
 		«ELSEIF step.loop !== null»
 			«step.whiteSpacesBefore»Solange «step.loop.condition.name.escape»:
 			\begin{enumerate}
@@ -235,7 +256,7 @@ class LatexGenerator extends AbstractGenerator {
 	'''
 	
 	def subSection(UsedTypes types)'''
-		\begin{itemize}
+		\begin{itemize}[noitemsep]
 			«FOR type : types.types»
 				\item «type.name»«IF type.description !== null»: «type.description»«ENDIF»
 			«ENDFOR»
@@ -243,7 +264,7 @@ class LatexGenerator extends AbstractGenerator {
 	'''
 	
 	def subSection(UsedExceptions exceptions)'''
-		\begin{itemize}
+		\begin{itemize}[noitemsep]
 			«FOR ex : exceptions.exceptions»
 				\item «ex.name»«IF ex.message !== null»: «ex.message»«ENDIF»
 			«ENDFOR»

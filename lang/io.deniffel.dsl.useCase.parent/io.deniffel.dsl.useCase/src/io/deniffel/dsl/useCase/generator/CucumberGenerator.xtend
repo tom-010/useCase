@@ -20,7 +20,6 @@ class CucumberGenerator extends AbstractGenerator {
 		for(model : resource.allContents.toIterable.filter(Model)) {
 			model.createFeature(fsa)
 		}
-			
 	}
 	
 	def createFeature(Model model, IFileSystemAccess2 fsa) {

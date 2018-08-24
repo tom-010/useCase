@@ -6,3 +6,7 @@
 /UseCaseServlet.java
 /UseCaseWebModule.java
 /UseCaseWebSetup.java
+/.ServerLauncher.xtendbin
+/.UseCaseServlet.xtendbin
+/.UseCaseWebModule.xtendbin
+/.UseCaseWebSetup.xtendbin

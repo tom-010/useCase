@@ -2,7 +2,7 @@ dependencies {
 	compile project(':io.deniffel.dsl.useCase')
 	compile "org.eclipse.xtext:org.eclipse.xtext.ide:${xtextVersion}"
 	compile "org.eclipse.xtext:org.eclipse.xtext.xbase.ide:${xtextVersion}"
-	compile "org.eclipse.xtext:org.eclipse.xtext.ui:${xtextVersion}"
+	// compile "org.eclipse.xtext:org.eclipse.xtext.ui:${xtextVersion}"
 	
 }
 //this is an eclipse plugin project

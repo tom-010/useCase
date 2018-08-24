@@ -83,73 +83,110 @@ public class LatexGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\\usepackage[german]{babel}");
     _builder.newLine();
+    _builder.append("\\usepackage{enumitem}");
+    _builder.newLine();
+    _builder.append("\\parindent0pt");
+    _builder.newLine();
+    _builder.append("\\usepackage{multicol}   ");
+    _builder.newLine();
+    _builder.append("\\usepackage[a4paper, left=2cm, right=1cm, top=2cm, bottom=1cm]{geometry}");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("\\begin{document}");
     _builder.newLine();
     _builder.newLine();
     _builder.append("\\section{");
+    CharSequence _compile = this.compile(model.getPackage());
+    _builder.append(_compile);
+    _builder.append("}");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("%<usecase>");
+    _builder.newLine();
+    _builder.append("\\subsection{");
     String _name = usecase.getName();
     _builder.append(_name);
     _builder.append("}");
     _builder.newLineIfNotEmpty();
+    _builder.append(" ");
     _builder.newLine();
-    CharSequence _diagram = this.diagram(usecase, dirPath);
-    _builder.append(_diagram);
-    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     CharSequence _overviewTable = this.overviewTable(model);
     _builder.append(_overviewTable);
     _builder.newLineIfNotEmpty();
+    CharSequence _diagram = this.diagram(usecase, dirPath);
+    _builder.append(_diagram);
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("\\subsection{Erlaubt für}");
+    _builder.append("\\bigbreak");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\\begin{multicols}{2}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\\subsubsection{Erlaubt für}");
     _builder.newLine();
     CharSequence _subSection = this.subSection(usecase.getAllowedUserGroups().get(0));
     _builder.append(_subSection);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("\\subsection{Zutaten}");
+    _builder.append("\\subsubsection{Vorbedingungen}");
     _builder.newLine();
-    CharSequence _subSection_1 = this.subSection(usecase.getInputs().get(0), usecase.getOptionalInputs().get(0));
+    CharSequence _subSection_1 = this.subSection(usecase.getPreconditions());
     _builder.append(_subSection_1);
     _builder.newLineIfNotEmpty();
+    _builder.append(" ");
     _builder.newLine();
-    _builder.append("\\subsection{Ergebins}");
+    _builder.append("\\subsubsection{Ergebins}");
     _builder.newLine();
     CharSequence _subSection_2 = this.subSection(usecase.getOutputs().get(0));
     _builder.append(_subSection_2);
     _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
     _builder.newLine();
-    _builder.append("\\subsection{Vorbedingungen}");
+    _builder.append("\\columnbreak");
     _builder.newLine();
-    CharSequence _subSection_3 = this.subSection(usecase.getPreconditions());
+    _builder.newLine();
+    _builder.append("\\subsubsection{Zutaten}");
+    _builder.newLine();
+    CharSequence _subSection_3 = this.subSection(usecase.getInputs().get(0), usecase.getOptionalInputs().get(0));
     _builder.append(_subSection_3);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("\\subsection{Schritte}");
+    _builder.append("\\end{multicols}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\\subsubsection{Schritte}");
     _builder.newLine();
     CharSequence _subSection_4 = this.subSection(usecase.getSteps().get(0));
     _builder.append(_subSection_4);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("\\subsection{Anmerkungen}");
+    _builder.append("\\subsubsection{Anmerkungen}");
     _builder.newLine();
     CharSequence _notesSubSection = this.notesSubSection(usecase.getNotes().get(0));
     _builder.append(_notesSubSection);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("\\subsection{Glossar}");
+    _builder.append("\\subsubsection{Glossar}");
     _builder.newLine();
-    _builder.append("\\subsubsection{Genutze Bausteine}");
+    _builder.append("\\textbf{Genutze Bausteine}");
     _builder.newLine();
     CharSequence _subSection_5 = this.subSection(model.getTypes());
     _builder.append(_subSection_5);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.newLine();
-    _builder.append("\\subsubsection{Genutzte Fehler}");
+    _builder.append("\\textbf{Genutzte Fehler}");
     _builder.newLine();
     CharSequence _subSection_6 = this.subSection(model.getExceptions());
     _builder.append(_subSection_6);
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("%</usecase>");
+    _builder.newLine();
+    _builder.append("\\clearpage");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("\\end{document}");
     _builder.newLine();
@@ -158,16 +195,21 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence diagram(final UseCase uc, final String dirPath) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{wrapfigure}{r}{5cm}");
+    _builder.append("\\begin{wrapfigure}{r}{5cm}\\centering");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\\vspace{-5cm}");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("\\includegraphics[width=5cm]{../../../../../../..");
     String _pathToDiagramPath = this.pathToDiagramPath(dirPath);
-    _builder.append(_pathToDiagramPath);
+    _builder.append(_pathToDiagramPath, "\t");
     String _camelCaseName = this.camelCaseName(uc);
-    _builder.append(_camelCaseName);
+    _builder.append(_camelCaseName, "\t");
     _builder.append(".png}");
     _builder.newLineIfNotEmpty();
-    _builder.append("\\end{wrapfigure} ");
+    _builder.append("\\end{wrapfigure}");
+    _builder.newLine();
     _builder.newLine();
     return _builder;
   }
@@ -195,7 +237,7 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence subSection(final AllowedUserGroups groups) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{itemize}");
+    _builder.append("\\begin{itemize}[noitemsep]");
     _builder.newLine();
     {
       EList<AllowedUserGroup> _groups = groups.getGroups();
@@ -214,13 +256,14 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence subSection(final Inputs inputs, final OptionalInputs optionals) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\subsubsection{Benötigte Zutaten}");
+    _builder.append("\\textbf{Benötigte Zutaten}");
     _builder.newLine();
     CharSequence _required = this.required(inputs, optionals);
     _builder.append(_required);
     _builder.newLineIfNotEmpty();
+    _builder.append("\\bigbreak");
     _builder.newLine();
-    _builder.append("\\subsubsection{Optionale Zutaten}");
+    _builder.append("\\textbf{Optionale Zutaten}");
     _builder.newLine();
     CharSequence _optional = this.optional(inputs, optionals);
     _builder.append(_optional);
@@ -230,7 +273,7 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence required(final Inputs inputs, final OptionalInputs optinals) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{itemize}");
+    _builder.append("\\begin{itemize}[noitemsep,topsep=0pt]");
     _builder.newLine();
     {
       EList<Input> _inputs = inputs.getInputs();
@@ -277,7 +320,7 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence optional(final Inputs inputs, final OptionalInputs optionals) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{itemize}");
+    _builder.append("\\begin{itemize}[noitemsep,topsep=0pt]");
     _builder.newLine();
     {
       EList<Input> _inputs = inputs.getInputs();
@@ -310,7 +353,7 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence subSection(final Outputs outputs) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{itemize}");
+    _builder.append("\\begin{itemize}[noitemsep]");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("\\item Erstellter Benutzer als Benutzer (z.B. Benutzer mit Login \'tom\')");
@@ -339,7 +382,7 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence subSection(final PreConditions precoditions) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{itemize}");
+    _builder.append("\\begin{itemize}[noitemsep]");
     _builder.newLine();
     {
       EList<Condition> _conditions = precoditions.getConditions();
@@ -358,7 +401,7 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence subSection(final Steps steps) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{enumerate}");
+    _builder.append("\\begin{enumerate}[noitemsep]");
     _builder.newLine();
     {
       EList<Step> _steps = steps.getSteps();
@@ -422,7 +465,7 @@ public class LatexGenerator extends AbstractGenerator {
           _builder.append(_escape);
           _builder.append(":");
           _builder.newLineIfNotEmpty();
-          _builder.append("\\begin{enumerate}");
+          _builder.append("\\begin{enumerate}[noitemsep]");
           _builder.newLine();
         } else {
           Loop _loop = step.getLoop();
@@ -489,7 +532,7 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence subSection(final UsedTypes types) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{itemize}");
+    _builder.append("\\begin{itemize}[noitemsep]");
     _builder.newLine();
     {
       EList<Type> _types = types.getTypes();
@@ -517,7 +560,7 @@ public class LatexGenerator extends AbstractGenerator {
   
   public CharSequence subSection(final UsedExceptions exceptions) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\\begin{itemize}");
+    _builder.append("\\begin{itemize}[noitemsep]");
     _builder.newLine();
     {
       EList<ExceptionDecleration> _exceptions = exceptions.getExceptions();

@@ -6,8 +6,9 @@ Model:
 	('Firma'|'Company')company = QualifiedName
 	package = Package
 	(useCases+=UseCase)*
-	types=UsedTypes
-	exceptions=UsedExceptions;
+	(types=UsedTypes)?
+	(exceptions=UsedExceptions)?
+	(examples+=Example)*;
 	
 	QualifiedName:
     	ID ('.' ID)*;
@@ -19,7 +20,7 @@ Package:
 	(
 		'Kathegorie' | 
 		'package'
-	)parts+=PackagePart ('>' parts+=PackagePart)*;
+	) parts+=PackagePart ('>' parts+=PackagePart)*;
 
 PackagePart:
 	name = ID;
@@ -32,6 +33,7 @@ UseCase:
 	(descriptions+=Description)?
 	(allowedUserGroups+=AllowedUserGroups)?
 	(inputs+=Inputs)?
+	(optionalInputs+=OptionalInputs)?
 	(outputs+=Outputs)?
 	(preconditions=PreConditions)?
 	(steps+=Steps)?
@@ -63,6 +65,13 @@ UseCase:
 		(
 			('requires:'|'require:'|'requires' 'the' 'following' 'input' ':') |
 			('Benötigte' 'Zutaten' ':')
+		)
+		(inputs+=Input)*;
+		
+	OptionalInputs:
+		(
+			('optional:' | 'optional' 'inputs' ':') |
+			(('Optionale' 'Zutaten' | 'Optional') ':')
 		)
 		(inputs+=Input)*;
 		
@@ -101,14 +110,30 @@ UseCase:
 			('Schritte:')
 		) (steps+=Step)*;
 	Step:
-		number=QualifiedNumber action=STRING(error=RaiseError)?;
+		number=QualifiedNumber (action=STRING(error=RaiseErrorConditional)? | 
+			   error=RaiseErrorConditional | 
+			   condition=IfStatement | 
+			   loop=Loop | 
+			   exception=RaiseErrorNow
+		);
 	
-	RaiseError:
+	RaiseErrorConditional:
 		('.'|':') (
-				('Raise' ('error')? | 'On' 'error' 'raise' ) |
-				('Melde' ('Fehler')?| 'Bei' 'Fehler' 'melde' )
-			) exception=Exception;
+			'On' 'error' 'raise' | 
+			'Bei' 'Fehler' 'melde' 
+		) exception=Exception;
 	
+	RaiseErrorNow:
+		('Raise' ('error')? | 'Melde' ('Fehler')?) exception=Exception;
+	
+	IfStatement:
+		('If' | 'Falls') condition=BooleanCondition ':';
+		
+	Loop:
+		('Solange' | 'While') condition=BooleanCondition ':';
+	
+	BooleanCondition:
+		name=STRING;
 	
 	Notes:
 		(
@@ -119,12 +144,12 @@ UseCase:
 
 UsedTypes: 
 	(
-		('used' 'types:') | 
-		('Genutzte' 'Typen:')
+		('used' 'building-blocks:') | 
+		('Genutzte' 'Bausteine:')
 	) (types+=Type)*;
 
 	Type:
-	    '-' name=ID '('description=STRING')' ('['importInfo=QualifiedName']' )?;
+	    '-' name=ID ('('description=STRING')')? ('['importInfo=QualifiedName']' )?;
 
 UsedExceptions:
 	(
@@ -136,4 +161,34 @@ UsedExceptions:
 		type=[ExceptionDecleration];
 
 	ExceptionDecleration: 
-		'-' name=ID '('message=STRING')' ('['importInfo=QualifiedName']' )?;
+		'-' name=ID ('('message=STRING')')? ('['importInfo=QualifiedName']' )?;
+
+		
+Example:
+	'Beispiel' name=STRING ':'
+	('Beschreibung:' description=STRING)?
+	given+=Given (givenAnd+=GivenAnd)*
+	when+=When (whenAnd+=WhenAnd)*
+	then+=Then (thenAnd+=ThenAnd)*
+	('Warum?' explaination = STRING)?
+	'Beispiel' 'Ende'
+	;
+	
+Given:
+	('Gegeben' | 'gegeben') content=STRING;
+
+GivenAnd:
+	('und'|'aber') content=STRING;
+
+When:
+	'Wenn' content=STRING;
+
+WhenAnd:
+	('und'|'aber') content=STRING;
+	
+Then:
+	('Dann'|'dann') content=STRING;
+
+ThenAnd:
+	('und'|'aber') content=STRING;
+		

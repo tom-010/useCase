@@ -178,7 +178,7 @@ Given:
 	('Gegeben' | 'gegeben') content=STRING;
 
 GivenAnd:
-	('und'|'aber') content=STRING;
+	('und'|'aber'|'Und'|'Aber') content=STRING;
 
 When:
 	'Wenn' content=STRING;
